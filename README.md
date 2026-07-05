@@ -50,6 +50,7 @@ Requirements:
 - Read LifeEnergyManager/README.md, prompts/setup.md, prompts/automation.md, prompts/subagents.md, and my user_plan.md.
 - Initialize outputs/life_energy_tracker.md from user_plan.md.
 - Put all persistent outputs under outputs/.
+- Name the scheduled tasks `LifeEnergyManager - <project name> (morning planning)`, `LifeEnergyManager - <project name> (evening check-in)`, and `LifeEnergyManager - <project name> (Sunday review)`.
 - Create the three scheduled tasks from prompts/automation.md: morning planning, evening check-in, and Sunday review.
 - If the current Codex environment supports subagents, call the required subagents from prompts/subagents.md at their trigger points; if unavailable, record unavailable fallback.
 ```
@@ -57,6 +58,14 @@ Requirements:
 3. After setup, use the generated daily HTML workbench during the day. At night, submit the generated report back to the evening check-in automation.
 
 Use `prompts/automation.md` for the exact scheduled-task names, cadence, and prompt bodies.
+
+Automation task names should be:
+
+- `LifeEnergyManager - <project name> (morning planning)`
+- `LifeEnergyManager - <project name> (evening check-in)`
+- `LifeEnergyManager - <project name> (Sunday review)`
+
+The custom project name goes before the parentheses. The text inside parentheses is the workflow type.
 
 ## Recommended Files In A User Workspace
 

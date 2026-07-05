@@ -3,7 +3,7 @@
 Timezone:
 Primary deadline:
 Initial sprint:
-Active automation:
+Active automation: LifeEnergyManager - [project name] (morning planning); LifeEnergyManager - [project name] (evening check-in); LifeEnergyManager - [project name] (Sunday review)
 Output root: outputs/
 
 ## Operating Rules

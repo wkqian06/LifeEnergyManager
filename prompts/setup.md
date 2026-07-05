@@ -29,7 +29,8 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 6. Identify active micro-sprints and temporary urgent tasks only when supported by the source material.
 7. Write priority rules that prevent secondary work from crowding out the active phase.
 8. Use `PlanNormalizerAgent` when subagent tools are available to extract, normalize, identify missing information, and draft priority rules.
-9. Prepare scheduled-task instructions for:
+9. Derive the custom project name from `user_plan.md`, then use automation names in the format `LifeEnergyManager - <project name> (<workflow type>)`.
+10. Prepare scheduled-task instructions using these exact names for:
    - Monday-Saturday morning planning.
    - Monday-Saturday evening check-in.
    - Sunday light review.
@@ -41,6 +42,9 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 - Do not invent project-specific priorities not supported by the plan.
 - If the user's plan is messy, normalize it without requiring them to rewrite it.
 - All persistent files created or updated by setup must be written under `outputs/`.
+- Put the custom project name before the parentheses and the workflow type inside the parentheses.
+- If the project name is missing, derive a short project name from the North Star and ask the user to confirm it before creating scheduled tasks.
+- Scheduled task names must be `LifeEnergyManager - <project name> (morning planning)`, `LifeEnergyManager - <project name> (evening check-in)`, and `LifeEnergyManager - <project name> (Sunday review)`.
 - `PlanNormalizerAgent` is required when creating or updating `outputs/life_energy_tracker.md` and subagent tools are available.
 - Use `PlanNormalizerAgent` only for extraction, normalization, missing-info detection, and priority-rule drafting.
 - If subagent tools are unavailable, record `PlanNormalizerAgent: unavailable fallback` and do the same structured pass in the main thread.
@@ -61,6 +65,7 @@ Then summarize:
 - the active phase,
 - the current month target,
 - the first weekly planning target,
+- the automation task names,
 - the recommended automation schedule,
 - any missing information,
 - the required `Subagent calls` audit block.
