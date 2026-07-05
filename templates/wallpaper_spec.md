@@ -16,7 +16,9 @@ Top header:
 - Main title: `Daily Plan - YYYY-MM-DD`.
 - Subtitle: active phase, active sprint day, and current focus note.
 - Reserve a clear header band so the subtitle never overlaps the main title.
-- Focus mode badge on the right.
+- Top-right summary with exactly two parts:
+  - today's overall task focus type, colored by the task-category color it belongs to,
+  - recommended time combination, such as `4 H Baseline + 1 H Stretch`.
 - Stable color legend below the subtitle.
 
 Progress row:
@@ -56,7 +58,7 @@ Include:
 
 - Tasks.
 - Static phase/month/week/micro-sprint progress.
-- Focus mode badge.
+- Top-right task focus and time combination summary.
 - Status summary.
 - Today advice.
 - One anti-distraction tip.
@@ -74,6 +76,7 @@ Exclude:
 
 - No important text is cut off, truncated, or replaced by ellipses.
 - The subtitle does not overlap the title.
+- The top-right summary clearly reads as `task focus | time mix`.
 - Cards do not overlap.
 - Text blocks have breathing room.
 - The right column has exactly the three intended reminder blocks.

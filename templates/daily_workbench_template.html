@@ -16,6 +16,10 @@
       --orange: #cc7000;
       --gray: #64748b;
       --soft: #f1f5f9;
+      --orange-soft: #fff5e6;
+      --blue-soft: #edf4ff;
+      --green-soft: #eaf8f1;
+      --gray-soft: #f1f5f9;
     }
     * { box-sizing: border-box; }
     body {
@@ -52,12 +56,20 @@
       cursor: pointer;
     }
     button.secondary { background: var(--gray); }
-    .badge, .metric, .card, .task, .report-panel {
+    .focus-summary, .focus-chip, .time-combo, .metric, .card, .task, .report-panel {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
     }
-    .badge { padding: 10px 14px; font-weight: 700; white-space: nowrap; }
+    .focus-summary { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr); gap: 10px; padding: 8px; min-width: 430px; }
+    .focus-chip, .time-combo { padding: 10px 12px; min-width: 0; border-left: 7px solid var(--blue); }
+    .time-combo { border-left-color: var(--gray); }
+    .focus-chip.orange { border-left-color: var(--orange); background: var(--orange-soft); }
+    .focus-chip.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+    .focus-chip.green { border-left-color: var(--green); background: var(--green-soft); }
+    .focus-chip.gray { border-left-color: var(--gray); background: var(--gray-soft); }
+    .focus-chip span, .time-combo span { display: block; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .focus-chip strong, .time-combo strong { display: block; margin-top: 3px; font-size: 15px; line-height: 1.25; }
     .meta { color: var(--muted); font-size: 14px; margin-top: 5px; }
     .grid { display: grid; gap: 14px; }
     .stack { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 20px 0; }
@@ -129,7 +141,7 @@
     @media (max-width: 900px) {
       .sections, .task-fields, .task-notes, .metrics, .global-fields, .color-legend { grid-template-columns: 1fr; }
       header { display: block; }
-      .badge { display: inline-block; margin-top: 12px; }
+      .focus-summary { min-width: 0; margin-top: 12px; grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -140,7 +152,16 @@
         <h1>Daily Workbench {{DATE}}</h1>
         <p class="meta">{{SUBTITLE}}</p>
       </div>
-      <div class="badge">{{FOCUS_MODE}}</div>
+      <div class="focus-summary" aria-label="Daily focus summary">
+        <div class="focus-chip" id="focusTypeChip">
+          <span>Task focus</span>
+          <strong id="taskFocusType">Waiting</strong>
+        </div>
+        <div class="time-combo">
+          <span>Time mix</span>
+          <strong id="timeCombination">Waiting</strong>
+        </div>
+      </div>
     </header>
 
     <section class="grid stack" id="planStack"></section>
@@ -396,6 +417,8 @@
         "Plan stack:",
         ...(PLAN.stack || []).map(item => `- ${item.label}: ${item.value}`),
         `- Focus mode: ${PLAN.focusMode || ""}`,
+        `- Task focus type: ${taskFocusType()}`,
+        `- Recommended time combination: ${timeCombination()}`,
         "",
         section("Completed", completed, ""),
         "",
@@ -463,6 +486,44 @@
       document.getElementById("latestAdjustment").textContent = latest.planningAdjustment || "not recorded";
     }
 
+    function taskFocusType() {
+      return PLAN.taskFocusType || PLAN.focusType || PLAN.overallTaskFocusType || PLAN.focusMode || "Deliverable / closure";
+    }
+
+    function taskFocusColor() {
+      const value = String(PLAN.taskFocusColor || PLAN.focusColor || PLAN.taskCategoryColor || "blue").toLowerCase();
+      return ["orange", "blue", "green", "gray"].includes(value) ? value : "blue";
+    }
+
+    function timeCombination() {
+      if (PLAN.timeCombination) return PLAN.timeCombination;
+      if (PLAN.recommendedTimeCombination) return PLAN.recommendedTimeCombination;
+      const baseline = Number(PLAN.baselineTargetMinutes);
+      const stretch = Number(PLAN.stretchTargetMinutes);
+      const baselineMinutes = Number.isFinite(baseline) ? baseline : sumMinutes(PLAN.baseline || []);
+      const stretchMinutes = Number.isFinite(stretch) ? stretch : sumMinutes(PLAN.stretch || []);
+      return `${formatHours(baselineMinutes)} Baseline + ${formatHours(stretchMinutes)} Stretch`;
+    }
+
+    function sumMinutes(tasks) {
+      return tasks.reduce((sum, task) => {
+        const value = Number(task.minutes || 0);
+        return sum + (Number.isFinite(value) ? value : 0);
+      }, 0);
+    }
+
+    function formatHours(minutes) {
+      const hours = Math.max(0, minutes || 0) / 60;
+      return `${Number.isInteger(hours) ? hours : hours.toFixed(1)} H`;
+    }
+
+    function renderHeaderSummary() {
+      const chip = document.getElementById("focusTypeChip");
+      chip.className = `focus-chip ${taskFocusColor()}`;
+      document.getElementById("taskFocusType").textContent = taskFocusType();
+      document.getElementById("timeCombination").textContent = timeCombination();
+    }
+
     function setStatus(text) {
       const el = document.getElementById("statusLine");
       el.textContent = text;
@@ -475,6 +536,7 @@
     }
 
     renderPlanStack();
+    renderHeaderSummary();
     renderTasks();
     bindEvents();
     renderRecentState();

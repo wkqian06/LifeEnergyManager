@@ -18,7 +18,7 @@ Read:
 - temporary urgent tasks
 - current phase and month gates
 
-Call `WeeklyReviewAgent` when subagent tools are available to summarize logs and propose next-week priorities before updating the weekly plan. If unavailable, record `WeeklyReviewAgent: unavailable fallback` and complete the same structured weekly review in the main thread. The main thread must make the final weekly plan.
+Use `$life-energy-weekly-review` by default to summarize logs and propose next-week priorities before updating the weekly plan. Escalate to `WeeklyReviewAgent` when repeated deferrals, unclear blockers, or major priority changes need a second pass and subagent tools are available. If neither `$life-energy-weekly-review` nor a justified `WeeklyReviewAgent` path is available, record `WeeklyReviewAgent: main-thread fallback` and complete the same structured weekly review in the main thread. The main thread must make the final weekly plan.
 
 ## Review Questions
 
@@ -55,7 +55,7 @@ Return:
 
 ```text
 Subagent calls:
-- WeeklyReviewAgent: used / not needed / unavailable fallback
+- WeeklyReviewAgent: skill used / subagent used / main-thread fallback / not needed
 - Reason:
 - Main-thread decision:
 ```

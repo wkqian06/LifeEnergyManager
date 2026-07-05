@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Normalizer"
+  short_description: "Normalize tracker-ready plans"
+  default_prompt: "Normalize this LifeEnergyManager user plan into tracker-ready content."

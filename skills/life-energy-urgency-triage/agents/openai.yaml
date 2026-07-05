@@ -1,0 +1,4 @@
+interface:
+  display_name: "Urgency Triage"
+  short_description: "Triage extra morning tasks"
+  default_prompt: "Triage these extra LifeEnergyManager morning tasks."

@@ -2,26 +2,45 @@
 
 > Long-term progress is often constrained not by the size of the task list, but by the energy available to act on it.
 
-LifeEnergyManager is an action-first task progress and personal state management system for people with limited energy.
+LifeEnergyManager is a Codex-based daily planning routine that turns big goals, current priorities, blockers, and available energy into a realistic plan for today.
 
-It brings task progress, energy budget, blockers, personal state, and next actions into one place, helping users keep important work moving under real-life conditions.
+Each day, it helps create:
 
-| Question | Purpose |
+- a realistic morning plan,
+- a local HTML checklist/workbench,
+- a desktop wallpaper reminder,
+- an evening review that updates the running tracker.
+
+It is meant for people whose progress depends on planning around real capacity, not an ideal version of the day.
+
+| Question | What LifeEnergyManager does |
 | --- | --- |
-| What can I realistically do today? | Choose a doable next action. |
-| What deserves my best energy? | Protect attention for high-value work. |
-| What is blocked or drifting? | Adjust the plan before progress stalls. |
-| What changed in my state? | Plan around real capacity, not ideal capacity. |
+| What should I do today? | Turns the larger plan into a realistic daily plan. |
+| What deserves my best energy? | Protects time for the work that matters most. |
+| What is getting stuck? | Tracks blockers and drift before they become invisible. |
+| How should tomorrow change? | Uses today's report to make the next plan easier. |
 
 ## Core philosophy
 
 **Action first, tracking in service of action.**
 
+Track only what helps tomorrow's action.
+
 LifeEnergyManager is not designed to create perfect plans or exhaustive self-quantification. It is designed to reduce decision fatigue, lower the cost of starting, and help important work move forward even when energy is limited.
 
-# LifeEnergyManager tech summary
+## What it actually does
 
-LifeEnergyManager is a reusable Codex prompt package for adaptive daily planning.
+LifeEnergyManager gives Codex a repeatable routine for helping you plan and review your day.
+
+In the morning, it looks at your bigger plan, current priorities, recent state, blockers, and available energy, then turns them into a realistic daily plan. It also creates a simple HTML workbench you can use as a checklist during the day and a desktop wallpaper that keeps the plan visible.
+
+In the evening, you report what happened. LifeEnergyManager updates the running tracker, records what moved forward or got blocked, estimates how hard tomorrow may feel to start, and leaves a short seed for the next morning. Once a week, it compresses the recent logs and helps choose the next week's focus.
+
+The practical goal is simple: keep the important work visible, choose fewer and more realistic actions, and make tomorrow's planning easier than starting from scratch.
+
+## How it works
+
+Under the hood, LifeEnergyManager is a reusable Codex prompt package for adaptive daily planning.
 It turns a user's phase plan, monthly plan, and rolling state into:
 
 - a morning plan with a 3h baseline and optional 2h stretch,
@@ -52,7 +71,7 @@ Requirements:
 - Put all persistent outputs under outputs/.
 - Name the scheduled tasks `LifeEnergyManager - <project name> (morning planning)`, `LifeEnergyManager - <project name> (evening check-in)`, and `LifeEnergyManager - <project name> (Sunday review)`.
 - Create the three scheduled tasks from prompts/automation.md: morning planning, evening check-in, and Sunday review.
-- If the current Codex environment supports subagents, call the required subagents from prompts/subagents.md at their trigger points; if unavailable, record unavailable fallback.
+- Use the matching LifeEnergyManager skill from skills/ or an installed $life-energy-* skill by default. Escalate to the matching subagent only for independent review, parallel analysis, bias-prone judgment, or high-consequence planning changes as defined in prompts/subagents.md. If neither is available, record main-thread fallback.
 ```
 
 3. After setup, use the generated daily HTML workbench during the day. At night, submit the generated report back to the evening check-in automation.
@@ -66,6 +85,8 @@ Automation task names should be:
 - `LifeEnergyManager - <project name> (Sunday review)`
 
 The custom project name goes before the parentheses. The text inside parentheses is the workflow type.
+
+> The skill pipeline is the default local path. Subagents are an escalation path for independent review, parallel analysis, bias-prone judgments, and high-consequence changes.
 
 ## Recommended Files In A User Workspace
 
@@ -98,29 +119,29 @@ Morning planning:
 - Read `prompts/subagents.md`, the user plan, `outputs/life_energy_tracker.md`, rolling 30-day state, active micro-sprints, and temporary urgent tasks.
 - Ask whether there are extra tasks before finalizing the day.
 - Triage extra tasks as critical, goal-leveraged, maintenance, or distraction.
-- Call required planning and triage subagents when their triggers apply and subagent tools are available.
+- Use matching planning and triage skills when their triggers apply. Escalate to subagents only when the decision needs independent review, parallel analysis, or a second perspective on bias-prone tradeoffs.
 - Produce a provisional plan and wait for user confirmation.
 - After confirmation, generate both the HTML workbench and desktop wallpaper.
-- QA artifacts with the required artifact subagent when supported.
+- QA artifacts with the artifact QA subagent when supported because artifact QA is an independent-review task; otherwise use the artifact QA skill.
 
 Evening check-in:
 
 - Prefer the report generated by the HTML workbench.
 - Update daily log, rolling state, active micro-sprints, and temporary urgent tasks.
-- Quantify next-day drive-resistance as a beta planning signal with the required energy subagent when supported, not as diagnosis. `0` means tomorrow's motivation and willingness are strong, including physically tired today but still eager to continue; `100` means tomorrow is likely to feel resistant, unwilling, or hard to start.
+- Quantify next-day drive-resistance as a beta planning signal with the drive-resistance skill by default, not as diagnosis. Escalate to the energy subagent when the report is ambiguous or the score would change next-day intensity. `0` means tomorrow's motivation and willingness are strong, including physically tired today but still eager to continue; `100` means tomorrow is likely to feel resistant, unwilling, or hard to start.
 - Generate a short seed for the next morning.
 
 Sunday review:
 
 - Keep it light.
 - Summarize the last 7 days, compress older state, choose the next week's priorities, and identify agent-delegable work.
-- Use the required weekly review subagent when supported before finalizing next week's plan.
+- Use the weekly review skill before finalizing next week's plan. Escalate to the weekly review subagent when repeated deferrals, unclear blockers, or major priority changes need a second pass.
 
-## Subagent Strategy
+## Skill Default And Subagent Escalation Strategy
 
-LifeEnergyManager must use required subagents for bounded analysis when the Codex environment supports them, but final judgment stays with the main Codex thread.
+LifeEnergyManager uses matching skills for bounded analysis by default. It escalates to subagents only when the Codex environment supports them and the task benefits from independent review, parallel analysis, a second perspective on bias-prone judgment, or extra care for a high-consequence planning change. Final judgment stays with the main Codex thread.
 
-Required subagent tasks:
+Default skill tasks:
 
 - normalize phase/month plans,
 - triage urgent tasks,
@@ -130,7 +151,17 @@ Required subagent tasks:
 - QA generated HTML and wallpaper artifacts,
 - summarize weekly logs.
 
-If subagent tools are unavailable, the workflow continues in the main thread and records `unavailable fallback` in a `Subagent calls` audit block.
+Skill map:
+
+- `PlanNormalizerAgent` -> `$life-energy-plan-normalizer`
+- `UrgencyTriageAgent` -> `$life-energy-urgency-triage`
+- `DailyPlannerAgent` -> `$life-energy-daily-planner`
+- `EnergyQuantAgent` -> `$life-energy-drive-resistance`
+- `AdviceAgent` -> `$life-energy-advice`
+- `ArtifactQAAgent` -> `$life-energy-artifact-qa`
+- `WeeklyReviewAgent` -> `$life-energy-weekly-review`
+
+If neither matching skills nor justified subagent tools are available, the workflow continues in the main thread and records `main-thread fallback` in a `Subagent calls` audit block.
 
 Do not fully delegate:
 
@@ -153,7 +184,8 @@ See `prompts/subagents.md` for the full contract.
 - `prompts/evening.md`: evening report and state update workflow.
 - `prompts/sunday_review.md`: weekly review workflow.
 - `prompts/artifact_spec.md`: required HTML and wallpaper artifact behavior.
-- `prompts/subagents.md`: subagent roles and output contracts.
+- `prompts/subagents.md`: skill-default and subagent-escalation contracts.
+- `skills/`: default bounded-analysis contracts for LifeEnergyManager tasks.
 
 ## Example
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Planner"
+  short_description: "Draft daily planning options"
+  default_prompt: "Draft provisional LifeEnergyManager daily plan options."

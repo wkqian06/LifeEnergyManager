@@ -1,0 +1,4 @@
+interface:
+  display_name: "Daily Advice"
+  short_description: "Draft status and advice copy"
+  default_prompt: "Draft LifeEnergyManager status, advice, and anti-distraction text."

@@ -28,7 +28,7 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 5. Create empty rolling 30-day state sections if no history exists.
 6. Identify active micro-sprints and temporary urgent tasks only when supported by the source material.
 7. Write priority rules that prevent secondary work from crowding out the active phase.
-8. Use `PlanNormalizerAgent` when subagent tools are available to extract, normalize, identify missing information, and draft priority rules.
+8. Use `$life-energy-plan-normalizer` by default to extract, normalize, identify missing information, and draft priority rules. Escalate to `PlanNormalizerAgent` only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority and subagent tools are available.
 9. Derive the custom project name from `user_plan.md`, then use automation names in the format `LifeEnergyManager - <project name> (<workflow type>)`.
 10. Prepare scheduled-task instructions using these exact names for:
    - Monday-Saturday morning planning.
@@ -45,9 +45,10 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 - Put the custom project name before the parentheses and the workflow type inside the parentheses.
 - If the project name is missing, derive a short project name from the North Star and ask the user to confirm it before creating scheduled tasks.
 - Scheduled task names must be `LifeEnergyManager - <project name> (morning planning)`, `LifeEnergyManager - <project name> (evening check-in)`, and `LifeEnergyManager - <project name> (Sunday review)`.
-- `PlanNormalizerAgent` is required when creating or updating `outputs/life_energy_tracker.md` and subagent tools are available.
+- `$life-energy-plan-normalizer` is the default bounded-analysis path when creating or updating `outputs/life_energy_tracker.md`.
+- Use `PlanNormalizerAgent` only when prompts/subagents.md escalation signals apply and subagent tools are available.
 - Use `PlanNormalizerAgent` only for extraction, normalization, missing-info detection, and priority-rule drafting.
-- If subagent tools are unavailable, record `PlanNormalizerAgent: unavailable fallback` and do the same structured pass in the main thread.
+- If neither `$life-energy-plan-normalizer` nor a justified `PlanNormalizerAgent` path is available, record `PlanNormalizerAgent: main-thread fallback` and do the same structured pass in the main thread.
 - The main thread must make final tracker, priority, and automation decisions.
 
 ## Output
@@ -72,7 +73,7 @@ Then summarize:
 
 ```text
 Subagent calls:
-- PlanNormalizerAgent: used / not needed / unavailable fallback
+- PlanNormalizerAgent: skill used / subagent used / main-thread fallback / not needed
 - Reason:
 - Main-thread decision:
 ```

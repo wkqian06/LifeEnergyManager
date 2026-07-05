@@ -45,7 +45,7 @@ From the report:
 
 ## Next-Day Drive-Resistance Score Beta
 
-When enough report content exists, call `EnergyQuantAgent` when subagent tools are available to infer:
+When enough report content exists, use `$life-energy-drive-resistance` by default to infer:
 
 - `agent_energy_score` from 0 to 100,
 - `agent_energy_confidence`,
@@ -59,7 +59,9 @@ Score direction:
 - Higher score means lower next-day drive, not merely more physical tiredness.
 - If the user feels very tired but remains motivated and expects to continue meaningful work tomorrow, record a relatively low score.
 
-If only sparse data exists, ask for the minimal evening fields first, then call `EnergyQuantAgent` if available. If subagent tools are unavailable, record `EnergyQuantAgent: unavailable fallback` and complete the same conservative next-day drive-resistance inference in the main thread.
+Escalate to `EnergyQuantAgent` only when the report is ambiguous, emotionally strong, or completion, fatigue, motivation, and next-day willingness point in different directions, and subagent tools are available.
+
+If only sparse data exists, ask for the minimal evening fields first, then use `$life-energy-drive-resistance` if available or escalate to `EnergyQuantAgent` only when the escalation signals apply. If neither `$life-energy-drive-resistance` nor a justified `EnergyQuantAgent` path is available, record `EnergyQuantAgent: main-thread fallback` and complete the same conservative next-day drive-resistance inference in the main thread.
 
 Persist the user's own score if present:
 
@@ -87,7 +89,7 @@ After updating the tracker, report:
 
 ```text
 Subagent calls:
-- EnergyQuantAgent: used / not needed / unavailable fallback
+- EnergyQuantAgent: skill used / subagent used / main-thread fallback / not needed
 - Reason:
 - Main-thread decision:
 ```

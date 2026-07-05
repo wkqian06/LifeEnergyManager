@@ -1,0 +1,4 @@
+interface:
+  display_name: "Weekly Review"
+  short_description: "Summarize weekly planning"
+  default_prompt: "Summarize this LifeEnergyManager week and draft next-week inputs."

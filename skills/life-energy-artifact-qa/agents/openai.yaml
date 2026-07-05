@@ -1,0 +1,4 @@
+interface:
+  display_name: "Artifact QA"
+  short_description: "Check daily artifact quality"
+  default_prompt: "QA these LifeEnergyManager workbench and wallpaper artifacts."

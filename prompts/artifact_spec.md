@@ -18,6 +18,9 @@ Required behavior:
   - Green: deep research/analysis/implementation.
   - Gray: planning/log/admin/stop.
 - Include baseline tasks, stretch tasks, and accepted urgent tasks.
+- The top-right header summary must show exactly:
+  - today's overall task focus type, colored with its task-category color,
+  - recommended time combination, for example `4 H Baseline + 1 H Stretch`.
 - Layout the top control area as two first-row modules, `Temporary urgent tasks` and `Today suggestion`, followed by `Recent state` on the next row spanning the full HTML width.
 - Each task has:
   - done checkbox,
@@ -61,7 +64,7 @@ Required behavior:
 - Include:
   - main title,
   - subtitle,
-  - focus mode badge,
+  - top-right summary with today's overall task focus type and recommended time combination,
   - stable task-category color legend,
   - phase/month/week/active micro-sprint progress,
   - baseline column,
@@ -96,9 +99,11 @@ Before presenting artifacts:
 
 - Open or visually inspect the wallpaper.
 - Confirm no title/subtitle overlap.
+- Confirm the top-right summary clearly reads as `task focus | time mix` and uses the correct task-category color for the focus type.
 - Confirm no visible text truncation.
 - Confirm no old or invalid sections remain.
 - Confirm HTML report can be generated from filled task fields.
 - Confirm wallpaper and HTML describe the same accepted plan.
 - When subagent tools are available, use `ArtifactQAAgent` for an independent check, then fix any issues before presenting artifacts.
-- If subagent tools are unavailable, record `ArtifactQAAgent: unavailable fallback` and complete the QA checklist in the main thread.
+- If `ArtifactQAAgent` is unavailable, use `$life-energy-artifact-qa`.
+- If neither is available, record `ArtifactQAAgent: main-thread fallback` and complete the QA checklist in the main thread.
