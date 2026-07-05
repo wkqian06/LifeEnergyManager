@@ -12,6 +12,11 @@ Required behavior:
 
 - Work offline as a local HTML file.
 - Persist entries in browser `localStorage`.
+- Include a stable task-category color legend near the top of the workbench:
+  - Orange: urgent/external/deadline.
+  - Blue: deliverable/closure/visible output.
+  - Green: deep research/analysis/implementation.
+  - Gray: planning/log/admin/stop.
 - Include baseline tasks, stretch tasks, and accepted urgent tasks.
 - Layout the top control area as two first-row modules, `Temporary urgent tasks` and `Today suggestion`, followed by `Recent state` on the next row spanning the full HTML width.
 - Each task has:

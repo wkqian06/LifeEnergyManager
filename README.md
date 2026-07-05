@@ -15,16 +15,27 @@ artifact specifications.
 
 ## Quick Start
 
-1. Copy `templates/user_plan.md` into your own workspace.
-2. Fill in your phase plan, current month plan, schedule preferences, and output preferences.
-3. Ask Codex to run `prompts/setup.md` against your filled user plan. Setup reads `prompts/subagents.md` and calls required subagents when supported.
-4. Create three Codex scheduled tasks:
-   - Monday-Saturday morning planning.
-   - Monday-Saturday evening check-in.
-   - Sunday light review.
-5. Use the generated daily HTML workbench during the day. At night, submit the generated report back to Codex.
+1. Create your own `user_plan.md`.
+   - Start from `templates/user_plan.md`.
+   - Use `examples/graduation/` or `examples/product_launch/user_plan.md` as concrete references.
+   - At minimum, include a phase plan and a current month plan. Schedule preferences and output preferences are strongly recommended because they become the automation cadence.
 
-Use `prompts/automation.md` for the scheduled-task names, cadence, and prompt bodies.
+2. Ask Codex to configure the workflow and automations with a prompt like:
+
+```text
+Create automation from LifeEnergyManager and my user_plan.md.
+
+Requirements:
+- Read LifeEnergyManager/README.md, prompts/setup.md, prompts/automation.md, prompts/subagents.md, and my user_plan.md.
+- Initialize outputs/life_energy_tracker.md from user_plan.md.
+- Put all persistent outputs under outputs/.
+- Create the three scheduled tasks from prompts/automation.md: morning planning, evening check-in, and Sunday review.
+- If the current Codex environment supports subagents, call the required subagents from prompts/subagents.md at their trigger points; if unavailable, record unavailable fallback.
+```
+
+3. After setup, use the generated daily HTML workbench during the day. At night, submit the generated report back to the evening check-in automation.
+
+Use `prompts/automation.md` for the exact scheduled-task names, cadence, and prompt bodies.
 
 ## Recommended Files In A User Workspace
 

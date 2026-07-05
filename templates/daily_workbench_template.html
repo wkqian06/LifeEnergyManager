@@ -61,6 +61,35 @@
     .meta { color: var(--muted); font-size: 14px; margin-top: 5px; }
     .grid { display: grid; gap: 14px; }
     .stack { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 20px 0; }
+    .color-legend {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+    .color-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 0;
+    }
+    .color-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      background: var(--blue);
+      flex: 0 0 auto;
+    }
+    .color-dot.green { background: var(--green); }
+    .color-dot.orange { background: var(--orange); }
+    .color-dot.gray { background: var(--gray); }
     .progress-card { padding: 14px; }
     .progress-head { display: flex; justify-content: space-between; gap: 10px; font-weight: 800; }
     .bar { height: 9px; background: #e6ebf2; border-radius: 999px; margin: 10px 0; overflow: hidden; }
@@ -98,7 +127,7 @@
     .report { min-height: 360px; font-family: Consolas, monospace; }
     .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
     @media (max-width: 900px) {
-      .sections, .task-fields, .task-notes, .metrics, .global-fields { grid-template-columns: 1fr; }
+      .sections, .task-fields, .task-notes, .metrics, .global-fields, .color-legend { grid-template-columns: 1fr; }
       header { display: block; }
       .badge { display: inline-block; margin-top: 12px; }
     }
@@ -115,6 +144,13 @@
     </header>
 
     <section class="grid stack" id="planStack"></section>
+
+    <section class="color-legend" aria-label="Task category color legend">
+      <div class="color-legend-item"><span class="color-dot orange"></span>Orange = urgent / external</div>
+      <div class="color-legend-item"><span class="color-dot"></span>Blue = deliverable / closure</div>
+      <div class="color-legend-item"><span class="color-dot green"></span>Green = deep research / analysis</div>
+      <div class="color-legend-item"><span class="color-dot gray"></span>Gray = planning / log / stop</div>
+    </section>
 
     <section class="grid sections">
       <div class="panel">
