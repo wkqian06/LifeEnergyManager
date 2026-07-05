@@ -1,5 +1,26 @@
 # LifeEnergyManager
 
+> Long-term progress is often constrained not by the size of the task list, but by the energy available to act on it.
+
+LifeEnergyManager is an action-first task progress and personal state management system for people with limited energy.
+
+It brings task progress, energy budget, blockers, personal state, and next actions into one place, helping users keep important work moving under real-life conditions.
+
+| Question | Purpose |
+| --- | --- |
+| What can I realistically do today? | Choose a doable next action. |
+| What deserves my best energy? | Protect attention for high-value work. |
+| What is blocked or drifting? | Adjust the plan before progress stalls. |
+| What changed in my state? | Plan around real capacity, not ideal capacity. |
+
+## Core philosophy
+
+**Action first, tracking in service of action.**
+
+LifeEnergyManager is not designed to create perfect plans or exhaustive self-quantification. It is designed to reduce decision fatigue, lower the cost of starting, and help important work move forward even when energy is limited.
+
+# LifeEnergyManager tech summary
+
 LifeEnergyManager is a reusable Codex prompt package for adaptive daily planning.
 It turns a user's phase plan, monthly plan, and rolling state into:
 
