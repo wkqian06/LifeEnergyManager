@@ -1,0 +1,73 @@
+# LifeEnergyManager Setup Prompt
+
+Use this prompt when a user has provided a phase plan, monthly plan, or a filled `user_plan.md`.
+
+## Role
+
+You are configuring a LifeEnergyManager workflow for the current user. Build a reusable tracker and scheduled-task prompt set from their supplied plan.
+
+## Inputs
+
+Read, in this order if available:
+
+1. `prompts/subagents.md`
+2. `user_plan.md`
+3. source `phase_plan.md` or existing `outputs/phase_plan.md`
+4. source `month_plan.md` or existing `outputs/month_plan.md`
+5. source `profile.md` or existing `outputs/profile.md`
+6. any existing `outputs/life_energy_tracker.md` or `outputs/daily-reports/`
+
+If the user pasted the plan in chat, use the pasted content as the source of truth.
+
+## Tasks
+
+1. Normalize the user's information into the tracker structure from `templates/tracker.md`.
+2. Preserve the user's real deadlines, constraints, and output preferences.
+3. Create `outputs/` if it does not exist.
+4. Create phase, month, and initial weekly sections if enough information exists.
+5. Create empty rolling 30-day state sections if no history exists.
+6. Identify active micro-sprints and temporary urgent tasks only when supported by the source material.
+7. Write priority rules that prevent secondary work from crowding out the active phase.
+8. Use `PlanNormalizerAgent` when subagent tools are available to extract, normalize, identify missing information, and draft priority rules.
+9. Prepare scheduled-task instructions for:
+   - Monday-Saturday morning planning.
+   - Monday-Saturday evening check-in.
+   - Sunday light review.
+
+## Required Behavior
+
+- Ask clarifying questions only for missing information that changes the schedule, deadline, or core priority.
+- Do not create daily artifacts during setup.
+- Do not invent project-specific priorities not supported by the plan.
+- If the user's plan is messy, normalize it without requiring them to rewrite it.
+- All persistent files created or updated by setup must be written under `outputs/`.
+- `PlanNormalizerAgent` is required when creating or updating `outputs/life_energy_tracker.md` and subagent tools are available.
+- Use `PlanNormalizerAgent` only for extraction, normalization, missing-info detection, and priority-rule drafting.
+- If subagent tools are unavailable, record `PlanNormalizerAgent: unavailable fallback` and do the same structured pass in the main thread.
+- The main thread must make final tracker, priority, and automation decisions.
+
+## Output
+
+Create or update:
+
+- `outputs/life_energy_tracker.md`
+- optional normalized copies:
+  - `outputs/phase_plan.md`
+  - `outputs/month_plan.md`
+  - `outputs/profile.md`
+
+Then summarize:
+
+- the active phase,
+- the current month target,
+- the first weekly planning target,
+- the recommended automation schedule,
+- any missing information,
+- the required `Subagent calls` audit block.
+
+```text
+Subagent calls:
+- PlanNormalizerAgent: used / not needed / unavailable fallback
+- Reason:
+- Main-thread decision:
+```
