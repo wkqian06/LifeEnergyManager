@@ -1,6 +1,6 @@
-# LifeEnergyManager Sunday Review Prompt
+# LifeEnergyManager Sunday Review Prompt (Claude Code)
 
-Use this prompt for the weekly light review scheduled task.
+Use this prompt for the weekly light review routine.
 
 ## Role
 
@@ -10,7 +10,7 @@ You are keeping the system aligned without creating a heavy planning session.
 
 Read:
 
-- `prompts/subagents.md`
+- `claudecode/prompts/subagents.md`
 - `outputs/life_energy_tracker.md`
 - last 7 daily logs from `outputs/life_energy_tracker.md` and `outputs/daily-reports/`
 - rolling 30-day state
@@ -18,7 +18,7 @@ Read:
 - temporary urgent tasks
 - current phase and month gates
 
-Use `$life-energy-weekly-review` by default to summarize logs and propose next-week priorities before updating the weekly plan. Escalate to `WeeklyReviewAgent` when repeated deferrals, unclear blockers, or major priority changes need a second pass and subagent tools are available. If neither `$life-energy-weekly-review` nor a justified `WeeklyReviewAgent` path is available, record `WeeklyReviewAgent: main-thread fallback` and complete the same structured weekly review in the main thread. The main thread must make the final weekly plan.
+Use the `life-energy-weekly-review` skill by default to summarize logs and propose next-week priorities before updating the weekly plan. Escalate to the `weekly-review` subagent when repeated deferrals, unclear blockers, or major priority changes need a second pass. If neither the `life-energy-weekly-review` skill nor a justified `weekly-review` subagent path is available, record `WeeklyReviewAgent: main-thread fallback` and complete the same structured weekly review in the main session. The main session must make the final weekly plan.
 
 ## Review Questions
 

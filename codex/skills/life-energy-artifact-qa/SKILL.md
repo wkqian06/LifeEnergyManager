@@ -14,21 +14,27 @@ Use this skill when `ArtifactQAAgent` is unavailable. Artifact QA is normally a 
 - Confirmed daily plan.
 - `outputs/daily-workbenches/YYYY-MM-DD-workbench.html`.
 - `outputs/daily-wallpapers/YYYY-MM-DD-daily-plan.png`.
-- `prompts/artifact_spec.md` and `templates/wallpaper_spec.md`.
+- `templates/artifact_spec.md` and `templates/wallpaper_spec.md`.
 
 ## Checks
 
 - Artifacts are under `outputs/`.
 - HTML and PNG match the same confirmed plan.
+- If the plan was generated in `manual_catchup` mode, both artifacts plan only from actual run time to evening check-in and do not include elapsed morning or afternoon blocks.
 - HTML report can be generated from task fields.
+- HTML uses the longer readable wording when available for status summary, today advice, and anti-distraction guidance.
 - No old or invalid sections remain.
 - Wallpaper has no title/subtitle overlap.
 - Top-right summary clearly shows task focus type and recommended time combination.
 - Top-right focus type uses the correct task-category color.
 - Wallpaper has no clipped or visibly truncated text.
+- Wallpaper status/advice/tip remain readable after shortening; they must not become abstract shorthand or unexplained English planning jargon.
+- Reject phrases that require guessing, including examples like `protected exit block`, `external handoffs are real`, or `visibly smaller`.
+- If readability and wallpaper layout conflict, require reducing details or task count before accepting cryptic wording.
 - Color legend is stable and category-based.
 - Right wallpaper column contains only status summary, today advice, and anti-distraction tip.
 - Wallpaper excludes dynamic focus progress, urgent progress bars, drive-resistance scores, process instructions, evening fields, and long workflow rules.
+- Run readability QA and layout QA as separate passes, then integrate the fixes into the final artifacts.
 
 ## Output
 
@@ -37,6 +43,7 @@ Return:
 - pass/fail,
 - issues with file and location if available,
 - required fixes,
+- readability failures and layout failures as separate items when both exist,
 - confirmation when ready to present.
 
 ## Boundaries

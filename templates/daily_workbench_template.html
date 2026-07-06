@@ -199,6 +199,7 @@
         <h2>Recent state</h2>
         <p><strong>Status summary:</strong> <span id="statusSummary"></span></p>
         <p><strong>Today advice:</strong> <span id="todayAdvice"></span></p>
+        <p><strong>Anti-distraction:</strong> <span id="antiDistractionTip"></span></p>
         <div class="history-chart" id="historyChart">
           <div class="empty">Waiting For Recording</div>
           <svg id="historySvg" viewBox="0 0 620 260" preserveAspectRatio="none"></svg>
@@ -449,9 +450,10 @@
     }
 
     function renderRecentState() {
-      document.getElementById("statusSummary").textContent = PLAN.statusSummary || "Waiting for recorded history.";
-      document.getElementById("todayAdvice").textContent = PLAN.todayAdvice || "Protect the baseline before stretch work.";
-      document.getElementById("suggestionText").textContent = PLAN.todaySuggestion || "";
+      document.getElementById("statusSummary").textContent = planText("statusSummaryHtml", "htmlStatusSummary", "statusSummary", "status") || "Waiting for recorded history.";
+      document.getElementById("todayAdvice").textContent = planText("todayAdviceHtml", "htmlTodayAdvice", "todayAdvice", "advice") || "Protect the baseline before stretch work.";
+      document.getElementById("antiDistractionTip").textContent = planText("antiDistractionTipHtml", "htmlAntiDistractionTip", "antiDistractionTip", "tip") || "Park tempting work unless it replaces a planned task.";
+      document.getElementById("suggestionText").textContent = planText("todaySuggestionHtml", "htmlTodaySuggestion", "todaySuggestion") || "";
       const data = (PLAN.history || []).filter(item => item && item.date);
       const chart = document.getElementById("historyChart");
       const svg = document.getElementById("historySvg");
@@ -469,8 +471,11 @@
         const y = yMinutes(item.focusMinutes || 0);
         return `<rect x="${x}" y="${y}" width="${barWidth}" height="${Math.max(3, top + plotHeight - y)}" rx="4" fill="#64748b" opacity="0.75"/>`;
       }).join("");
-      const agentPoints = data.map((item, index) => Number.isFinite(Number(item.agentEnergyScore)) ? `${xAt(index)},${yScore(Number(item.agentEnergyScore))}` : "").filter(Boolean).join(" ");
-      const userPoints = data.map((item, index) => Number.isFinite(Number(item.userEnergyScore)) ? `${xAt(index)},${yScore(Number(item.userEnergyScore))}` : "").filter(Boolean).join(" ");
+      const agentPointList = data.map((item, index) => Number.isFinite(Number(item.agentEnergyScore)) ? `${xAt(index)},${yScore(Number(item.agentEnergyScore))}` : "").filter(Boolean);
+      const userPointList = data.map((item, index) => Number.isFinite(Number(item.userEnergyScore)) ? `${xAt(index)},${yScore(Number(item.userEnergyScore))}` : "").filter(Boolean);
+      const agentPoints = agentPointList.join(" ");
+      const userPoints = userPointList.join(" ");
+      const dots = (list, fill) => list.map(p => { const [cx, cy] = p.split(","); return `<circle cx="${cx}" cy="${cy}" r="5" fill="${fill}"/>`; }).join("");
       svg.innerHTML = `
         <rect x="0" y="0" width="${width}" height="${height}" fill="#fbfcfe"/>
         <line x1="${left}" y1="${top}" x2="${left}" y2="${top + plotHeight}" stroke="#c6cfdd"/>
@@ -478,6 +483,8 @@
         ${bars}
         ${agentPoints ? `<polyline points="${agentPoints}" fill="none" stroke="#64748b" stroke-width="3" stroke-dasharray="8 7"/>` : ""}
         ${userPoints ? `<polyline points="${userPoints}" fill="none" stroke="#008057" stroke-width="3"/>` : ""}
+        ${dots(agentPointList, "#64748b")}
+        ${dots(userPointList, "#008057")}
       `;
       const latest = data[data.length - 1];
       document.getElementById("recordedDays").textContent = `${Math.min(data.length, 7)} / 7`;
@@ -515,6 +522,14 @@
     function formatHours(minutes) {
       const hours = Math.max(0, minutes || 0) / 60;
       return `${Number.isInteger(hours) ? hours : hours.toFixed(1)} H`;
+    }
+
+    function planText(...keys) {
+      for (const key of keys) {
+        const value = PLAN[key];
+        if (value != null && String(value).trim()) return String(value);
+      }
+      return "";
     }
 
     function renderHeaderSummary() {

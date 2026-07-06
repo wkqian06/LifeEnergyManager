@@ -14,7 +14,9 @@ The wallpaper is a static daily reminder. It should not contain controls, dynami
 Top header:
 
 - Main title: `Daily Plan - YYYY-MM-DD`.
-- Subtitle: active phase, active sprint day, and current focus note.
+- Subtitle: active phase, active sprint day, and current focus note. For a
+  manual catch-up run, the subtitle should indicate the remaining-time window
+  from actual run time to evening check-in.
 - Reserve a clear header band so the subtitle never overlaps the main title.
 - Top-right summary with exactly two parts:
   - today's overall task focus type, colored by the task-category color it belongs to,
@@ -31,8 +33,10 @@ Progress row:
 
 Main board:
 
-- Left column: `Baseline 3h`.
-- Middle column: `Later 2h stretch`.
+- Left column: baseline tasks. Default label is `Baseline 3h`; for a manual
+  catch-up plan, the label may show the adjusted remaining-time target.
+- Middle column: stretch tasks. Default label is `Later 2h stretch`; for a
+  manual catch-up plan, the label may show reduced stretch work or `No stretch`.
 - Right column: `Status and advice`.
 
 Right column content:
@@ -63,6 +67,25 @@ Include:
 - Today advice.
 - One anti-distraction tip.
 
+For manual catch-up plans:
+
+- Include only tasks that can still happen between actual run time and evening
+  check-in.
+- Do not show already-missed morning or afternoon blocks as planned work.
+
+Readability rules:
+
+- Wallpaper wording may be shorter than the HTML workbench, but it must still
+  be understandable without decoding private shorthand.
+- Prefer the user's working language. If the plan is in Chinese, write natural
+  Chinese except for stable project names such as `WDM`.
+- Each advice block should state the concrete action, time window, output, or
+  decision when relevant.
+- Avoid unexplained abstractions and compressed English planning phrases such as
+  `protected exit block`, `external handoffs are real`, or `visibly smaller`.
+- If text does not fit, remove lower-priority detail or reduce task count before
+  using vague wording.
+
 Exclude:
 
 - Dynamic focus progress.
@@ -80,5 +103,8 @@ Exclude:
 - Cards do not overlap.
 - Text blocks have breathing room.
 - The right column has exactly the three intended reminder blocks.
+- The three reminder blocks are readable as standalone text.
+- Readability QA and layout QA were both completed; if they conflict, readable
+  wording wins and detail is reduced.
 - Color legend matches task labels.
 - The image still works when viewed as a desktop background.

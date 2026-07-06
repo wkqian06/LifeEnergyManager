@@ -8,7 +8,7 @@ You are closing the day with minimal friction. Prefer the user's generated HTML 
 
 ## Inputs
 
-Read `prompts/subagents.md` before processing the evening report.
+Read `codex/prompts/subagents.md` before processing the evening report.
 
 Ask the user to paste or provide the generated report from today's `outputs/daily-workbenches/YYYY-MM-DD-workbench.html`.
 

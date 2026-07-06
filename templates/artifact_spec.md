@@ -12,6 +12,7 @@ Required behavior:
 
 - Work offline as a local HTML file.
 - Persist entries in browser `localStorage`.
+- If the plan was generated as a manual catch-up run, present it as a remaining-time plan from actual run time to evening check-in. Do not show elapsed morning or afternoon work as planned work.
 - Include a stable task-category color legend near the top of the workbench:
   - Orange: urgent/external/deadline.
   - Blue: deliverable/closure/visible output.
@@ -22,6 +23,7 @@ Required behavior:
   - today's overall task focus type, colored with its task-category color,
   - recommended time combination, for example `4 H Baseline + 1 H Stretch`.
 - Layout the top control area as two first-row modules, `Temporary urgent tasks` and `Today suggestion`, followed by `Recent state` on the next row spanning the full HTML width.
+- For status summary, today advice, and anti-distraction guidance, prefer longer HTML-specific fields when present, such as `statusSummaryHtml`, `todayAdviceHtml`, and `antiDistractionTipHtml`. Fall back to the wallpaper fields only when no HTML-specific text is provided.
 - Each task has:
   - done checkbox,
   - status,
@@ -40,7 +42,7 @@ Required behavior:
 Required Recent State behavior:
 
 - Keep the module title `Recent state`.
-- Show status summary and today advice.
+- Show status summary, today advice, and anti-distraction guidance.
 - Show one combined recent 7-day chart:
   - focus minutes as bars on the left y-axis,
   - agent next-day drive-resistance score as dashed line on the right y-axis,
@@ -60,6 +62,7 @@ Required behavior:
 
 - Size: 2560x1440.
 - Use a static task-board format.
+- If the plan was generated as a manual catch-up run, show only the remaining-time plan from actual run time to evening check-in.
 - Reserve a clear header band so the subtitle never overlaps the main title.
 - Include:
   - main title,
@@ -67,13 +70,33 @@ Required behavior:
   - top-right summary with today's overall task focus type and recommended time combination,
   - stable task-category color legend,
   - phase/month/week/active micro-sprint progress,
-  - baseline column,
-  - stretch column,
+  - baseline column, with label adjusted when a manual catch-up plan has less than the normal 3h baseline,
+  - stretch column, with label adjusted or omitted when a manual catch-up plan has no stretch work,
   - right-side status/advice column.
 - Right side contains exactly:
   - status summary,
   - today advice,
   - anti-distraction tip.
+
+## Copy Variants And Readability
+
+Daily artifacts may use two wording variants from the same confirmed meaning:
+
+- HTML copy: can be longer, clearer, and more explanatory.
+- Wallpaper copy: should be shorter, but still readable as standalone text.
+
+Readability requirements:
+
+- Prefer the user's working language. If the plan is in Chinese, write natural
+  Chinese except for stable project names such as `WDM`.
+- Every recommendation should make the concrete action clear: what to do, when
+  or for how long when relevant, and what output or decision counts as done.
+- Avoid unexplained abstractions, metaphors, and compressed English planning
+  phrases such as `protected exit block`, `external handoffs are real`, or
+  `visibly smaller`.
+- If wallpaper space is tight, reduce detail, reduce task count, or move
+  explanation to the HTML workbench. Do not replace clear advice with cryptic
+  shorthand.
 
 Do not include:
 
@@ -98,9 +121,13 @@ Colors are task-category colors, not project colors.
 Before presenting artifacts:
 
 - Open or visually inspect the wallpaper.
+- Confirm manual catch-up artifacts, when applicable, cover only actual run time to evening check-in.
 - Confirm no title/subtitle overlap.
 - Confirm the top-right summary clearly reads as `task focus | time mix` and uses the correct task-category color for the focus type.
 - Confirm no visible text truncation.
+- Run a readability pass on HTML text and wallpaper text.
+- Run a layout pass on the wallpaper.
+- If readability and layout conflict, preserve readable wording and remove lower-priority detail before shortening text into vague phrases.
 - Confirm no old or invalid sections remain.
 - Confirm HTML report can be generated from filled task fields.
 - Confirm wallpaper and HTML describe the same accepted plan.

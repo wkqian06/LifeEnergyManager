@@ -1,13 +1,13 @@
 ---
 name: life-energy-daily-planner
-description: Draft LifeEnergyManager provisional daily plan options from tracker state, rolling history, active sprints, and accepted urgent tasks. Use as the default bounded-analysis path before any justified DailyPlannerAgent escalation.
+description: Draft LifeEnergyManager provisional daily plan options from tracker state, rolling history, active sprints, and accepted urgent tasks. Use as the default bounded-analysis path before any justified daily-planner subagent escalation.
 ---
 
 # Life Energy Daily Planner
 
 ## Overview
 
-Use this skill as the default bounded-analysis contract for daily plan drafting. Escalate to `DailyPlannerAgent` only when repeated deferrals, real deadline pressure, low energy, or competing workstreams make intensity selection bias-prone. The main thread chooses the final plan.
+Use this skill as the default bounded-analysis contract for daily plan drafting. Escalate to the `daily-planner` subagent only when repeated deferrals, real deadline pressure, low energy, or competing workstreams make intensity selection bias-prone. The main session chooses the final plan.
 
 ## Inputs
 
@@ -47,5 +47,5 @@ Return a concise provisional plan draft:
 
 - Do not finalize the plan.
 - Do not generate HTML or PNG artifacts.
-- Do not accept urgent tasks; use only tasks already accepted by the main thread.
-- The main thread must choose the final plan and wait for user confirmation.
+- Do not accept urgent tasks; use only tasks already accepted by the main session.
+- The main session must choose the final plan and wait for user confirmation.

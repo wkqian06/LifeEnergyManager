@@ -10,7 +10,7 @@ You are configuring a LifeEnergyManager workflow for the current user. Build a r
 
 Read, in this order if available:
 
-1. `prompts/subagents.md`
+1. `codex/prompts/subagents.md`
 2. `user_plan.md`
 3. source `phase_plan.md` or existing `outputs/phase_plan.md`
 4. source `month_plan.md` or existing `outputs/month_plan.md`
@@ -34,6 +34,10 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
    - Monday-Saturday morning planning.
    - Monday-Saturday evening check-in.
    - Sunday light review.
+11. When creating or updating local Codex scheduled tasks, follow `codex/prompts/automation.md` exactly for schedule encoding:
+   - Use `RRULE` with `BYDAY`, `BYHOUR`, `BYMINUTE`, and `BYSECOND=0`.
+   - Do not use `DTSTART;TZID=...`, floating `DTSTART`, or UTC `DTSTART...Z` for local wall-clock schedules.
+   - Keep the user's timezone in the tracker/profile, but encode the local automation schedule as `BYHOUR`/`BYMINUTE`.
 
 ## Required Behavior
 
@@ -45,8 +49,11 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 - Put the custom project name before the parentheses and the workflow type inside the parentheses.
 - If the project name is missing, derive a short project name from the North Star and ask the user to confirm it before creating scheduled tasks.
 - Scheduled task names must be `LifeEnergyManager - <project name> (morning planning)`, `LifeEnergyManager - <project name> (evening check-in)`, and `LifeEnergyManager - <project name> (Sunday review)`.
+- Local automation RRULEs must use `BYHOUR` and `BYMINUTE` so the schedule summary and `Next run` remain consistent. Do not use `DTSTART;TZID=...`, floating `DTSTART`, or UTC `DTSTART...Z`.
+- After creating or updating scheduled tasks, verify that both the visible schedule summary and `Next run` match the intended local time, allowing only a small scheduler delay of about 1-2 minutes.
+- If the user's configured timezone differs from the computer's local scheduler timezone, ask which local wall-clock time should run before creating automations.
 - `$life-energy-plan-normalizer` is the default bounded-analysis path when creating or updating `outputs/life_energy_tracker.md`.
-- Use `PlanNormalizerAgent` only when prompts/subagents.md escalation signals apply and subagent tools are available.
+- Use `PlanNormalizerAgent` only when codex/prompts/subagents.md escalation signals apply and subagent tools are available.
 - Use `PlanNormalizerAgent` only for extraction, normalization, missing-info detection, and priority-rule drafting.
 - If neither `$life-energy-plan-normalizer` nor a justified `PlanNormalizerAgent` path is available, record `PlanNormalizerAgent: main-thread fallback` and do the same structured pass in the main thread.
 - The main thread must make final tracker, priority, and automation decisions.
@@ -68,6 +75,8 @@ Then summarize:
 - the first weekly planning target,
 - the automation task names,
 - the recommended automation schedule,
+- the local RRULE encoding used for each automation,
+- whether visible schedule and `Next run` were verified after automation creation or update,
 - any missing information,
 - the required `Subagent calls` audit block.
 

@@ -7,14 +7,14 @@ description: Normalize messy LifeEnergyManager user plans into tracker-ready pha
 
 ## Overview
 
-Use this skill as the default bounded-analysis contract for setup normalization. Escalate to `PlanNormalizerAgent` only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority. It extracts supported planning facts from user-provided materials and returns tracker-ready text without making final priority or automation decisions.
+Use this skill as the default bounded-analysis contract for setup normalization. Escalate to the `plan-normalizer` subagent only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority. It extracts supported planning facts from user-provided materials and returns tracker-ready text without making final priority or automation decisions.
 
 ## Inputs
 
 - `user_plan.md` or pasted user plan.
 - Source `phase_plan.md`, `month_plan.md`, and `profile.md`, if present.
 - Existing `outputs/life_energy_tracker.md` or `outputs/daily-reports/`, if present.
-- `templates/tracker.md` and `prompts/subagents.md`.
+- `templates/tracker.md` and `claudecode/prompts/subagents.md`.
 
 ## Procedure
 
@@ -44,4 +44,4 @@ Return concise tracker-ready sections:
 - Do not invent project-specific priorities.
 - Do not create daily artifacts.
 - Do not make final tracker, priority, or automation decisions.
-- The main thread must decide the final `outputs/life_energy_tracker.md` content.
+- The main session must decide the final `outputs/life_energy_tracker.md` content.

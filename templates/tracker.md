@@ -11,11 +11,18 @@ Output root: outputs/
 - Daily plans should start from the highest-level goal and narrow down to the day.
 - All persistent runtime outputs live under `outputs/`.
 - Morning planning must ask about extra tasks before finalizing the day.
+- Morning planning must determine run context before drafting tasks. If the
+  Codex automation missed the scheduled start and the user runs it manually, or
+  if the actual run time is more than 60 minutes after the configured morning
+  planning time, plan only from actual run time to evening check-in.
 - Extra tasks must be triaged before being accepted.
 - Accepted extra tasks must replace, shrink, or defer another task unless there is real unused capacity.
 - Morning artifacts are generated only after plan confirmation.
 - The interactive HTML workbench is the primary low-friction reporting tool.
 - The desktop wallpaper is a static reminder only.
+- Artifact text must stay readable. HTML may use longer explanatory wording;
+  wallpaper wording may be shorter but must not use cryptic shorthand or
+  unexplained planning jargon.
 - Next-day drive-resistance scoring is beta and used only for planning adjustment. `0` means tomorrow's motivation and willingness are strong, including physically tired today but still eager to continue; `100` means tomorrow is likely to feel resistant, unwilling, or hard to start.
 - Do not punish an incomplete day by automatically increasing the next day.
 - Agent work must produce concrete artifacts or reviewable outputs.

@@ -1,6 +1,6 @@
 # LifeEnergyManager Skill And Subagent Invocation Contracts
 
-LifeEnergyManager uses the matching LifeEnergyManager skill as the default bounded-analysis path, either as an installed `$life-energy-*` skill or by reading the local `skills/<skill-name>/SKILL.md` file. Use a subagent only when the task benefits from independent review, parallel analysis, or a second perspective on a bias-prone judgment. The main Codex thread keeps final responsibility for decisions.
+LifeEnergyManager uses the matching LifeEnergyManager skill as the default bounded-analysis path, either as an installed `$life-energy-*` skill or by reading the local `codex/skills/<skill-name>/SKILL.md` file. Use a subagent only when the task benefits from independent review, parallel analysis, or a second perspective on a bias-prone judgment. The main Codex thread keeps final responsibility for decisions.
 
 ## Invocation Policy
 
@@ -46,6 +46,24 @@ Do not use a subagent when the task is a simple application of the skill contrac
 - Skills and subagents do not make final priority decisions.
 - Skills and subagents do not generate final daily artifacts unless asked by the main thread.
 - Skills and subagents should keep outputs short and structured.
+- Short output must still be readable. Do not use unexplained planning jargon,
+  metaphors, or compressed English phrases when a concrete sentence is needed.
+
+## Morning Run Context
+
+The morning workflow must pass run context into planning and artifact QA:
+
+- `run_mode`: `scheduled` or `manual_catchup`.
+- `actual_run_time`.
+- configured morning planning time.
+- configured evening check-in time.
+- remaining usable planning window.
+
+Use `manual_catchup` when the user says the Codex automation missed its
+scheduled start and was launched manually, or when the current local time is
+more than 60 minutes after the configured morning planning time. In
+`manual_catchup`, plan only from `actual_run_time` to evening check-in. Do not
+schedule or imply already-elapsed morning or afternoon work.
 
 ## PlanNormalizerAgent
 
@@ -108,6 +126,7 @@ Inputs:
 
 Output:
 
+- run mode and planning window,
 - focus mode,
 - today's overall task focus type,
 - task focus color from the stable task-category color legend,
@@ -116,7 +135,8 @@ Output:
 - stretch tasks,
 - agent-delegable tasks,
 - explicit non-goals,
-- reason for intensity.
+- reason for intensity,
+- remaining-time rationale when `run_mode` is `manual_catchup`.
 
 ## EnergyQuantAgent
 
@@ -149,15 +169,24 @@ Purpose:
 
 Output:
 
-- status summary,
-- today advice,
-- anti-distraction tip.
+- HTML status summary,
+- HTML today advice,
+- HTML anti-distraction tip,
+- wallpaper status summary,
+- wallpaper today advice,
+- wallpaper anti-distraction tip.
 
 Rules:
 
-- Keep each line short enough for the wallpaper.
+- Draft clear HTML wording first, then derive shorter wallpaper wording.
+- Keep each wallpaper line short enough for the wallpaper, but do not sacrifice
+  basic readability.
 - Advice must respond to actual state, not generic motivation.
 - Anti-distraction tip should name the likely distraction pattern.
+- Reject vague or cryptic phrases such as `protected exit block`, `external
+  handoffs are real`, or `visibly smaller`.
+- If the plan is in Chinese, use natural Chinese except for stable project names
+  such as `WDM`.
 
 ## ArtifactQAAgent
 
@@ -168,10 +197,15 @@ Purpose:
 Checks:
 
 - no old sections,
+- manual catch-up artifacts plan only the remaining window from actual run time
+  to evening check-in,
 - no title/subtitle overlap,
 - top-right summary clearly shows task focus type and recommended time combination,
 - top-right focus type uses the correct task-category color,
 - no clipped text,
+- status/advice/tip are readable and do not rely on unexplained shorthand,
+- HTML can use longer wording than the wallpaper,
+- readability QA and layout QA are both complete before final presentation,
 - stable color legend,
 - right wallpaper column contains only the three approved reminder blocks,
 - HTML report can be generated from task fields,
