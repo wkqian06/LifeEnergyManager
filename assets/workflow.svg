@@ -1,0 +1,130 @@
+<svg viewBox="0 0 960 680" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-label="LifeEnergyManager: an adaptive daily planning loop. Each day you plan, run the day, and reflect; the evening energy signal flows through a planning memory and resizes tomorrow's plan. A Sunday weekly reset refocuses the week.">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdfdfe"/>
+      <stop offset="0.55" stop-color="#f6f8fb"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <radialGradient id="hubGrad" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#e0e7ff"/>
+      <stop offset="0.7" stop-color="#c7d2fe"/>
+      <stop offset="1" stop-color="#a5b4fc"/>
+    </radialGradient>
+    <linearGradient id="amberGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d97706"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="intensityGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="mCool" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="mAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ea8c0c"/>
+    </marker>
+    <marker id="mGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="960" height="680" rx="18" fill="url(#bgGrad)"/>
+  <rect x="0.5" y="0.5" width="959" height="679" rx="18" fill="none" stroke="#d0d7de"/>
+
+  <!-- title -->
+  <text x="480" y="44" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">LifeEnergyManager</text>
+  <text x="480" y="68" text-anchor="middle" font-size="12.5" fill="#64748b">adaptive daily planning — tomorrow's plan resizes itself to your real energy</text>
+
+  <!-- ===== daily band: plan -> run -> reflect ===== -->
+  <text x="480" y="98" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="2.5" fill="#94a3b8">THE DAILY LOOP · MONDAY–SATURDAY</text>
+
+  <!-- plan card -->
+  <rect x="70" y="110" width="250" height="170" rx="14" fill="#fffbeb" stroke="#f0c464" stroke-width="1.3"/>
+  <rect x="70" y="110" width="4" height="170" rx="2" fill="#f59e0b"/>
+  <text x="92" y="140" font-size="14" font-weight="700" fill="#b45309">☀️ Plan the day</text>
+  <text x="92" y="163" font-size="11.5" fill="#374151">a plan sized to today's real energy</text>
+  <text x="92" y="183" font-size="11.5" font-weight="600" fill="#b45309">👤 extra tasks? quick triage</text>
+  <text x="92" y="203" font-size="11.5" font-weight="600" fill="#b45309">👤 you confirm the final plan</text>
+  <text x="92" y="228" font-size="9.5" fill="#6b7280">picks today's intensity</text>
+  <rect x="92" y="236" width="206" height="5" rx="2.5" fill="url(#intensityGrad)"/>
+  <text x="195" y="258" text-anchor="middle" font-size="9" fill="#6b7280">recovery · standard · push · deadline</text>
+
+  <!-- run card -->
+  <rect x="390" y="125" width="200" height="140" rx="14" fill="#f0f9ff" stroke="#7cc4ee" stroke-width="1.3"/>
+  <rect x="390" y="125" width="4" height="140" rx="2" fill="#0ea5e9"/>
+  <text x="412" y="155" font-size="14" font-weight="700" fill="#0369a1">▶ Run the day</text>
+  <text x="412" y="179" font-size="11.5" fill="#374151">your checklist for the day</text>
+  <text x="412" y="198" font-size="11.5" fill="#374151">the plan stays in sight</text>
+  <text x="412" y="217" font-size="11.5" fill="#374151">check off as you go</text>
+
+  <!-- reflect card -->
+  <rect x="660" y="110" width="250" height="170" rx="14" fill="#f5f3ff" stroke="#b7a5ec" stroke-width="1.3"/>
+  <rect x="660" y="110" width="4" height="170" rx="2" fill="#8b5cf6"/>
+  <text x="682" y="140" font-size="14" font-weight="700" fill="#6d28d9">🌙 Reflect</text>
+  <text x="682" y="163" font-size="11.5" font-weight="600" fill="#6d28d9">👤 you report how it went</text>
+  <text x="682" y="183" font-size="11.5" fill="#374151">captures progress &amp; blockers</text>
+  <text x="682" y="203" font-size="11.5" fill="#374151">senses tomorrow's resistance (0–100)</text>
+  <text x="682" y="222" font-size="10" fill="#6b7280">will it be easy or hard to start?</text>
+  <text x="682" y="246" font-size="11.5" fill="#374151">leaves a seed for tomorrow morning</text>
+
+  <!-- band arrows -->
+  <line x1="322" y1="195" x2="384" y2="195" stroke="#64748b" stroke-width="1.8" marker-end="url(#mCool)"/>
+  <line x1="592" y1="195" x2="654" y2="195" stroke="#64748b" stroke-width="1.8" marker-end="url(#mCool)"/>
+
+  <!-- ===== adaptive loop through the memory hub ===== -->
+  <!-- reflect -> memory -->
+  <path d="M 785 280 Q 720 420 563 439" fill="none" stroke="url(#amberGrad)" stroke-width="2.6" filter="url(#glow)" marker-end="url(#mAmber)"/>
+  <text x="645" y="362" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b45309">remembers today</text>
+  <!-- memory -> plan -->
+  <path d="M 403 442 Q 240 420 195 286" fill="none" stroke="url(#amberGrad)" stroke-width="2.6" filter="url(#glow)" marker-end="url(#mAmber)"/>
+  <text x="336" y="383" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b45309">resizes tomorrow's plan</text>
+  <!-- badge -->
+  <rect x="408" y="336" width="144" height="27" rx="13.5" fill="#f59e0b" filter="url(#glow)"/>
+  <text x="480" y="354" text-anchor="middle" font-size="11" font-weight="800" letter-spacing="1" fill="#ffffff">ADAPTIVE LOOP</text>
+
+  <!-- memory hub -->
+  <circle cx="480" cy="450" r="80" fill="url(#hubGrad)" stroke="#6366f1" stroke-width="1.4"/>
+  <text x="480" y="432" text-anchor="middle" font-size="18" fill="#3730a3">🧠</text>
+  <text x="480" y="456" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3">planning memory</text>
+  <text x="480" y="475" text-anchor="middle" font-size="10" fill="#4f46e5">goals · progress</text>
+  <text x="480" y="490" text-anchor="middle" font-size="10" fill="#4f46e5">energy patterns</text>
+
+  <!-- ===== setup entry ===== -->
+  <rect x="40" y="430" width="180" height="90" rx="14" fill="#ffffff" stroke="#c8cfd9" stroke-width="1.2"/>
+  <text x="130" y="458" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">🎯 Setup · once</text>
+  <text x="130" y="480" text-anchor="middle" font-size="11" fill="#4b5563">your big goal becomes</text>
+  <text x="130" y="496" text-anchor="middle" font-size="11" fill="#4b5563">a living plan</text>
+  <line x1="222" y1="476" x2="396" y2="468" stroke="#64748b" stroke-width="1.5" marker-end="url(#mCool)"/>
+  <text x="305" y="460" text-anchor="middle" font-size="9.5" fill="#6b7280">starts the loop</text>
+
+  <!-- ===== weekly reset ===== -->
+  <rect x="740" y="400" width="180" height="130" rx="14" fill="#ecfdf5" stroke="#7fd4ae" stroke-width="1.3"/>
+  <rect x="740" y="400" width="4" height="130" rx="2" fill="#10b981"/>
+  <text x="832" y="428" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">🗓️ Weekly reset</text>
+  <text x="832" y="448" text-anchor="middle" font-size="10" fill="#6b7280">every Sunday</text>
+  <text x="832" y="468" text-anchor="middle" font-size="11" fill="#374151">zoom out on the week</text>
+  <text x="832" y="486" text-anchor="middle" font-size="11" fill="#374151">refocus what matters</text>
+  <text x="832" y="504" text-anchor="middle" font-size="11" fill="#374151">line up Monday's start</text>
+
+  <line x1="563" y1="452" x2="734" y2="452" stroke="#64748b" stroke-width="1.5" marker-end="url(#mCool)"/>
+  <text x="648" y="444" text-anchor="middle" font-size="9.5" fill="#6b7280">your week</text>
+  <line x1="734" y1="490" x2="556" y2="490" stroke="#059669" stroke-width="1.5" marker-end="url(#mGreen)"/>
+  <text x="648" y="506" text-anchor="middle" font-size="9.5" fill="#047857">next week's focus — shapes Monday</text>
+
+  <!-- ===== principles ===== -->
+  <rect x="45" y="562" width="280" height="46" rx="23" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="185" y="590" text-anchor="middle" font-size="10.5" fill="#475569">⚖️ sized to real energy — not an ideal day</text>
+  <rect x="340" y="562" width="280" height="46" rx="23" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="480" y="590" text-anchor="middle" font-size="10.5" fill="#475569">👤 it drafts, you confirm — you stay in control</text>
+  <rect x="635" y="562" width="280" height="46" rx="23" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="775" y="590" text-anchor="middle" font-size="10.5" fill="#475569">🛡️ a hard day never raises tomorrow's load</text>
+
+  <text x="480" y="644" text-anchor="middle" font-size="9.5" fill="#6b7280">the resistance score (0–100) is a beta planning heuristic, not a diagnosis</text>
+</svg>

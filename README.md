@@ -2,6 +2,10 @@
 
 > Long-term progress is often constrained not by the size of the task list, but by the energy available to act on it.
 
+<p align="center">
+  <img src="assets/workflow.svg" alt="LifeEnergyManager: an adaptive daily planning loop. Each day (Monday–Saturday) you plan the day, run it from a checklist, and reflect in the evening; the evening energy signal flows through a planning memory and resizes tomorrow's plan. A Sunday weekly reset refocuses the week." width="100%">
+</p>
+
 LifeEnergyManager is an agent-based daily planning workflow that turns big goals, current priorities, blockers, and available energy into a realistic plan for today. It ships in two parallel editions: **Codex** (scheduled tasks) and **Claude Code** (local routines).
 
 Each day, it helps create:
@@ -53,6 +57,35 @@ In the evening, you report what happened. LifeEnergyManager updates the running 
 The practical goal is simple: keep the important work visible, choose fewer and more realistic actions, and make tomorrow's planning easier than starting from scratch.
 
 ## How it works
+
+<details>
+<summary>Workflow diagram source (Mermaid) — the rendered SVG is at the top of this README</summary>
+
+```mermaid
+flowchart TB
+    setup["🎯 Setup — once<br/>your big goal becomes a living plan"]
+    memory[("🧠 Planning memory<br/>goals · progress · energy patterns")]
+
+    subgraph daily["The daily rhythm · Monday–Saturday"]
+        direction LR
+        plan["☀️ Plan the day<br/>sized to today's real energy<br/>👤 extra tasks? quick triage<br/>👤 you confirm the final plan<br/>intensity: recovery · standard · push · deadline"]
+        run["▶️ Run the day<br/>your checklist for the day<br/>the plan stays in sight"]
+        reflect["🌙 Reflect<br/>👤 you report how it went<br/>captures progress &amp; blockers<br/>senses tomorrow's resistance (0–100)"]
+        plan --> run --> reflect
+    end
+
+    weekly["🗓️ Weekly reset — Sunday<br/>zoom out on the week · refocus what matters<br/>line up Monday's start"]
+    principles["⚖️ sized to real energy, not an ideal day · 👤 it drafts, you confirm<br/>🛡️ a hard day never raises tomorrow's load<br/>(the resistance score is a beta planning heuristic, not a diagnosis)"]
+
+    setup -->|starts the loop| memory
+    reflect ==>|remembers today| memory
+    memory ==>|"resizes tomorrow's plan<br/>(the adaptive loop)"| plan
+    memory -->|your week| weekly
+    weekly -->|next week's focus — shapes Monday| memory
+    weekly ~~~ principles
+```
+
+</details>
 
 Under the hood, LifeEnergyManager is a reusable prompt package for adaptive daily planning.
 It turns a user's phase plan, monthly plan, and rolling state into:
