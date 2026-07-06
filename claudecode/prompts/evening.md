@@ -31,15 +31,14 @@ From the report:
    - recent focus trend,
    - next-day drive-resistance pattern,
    - recurring blockers,
-   - repeatedly deferred tasks,
+   - repeatedly deferred tasks (ongoing commitments are exempt - their absence is tracked only by Skip count),
    - agent tasks pending review.
 3. Update active micro-sprints only when there was concrete artifact progress or a real blocker.
-4. Update temporary urgent tasks:
-   - done,
-   - remaining,
-   - deadline,
-   - next allocation,
-   - tradeoff.
+4. Settle the Ongoing Commitments table (this step is the ONLY writer of Skip count):
+   - For every active row, from the workbench report: a day ending with 0 actual minutes on that commitment (slice card planned/skipped with actual empty or 0, or no slice card at all) -> Skip count +1; >0 actual minutes -> reset Skip count to 0; done/in-progress/blocked slice cards -> Skip count unchanged. If today's plan was a compressed (catch-up) or Recovery plan: no +1, no reset.
+   - Update Done/Remaining minutes from the report.
+   - Exit judgment: a done slice card proves the slice only, never the whole commitment. Close a commitment only with exit-criterion evidence (an artifact named in the card note, or ask the user one question: "Is the exit criterion <X> met?"). On close, ask once whether follow-up work remains (-> new commitment or backlog).
+   - Terminal rows (done/dropped, incl. absorbed-as-dropped per the table-header rules) leave the table now; write the Daily Log closing line: `Commitment closed: <name> - entered <d1>, exited <d2>, total <n>m, outcome <line>`.
 5. Generate a seed for tomorrow's morning plan.
 6. If saving a standalone daily report, write it to `outputs/daily-reports/YYYY-MM-DD-report.md`.
 

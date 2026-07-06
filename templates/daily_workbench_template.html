@@ -175,8 +175,8 @@
 
     <section class="grid sections">
       <div class="panel">
-        <h2>Temporary urgent tasks</h2>
-        <p class="meta">Accepted urgent tasks must show a cap and tradeoff.</p>
+        <h2>Ongoing commitments (today's slices)</h2>
+        <p class="meta">Card titles read "commitment: today's slice". A done card completes the slice only - the commitment itself closes in the evening check-in against its exit criterion.</p>
         <div id="urgentTasks"></div>
       </div>
       <div class="panel">
@@ -443,7 +443,7 @@
         "",
         "Suggested state updates:",
         `- Focus trend: ${actualTotal || 0} / ${PLAN.focusTargetMinutes || 300} min.`,
-        `- Deferred tasks: ${notCompleted.length ? notCompleted.map(line => line.replace(/^- /, "").split(" - ")[0]).join("; ") : "none"}.`,
+        `- Deferred tasks: ${(() => { const commitmentTitles = new Set((PLAN.urgentTasks || []).map(t => t.title)); const rest = notCompleted.map(line => line.replace(/^- /, "").split(" - ")[0]).filter(title => !commitmentTitles.has(title)); return rest.length ? rest.join("; ") : "none"; })()} (ongoing commitments tracked by Skip count, not listed here).`,
         "- Update active micro-sprints only if there was concrete artifact progress or a real blocker.",
       ].join("\n");
       document.getElementById("report").value = report;

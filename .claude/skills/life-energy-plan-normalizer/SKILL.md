@@ -21,7 +21,7 @@ Use this skill as the default bounded-analysis contract for setup normalization.
 1. Extract facts only from the supplied plan material.
 2. Normalize the long-term goal into a North Star.
 3. Convert phase and month material into the tracker structure.
-4. Identify active micro-sprints and temporary urgent tasks only when supported by evidence.
+4. Identify active micro-sprints and ongoing commitments only when supported by evidence. Never generate multi-day-task-to-temporary-sprint rules; the container for accepted multi-day extra tasks is the Ongoing Commitments table.
 5. Draft priority rules that protect the active phase from secondary work.
 6. Ensure every persistent output path points under `outputs/`.
 7. Identify missing information that changes schedule, deadline, or core priority.

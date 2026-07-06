@@ -126,14 +126,14 @@ Agent-delegable tasks:
 - Primary workstreams are preferred over secondary scaffolding.
 - Secondary projects are capped unless they directly support the active phase.
 - A day with only agent launches and no human review/specification/writing does not count as a strong day.
-- If a task is deferred for two consecutive days, schedule a smaller first action or admit it is not the current priority.
+- If a task is deferred for two consecutive days, schedule a smaller first action or admit it is not the current priority. This rule does not apply to Ongoing Commitments; their absence is tracked by Skip count instead.
 
 ## Rolling 30-Day State
 
 Retention rule:
 
 - Keep the most recent 7 days relatively specific.
-- Compress days 8-30 into weekly trend summaries unless a blocker, urgent task, or micro-sprint is still active.
+- Compress days 8-30 into weekly trend summaries unless a blocker, ongoing commitment, or micro-sprint is still active.
 - Archive or remove patterns after they have not affected planning for 30 days.
 
 ### Recent Focus Trend
@@ -162,12 +162,50 @@ Retention rule:
 | --- | --- | ---: | --- | --- | --- |
 | [name] | [dates] | 0 / N | [target] | Planned | [notes] |
 
-## Temporary Urgent Tasks
+## Ongoing Commitments
 
-Every accepted urgent task must have a daily allocation and an explicit tradeoff.
+Accepted extra work that outlives the day it was accepted - urgent deadline-driven
+tasks and multi-day non-urgent tasks share this table. These rules are the single
+source for the commitment lifecycle; workflow prompts reference them and must not
+restate them:
 
-| Task | Deadline | Estimate | Done | Remaining | Status | Daily allocation | Replaces / tradeoff |
-| --- | --- | ---: | ---: | ---: | --- | --- | --- |
+- ENTRY: any accepted extra task that outlives today must enter this table with a
+  decidable exit criterion (artifact exists / event happened / count reached), a
+  deadline date + type (hard/soft; no real deadline -> soft = Entered + 14 days),
+  and a placement policy in Daily allocation naming which budget daily slices draw
+  from (default: stretch/secondary capped lanes, never primary baseline blocks).
+  A criterion that depends on an external party enters as `paused (until: <condition>)`.
+- DAILY: every active row gets a disposition in the morning Commitments digest -
+  a suggested today-slice sized as Remaining / remaining working days before the
+  deadline (shrunk on Recovery days, prioritized near deadlines), or an explicit
+  skip with a one-line reason. Coverage invariant: the digest opens with
+  "Commitments: N active, N dispositions"; a plan missing any active row is
+  non-conforming. If feasibility requires more than the placement budget, the
+  digest raises an explicit conflict decision (approve mainline displacement today
+  [user only] / reduce scope / extend / drop) - never silent, never deferred to expiry.
+- COUNTING: Skip count is written only by evening settlement: a day ending with 0
+  actual minutes on an active row -> +1; >0 minutes -> reset to 0; done/in-progress/
+  blocked cards -> unchanged. Compressed-plan (catch-up) and Recovery days: no +1,
+  no reset, transparent to continuity.
+- INQUIRY: Skip count >= 3, or a hard deadline has passed -> the next morning digest
+  carries a preset-recommendation inquiry: continue (reset + new allocation) /
+  pause (with resume condition) / drop. Deferred past Recovery/compressed mornings.
+- EXIT: exit criterion met -> done immediately (a deadline never blocks early exit).
+  Closing requires criterion evidence - a done slice card proves the slice only,
+  never the whole commitment. On close, ask once whether follow-up work remains
+  (-> new commitment or backlog). Terminal rows (done/dropped) leave the table the
+  same evening; the Daily Log records one closing line:
+  `Commitment closed: <name> - entered <d1>, exited <d2>, total <n>m, outcome <line>`.
+  Absorption into a micro-sprint = dropped + note "absorbed into <sprint>", valid
+  only if the criterion text moves into that sprint's Target/Notes or the user
+  confirms it is covered.
+- CAP: at most 3 active rows. New entries and paused rows returning to active pass
+  the same cap check; on overflow the user picks which 3 stay. The user may declare
+  done/drop/pause in any session; the receiving session writes the table and the
+  closing line immediately.
+
+| Commitment | Entered | Exit criterion | Deadline (date + hard/soft) | Estimate | Done | Remaining | Daily allocation (incl. placement policy) | Skip count | Status |
+| --- | --- | --- | --- | ---: | ---: | ---: | --- | ---: | --- |
 
 ## Dynamic Focus Intensity Rules
 

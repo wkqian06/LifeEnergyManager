@@ -34,7 +34,7 @@ Each scheduled run follows the matching workflow file:
 ## Hard Rules
 
 - All persistent files created after setup must live under `outputs/` (`outputs/life_energy_tracker.md`, `outputs/phase_plan.md`, `outputs/month_plan.md`, `outputs/profile.md`, `outputs/daily-workbenches/`, `outputs/daily-wallpapers/`, `outputs/daily-reports/`).
-- Decisions reserved for the main session: final plan confirmation, major priority tradeoffs, accepting or rejecting urgent tasks, changing next-day intensity, creating or updating routines.
+- Decisions reserved for the main session: final plan confirmation, major priority tradeoffs, accepting or rejecting urgent tasks, commitment dispositions (skips, inquiries, mainline displacement, cap evictions), changing next-day intensity, creating or updating routines.
 - The morning workflow must ask about extra tasks and wait for user confirmation before generating HTML/PNG artifacts.
 - Next-day drive-resistance scoring is a beta planning heuristic, never diagnosis; `0` = strong next-day drive, `100` = likely resistant.
 - Do not punish an incomplete day by automatically increasing the next day's workload.

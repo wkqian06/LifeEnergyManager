@@ -14,7 +14,7 @@ Use this skill as the default bounded-analysis contract for daily plan drafting.
 - Active phase, current month, current week.
 - Rolling 30-day state.
 - Active micro-sprints.
-- Temporary urgent tasks and accepted morning extras.
+- Active ongoing commitments with their today-allocation decisions from the Commitments digest, plus accepted morning extras.
 - Yesterday's daily log or report, if available.
 
 ## Procedure

@@ -18,7 +18,7 @@ Read:
 6. current weekly plan from `outputs/life_energy_tracker.md`, if present
 7. rolling 30-day state
 8. active micro-sprints
-9. temporary urgent tasks
+9. ongoing commitments (lifecycle rules live in the tracker's Ongoing Commitments table header - reference them, never restate them)
 10. yesterday's daily log or `outputs/daily-reports/YYYY-MM-DD-report.md`, if available
 
 ## Run Context And Planning Window
@@ -73,6 +73,8 @@ If an extra task is accepted, state what it replaces, shrinks, or defers.
 
 If the user provides extra tasks, use `$life-energy-urgency-triage` by default. Escalate to `UrgencyTriageAgent` only when codex/prompts/subagents.md escalation signals apply, especially when a task would displace thesis-critical work, has ambiguous urgency, or looks like productive procrastination, and subagent tools are available. If neither `$life-energy-urgency-triage` nor a justified `UrgencyTriageAgent` path is available, record `UrgencyTriageAgent: main-thread fallback` and complete the same triage in the main thread. The main thread must accept or reject each extra task.
 
+Triage also judges whether each extra task is one-day or multi-day. An accepted task that cannot be finished today must enter the tracker's Ongoing Commitments table per the table-header rules (decidable exit criterion, deadline date + hard/soft, placement policy). One-day extras stay in today's plan only.
+
 ## Plan Construction
 
 Build from the top down:
@@ -120,12 +122,15 @@ Before generating artifacts, produce a provisional plan with:
 - anti-distraction tip,
 - baseline tasks, normally 3h but adjusted for `manual_catchup`,
 - later stretch tasks, normally 2h but reduced or omitted for `manual_catchup`,
-- accepted urgent tasks and tradeoffs,
+- accepted extra tasks and tradeoffs,
+- the Commitments digest (see below),
 - agent-delegable tasks,
 - what is explicitly not being done today,
 - the required `Subagent calls` audit block for planning-stage agents.
 
-Wait for user confirmation before generating artifacts.
+Commitments digest: opens with `Commitments: N active, N dispositions` (a plan missing any active row is non-conforming), then one line per active commitment - a suggested today-slice (sized Remaining / remaining working days, placed per its placement policy, naming what it displaces today), or an explicit skip with a one-line reason, or a preset-recommendation inquiry line when the table-header rules require one (Skip count >= 3, expired hard deadline, feasibility conflict, cap overflow). The digest rides this same confirmation gate: one confirmation approves every disposition; the user may amend single lines, and may declare done/drop/pause at any time - the receiving session writes the table and the Daily Log closing line immediately. On `manual_catchup` runs the digest still covers every active row, but skips are exempt from Skip count per the table-header counting rules.
+
+Wait for user confirmation before generating artifacts. Commitment slice cards are titled `<commitment>: <today's slice>` and render in the commitments panel of the workbench.
 
 ## Confirmed Plan Artifacts
 
@@ -191,6 +196,7 @@ The main thread must retain responsibility for:
 - final plan confirmation,
 - major priority tradeoffs,
 - accepting or rejecting urgent tasks,
+- commitment dispositions: skip approvals, Skip-count/expired-deadline inquiry decisions, mainline displacement, cap evictions,
 - changing the next day's workload target.
 
 ## Required Subagent Audit

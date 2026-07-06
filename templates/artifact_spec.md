@@ -22,7 +22,7 @@ Required behavior:
 - The top-right header summary must show exactly:
   - today's overall task focus type, colored with its task-category color,
   - recommended time combination, for example `4 H Baseline + 1 H Stretch`.
-- Layout the top control area as two first-row modules, `Temporary urgent tasks` and `Today suggestion`, followed by `Recent state` on the next row spanning the full HTML width.
+- Layout the top control area as two first-row modules, `Ongoing commitments (today's slices)` and `Today suggestion`, followed by `Recent state` on the next row spanning the full HTML width.
 - For status summary, today advice, and anti-distraction guidance, prefer longer HTML-specific fields when present, such as `statusSummaryHtml`, `todayAdviceHtml`, and `antiDistractionTipHtml`. Fall back to the wallpaper fields only when no HTML-specific text is provided.
 - Each task has:
   - done checkbox,

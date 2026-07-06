@@ -105,7 +105,7 @@ Output:
 - why,
 - recommended time cap,
 - what it replaces or defers,
-- whether it should become a temporary urgent task.
+- one-day / multi-day judgment and, for accepted multi-day tasks, the proposed Ongoing Commitments entry (exit criterion, deadline date + type, placement policy per the tracker table-header rules).
 
 ## DailyPlannerAgent
 
@@ -120,7 +120,7 @@ Inputs:
 - weekly plan,
 - rolling state,
 - active micro-sprints,
-- accepted urgent tasks.
+- active ongoing commitments and their today-allocation decisions.
 
 Output:
 

@@ -26,7 +26,7 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 3. Create `outputs/` if it does not exist.
 4. Create phase, month, and initial weekly sections if enough information exists.
 5. Create empty rolling 30-day state sections if no history exists.
-6. Identify active micro-sprints and temporary urgent tasks only when supported by the source material.
+6. Identify active micro-sprints and ongoing commitments only when supported by the source material.
 7. Write priority rules that prevent secondary work from crowding out the active phase.
 8. Use the `life-energy-plan-normalizer` skill by default to extract, normalize, identify missing information, and draft priority rules. Escalate to the `plan-normalizer` subagent only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority.
 9. Derive the custom project name from `user_plan.md`, then use automation names in the format `LifeEnergyManager - <project name> (<workflow type>)`.

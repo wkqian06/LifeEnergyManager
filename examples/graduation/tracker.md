@@ -125,10 +125,13 @@ Agent-delegable tasks:
 | Manuscript A exit | 5 days | 0 / 5 | Exit daily workload | Planned | 3 main days plus 2 buffer days. |
 | Core chapter gate | Month 1 | 0 / N | Make chapter draftable | Planned | Needs main path and figure slots. |
 
-## Temporary Urgent Tasks
+## Ongoing Commitments
 
-| Task | Deadline | Estimate | Done | Remaining | Status | Daily allocation | Replaces / tradeoff |
-| --- | --- | ---: | ---: | ---: | --- | --- | --- |
+Accepted extra work that outlives the day it was accepted. Lifecycle rules live in
+the table-header comment of `templates/tracker.md` (single source).
+
+| Commitment | Entered | Exit criterion | Deadline (date + hard/soft) | Estimate | Done | Remaining | Daily allocation (incl. placement policy) | Skip count | Status |
+| --- | --- | --- | --- | ---: | ---: | ---: | --- | ---: | --- |
 
 ## Daily Log
 

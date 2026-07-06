@@ -15,7 +15,7 @@ Read:
 - last 7 daily logs from `outputs/life_energy_tracker.md` and `outputs/daily-reports/`
 - rolling 30-day state
 - active micro-sprints
-- temporary urgent tasks
+- ongoing commitments (table + this week's Daily Log closing lines)
 - current phase and month gates
 
 Use the `life-energy-weekly-review` skill by default to summarize logs and propose next-week priorities before updating the weekly plan. Escalate to the `weekly-review` subagent when repeated deferrals, unclear blockers, or major priority changes need a second pass. If neither the `life-energy-weekly-review` skill nor a justified `weekly-review` subagent path is available, record `WeeklyReviewAgent: main-thread fallback` and complete the same structured weekly review in the main session. The main session must make the final weekly plan.
@@ -39,7 +39,7 @@ Update:
 - weekly plan for the next week,
 - rolling 30-day state compression,
 - active micro-sprint day counts and status,
-- temporary urgent task status,
+- ongoing commitments audit (three checks, one line each: expired deadlines incl. soft defaults, high Skip counts, unresolved Migration pending marker),
 - priority rules if a pattern changed.
 
 ## Output
@@ -51,6 +51,7 @@ Return:
 - first action for Monday,
 - agent-delegable task list,
 - one anti-distraction rule for the week,
+- stale or exit-ready commitments (from the ongoing commitments audit),
 - the required `Subagent calls` audit block.
 
 ```text

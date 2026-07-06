@@ -33,4 +33,4 @@ LifeEnergyManager is a daily planning workflow with three scheduled tasks per pr
 - All persistent files created after setup must live under `outputs/`.
 - For local Codex automations, encode schedules with RRULE `BYHOUR`/`BYMINUTE` exactly as specified in `codex/prompts/automation.md`.
 - Matching `$life-energy-*` skills are the default bounded-analysis path; escalate to subagents only per `codex/prompts/subagents.md`; otherwise record `main-thread fallback`.
-- Final plan confirmation, priority tradeoffs, urgent-task acceptance, and intensity changes stay in the main Codex thread.
+- Final plan confirmation, priority tradeoffs, urgent-task acceptance, commitment dispositions (skips, inquiries, mainline displacement, cap evictions), and intensity changes stay in the main Codex thread.

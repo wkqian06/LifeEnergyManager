@@ -14,7 +14,7 @@ Use this skill as the default bounded-analysis contract for weekly review. Escal
 - `outputs/life_energy_tracker.md`.
 - Last 7 daily logs from tracker and `outputs/daily-reports/`.
 - Rolling 30-day state.
-- Active micro-sprints and temporary urgent tasks.
+- Active micro-sprints and ongoing commitments (table + this week's Daily Log closing lines).
 - Current phase and month gates.
 
 ## Procedure
@@ -33,6 +33,7 @@ Use this skill as the default bounded-analysis contract for weekly review. Escal
 Return:
 
 - weekly summary,
+- stale or exit-ready commitments (expired deadlines incl. soft defaults, high Skip counts, unresolved Migration pending),
 - top 3 next outcomes,
 - repeated deferrals,
 - real blockers,

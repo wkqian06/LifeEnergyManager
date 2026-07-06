@@ -12,7 +12,7 @@ Use this skill as the default bounded-analysis contract for extra urgent, extern
 ## Inputs
 
 - Extra tasks supplied by the user during morning intake.
-- Active phase, month, week, rolling state, active micro-sprints, and temporary urgent tasks.
+- Active phase, month, week, rolling state, active micro-sprints, and ongoing commitments.
 - Any real deadlines or external dependencies.
 
 ## Classification
@@ -28,7 +28,7 @@ Use this skill as the default bounded-analysis contract for extra urgent, extern
 2. State evidence and inference separately.
 3. Recommend a time cap.
 4. Name what the task replaces, shrinks, or defers.
-5. Decide whether it should become a temporary urgent task.
+5. Judge one-day vs multi-day. For an accepted multi-day task, propose the Ongoing Commitments entry per the tracker table-header rules: decidable exit criterion, deadline date + hard/soft (no real deadline -> soft = today + 14 days), placement policy (which budget daily slices draw from; external-party criterion -> propose paused (until: condition)).
 6. Flag any task that needs user confirmation before acceptance.
 
 ## Output
@@ -39,7 +39,7 @@ For each task, return:
 - why,
 - recommended time cap,
 - replacement or deferral,
-- temporary urgent task recommendation,
+- one-day / multi-day judgment and, for accepted multi-day tasks, the proposed Ongoing Commitments entry,
 - open confirmation needed.
 
 ## Boundaries
