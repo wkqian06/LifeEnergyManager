@@ -46,15 +46,12 @@
   <text x="480" y="98" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="2.5" fill="#94a3b8">THE DAILY LOOP · MONDAY–SATURDAY</text>
 
   <!-- plan card -->
-  <rect x="70" y="110" width="250" height="170" rx="14" fill="#fffbeb" stroke="#f0c464" stroke-width="1.3"/>
-  <rect x="70" y="110" width="4" height="170" rx="2" fill="#f59e0b"/>
+  <rect x="70" y="110" width="250" height="120" rx="14" fill="#fffbeb" stroke="#f0c464" stroke-width="1.3"/>
+  <rect x="70" y="110" width="4" height="120" rx="2" fill="#f59e0b"/>
   <text x="92" y="140" font-size="14" font-weight="700" fill="#b45309">☀️ Plan the day</text>
   <text x="92" y="163" font-size="11.5" fill="#374151">a plan sized to today's real energy</text>
   <text x="92" y="183" font-size="11.5" font-weight="600" fill="#b45309">👤 extra tasks? quick triage</text>
   <text x="92" y="203" font-size="11.5" font-weight="600" fill="#b45309">👤 you confirm the final plan</text>
-  <text x="92" y="228" font-size="9.5" fill="#6b7280">picks today's intensity</text>
-  <rect x="92" y="236" width="206" height="5" rx="2.5" fill="url(#intensityGrad)"/>
-  <text x="195" y="258" text-anchor="middle" font-size="9" fill="#6b7280">recovery · standard · push · deadline</text>
 
   <!-- run card -->
   <rect x="390" y="125" width="200" height="140" rx="14" fill="#f0f9ff" stroke="#7cc4ee" stroke-width="1.3"/>
@@ -67,12 +64,15 @@
   <!-- reflect card -->
   <rect x="660" y="110" width="250" height="170" rx="14" fill="#f5f3ff" stroke="#b7a5ec" stroke-width="1.3"/>
   <rect x="660" y="110" width="4" height="170" rx="2" fill="#8b5cf6"/>
-  <text x="682" y="140" font-size="14" font-weight="700" fill="#6d28d9">🌙 Reflect</text>
-  <text x="682" y="163" font-size="11.5" font-weight="600" fill="#6d28d9">👤 you report how it went</text>
-  <text x="682" y="183" font-size="11.5" fill="#374151">captures progress &amp; blockers</text>
-  <text x="682" y="203" font-size="11.5" fill="#374151">senses tomorrow's resistance (0–100)</text>
-  <text x="682" y="222" font-size="10" fill="#6b7280">will it be easy or hard to start?</text>
-  <text x="682" y="246" font-size="11.5" fill="#374151">leaves a seed for tomorrow morning</text>
+  <text x="682" y="138" font-size="14" font-weight="700" fill="#6d28d9">🌙 Reflect</text>
+  <text x="682" y="160" font-size="11.5" font-weight="600" fill="#6d28d9">👤 you report how it went</text>
+  <text x="682" y="179" font-size="11.5" fill="#374151">captures progress &amp; blockers</text>
+  <text x="682" y="197" font-size="11.5" fill="#374151">senses tomorrow's resistance (0–100)</text>
+  <text x="682" y="212" font-size="10" fill="#6b7280">will it be easy or hard to start?</text>
+  <text x="682" y="231" font-size="11.5" fill="#374151">leaves a seed for tomorrow morning</text>
+  <text x="682" y="250" font-size="9.5" fill="#6b7280">sums up today's intensity</text>
+  <rect x="682" y="256" width="206" height="5" rx="2.5" fill="url(#intensityGrad)"/>
+  <text x="785" y="272" text-anchor="middle" font-size="9" fill="#6b7280">recovery · standard · push · deadline</text>
 
   <!-- band arrows -->
   <line x1="322" y1="195" x2="384" y2="195" stroke="#64748b" stroke-width="1.8" marker-end="url(#mCool)"/>
@@ -83,7 +83,7 @@
   <path d="M 785 280 Q 720 420 563 439" fill="none" stroke="url(#amberGrad)" stroke-width="2.6" filter="url(#glow)" marker-end="url(#mAmber)"/>
   <text x="645" y="362" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b45309">remembers today</text>
   <!-- memory -> plan -->
-  <path d="M 403 442 Q 240 420 195 286" fill="none" stroke="url(#amberGrad)" stroke-width="2.6" filter="url(#glow)" marker-end="url(#mAmber)"/>
+  <path d="M 403 442 Q 240 400 195 236" fill="none" stroke="url(#amberGrad)" stroke-width="2.6" filter="url(#glow)" marker-end="url(#mAmber)"/>
   <text x="336" y="383" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b45309">resizes tomorrow's plan</text>
   <!-- badge -->
   <rect x="408" y="336" width="144" height="27" rx="13.5" fill="#f59e0b" filter="url(#glow)"/>

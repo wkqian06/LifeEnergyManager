@@ -146,9 +146,10 @@ Purpose:
 
 Output:
 
-- `agent_energy_score`: 0-100,
+- `agent_energy_score`: 0-100 (blind estimate),
 - `agent_energy_confidence`: low / medium / high,
 - `agent_energy_summary`,
+- `agent_calibrated_score`: 0-100 (final estimate after weighing the user self-score; drives the planning adjustment),
 - `planning_adjustment`.
 
 Rules:
@@ -159,7 +160,7 @@ Rules:
 - If the user feels very tired but remains motivated and expects to continue meaningful work tomorrow, record a relatively low score.
 - Do not shame or punish the user.
 - Prefer conservative planning adjustments.
-- Compare with the user's drive-resistance self-score only as calibration.
+- The agent estimates its score blind: from report evidence only (completions, blockers, focus minutes, energy/condition text, tomorrow first action), never reading the user self-score or its note before scoring. The user self-score is the user's own evening evaluation of the day - an independent signal, not an input. After the blind score is recorded, read the user self-score and note and produce `agent_calibrated_score`; the blind score is never edited afterwards. All three scores (agent blind, agent calibrated, user) are recorded side by side. A blind-vs-user divergence of 30+ points is itself a planning signal: surface it explicitly.
 
 ## AdviceAgent
 

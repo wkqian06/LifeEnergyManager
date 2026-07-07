@@ -43,10 +43,13 @@ Required Recent State behavior:
 
 - Keep the module title `Recent state`.
 - Show status summary, today advice, and anti-distraction guidance.
-- Show one combined recent 7-day chart:
+- Show one combined recent 7-day chart with two labeled y-axes (left = daily focus minutes with tick values, right = 0-100 score with tick values) and date labels on the x-axis:
   - focus minutes as bars on the left y-axis,
-  - agent next-day drive-resistance score as dashed line on the right y-axis,
-  - user next-day drive-resistance self-score as solid line on the right y-axis.
+  - agent blind drive-resistance score as gray dashed line on the right y-axis,
+  - agent calibrated score as blue solid line on the right y-axis,
+  - user self-score as green solid line on the right y-axis.
+- Show a color-swatch legend that distinguishes all four series (bars + three score lines).
+- Record and display all three scores per day: agent blind score, agent calibrated score, user self-score (history keys: `agentEnergyScore`, `agentCalibratedScore`, `userEnergyScore`).
 - Define score direction wherever the score appears: `0` means tomorrow's motivation and willingness are strong, including physically tired today but still eager to continue; `100` means tomorrow is likely to feel resistant, unwilling, or hard to start. Higher score means lower next-day drive, not merely more physical tiredness.
 - Use only recorded prior evening reports for the chart.
 - The current day's user next-day drive-resistance self-score is saved into tonight's report and appears only the next day.

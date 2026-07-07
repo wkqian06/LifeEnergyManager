@@ -12,8 +12,8 @@ Use this skill as the default bounded-analysis contract for next-day drive-resis
 ## Inputs
 
 - Evening workbench report or sparse manual evening fields.
-- User self-score and note, if present.
-- Completed tasks, incomplete tasks, blockers, focus minutes, condition, and tomorrow first action.
+- Completed tasks, incomplete tasks, blockers, focus minutes, condition (energy/condition text), and tomorrow first action.
+- The user self-score and its note are NOT scoring inputs. Do not read them before estimating; they are the user's own independent evening evaluation of the day, recorded alongside the agent score afterwards.
 
 ## Scoring Rules
 
@@ -30,15 +30,16 @@ Use this skill as the default bounded-analysis contract for next-day drive-resis
 3. Set `agent_energy_confidence` to low, medium, or high.
 4. Write a short `agent_energy_summary`.
 5. Recommend `planning_adjustment` without punishment or shame.
-6. Compare with user self-score only as calibration.
+6. Only after the blind estimate is recorded, read the user self-score and note, then produce `agent_calibrated_score`: the final estimate after weighing the user's own evening evaluation. The blind `agent_energy_score` is never edited. Base `planning_adjustment` on the calibrated score. If blind and user scores diverge by 30+ points, flag the divergence explicitly as a planning signal.
 
 ## Output
 
 Return:
 
-- `agent_energy_score`,
+- `agent_energy_score` (blind),
 - `agent_energy_confidence`,
 - `agent_energy_summary`,
+- `agent_calibrated_score`,
 - `planning_adjustment`,
 - evidence,
 - inference.

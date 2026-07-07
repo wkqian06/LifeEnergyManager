@@ -46,9 +46,10 @@ From the report:
 
 When enough report content exists, use the `life-energy-drive-resistance` skill by default to infer:
 
-- `agent_energy_score` from 0 to 100,
+- `agent_energy_score` from 0 to 100 (blind estimate),
 - `agent_energy_confidence`,
 - `agent_energy_summary`,
+- `agent_calibrated_score` from 0 to 100 (final estimate after weighing the user self-score; drives `planning_adjustment`),
 - `planning_adjustment`.
 
 Score direction:
@@ -71,7 +72,7 @@ Rules:
 
 - This is not diagnosis.
 - Do not punish low completion with automatic workload increase.
-- Compare agent and user drive-resistance scores only as planning calibration.
+- The agent estimates its score blind: from report evidence only (completions, blockers, focus minutes, energy/condition text, tomorrow first action), never reading the user self-score or its note before scoring. The user self-score is the user's own evening evaluation of the day - an independent signal, not an input. After the blind score is recorded, read the user self-score and note and produce `agent_calibrated_score` - the final estimate that weighs both signals and drives the planning adjustment. The blind score is never edited afterwards. Record all three scores (agent blind, agent calibrated, user) in the daily log and chart history. A blind-vs-user divergence of 30+ points is itself a planning signal: surface it explicitly.
 - Today's user drive-resistance score appears in tomorrow's Recent State chart, not today's chart.
 
 ## Output
