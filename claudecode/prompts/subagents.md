@@ -203,6 +203,7 @@ Checks:
 - readability QA and layout QA are both complete before final presentation,
 - stable color legend,
 - right wallpaper column contains only the three approved reminder blocks,
+- the wallpaper progress row has at most 5 bars (month second-to-last, phase last) and no progress bars appear anywhere else,
 - HTML report can be generated from task fields,
 - HTML and PNG match the same confirmed plan.
 

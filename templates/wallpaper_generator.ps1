@@ -17,7 +17,13 @@
 #   "timeMix": "3 H Baseline + 2 H Stretch",
 #   "baselineTitle": "Baseline 3h",                 // optional; can shrink for manual catch-up
 #   "stretchTitle": "Later 2h stretch",             // optional; can become "No stretch"
-#   "progress": [ { "label": "...", "value": "3/28", "percent": 11, "note": "..." }, x4 ],
+#   "progress": [ { "label": "...", "value": "3/28", "percent": 11, "note": "..." } ],
+#                                                   // single row, MAX 5 items. Order contract:
+#                                                   // last = phase, second-to-last = month (always);
+#                                                   // earlier slots (up to 3) sorted by today's importance
+#                                                   // from week / micro-sprint / ongoing-commitment progress
+#                                                   // (commitment percent = Done vs total estimate midpoint).
+#                                                   // Keep labels short - one line at 26px.
 #   "baseline": [ { "title": "...", "minutes": 60, "desc": "...", "color": "orange" }, ... ],
 #   "stretch":  [ { ...same shape... } ],
 #   "urgent":   [ { ...same shape... } ],           // optional; rendered after stretch cards
@@ -73,16 +79,16 @@ DrawText $cfg.subtitle (F 32) $colMuted 80 160 1500 46
 
 # Top-right summary: task focus (category colored) + time mix. 26px bold wraps inside
 # the chip instead of clipping (spec: no truncated text in the top-right summary).
-$fx = 1660; $fy = 55; $fw = 400; $fh = 110
+$fx = 1660; $fy = 45; $fw = 400; $fh = 140
 Panel $fx $fy $fw $fh $catSoft[$cfg.focusColor]
 $g.FillRectangle((Brush $cat[$cfg.focusColor]), $fx, $fy, 12, $fh)
 DrawText 'TASK FOCUS' (F 22 'Bold') $colMuted ($fx+30) ($fy+14) ($fw-40) 28
-DrawText $cfg.focusType (F 26 'Bold') $cat[$cfg.focusColor] ($fx+30) ($fy+50) ($fw-36) 54
+DrawText $cfg.focusType (F 22 'Bold') $cat[$cfg.focusColor] ($fx+30) ($fy+48) ($fw-36) 82
 $tx = $fx + $fw + 20
 Panel $tx $fy $fw $fh $colPanel
 $g.FillRectangle((Brush $cat['gray']), $tx, $fy, 12, $fh)
 DrawText 'TIME MIX' (F 22 'Bold') $colMuted ($tx+30) ($fy+14) ($fw-40) 28
-DrawText $cfg.timeMix (F 26 'Bold') $colInk ($tx+30) ($fy+50) ($fw-36) 54
+DrawText $cfg.timeMix (F 26 'Bold') $colInk ($tx+30) ($fy+58) ($fw-36) 54
 
 # Stable task-category color legend (wording matches templates/artifact_spec.md)
 $legend = @(
@@ -97,14 +103,20 @@ foreach ($item in $legend) {
   $lx += 620
 }
 
-# ---------- Progress row (neutral gray-blue bars per spec) ----------
-$py = 300; $pw = 580; $ph = 140; $gap = 27
-for ($i = 0; $i -lt $cfg.progress.Count; $i++) {
-  $p = $cfg.progress[$i]
+# ---------- Progress row (single row, max 5 bars; month second-to-last, phase last) ----------
+# Order responsibility sits with the config: slots before the final two are sorted
+# by today's importance (week / micro-sprint / ongoing-commitment progress).
+$prog = @($cfg.progress)
+if ($prog.Count -gt 5) { Write-Warning "progress: more than 5 items supplied; rendering the first 5 only"; $prog = $prog[0..4] }
+$n = [Math]::Max(1, $prog.Count)
+$py = 300; $ph = 140; $gap = 24
+$pw = [Math]::Floor((2400 - ($n - 1) * $gap) / $n)
+for ($i = 0; $i -lt $prog.Count; $i++) {
+  $p = $prog[$i]
   $px = 80 + $i * ($pw + $gap)
   Panel $px $py $pw $ph $colPanel
-  DrawText $p.label (F 26 'Bold') $colInk ($px+20) ($py+14) ($pw-160) 36
-  DrawText $p.value (F 26 'Bold') $colMuted ($px+$pw-150) ($py+14) 135 36
+  DrawText $p.label (F 26 'Bold') $colInk ($px+20) ($py+14) ($pw-150) 36
+  DrawText $p.value (F 26 'Bold') $colMuted ($px+$pw-125) ($py+14) 110 36
   $g.FillRectangle((Brush $colLine), ($px+20), ($py+62), ($pw-40), 16)
   $fillw = [Math]::Max(6, ($pw-40) * [Math]::Min(100, [double]$p.percent) / 100)
   $g.FillRectangle((Brush $colBar), ($px+20), ($py+62), $fillw, 16)
@@ -127,8 +139,8 @@ function TaskCard([single]$x, [ref]$yRef, $task, [single]$hh) {
   $compact = $hh -lt 168
   $titleFontSize = if ($compact) { 25 } else { 30 }
   $titleH = if ($compact) { 70 } else { 84 }
-  DrawText $task.title (F $titleFontSize 'Bold') $colInk ($x+34) ($y+14) 660 $titleH
-  DrawText ("$($task.minutes) min") (F 26 'Bold') $cat[$task.color] ($x+660) ($y+16) 100 36
+  DrawText $task.title (F $titleFontSize 'Bold') $colInk ($x+34) ($y+14) 590 $titleH
+  DrawText ("$($task.minutes) min") (F 26 'Bold') $cat[$task.color] ($x+620) ($y+16) 140 36
   $descFontSize = if ($compact) { 22 } else { 24 }
   DrawText $task.desc (F $descFontSize) $colMuted ($x+34) ($y+$titleH+16) 705 ($hh-$titleH-26)
   $yRef.Value = $y + $hh + 20

@@ -25,10 +25,12 @@ Top header:
 
 Progress row:
 
-- Phase progress.
-- Month progress.
-- Week progress.
-- Active micro-sprint progress.
+- One row only, at most 5 bars. Progress bars appear nowhere else on the wallpaper.
+- The LAST bar is always phase progress; the SECOND-TO-LAST is always month progress.
+- The remaining slots (up to 3) are chosen and ordered by today's importance from:
+  week progress, active micro-sprints, and ongoing-commitment progress
+  (commitment percent = recorded Done minutes vs total estimate, midpoint of a range).
+- Keep bar labels short enough for one line.
 - Progress bars use neutral gray-blue, not task-category colors.
 
 Main board:
@@ -61,7 +63,7 @@ Do not assign colors to specific projects. If one project ends and another start
 Include:
 
 - Tasks.
-- Static phase/month/week/micro-sprint progress.
+- The single progress row (max 5 bars; month second-to-last, phase last).
 - Top-right task focus and time combination summary.
 - Status summary.
 - Today advice.
@@ -88,8 +90,8 @@ Readability rules:
 
 Exclude:
 
-- Dynamic focus progress.
-- Dynamic urgent-task progress.
+- Dynamic focus progress (live within-day counters).
+- Any progress bar outside the single progress row; commitment progress may appear only as one of its (max 5) bars.
 - Next-day drive-resistance scores.
 - Long workflow explanations.
 - Artifact/process instructions.
@@ -101,6 +103,7 @@ Exclude:
 - The subtitle does not overlap the title.
 - The top-right summary clearly reads as `task focus | time mix`.
 - Cards do not overlap.
+- The progress row has at most 5 bars, with month progress second-to-last and phase progress last.
 - Text blocks have breathing room.
 - The right column has exactly the three intended reminder blocks.
 - The three reminder blocks are readable as standalone text.

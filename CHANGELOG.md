@@ -2,6 +2,32 @@
 
 This project uses date-based changelog entries until formal version tags are introduced.
 
+## 2026-07-07 - Three-score history and artifact progress row refinement
+
+### Added
+
+- Added a three-score next-day drive-resistance model:
+  `agent_energy_score` as a blind estimate from report evidence only,
+  `agent_calibrated_score` as the final estimate after weighing the user self-score,
+  and the user's own evening self-score as an independent signal.
+- Added a dual-axis Recent State chart in the HTML workbench with focus-minute bars on the left axis and three score series on the right axis.
+- Added a new Latest calibrated metric tile to the Recent State panel.
+- Added explicit artifact QA checks for the wallpaper progress row: at most 5 bars total, month progress second-to-last, and phase progress last.
+- Added progress-kind chips in the HTML plan stack so phase, month, week, sprint, and commitment progress are visually classified.
+
+### Changed
+
+- Moved today's intensity summary in the workflow diagram from the morning planning card to the evening reflection card so it reads as an end-of-day signal.
+- Updated Codex and Claude Code evening contracts, drive-resistance skills, and energy/artifact QA instructions to keep the blind score independent from the user's self-score until calibration time.
+- Updated wallpaper and artifact specs so the wallpaper now has a single constrained progress row instead of unconstrained progress bars.
+- Updated the Windows wallpaper generator to enforce the single progress-row layout, resize the top-right summary block, and fit task cards more reliably.
+- Updated the HTML workbench to sort plan-stack progress cards by kind, render commitment cards through the commitments panel, and keep ongoing commitments out of ordinary deferred-task summaries.
+
+### Notes
+
+- This entry captures both the already-landed three-score/history work and the current artifact-layout refinement so the changelog matches the repository state as of 2026-07-07.
+- `outputs/` and `test/` remain local ignored runtime/test state and are not part of this release.
+
 ## 2026-07-06 - Ongoing commitments lifecycle
 
 ### Added

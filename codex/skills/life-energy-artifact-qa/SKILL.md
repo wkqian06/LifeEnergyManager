@@ -33,7 +33,8 @@ Use this skill when `ArtifactQAAgent` is unavailable. Artifact QA is normally a 
 - If readability and wallpaper layout conflict, require reducing details or task count before accepting cryptic wording.
 - Color legend is stable and category-based.
 - Right wallpaper column contains only status summary, today advice, and anti-distraction tip.
-- Wallpaper excludes dynamic focus progress, urgent progress bars, drive-resistance scores, process instructions, evening fields, and long workflow rules.
+- Wallpaper has one progress row with at most 5 bars, month progress second-to-last and phase progress last, and no progress bars anywhere else.
+- Wallpaper excludes live within-day focus counters, drive-resistance scores, process instructions, evening fields, and long workflow rules.
 - Run readability QA and layout QA as separate passes, then integrate the fixes into the final artifacts.
 
 ## Output

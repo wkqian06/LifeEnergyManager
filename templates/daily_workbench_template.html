@@ -103,6 +103,20 @@
     .color-dot.orange { background: var(--orange); }
     .color-dot.gray { background: var(--gray); }
     .progress-card { padding: 14px; }
+    .progress-kind {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-bottom: 7px;
+    }
+    .progress-card.kind-commitment .progress-kind { color: var(--blue); background: var(--blue-soft); }
     .progress-head { display: flex; justify-content: space-between; gap: 10px; font-weight: 800; }
     .bar { height: 9px; background: #e6ebf2; border-radius: 999px; margin: 10px 0; overflow: hidden; }
     .fill { height: 100%; background: var(--gray); border-radius: inherit; }
@@ -295,13 +309,18 @@
 
     function renderPlanStack() {
       const root = document.getElementById("planStack");
-      root.innerHTML = (PLAN.stack || []).map(item => `
-        <article class="progress-card">
+      const KINDS = ["phase", "month", "week", "sprint", "commitment"];
+      const rank = kind => { const i = KINDS.indexOf(kind); return i === -1 ? KINDS.length : i; };
+      const ordered = (PLAN.stack || [])
+        .map((item, index) => ({ item, index, kind: KINDS.includes(item.kind) ? item.kind : "plan" }))
+        .sort((a, b) => rank(a.kind) - rank(b.kind) || a.index - b.index);
+      root.innerHTML = ordered.map(({ item, kind }) => `
+        <article class="progress-card kind-${kind}">
+          <span class="progress-kind">${kind}</span>
           <div class="progress-head"><span>${escapeHtml(item.label)}</span><span>${escapeHtml(item.value)}</span></div>
           <div class="bar"><div class="fill" style="width:${Math.max(0, Math.min(100, Number(item.percent || 0)))}%"></div></div>
           <p class="meta">${escapeHtml(item.note || "")}</p>
-        </article>
-      `).join("");
+        </article>`).join("");
     }
 
     function renderTask(task, targetId) {
@@ -336,7 +355,7 @@
     }
 
     function renderTasks() {
-      (PLAN.urgentTasks || []).forEach(task => renderTask(task, "urgentTasks"));
+      (PLAN.commitments || PLAN.urgentTasks || []).forEach(task => renderTask(task, "urgentTasks"));
       (PLAN.baseline || []).forEach(task => renderTask(task, "baselineTasks"));
       (PLAN.stretch || []).forEach(task => renderTask(task, "stretchTasks"));
     }

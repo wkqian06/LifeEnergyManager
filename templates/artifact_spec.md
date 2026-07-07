@@ -19,6 +19,7 @@ Required behavior:
   - Green: deep research/analysis/implementation.
   - Gray: planning/log/admin/stop.
 - Include baseline tasks, stretch tasks, and accepted urgent tasks.
+- The plan-stack progress cards carry a `kind` class (phase | month | week | sprint | commitment) rendered as a small uppercase chip, so progress types are visually classified. The workbench sorts the cards by category order (phase, then month, then week, then sprint, then commitment; original order kept within a category), regardless of the order supplied in the stack. Ongoing commitments MAY each have a progress card here (percent = recorded Done minutes vs total estimate, midpoint of a range); the HTML has no five-bar cap - that cap applies to the wallpaper progress row only.
 - The top-right header summary must show exactly:
   - today's overall task focus type, colored with its task-category color,
   - recommended time combination, for example `4 H Baseline + 1 H Stretch`.
@@ -72,7 +73,7 @@ Required behavior:
   - subtitle,
   - top-right summary with today's overall task focus type and recommended time combination,
   - stable task-category color legend,
-  - phase/month/week/active micro-sprint progress,
+  - one progress row with at most 5 bars: phase progress LAST, month progress SECOND-TO-LAST, and up to 3 earlier slots chosen and ordered by today's importance from week / micro-sprint / ongoing-commitment progress,
   - baseline column, with label adjusted when a manual catch-up plan has less than the normal 3h baseline,
   - stretch column, with label adjusted or omitted when a manual catch-up plan has no stretch work,
   - right-side status/advice column.
@@ -103,8 +104,8 @@ Readability requirements:
 
 Do not include:
 
-- dynamic focus progress,
-- urgent task progress bars,
+- dynamic focus progress (live within-day counters),
+- any progress bar outside the single progress row (commitment progress only as one of its max-5 bars),
 - next-day drive-resistance scores,
 - artifact instructions,
 - evening fields,
