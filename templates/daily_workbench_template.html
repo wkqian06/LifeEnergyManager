@@ -201,12 +201,12 @@
         <p class="meta">Your two self-scores are saved into tonight's report and appear on tomorrow's chart, not today's.</p>
         <div class="global-fields">
           <div>
-            <label for="reserveSelf">Energy reserve self (0-100)</label>
-            <input id="reserveSelf" data-field="reserveSelf" type="number" min="0" max="100" step="5" placeholder="0-100">
+            <label for="remainingSelf">Energy remaining self (0-100)</label>
+            <input id="remainingSelf" data-field="remainingSelf" type="number" min="0" max="100" step="5" placeholder="0-100">
           </div>
           <div>
-            <label for="reserveNote">Reserve note</label>
-            <input id="reserveNote" data-field="reserveNote" placeholder="Optional short note">
+            <label for="remainingNote">Remaining note</label>
+            <input id="remainingNote" data-field="remainingNote" placeholder="Optional short note">
           </div>
           <div>
             <label for="predDriveSelf">Predicted next-day drive self (0-100)</label>
@@ -217,7 +217,7 @@
             <input id="predDriveNote" data-field="predDriveNote" placeholder="Optional short note">
           </div>
         </div>
-        <p class="meta">All scores are 0-100, higher = better. Energy reserve: 0 = depleted, 100 = full. Predicted next-day drive: 0 = hard to start tomorrow, 100 = strong drive. These are your own evening evaluation; the agent scores independently and never reads yours before its blind estimate.</p>
+        <p class="meta">All scores are 0-100, higher = better. Energy remaining: 0 = depleted, 100 = full. Predicted next-day drive: 0 = hard to start tomorrow, 100 = strong drive. These are your own evening evaluation; the agent scores independently and never reads yours before its blind estimate.</p>
       </div>
       <div class="panel wide">
         <h2>Recent state</h2>
@@ -225,7 +225,7 @@
         <p><strong>Today advice:</strong> <span id="todayAdvice"></span></p>
         <p><strong>Anti-distraction:</strong> <span id="antiDistractionTip"></span></p>
         <div class="perspective-row">
-          <label for="perspective">Perspective for reserve &amp; predicted drive:</label>
+          <label for="perspective">Perspective for remaining energy &amp; predicted drive:</label>
           <select id="perspective">
             <option value="Calibrated">Agent calibrated</option>
             <option value="Self">Self</option>
@@ -239,15 +239,15 @@
         </div>
         <div class="legend">
           <span><span style="display:inline-block;width:14px;height:10px;background:#64748b;opacity:.75;border-radius:2px;vertical-align:middle;margin-right:5px"></span>Focus minutes (left axis)</span>
-          <span><span style="display:inline-block;width:20px;border-top:3px solid #008057;vertical-align:middle;margin-right:5px"></span>Energy reserve (right axis)</span>
+          <span><span style="display:inline-block;width:20px;border-top:3px solid #008057;vertical-align:middle;margin-right:5px"></span>Energy remaining (right axis)</span>
           <span><span style="display:inline-block;width:20px;border-top:3px dashed #2563eb;vertical-align:middle;margin-right:5px"></span>Predicted next-day drive (right axis)</span>
-          <span><span style="display:inline-block;width:20px;border-top:3px solid #cc7000;vertical-align:middle;margin-right:5px"></span>Actual drive (right axis)</span>
+          <span><span style="display:inline-block;width:20px;border-top:3px solid #cc7000;vertical-align:middle;margin-right:5px"></span>Actual start-of-day drive (right axis)</span>
         </div>
         <div class="metrics">
           <div class="metric"><span>Recorded days</span><strong id="recordedDays">0 / 7</strong></div>
-          <div class="metric"><span>Latest energy reserve</span><strong id="latestReserve">Waiting</strong></div>
+          <div class="metric"><span>Latest energy remaining</span><strong id="latestRemaining">Waiting</strong></div>
           <div class="metric"><span>Latest predicted drive</span><strong id="latestPredDrive">Waiting</strong></div>
-          <div class="metric"><span>Latest actual drive</span><strong id="latestActual">Waiting</strong></div>
+          <div class="metric"><span>Latest actual start-of-day drive</span><strong id="latestActual">Waiting</strong></div>
           <div class="metric"><span>Latest adjustment</span><strong id="latestAdjustment">Waiting</strong></div>
         </div>
       </div>
@@ -474,9 +474,9 @@
         section("Energy / condition", [], fields.energyCondition),
         "",
         "Daily scores (0-100, higher = better):",
-        `- Energy reserve, self: ${fields.reserveSelf ? `${fields.reserveSelf} / 100` : "not set"}${fields.reserveNote ? ` (${fields.reserveNote})` : ""}`,
+        `- Energy remaining, self: ${fields.remainingSelf ? `${fields.remainingSelf} / 100` : "not set"}${fields.remainingNote ? ` (${fields.remainingNote})` : ""}`,
         `- Predicted next-day drive, self: ${fields.predDriveSelf ? `${fields.predDriveSelf} / 100` : "not set"}${fields.predDriveNote ? ` (${fields.predDriveNote})` : ""}`,
-        "- Energy reserve (agent blind/calibrated), actual drive: pending evening quantification.",
+        "- Energy remaining (agent blind/calibrated), actual start-of-day drive: pending evening quantification.",
         "",
         section("Agent work launched/reviewed", [], fields.agentWork),
         "",
@@ -513,7 +513,7 @@
       }).join("");
       const perspective = (document.getElementById("perspective") || {}).value || "Calibrated";
       const seriesPoints = key => data.map((item, index) => Number.isFinite(Number(item[key])) ? `${xAt(index)},${yScore(Number(item[key]))}` : "").filter(Boolean);
-      const reserveList = seriesPoints("reserve" + perspective);
+      const remainingList = seriesPoints("remaining" + perspective);
       const predDriveList = seriesPoints("predDrive" + perspective);
       const actualList = seriesPoints("actualDrive");
       const dots = (list, fill) => list.map(p => { const [cx, cy] = p.split(","); return `<circle cx="${cx}" cy="${cy}" r="5" fill="${fill}"/>`; }).join("");
@@ -531,17 +531,17 @@
         ${rightTicks}
         ${dateLabels}
         ${bars}
-        ${line(reserveList, "#008057")}
+        ${line(remainingList, "#008057")}
         ${line(predDriveList, "#2563eb", "8 7")}
         ${line(actualList, "#cc7000")}
-        ${dots(reserveList, "#008057")}
+        ${dots(remainingList, "#008057")}
         ${dots(predDriveList, "#2563eb")}
         ${dots(actualList, "#cc7000")}
       `;
       const latest = data[data.length - 1];
       const show = v => v == null ? "not recorded" : `${v} / 100`;
       document.getElementById("recordedDays").textContent = `${Math.min(data.length, 7)} / 7`;
-      document.getElementById("latestReserve").textContent = show(latest["reserve" + perspective]);
+      document.getElementById("latestRemaining").textContent = show(latest["remaining" + perspective]);
       document.getElementById("latestPredDrive").textContent = show(latest["predDrive" + perspective]);
       document.getElementById("latestActual").textContent = show(latest.actualDrive);
       document.getElementById("latestAdjustment").textContent = latest.planningAdjustment || "not recorded";

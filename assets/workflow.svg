@@ -51,7 +51,8 @@
   <text x="92" y="140" font-size="14" font-weight="700" fill="#b45309">☀️ Plan the day</text>
   <text x="92" y="163" font-size="11.5" fill="#374151">a plan sized to today's real energy</text>
   <text x="92" y="183" font-size="11.5" font-weight="600" fill="#b45309">👤 extra tasks? quick triage</text>
-  <text x="92" y="203" font-size="11.5" font-weight="600" fill="#b45309">👤 you confirm the final plan</text>
+  <text x="92" y="203" font-size="11.5" fill="#374151">ongoing commitments: slice or skip</text>
+  <text x="92" y="221" font-size="11.5" font-weight="600" fill="#b45309">👤 you confirm the final plan</text>
 
   <!-- run card -->
   <rect x="390" y="125" width="200" height="140" rx="14" fill="#f0f9ff" stroke="#7cc4ee" stroke-width="1.3"/>
@@ -65,10 +66,10 @@
   <rect x="660" y="110" width="250" height="170" rx="14" fill="#f5f3ff" stroke="#b7a5ec" stroke-width="1.3"/>
   <rect x="660" y="110" width="4" height="170" rx="2" fill="#8b5cf6"/>
   <text x="682" y="138" font-size="14" font-weight="700" fill="#6d28d9">🌙 Reflect</text>
-  <text x="682" y="160" font-size="11.5" font-weight="600" fill="#6d28d9">👤 you report how it went</text>
+  <text x="682" y="160" font-size="11.5" font-weight="600" fill="#6d28d9">👤 you report &amp; self-score the day</text>
   <text x="682" y="179" font-size="11.5" fill="#374151">captures progress &amp; blockers</text>
-  <text x="682" y="197" font-size="11.5" fill="#374151">senses tomorrow's resistance (0–100)</text>
-  <text x="682" y="212" font-size="10" fill="#6b7280">will it be easy or hard to start?</text>
+  <text x="682" y="197" font-size="11.5" fill="#374151">scores energy left &amp; tomorrow's drive</text>
+  <text x="682" y="212" font-size="10" fill="#6b7280">0–100, higher = better · self + blind, calibrated</text>
   <text x="682" y="231" font-size="11.5" fill="#374151">leaves a seed for tomorrow morning</text>
   <text x="682" y="250" font-size="9.5" fill="#6b7280">sums up today's intensity</text>
   <rect x="682" y="256" width="206" height="5" rx="2.5" fill="url(#intensityGrad)"/>
@@ -84,7 +85,7 @@
   <text x="645" y="362" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b45309">remembers today</text>
   <!-- memory -> plan -->
   <path d="M 403 442 Q 240 400 195 236" fill="none" stroke="url(#amberGrad)" stroke-width="2.6" filter="url(#glow)" marker-end="url(#mAmber)"/>
-  <text x="336" y="383" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b45309">resizes tomorrow's plan</text>
+  <text x="348" y="377" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b45309">resizes tomorrow's plan</text>
   <!-- badge -->
   <rect x="408" y="336" width="144" height="27" rx="13.5" fill="#f59e0b" filter="url(#glow)"/>
   <text x="480" y="354" text-anchor="middle" font-size="11" font-weight="800" letter-spacing="1" fill="#ffffff">ADAPTIVE LOOP</text>
@@ -93,7 +94,7 @@
   <circle cx="480" cy="450" r="80" fill="url(#hubGrad)" stroke="#6366f1" stroke-width="1.4"/>
   <text x="480" y="432" text-anchor="middle" font-size="18" fill="#3730a3">🧠</text>
   <text x="480" y="456" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3">planning memory</text>
-  <text x="480" y="475" text-anchor="middle" font-size="10" fill="#4f46e5">goals · progress</text>
+  <text x="480" y="475" text-anchor="middle" font-size="10" fill="#4f46e5">goals · progress · commitments</text>
   <text x="480" y="490" text-anchor="middle" font-size="10" fill="#4f46e5">energy patterns</text>
 
   <!-- ===== setup entry ===== -->
@@ -126,5 +127,5 @@
   <rect x="635" y="562" width="280" height="46" rx="23" fill="#ffffff" stroke="#d0d7de"/>
   <text x="775" y="590" text-anchor="middle" font-size="10.5" fill="#475569">🛡️ a hard day never raises tomorrow's load</text>
 
-  <text x="480" y="644" text-anchor="middle" font-size="9.5" fill="#6b7280">the resistance score (0–100) is a beta planning heuristic, not a diagnosis</text>
+  <text x="480" y="644" text-anchor="middle" font-size="9.5" fill="#6b7280">the daily energy &amp; drive scores (0–100) are beta planning heuristics, not a diagnosis</text>
 </svg>

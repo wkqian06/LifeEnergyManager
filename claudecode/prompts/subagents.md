@@ -50,7 +50,7 @@ Do not use a subagent when the task is a simple application of the skill contrac
 - Morning: use `life-energy-daily-planner` for provisional plan options; escalate to the `daily-planner` subagent when repeated deferrals, real deadline pressure, low energy, or competing workstreams make intensity selection bias-prone.
 - Morning: use `life-energy-advice` for status summary, today advice, and anti-distraction tip; escalate to the `advice` subagent only when the distraction pattern or state interpretation is unclear from evidence.
 - Morning: use the `artifact-qa` subagent for generated HTML/PNG artifact QA by default, because artifact QA is an independent-review task; if subagent delegation is unavailable, use `life-energy-artifact-qa`.
-- Evening: use `life-energy-drive-resistance` when enough report content exists to produce the three daily metrics (energy reserve, predicted next-day drive, actual drive); escalate to the `energy-quant` subagent when the report is ambiguous, its signals diverge, or the result would change next-day intensity.
+- Evening: use `life-energy-drive-resistance` when enough report content exists to produce the three daily metrics (energy remaining, predicted next-day drive, actual start-of-day drive); escalate to the `energy-quant` subagent when the report is ambiguous, its signals diverge, or the result would change next-day intensity.
 - Sunday: use `life-energy-weekly-review` before updating the next weekly plan; escalate to the `weekly-review` subagent when the week contains repeated deferrals, unclear blockers, or major priority changes.
 
 ## Global Rules
@@ -138,11 +138,11 @@ Output:
 
 Purpose:
 
-- Produce the three daily scoring metrics (energy reserve, predicted next-day drive, actual drive) from the evening report. Definitions live in the tracker's Daily Scoring Model; all are 0-100, higher = better.
+- Produce the three daily scoring metrics (energy remaining, predicted next-day drive, actual start-of-day drive) from the evening report. Definitions live in the tracker's Daily Scoring Model; all are 0-100, higher = better.
 
 Output:
 
-- `reserveBlind`, `reserveCalibrated`,
+- `remainingBlind`, `remainingCalibrated`,
 - `predDriveBlind`, `predDriveCalibrated`,
 - `actualDrive` (single blind value),
 - `agent_energy_confidence`: low / medium / high,
@@ -153,8 +153,8 @@ Output:
 Rules:
 
 - This is not diagnosis. Do not shame or punish the user.
-- Blind pass first, from report evidence only: `reserveBlind`, `predDriveBlind`, `actualDrive` (anchor actual drive on focus minutes and completions). Then read the user self-scores (`reserveSelf`, `predDriveSelf`) and produce the calibrated values; blind values are never edited.
-- `planning_adjustment` is informed by energy reserve and actual drive; the predicted-vs-actual comparison is calibration only, not a planning input.
+- Blind pass first, from report evidence only: `remainingBlind`, `predDriveBlind`, `actualDrive` (anchor actual start-of-day drive on focus minutes and completions). Then read the user self-scores (`remainingSelf`, `predDriveSelf`) and produce the calibrated values; blind values are never edited.
+- `planning_adjustment` is informed by energy remaining and actual start-of-day drive; the predicted-vs-actual comparison is calibration only, not a planning input.
 - Compare `actualDrive` (today) with the calibrated prediction made last night; flag a large gap. Also flag a blind-vs-self drive-prediction gap of 30+ points.
 - Prefer conservative planning adjustments.
 

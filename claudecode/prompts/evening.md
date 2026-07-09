@@ -29,7 +29,7 @@ From the report:
 1. Update the daily log.
 2. Update rolling 30-day state:
    - recent focus trend,
-   - drive and reserve pattern,
+   - drive and energy pattern,
    - recurring blockers,
    - repeatedly deferred tasks (ongoing commitments are exempt - their absence is tracked only by Skip count),
    - agent tasks pending review.
@@ -44,18 +44,18 @@ From the report:
 
 ## Daily Scoring (three metrics)
 
-The three metrics (energy reserve, predicted next-day drive, actual drive) are defined once in the tracker's Daily Scoring Model - read it, do not restate it. All are 0-100, higher = better. When enough report content exists, use the `life-energy-drive-resistance` skill by default to produce them; escalate to the `energy-quant` subagent only when the report is ambiguous, emotionally strong, its signals diverge, or the result would change next-day intensity.
+The three metrics (energy remaining, predicted next-day drive, actual start-of-day drive) are defined once in the tracker's Daily Scoring Model - read it, do not restate it. All are 0-100, higher = better. When enough report content exists, use the `life-energy-drive-resistance` skill by default to produce them; escalate to the `energy-quant` subagent only when the report is ambiguous, emotionally strong, its signals diverge, or the result would change next-day intensity.
 
 Order of work:
 
-1. **Blind pass** - from report evidence only (completions, blockers, focus minutes, energy/condition text, tomorrow first action), WITHOUT reading the user self-scores: `reserveBlind`, `predDriveBlind`, and `actualDrive` (single value, anchored on focus minutes and completions, never calibrated).
-2. **Read** the user self-scores from the workbench report: `reserveSelf`, `predDriveSelf` (plus their notes). These are the user's own evening evaluation, an independent signal, never an input to the blind pass.
-3. **Calibrate**: `reserveCalibrated`, `predDriveCalibrated`, weighing the user self-scores; the blind values are never edited afterward.
+1. **Blind pass** - from report evidence only (completions, blockers, focus minutes, energy/condition text, tomorrow first action), WITHOUT reading the user self-scores: `remainingBlind`, `predDriveBlind`, and `actualDrive` (single value, anchored on focus minutes and completions, never calibrated).
+2. **Read** the user self-scores from the workbench report: `remainingSelf`, `predDriveSelf` (plus their notes). These are the user's own evening evaluation, an independent signal, never an input to the blind pass.
+3. **Calibrate**: `remainingCalibrated`, `predDriveCalibrated`, weighing the user self-scores; the blind values are never edited afterward.
 4. Also record `agent_energy_confidence` and `planning_adjustment`.
 
 Storage and comparison:
 
-- Write today's row: `reserveSelf/Blind/Calibrated`, `actualDrive`, and the two notes.
+- Write today's row: `remainingSelf/Blind/Calibrated`, `actualDrive`, and the two notes.
 - Upsert tomorrow's row with `predDriveSelf/Blind/Calibrated` (prediction is stored under the day it targets, so it aligns with that day's `actualDrive`).
 - Compare today's `actualDrive` with the calibrated prediction made last night (`predDriveCalibrated` already in today's row). A large gap means the predictor is miscalibrated - record it as a calibration note (not a planning input).
 
@@ -63,7 +63,7 @@ Rules:
 
 - This is not diagnosis.
 - Do not punish low completion with automatic workload increase.
-- `planning_adjustment` is informed by today's energy reserve and actual drive (both feed tomorrow's sizing), using the agent-calibrated variant as the primary reserve signal (`reserveCalibrated`). The predicted-vs-actual drive comparison is recorded for calibration only, not a planning input.
+- `planning_adjustment` is informed by today's energy remaining and actual start-of-day drive (both feed tomorrow's sizing), using the agent-calibrated variant as the primary remaining-energy signal (`remainingCalibrated`). The predicted-vs-actual start-of-day drive comparison is recorded for calibration only, not a planning input.
 - A blind-vs-self divergence of 30+ points on the drive prediction is itself a planning signal: surface it explicitly.
 - If only sparse data exists, ask for the minimal evening fields first, then run the skill if available or escalate only when the signals above apply. If neither the `life-energy-drive-resistance` skill nor a justified `energy-quant` subagent path is available, record `EnergyQuantAgent: main-thread fallback` and produce the same three metrics in the main session.
 - Tonight's self-scores and predictions appear on tomorrow's Recent State chart, not today's.
@@ -74,7 +74,7 @@ After updating the tracker, report:
 
 - what changed in the tracker,
 - current focus trend,
-- current drive and reserve pattern (incl. any actual-vs-predicted gap),
+- current drive and energy pattern (incl. any actual-vs-predicted gap),
 - unresolved blockers,
 - tomorrow's first action,
 - whether tomorrow should likely be Recovery, Standard, Push, or Deadline,

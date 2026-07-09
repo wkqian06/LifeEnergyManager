@@ -94,7 +94,7 @@ Use rolling state to adjust intensity:
 - Normal condition: use Standard.
 - Acceptable energy plus gate pressure: use Push.
 - Real deadline within 1-2 days: use Deadline.
-- Weigh yesterday's energy reserve and actual drive (from the tracker's Drive and reserve pattern): low reserve or low actual drive argues for a lighter day. Do not raise the load to compensate.
+- Weigh yesterday's energy remaining and actual start-of-day drive (from the tracker's Drive and energy pattern): low remaining energy or low actual start-of-day drive argues for a lighter day. Do not raise the load to compensate.
 
 Always fit the selected intensity inside the planning window from the run
 context. A late manual catch-up run should normally shrink the task count before
@@ -157,7 +157,7 @@ HTML workbench:
 - may use longer, clearer wording than the wallpaper for status summary, today advice, and anti-distraction guidance,
 - global fields,
 - recent state chart,
-- user energy-reserve and predicted-drive self-score inputs,
+- user energy remaining and predicted-drive self-score inputs,
 - auto-generated Markdown report,
 - copy report and download report controls,
 - local browser persistence.

@@ -132,16 +132,16 @@ Agent-delegable tasks:
 
 Single source for the three daily metrics. All are 0-100 and same-direction (higher = better/more); they share one chart axis. Definitions and field keys must not be restated elsewhere - other files reference this section.
 
-- **Energy reserve** (`reserveSelf` / `reserveBlind` / `reserveCalibrated`): energy left after today. `0` = depleted, `100` = full reserve. A next-day planning input: yesterday's reserve helps size today.
-- **Predicted next-day drive** (`predDriveSelf` / `predDriveBlind` / `predDriveCalibrated`): drive expected tomorrow. `0` = hard to start, `100` = strong drive. A forecast, compared to the next day's actual drive for calibration; the comparison is not a planning input.
-- **Actual drive** (`actualDrive`, single agent value from the evening report): drive actually available today. Same scale as predicted drive. A next-day planning input; also compared against the prior night's `predDriveCalibrated` for calibration only.
+- **Energy remaining** (`remainingSelf` / `remainingBlind` / `remainingCalibrated`): energy left after today. `0` = depleted, `100` = full. A next-day planning input: yesterday's remaining energy helps size today.
+- **Predicted next-day drive** (`predDriveSelf` / `predDriveBlind` / `predDriveCalibrated`): drive expected tomorrow. `0` = hard to start, `100` = strong drive. A forecast, compared to the next day's actual start-of-day drive for calibration; the comparison is not a planning input.
+- **Actual start-of-day drive** (`actualDrive`, single agent value from the evening report): the drive and energy you actually had when starting the day - how easy it was to get going - assessed from the evening report. This is the realized counterpart of the prior night's predicted next-day drive. Same scale as predicted drive. A next-day planning input; also compared against the prior night's `predDriveCalibrated` for calibration only.
 
 Scoring rules:
 
 - The agent produces `*Blind` values from report evidence only, before reading any user self-score. It then reads the user self-scores and produces `*Calibrated`; blind values are never edited afterward. `actualDrive` is a single blind value (no calibration, anchored on focus minutes and completions).
 - A blind-vs-self gap of 30+ points on the drive prediction is a planning signal - surface it.
 - Prediction is stored under the day it targets: tonight's `predDrive*` is written into tomorrow's row so it aligns with tomorrow's `actualDrive`.
-- Next-day planning is informed by the previous day's energy reserve and actual drive, using the agent-calibrated variant as the primary signal (`reserveCalibrated`; actual drive is a single agent value). The predicted-vs-actual comparison is recorded for calibration only and does not drive planning.
+- Next-day planning is informed by the previous day's energy remaining and actual start-of-day drive, using the agent-calibrated variant as the primary signal (`remainingCalibrated`; actual start-of-day drive is a single agent value). The predicted-vs-actual comparison is recorded for calibration only and does not drive planning.
 
 ## Rolling 30-Day State
 
@@ -155,7 +155,7 @@ Retention rule:
 
 - Not enough data yet.
 
-### Drive And Reserve Pattern
+### Drive And Energy Pattern
 
 - Not enough data yet.
 
