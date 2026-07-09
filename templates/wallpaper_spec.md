@@ -92,7 +92,7 @@ Exclude:
 
 - Dynamic focus progress (live within-day counters).
 - Any progress bar outside the single progress row; commitment progress may appear only as one of its (max 5) bars.
-- Next-day drive-resistance scores.
+- Energy reserve or drive scores (any of the three daily metrics).
 - Long workflow explanations.
 - Artifact/process instructions.
 - Evening forms.

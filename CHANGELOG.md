@@ -2,6 +2,31 @@
 
 This project uses date-based changelog entries until formal version tags are introduced.
 
+## 2026-07-08 - Daily scoring model and direct evening report intake
+
+### Added
+
+- Added a tracker-level `Daily Scoring Model` section as the single source for the three daily metrics:
+  energy reserve, predicted next-day drive, and actual drive.
+- Added separate blind and calibrated agent values for reserve and predicted drive, plus a single blind `actualDrive` metric anchored on focus minutes and completions.
+- Added a shared perspective switch in the HTML Recent State chart so reserve and predicted-drive lines can be viewed as Self, Agent blind, or Agent calibrated while actual drive stays visible.
+- Added explicit actual-vs-predicted comparison notes as a calibration signal.
+
+### Changed
+
+- Replaced the old next-day drive-resistance framing with a same-direction 0-100 scoring model where higher is better across all three metrics.
+- Updated Codex and Claude Code evening contracts, automation prompts, drive-resistance skills, and the Claude `energy-quant` agent to produce the three daily metrics instead of a single resistance score.
+- Updated morning planning guidance so yesterday's energy reserve and actual drive influence today's intensity, while predicted-vs-actual gaps remain calibration-only.
+- Updated the HTML workbench evening inputs from one drive-resistance self-score to two self-scores: energy reserve and predicted next-day drive.
+- Updated the Recent State chart, legend, metric tiles, and report text to reflect reserve / predicted drive / actual drive rather than the prior agent-vs-user resistance view.
+- Updated artifact and wallpaper specs so wallpapers explicitly exclude all energy/drive scores from the three-metric model.
+- Updated evening flows so they immediately ask the user to paste the workbench report and wait, instead of scanning `outputs/` for an existing report file.
+
+### Notes
+
+- `outputs/` and `test/` remain local ignored runtime/test state and are not part of this release.
+- This entry records the repository state after the scoring-model migration across both Codex and Claude Code editions.
+
 ## 2026-07-07 - Three-score history and artifact progress row refinement
 
 ### Added

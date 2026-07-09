@@ -1,4 +1,4 @@
 interface:
   display_name: "Drive Resistance"
   short_description: "Score next-day resistance"
-  default_prompt: "Infer next-day drive-resistance from this evening report."
+  default_prompt: "Score energy reserve, predicted next-day drive, and actual drive from this evening report."

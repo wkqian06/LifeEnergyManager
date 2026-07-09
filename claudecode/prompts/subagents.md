@@ -50,7 +50,7 @@ Do not use a subagent when the task is a simple application of the skill contrac
 - Morning: use `life-energy-daily-planner` for provisional plan options; escalate to the `daily-planner` subagent when repeated deferrals, real deadline pressure, low energy, or competing workstreams make intensity selection bias-prone.
 - Morning: use `life-energy-advice` for status summary, today advice, and anti-distraction tip; escalate to the `advice` subagent only when the distraction pattern or state interpretation is unclear from evidence.
 - Morning: use the `artifact-qa` subagent for generated HTML/PNG artifact QA by default, because artifact QA is an independent-review task; if subagent delegation is unavailable, use `life-energy-artifact-qa`.
-- Evening: use `life-energy-drive-resistance` when enough report content exists to infer next-day drive-resistance state; escalate to the `energy-quant` subagent when completion, fatigue, motivation, and next-day willingness point in different directions or the score would change next-day intensity.
+- Evening: use `life-energy-drive-resistance` when enough report content exists to produce the three daily metrics (energy reserve, predicted next-day drive, actual drive); escalate to the `energy-quant` subagent when the report is ambiguous, its signals diverge, or the result would change next-day intensity.
 - Sunday: use `life-energy-weekly-review` before updating the next weekly plan; escalate to the `weekly-review` subagent when the week contains repeated deferrals, unclear blockers, or major priority changes.
 
 ## Global Rules
@@ -138,25 +138,25 @@ Output:
 
 Purpose:
 
-- Infer a beta next-day drive-resistance score from evening report text.
+- Produce the three daily scoring metrics (energy reserve, predicted next-day drive, actual drive) from the evening report. Definitions live in the tracker's Daily Scoring Model; all are 0-100, higher = better.
 
 Output:
 
-- `agent_energy_score`: 0-100 (blind estimate),
+- `reserveBlind`, `reserveCalibrated`,
+- `predDriveBlind`, `predDriveCalibrated`,
+- `actualDrive` (single blind value),
 - `agent_energy_confidence`: low / medium / high,
 - `agent_energy_summary`,
-- `agent_calibrated_score`: 0-100 (final estimate after weighing the user self-score; drives the planning adjustment),
-- `planning_adjustment`.
+- `planning_adjustment`,
+- actual-vs-predicted comparison note.
 
 Rules:
 
-- This is not diagnosis.
-- Score direction is fixed: `0` means tomorrow's motivation and willingness are strong, including physically tired today but still eager to continue; `100` means tomorrow is likely to feel resistant, unwilling, or hard to start.
-- Higher score means lower next-day drive, not merely more physical tiredness.
-- If the user feels very tired but remains motivated and expects to continue meaningful work tomorrow, record a relatively low score.
-- Do not shame or punish the user.
+- This is not diagnosis. Do not shame or punish the user.
+- Blind pass first, from report evidence only: `reserveBlind`, `predDriveBlind`, `actualDrive` (anchor actual drive on focus minutes and completions). Then read the user self-scores (`reserveSelf`, `predDriveSelf`) and produce the calibrated values; blind values are never edited.
+- `planning_adjustment` is informed by energy reserve and actual drive; the predicted-vs-actual comparison is calibration only, not a planning input.
+- Compare `actualDrive` (today) with the calibrated prediction made last night; flag a large gap. Also flag a blind-vs-self drive-prediction gap of 30+ points.
 - Prefer conservative planning adjustments.
-- The agent estimates its score blind: from report evidence only (completions, blockers, focus minutes, energy/condition text, tomorrow first action), never reading the user self-score or its note before scoring. The user self-score is the user's own evening evaluation of the day - an independent signal, not an input. After the blind score is recorded, read the user self-score and note and produce `agent_calibrated_score`; the blind score is never edited afterwards. All three scores (agent blind, agent calibrated, user) are recorded side by side. A blind-vs-user divergence of 30+ points is itself a planning signal: surface it explicitly.
 
 ## AdviceAgent
 

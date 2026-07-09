@@ -66,6 +66,7 @@ Use rolling state to adjust intensity:
 - Normal condition: use Standard.
 - Acceptable energy plus gate pressure: use Push.
 - Real deadline within 1-2 days: use Deadline.
+- Weigh yesterday's energy reserve and actual drive (from the tracker's Drive and reserve pattern): low reserve or low actual drive argues for a lighter day. Do not raise the load to compensate.
 
 Do not increase workload just because yesterday was incomplete. First identify whether the issue was energy, overplanning, blocker, external obligation, or avoidance.
 
@@ -120,7 +121,7 @@ HTML workbench:
 - may use longer, clearer wording than the wallpaper for status summary, today advice, and anti-distraction guidance,
 - global fields,
 - recent state chart,
-- user next-day drive-resistance self-score input,
+- user energy-reserve and predicted-drive self-score inputs,
 - auto-generated Markdown report,
 - copy report and download report controls,
 - local browser persistence.
@@ -129,7 +130,7 @@ Wallpaper:
 
 - static daily reminder only,
 - no dynamic focus progress,
-- no next-day drive-resistance scores,
+- no energy or drive scores,
 - no process instructions,
 - concise but still readable; if layout is tight, reduce detail or task count instead of using cryptic phrasing,
 - top-right summary shows task focus type and recommended time combination,

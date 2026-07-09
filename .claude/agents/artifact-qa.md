@@ -29,7 +29,7 @@ Check:
 - the color legend is stable and category-based,
 - the right wallpaper column contains only status summary, today advice, and anti-distraction tip,
 - the wallpaper has one progress row with at most 5 bars, month progress second-to-last and phase progress last, and no progress bars anywhere else,
-- the wallpaper excludes live within-day focus counters, drive-resistance scores, process instructions, evening fields, and long workflow rules.
+- the wallpaper excludes live within-day focus counters, energy/drive scores, process instructions, evening fields, and long workflow rules.
 
 Return:
 

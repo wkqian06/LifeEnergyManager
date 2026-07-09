@@ -23,7 +23,7 @@ Output root: outputs/
 - Artifact text must stay readable. HTML may use longer explanatory wording;
   wallpaper wording may be shorter but must not use cryptic shorthand or
   unexplained planning jargon.
-- Next-day drive-resistance scoring is beta and used only for planning adjustment. `0` means tomorrow's motivation and willingness are strong, including physically tired today but still eager to continue; `100` means tomorrow is likely to feel resistant, unwilling, or hard to start.
+- Daily scoring uses three metrics, all 0-100 and all same-direction (higher = better/more). See the Daily Scoring Model section for definitions.
 - Do not punish an incomplete day by automatically increasing the next day.
 - Agent work must produce concrete artifacts or reviewable outputs.
 
@@ -128,6 +128,21 @@ Agent-delegable tasks:
 - A day with only agent launches and no human review/specification/writing does not count as a strong day.
 - If a task is deferred for two consecutive days, schedule a smaller first action or admit it is not the current priority. This rule does not apply to Ongoing Commitments; their absence is tracked by Skip count instead.
 
+## Daily Scoring Model
+
+Single source for the three daily metrics. All are 0-100 and same-direction (higher = better/more); they share one chart axis. Definitions and field keys must not be restated elsewhere - other files reference this section.
+
+- **Energy reserve** (`reserveSelf` / `reserveBlind` / `reserveCalibrated`): energy left after today. `0` = depleted, `100` = full reserve. A next-day planning input: yesterday's reserve helps size today.
+- **Predicted next-day drive** (`predDriveSelf` / `predDriveBlind` / `predDriveCalibrated`): drive expected tomorrow. `0` = hard to start, `100` = strong drive. A forecast, compared to the next day's actual drive for calibration; the comparison is not a planning input.
+- **Actual drive** (`actualDrive`, single agent value from the evening report): drive actually available today. Same scale as predicted drive. A next-day planning input; also compared against the prior night's `predDriveCalibrated` for calibration only.
+
+Scoring rules:
+
+- The agent produces `*Blind` values from report evidence only, before reading any user self-score. It then reads the user self-scores and produces `*Calibrated`; blind values are never edited afterward. `actualDrive` is a single blind value (no calibration, anchored on focus minutes and completions).
+- A blind-vs-self gap of 30+ points on the drive prediction is a planning signal - surface it.
+- Prediction is stored under the day it targets: tonight's `predDrive*` is written into tomorrow's row so it aligns with tomorrow's `actualDrive`.
+- Next-day planning is informed by the previous day's energy reserve and actual drive, using the agent-calibrated variant as the primary signal (`reserveCalibrated`; actual drive is a single agent value). The predicted-vs-actual comparison is recorded for calibration only and does not drive planning.
+
 ## Rolling 30-Day State
 
 Retention rule:
@@ -140,7 +155,7 @@ Retention rule:
 
 - Not enough data yet.
 
-### Next-Day Drive-Resistance Pattern
+### Drive And Reserve Pattern
 
 - Not enough data yet.
 

@@ -27,7 +27,7 @@ Use this skill as the default bounded-analysis contract for daily plan drafting.
 
 1. Build from `primary deadline -> active phase -> current month -> current week -> today`.
 2. Choose one candidate focus mode: Recovery, Standard, Push, or Deadline.
-3. Adjust intensity from recent energy, blockers, sprint pressure, and real deadlines.
+3. Adjust intensity from yesterday's energy reserve and actual drive, recent blockers, sprint pressure, and real deadlines.
 4. Fit the intensity to the actual planning window:
    - For `scheduled`, use the normal daily baseline/stretch target unless evidence says to reduce it.
    - For `manual_catchup`, plan only from `actual_run_time` to the evening check-in time.
