@@ -117,13 +117,13 @@ Read claudecode/prompts/subagents.md first. Immediately ask me to paste the repo
 - use the workbench report as the primary source,
 - update daily log, rolling 30-day state, active micro-sprints, and settle the Ongoing Commitments table,
 - save any standalone daily report under outputs/daily-reports/,
-- produce the three daily metrics (energy remaining, predicted next-day drive, actual drive) per the tracker Daily Scoring Model using the life-energy-drive-resistance skill: blind pass first, then read my self-scores and calibrate; actual drive is a single blind value,
+- produce the three daily metrics (energy remaining, predicted next-day drive, actual drive (night summary)) per the tracker Daily Scoring Model using the life-energy-drive-resistance skill: blind pass first, then read my self-scores and calibrate; actual drive (night summary) is a single blind value,
 - escalate to the energy-quant subagent only when the report is ambiguous, emotionally strong, its signals diverge, or the result would change next-day intensity,
 - if only sparse data exists, ask for the minimal evening fields before scoring,
 - record main-thread fallback and produce the three metrics in the main session only if neither the life-energy-drive-resistance skill nor a justified energy-quant subagent path is available,
 - never treat the scores as diagnosis; all metrics are 0-100, higher = better,
-- let energy remaining and actual drive inform tomorrow's sizing; the predicted-vs-actual comparison is recorded for calibration only, not a planning input,
-- compare today's actual drive with last night's calibrated prediction and flag a large gap,
+- let energy remaining and actual drive (night summary) inform tomorrow's sizing; the predicted-vs-actual comparison is recorded for calibration only, not a planning input,
+- compare today's actual drive (night summary) with last night's calibrated prediction and flag a large gap,
 - generate tomorrow's first-action seed and likely focus mode,
 - include the required Subagent calls audit block.
 ```

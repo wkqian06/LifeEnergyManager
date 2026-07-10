@@ -48,10 +48,10 @@ Required Recent State behavior:
   - focus minutes as bars on the left y-axis,
   - energy remaining as a green solid line on the right y-axis,
   - predicted next-day drive as a blue dashed line on the right y-axis,
-  - actual drive as an orange solid line on the right y-axis.
-- Provide one shared "perspective" dropdown (Self / Agent blind / Agent calibrated) that switches BOTH the remaining-energy and predicted-drive lines together; actual drive is a single agent value, always shown.
+  - actual drive (night summary) as an orange solid line on the right y-axis.
+- Provide one shared "perspective" dropdown (Self / Agent blind / Agent calibrated) that switches BOTH the remaining-energy and predicted-drive lines together; actual drive (night summary) is a single agent value, always shown.
 - Show a color-swatch legend distinguishing all four series (bars + three score lines).
-- Metrics and history keys per day (see the tracker Daily Scoring Model for definitions): `remainingSelf|remainingBlind|remainingCalibrated`, `predDriveSelf|predDriveBlind|predDriveCalibrated`, `actualDrive`. Prediction is stored under the day it targets so it aligns with that day's actual drive.
+- Metrics and history keys per day (see the tracker Daily Scoring Model for definitions): `remainingSelf|remainingBlind|remainingCalibrated`, `predDriveSelf|predDriveBlind|predDriveCalibrated`, `actualDrive`. Prediction is stored under the day it targets so it aligns with that day's actual drive (night summary).
 - Use only recorded prior evening reports for the chart (past days only; today appears the next day).
 - If no prior report exists, show `Waiting For Recording`.
 

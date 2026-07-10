@@ -21,7 +21,7 @@ Use this skill as the default bounded-analysis contract for daily plan drafting.
 
 1. Build from `primary deadline -> active phase -> current month -> current week -> today`.
 2. Choose one candidate focus mode: Recovery, Standard, Push, or Deadline.
-3. Adjust intensity from yesterday's energy remaining and actual drive, recent blockers, sprint pressure, and real deadlines.
+3. Adjust intensity from yesterday's energy remaining and actual drive (night summary), recent blockers, sprint pressure, and real deadlines.
 4. Preserve primary work before secondary work.
 5. Draft baseline tasks, stretch tasks, agent-delegable tasks, and explicit non-goals.
 6. Choose today's overall task focus type and map it to the stable task-category color legend.
