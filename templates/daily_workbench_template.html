@@ -241,13 +241,13 @@
           <span><span style="display:inline-block;width:14px;height:10px;background:#64748b;opacity:.75;border-radius:2px;vertical-align:middle;margin-right:5px"></span>Focus minutes (left axis)</span>
           <span><span style="display:inline-block;width:20px;border-top:3px solid #008057;vertical-align:middle;margin-right:5px"></span>Energy remaining (right axis)</span>
           <span><span style="display:inline-block;width:20px;border-top:3px dashed #2563eb;vertical-align:middle;margin-right:5px"></span>Predicted next-day drive (right axis)</span>
-          <span><span style="display:inline-block;width:20px;border-top:3px solid #cc7000;vertical-align:middle;margin-right:5px"></span>Actual start-of-day drive (right axis)</span>
+          <span><span style="display:inline-block;width:20px;border-top:3px solid #cc7000;vertical-align:middle;margin-right:5px"></span>actual drive (right axis)</span>
         </div>
         <div class="metrics">
           <div class="metric"><span>Recorded days</span><strong id="recordedDays">0 / 7</strong></div>
           <div class="metric"><span>Latest energy remaining</span><strong id="latestRemaining">Waiting</strong></div>
           <div class="metric"><span>Latest predicted drive</span><strong id="latestPredDrive">Waiting</strong></div>
-          <div class="metric"><span>Latest actual start-of-day drive</span><strong id="latestActual">Waiting</strong></div>
+          <div class="metric"><span>Latest actual drive</span><strong id="latestActual">Waiting</strong></div>
           <div class="metric"><span>Latest adjustment</span><strong id="latestAdjustment">Waiting</strong></div>
         </div>
       </div>
@@ -476,7 +476,7 @@
         "Daily scores (0-100, higher = better):",
         `- Energy remaining, self: ${fields.remainingSelf ? `${fields.remainingSelf} / 100` : "not set"}${fields.remainingNote ? ` (${fields.remainingNote})` : ""}`,
         `- Predicted next-day drive, self: ${fields.predDriveSelf ? `${fields.predDriveSelf} / 100` : "not set"}${fields.predDriveNote ? ` (${fields.predDriveNote})` : ""}`,
-        "- Energy remaining (agent blind/calibrated), actual start-of-day drive: pending evening quantification.",
+        "- Energy remaining (agent blind/calibrated), actual drive: pending evening quantification.",
         "",
         section("Agent work launched/reviewed", [], fields.agentWork),
         "",

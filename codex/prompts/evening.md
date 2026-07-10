@@ -44,7 +44,7 @@ From the report:
 
 ## Daily Scoring (three metrics)
 
-The three metrics (energy remaining, predicted next-day drive, actual start-of-day drive) are defined once in the tracker's Daily Scoring Model - read it, do not restate it. All are 0-100, higher = better. When enough report content exists, use `$life-energy-drive-resistance` by default to produce them; escalate to `EnergyQuantAgent` only when the report is ambiguous, emotionally strong, its signals diverge, or the result would change next-day intensity, and subagent tools are available.
+The three metrics (energy remaining, predicted next-day drive, actual drive) are defined once in the tracker's Daily Scoring Model - read it, do not restate it. All are 0-100, higher = better. When enough report content exists, use `$life-energy-drive-resistance` by default to produce them; escalate to `EnergyQuantAgent` only when the report is ambiguous, emotionally strong, its signals diverge, or the result would change next-day intensity, and subagent tools are available.
 
 Order of work:
 
@@ -63,7 +63,7 @@ Rules:
 
 - This is not diagnosis.
 - Do not punish low completion with automatic workload increase.
-- `planning_adjustment` is informed by today's energy remaining and actual start-of-day drive (both feed tomorrow's sizing), using the agent-calibrated variant as the primary remaining-energy signal (`remainingCalibrated`). The predicted-vs-actual start-of-day drive comparison is recorded for calibration only, not a planning input.
+- `planning_adjustment` is informed by today's energy remaining and actual drive (both feed tomorrow's sizing), using the agent-calibrated variant as the primary remaining-energy signal (`remainingCalibrated`). The predicted-vs-actual drive comparison is recorded for calibration only, not a planning input.
 - A blind-vs-self divergence of 30+ points on the drive prediction is itself a planning signal: surface it explicitly.
 - If only sparse data exists, ask for the minimal evening fields first, then run the skill if available or escalate only when the signals above apply. If neither `$life-energy-drive-resistance` nor a justified `EnergyQuantAgent` path is available, record `EnergyQuantAgent: main-thread fallback` and produce the same three metrics in the main thread.
 - Tonight's self-scores and predictions appear on tomorrow's Recent State chart, not today's.
