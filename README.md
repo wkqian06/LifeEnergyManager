@@ -1,5 +1,7 @@
 # LifeEnergyManager
 
+[简体中文](README.zh-CN.md) | **English**
+
 > Long-term progress is often constrained not by the size of the task list, but by the energy available to act on it.
 
 <p align="center">

@@ -1,5 +1,7 @@
 # LifeEnergyManager Reference
 
+[简体中文](REFERENCE.zh-CN.md) | **English**
+
 Deep reference for LifeEnergyManager. For the introduction and install steps,
 see [README.md](README.md). For a module-by-module usage explanation, see the
 [中文用户指南](docs/user-guide.zh-cn.md) or the

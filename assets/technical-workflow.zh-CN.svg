@@ -1,0 +1,178 @@
+<svg viewBox="0 0 1280 960" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif" role="img" aria-labelledby="technicalWorkflowTitle technicalWorkflowDescription">
+  <title id="technicalWorkflowTitle">LifeEnergyManager 技术规划工作流</title>
+  <desc id="technicalWorkflowDescription">权威计划状态依次进入目标漂移守卫、临时任务输入和计划修正。提案与最终变更集返回守卫复核。单独确认的日计划快照在锁定产物前通过最后一次守卫检查；执行证据更新计划记忆，并在次日晨间重新进入守卫。</desc>
+  <defs>
+    <marker id="arrowSlate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/></marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#087a55"/></marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#9a5900"/></marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#b42318"/></marker>
+    <style>
+      .card { fill:#ffffff; stroke:#d7dee8; stroke-width:1.4; }
+      .title { font-size:16px; font-weight:750; fill:#172033; }
+      .section { font-size:10.5px; font-weight:800; letter-spacing:1px; fill:#5e6b7e; }
+      .copy { font-size:11.5px; fill:#465569; }
+      .small { font-size:10px; fill:#536176; }
+      .route { font-size:10.5px; font-weight:700; fill:#465569; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="1278" height="958" rx="20" fill="#f8fafc" stroke="#d7dee8"/>
+  <text x="640" y="32" text-anchor="middle" font-size="22" font-weight="700" fill="#172033">LifeEnergyManager · 技术工作流</text>
+  <text x="640" y="53" text-anchor="middle" font-size="12" fill="#64748b">权威状态 → 守卫 → 计划修正 → 已确认快照 → 锁定产物 → 由证据校准的下一份计划</text>
+  <text x="30" y="90" class="section">晨间 · 生成产物之前</text>
+
+  <g transform="translate(30 260)">
+    <rect width="160" height="130" rx="12" class="card"/>
+    <text x="80" y="29" text-anchor="middle" class="title">读取状态</text>
+    <line x1="16" y1="44" x2="144" y2="44" stroke="#e3e8ef"/>
+    <text x="18" y="68" class="copy">目标注册表</text>
+    <text x="18" y="90" class="copy">阶段 · 月度 · tracker</text>
+    <text x="18" y="112" class="copy">历史 · 活动修订</text>
+  </g>
+
+  <g transform="translate(220 165)">
+    <rect width="290" height="400" rx="14" fill="#eefaf4" stroke="#218565" stroke-width="2.2"/>
+    <rect width="290" height="52" rx="14" fill="#dff4e9"/>
+    <rect y="40" width="290" height="12" fill="#dff4e9"/>
+    <text x="18" y="33" font-size="17" font-weight="800" fill="#086548">目标漂移守卫</text>
+    <text x="180" y="33" font-size="9" font-weight="800" fill="#086548">预检 + 复检</text>
+
+    <text x="18" y="80" class="section">输入</text>
+    <text x="18" y="103" class="copy">基线、退出条件、硬/软截止日期</text>
+    <text x="18" y="125" class="copy">28 日容量、修订、延期、目标债务</text>
+    <line x1="18" y1="143" x2="272" y2="143" stroke="#b9dfce"/>
+
+    <text x="18" y="167" class="section">检查</text>
+    <text x="18" y="191" class="copy">1. 到期但没有终态证据？</text>
+    <text x="18" y="215" class="copy">2. 接近程度和最晚安全开始日？</text>
+    <text x="18" y="239" class="copy">3. 修正后剩余工作与安全容量？</text>
+    <text x="18" y="263" class="copy">4. 反复修订、延期或目标债务？</text>
+    <text x="18" y="287" class="copy">5. 是否无依据移动硬截止日期？</text>
+    <line x1="18" y1="304" x2="272" y2="304" stroke="#b9dfce"/>
+
+    <text x="18" y="328" class="section">分流</text>
+    <circle cx="23" cy="348" r="5" fill="#087a55"/>
+    <text x="36" y="352" class="route">通过 / 警告 → 保护今日动作</text>
+    <circle cx="23" cy="368" r="5" fill="#b42318"/>
+    <text x="36" y="372" class="route">需要关闭 → 阻止继续规划</text>
+    <circle cx="23" cy="388" r="5" fill="#b42318"/>
+    <text x="36" y="392" class="route">阻塞 → 保留基线 / 要求证据</text>
+  </g>
+
+  <g transform="translate(540 260)">
+    <rect width="140" height="130" rx="12" class="card"/>
+    <text x="70" y="29" text-anchor="middle" class="title">晨间输入</text>
+    <line x1="14" y1="44" x2="126" y2="44" stroke="#e3e8ef"/>
+    <text x="16" y="68" class="copy">临时任务</text>
+    <text x="16" y="90" class="copy">紧急性判断</text>
+    <text x="16" y="112" class="copy">单日 / 多日</text>
+  </g>
+
+  <g transform="translate(710 165)">
+    <rect width="320" height="400" rx="14" fill="#fff8e8" stroke="#c7790a" stroke-width="2.2"/>
+    <rect width="320" height="52" rx="14" fill="#ffefc8"/>
+    <rect y="40" width="320" height="12" fill="#ffefc8"/>
+    <text x="18" y="33" font-size="17" font-weight="800" fill="#8a4b00">计划修正</text>
+    <text x="188" y="33" font-size="10" font-weight="700" fill="#8a4b00">修订闸门</text>
+
+    <text x="18" y="80" class="section">影响分类</text>
+    <text x="18" y="103" class="copy">none · 不产生持续计划影响</text>
+    <text x="18" y="125" class="copy">inline · 同容量换序 / 保持在上限内</text>
+    <text x="18" y="147" class="copy">correction · 路径/容量或月/阶段受影响</text>
+    <text x="18" y="169" class="copy">rebaseline · 更换目标 / 原路径不可行</text>
+    <line x1="18" y1="187" x2="302" y2="187" stroke="#ead09d"/>
+
+    <text x="18" y="211" class="section">确认</text>
+    <text x="18" y="234" class="copy">none / inline → 临时日计划</text>
+    <text x="18" y="256" class="copy">实质周计划 / 承诺变化 → 1 次回复</text>
+    <text x="18" y="278" class="copy">月 / 阶段 / 任意重设基线 → 3 次回复</text>
+    <text x="18" y="299" class="small">事实变化重置第 1 次 · 变更集变化重置第 2 次</text>
+    <line x1="18" y1="316" x2="302" y2="316" stroke="#ead09d"/>
+
+    <text x="18" y="340" class="section">提交或退出</text>
+    <text x="18" y="363" class="copy">最终守卫通过 → 原子写入；tracker 最后写</text>
+    <text x="18" y="385" class="copy">明确退出 → 重读计划 → 返回日计划</text>
+  </g>
+
+  <g transform="translate(1060 185)">
+    <rect width="190" height="125" rx="12" fill="#f1f7ff" stroke="#8ab4ed" stroke-width="1.5"/>
+    <text x="95" y="30" text-anchor="middle" class="title">日计划</text>
+    <line x1="16" y1="45" x2="174" y2="45" stroke="#d5e4f6"/>
+    <text x="18" y="70" class="copy">受保护的关键动作</text>
+    <text x="18" y="92" class="copy">目标预警</text>
+    <text x="18" y="114" class="copy" font-weight="700">由用户单独确认</text>
+  </g>
+  <g transform="translate(1060 335)">
+    <rect width="190" height="75" rx="12" fill="#e8f7f0" stroke="#218565" stroke-width="1.8"/>
+    <text x="95" y="29" text-anchor="middle" class="title" fill="#086548">最终快照守卫</text>
+    <text x="95" y="53" text-anchor="middle" class="copy">已确认快照必须通过</text>
+  </g>
+  <g transform="translate(1060 435)">
+    <rect width="190" height="140" rx="12" fill="#eef4ff" stroke="#4d86ce" stroke-width="1.8"/>
+    <text x="95" y="29" text-anchor="middle" class="title">产物边界</text>
+    <line x1="16" y1="44" x2="174" y2="44" stroke="#d5e4f6"/>
+    <text x="18" y="68" class="copy">渲染前先持久化 lock</text>
+    <text x="18" y="90" class="copy">HTML + PNG · 同一修订</text>
+    <text x="18" y="112" class="copy">展示前完成质量检查</text>
+    <text x="18" y="132" class="small">迟到输入 → 临时工作记录；不重生成</text>
+  </g>
+
+  <line x1="190" y1="325" x2="214" y2="325" stroke="#64748b" stroke-width="2" marker-end="url(#arrowSlate)"/>
+  <line x1="510" y1="325" x2="534" y2="325" stroke="#087a55" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+  <line x1="680" y1="325" x2="704" y2="325" stroke="#64748b" stroke-width="2" marker-end="url(#arrowSlate)"/>
+  <line x1="1030" y1="247" x2="1054" y2="247" stroke="#087a55" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+  <line x1="1155" y1="310" x2="1155" y2="329" stroke="#64748b" stroke-width="2" marker-end="url(#arrowSlate)"/>
+  <line x1="1155" y1="410" x2="1155" y2="429" stroke="#087a55" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+
+  <path d="M870 165 L870 116 L365 116 L365 159" fill="none" stroke="#087a55" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="620" y="110" text-anchor="middle" class="small" fill="#087a55">提案 / 最终变更集 → 守卫</text>
+  <path d="M430 165 L430 137 L790 137 L790 159" fill="none" stroke="#9a5900" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+  <text x="610" y="151" text-anchor="middle" class="small" fill="#9a5900">守卫结果 → 活动修订闸门</text>
+
+  <g transform="translate(235 610)">
+    <rect width="260" height="100" rx="12" fill="#fff1ef" stroke="#c85b52" stroke-width="1.8"/>
+    <text x="130" y="28" text-anchor="middle" class="title">关闭决定 · 阻塞</text>
+    <text x="18" y="54" class="copy">选择终态并提供证据</text>
+    <text x="18" y="76" class="copy">记录剩余工作的去向</text>
+    <text x="18" y="94" class="small">没有回答 → 不生成日计划或产物</text>
+  </g>
+  <line x1="365" y1="565" x2="365" y2="604" stroke="#b42318" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <path d="M495 650 L520 650 L520 470 L511 470" fill="none" stroke="#087a55" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="530" y="596" class="small" fill="#087a55">已记录终态且无后继目标 → 重跑守卫</text>
+  <path d="M495 680 L870 680 L870 571" fill="none" stroke="#9a5900" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arrowAmber)"/>
+  <text x="680" y="697" text-anchor="middle" class="small" fill="#9a5900">需要后继目标 / 重设基线 → 计划修正</text>
+
+  <rect x="30" y="745" width="1220" height="190" rx="16" fill="#f0f9f5" stroke="#8fcab0" stroke-width="1.5"/>
+  <text x="640" y="772" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="1.5" fill="#086548">计划反馈循环</text>
+  <text x="640" y="792" text-anchor="middle" class="small">实际执行证据会校准下一份计划，而不是把未完成任务机械顺延</text>
+
+  <g transform="translate(970 810)">
+    <rect width="250" height="78" rx="12" class="card"/>
+    <text x="125" y="27" text-anchor="middle" class="title">执行 + 实际证据</text>
+    <text x="18" y="51" class="copy">成果 · 阻塞 · 实际分钟</text>
+    <text x="18" y="70" class="small">临时挤占 · 状态分数</text>
+  </g>
+  <g transform="translate(650 810)">
+    <rect width="270" height="78" rx="12" fill="#eef1ff" stroke="#8792d2" stroke-width="1.5"/>
+    <text x="135" y="27" text-anchor="middle" class="title">更新计划记忆</text>
+    <text x="18" y="51" class="copy">校准 · 关闭 · 修订历史</text>
+    <text x="18" y="70" class="small">目标债务保持可见</text>
+  </g>
+  <g transform="translate(350 810)">
+    <rect width="250" height="78" rx="12" fill="#ffffff" stroke="#86c8ac" stroke-width="1.5"/>
+    <text x="125" y="27" text-anchor="middle" class="title">下一份计划的输入</text>
+    <text x="18" y="51" class="copy">安全容量 · 活动目标</text>
+    <text x="18" y="70" class="small">受保护动作 · 优先顺序</text>
+  </g>
+  <g transform="translate(680 900)">
+    <rect width="210" height="26" rx="13" fill="#ffffff" stroke="#86c8ac"/>
+    <text x="105" y="18" text-anchor="middle" class="small">周日复盘也加入本次更新</text>
+  </g>
+
+  <path d="M1155 575 L1155 804" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrowSlate)"/>
+  <line x1="970" y1="849" x2="926" y2="849" stroke="#64748b" stroke-width="2" marker-end="url(#arrowSlate)"/>
+  <line x1="650" y1="849" x2="606" y2="849" stroke="#087a55" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="785" y1="900" x2="785" y2="894" stroke="#087a55" stroke-width="1.7" marker-end="url(#arrowGreen)"/>
+  <path d="M350 849 L205 849 L205 520 L214 520" fill="none" stroke="#087a55" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+  <text x="214" y="731" class="small" fill="#087a55">次日晨间 → 守卫</text>
+</svg>

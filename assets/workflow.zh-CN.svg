@@ -1,0 +1,114 @@
+<svg viewBox="0 0 960 650" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif" role="img" aria-labelledby="workflowTitle workflowDescription">
+  <title id="workflowTitle">LifeEnergyManager 自适应日计划循环</title>
+  <desc id="workflowDescription">由规划今日、执行计划和晚间复盘组成的日循环。计划记忆综合目标、关闭记录、容量、漂移、修订和实际结果，为下一份计划确定合适的工作量。首次设置只进入一次，周日复盘每周重新聚焦。</desc>
+  <defs>
+    <marker id="arrowSlate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#64748b"/></marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#b86b00"/></marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#087a55"/></marker>
+    <style>
+      .card { fill:#ffffff; stroke:#d7dee8; stroke-width:1.4; }
+      .title { font-size:15px; font-weight:700; fill:#172033; }
+      .copy { font-size:11px; fill:#465569; }
+      .small { font-size:10px; fill:#536176; }
+      .label { font-size:10px; font-weight:800; letter-spacing:1px; fill:#5e6b7e; }
+      .pill { fill:#ffffff; stroke:#d7dee8; stroke-width:1.2; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="958" height="648" rx="20" fill="#f8fafc" stroke="#d7dee8"/>
+  <text x="480" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#172033">LifeEnergyManager</text>
+  <text x="480" y="65" text-anchor="middle" font-size="12.5" fill="#64748b">依据真实容量规划 · 始终看见长期目标 · 每天从实际结果中学习</text>
+  <text x="480" y="98" text-anchor="middle" class="label">每日循环 · 周一至周六</text>
+
+  <g transform="translate(45 116)">
+    <rect width="290" height="164" rx="14" fill="#fffaf0" stroke="#e3b866" stroke-width="1.4"/>
+    <rect width="5" height="164" rx="2.5" fill="#c77a08"/>
+    <circle cx="30" cy="30" r="14" fill="#9a5900"/>
+    <text x="30" y="35" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">1</text>
+    <text x="54" y="35" class="title" fill="#8a4b00">规划今天</text>
+    <text x="24" y="66" class="copy">守护目标，并按真实容量安排工作量</text>
+    <text x="24" y="87" class="copy">判断临时任务及其未来影响</text>
+    <text x="24" y="108" class="copy">只有更大计划必须改变时才进入修正</text>
+    <text x="24" y="130" class="copy" font-weight="700">由你确认最终日计划</text>
+    <circle cx="27" cy="149" r="4.5" fill="#b42318"/>
+    <text x="38" y="153" class="small">到期 → 关闭</text>
+    <circle cx="136" cy="149" r="4.5" fill="#c77a08"/>
+    <text x="147" y="153" class="small">实质影响 → 修正</text>
+  </g>
+
+  <g transform="translate(380 132)">
+    <rect width="200" height="132" rx="14" fill="#f1f7ff" stroke="#8ab4ed" stroke-width="1.4"/>
+    <rect width="5" height="132" rx="2.5" fill="#2563b8"/>
+    <circle cx="30" cy="30" r="14" fill="#2563b8"/>
+    <text x="30" y="35" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">2</text>
+    <text x="54" y="35" class="title" fill="#174a8b">执行计划</text>
+    <text x="24" y="66" class="copy">使用已经确认的清单</text>
+    <text x="24" y="87" class="copy">让 HTML + 壁纸始终可见</text>
+    <text x="24" y="108" class="copy" font-weight="700">产物开始生成后锁定修订</text>
+  </g>
+
+  <g transform="translate(625 116)">
+    <rect width="290" height="164" rx="14" fill="#f7f4ff" stroke="#b4a1df" stroke-width="1.4"/>
+    <rect width="5" height="164" rx="2.5" fill="#7251b5"/>
+    <circle cx="30" cy="30" r="14" fill="#7251b5"/>
+    <text x="30" y="35" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">3</text>
+    <text x="54" y="35" class="title" fill="#563594">晚间复盘</text>
+    <text x="24" y="66" class="copy">报告成果、阻塞和实际用时</text>
+    <text x="24" y="87" class="copy">记录临时工作及其挤占项</text>
+    <text x="24" y="108" class="copy">记录精力和行动动力信号</text>
+    <text x="24" y="130" class="copy" font-weight="700">留下明天的第一个动作</text>
+    <text x="24" y="151" class="small">0–100 信号用于辅助规划，不用于诊断</text>
+  </g>
+
+  <line x1="335" y1="198" x2="374" y2="198" stroke="#64748b" stroke-width="2" marker-end="url(#arrowSlate)"/>
+  <line x1="580" y1="198" x2="619" y2="198" stroke="#64748b" stroke-width="2" marker-end="url(#arrowSlate)"/>
+  <path d="M770 280 C735 344 652 390 566 410" fill="none" stroke="#b86b00" stroke-width="2.4" marker-end="url(#arrowAmber)"/>
+  <text x="683" y="355" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9a5900">记录真实结果</text>
+  <path d="M395 410 C306 390 226 344 190 286" fill="none" stroke="#b86b00" stroke-width="2.4" marker-end="url(#arrowAmber)"/>
+  <text x="281" y="355" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9a5900">确定下一份计划的容量</text>
+
+  <circle cx="480" cy="424" r="82" fill="#eef1ff" stroke="#7b87cf" stroke-width="1.5"/>
+  <text x="480" y="397" text-anchor="middle" font-size="14" font-weight="700" fill="#35408b">计划记忆</text>
+  <text x="480" y="421" text-anchor="middle" class="copy">目标 · 关闭记录</text>
+  <text x="480" y="441" text-anchor="middle" class="copy">容量 · 漂移</text>
+  <text x="480" y="461" text-anchor="middle" class="copy">修订 · 目标债务</text>
+  <text x="480" y="481" text-anchor="middle" class="copy">实际结果</text>
+
+  <g transform="translate(45 388)">
+    <rect width="190" height="102" rx="14" class="card"/>
+    <text x="95" y="31" text-anchor="middle" class="title">首次设置 · 一次</text>
+    <text x="95" y="56" text-anchor="middle" class="copy">把目标和约束转化为</text>
+    <text x="95" y="76" text-anchor="middle" class="copy">第一份持续更新的计划</text>
+  </g>
+  <line x1="235" y1="439" x2="391" y2="429" stroke="#64748b" stroke-width="1.7" marker-end="url(#arrowSlate)"/>
+
+  <g transform="translate(725 378)">
+    <rect width="190" height="122" rx="14" fill="#eefaf4" stroke="#86c8ac" stroke-width="1.4"/>
+    <rect width="5" height="122" rx="2.5" fill="#0b8a60"/>
+    <text x="99" y="31" text-anchor="middle" class="title" fill="#086548">周日复盘</text>
+    <text x="99" y="53" text-anchor="middle" class="small">每周拉远视角</text>
+    <text x="99" y="77" text-anchor="middle" class="copy">关闭到期目标</text>
+    <text x="99" y="97" text-anchor="middle" class="copy">重新聚焦下周成果</text>
+  </g>
+  <line x1="565" y1="414" x2="719" y2="414" stroke="#64748b" stroke-width="1.7" marker-end="url(#arrowSlate)"/>
+  <line x1="719" y1="463" x2="568" y2="463" stroke="#087a55" stroke-width="1.7" marker-end="url(#arrowGreen)"/>
+  <text x="643" y="481" text-anchor="middle" font-size="10" font-weight="700" fill="#087a55">塑造周一计划</text>
+
+  <g transform="translate(45 548)">
+    <rect width="270" height="48" rx="24" class="pill"/>
+    <circle cx="25" cy="24" r="6" fill="#b42318"/>
+    <text x="42" y="28" font-size="10.5" fill="#465569">每个到期目标都必须有明确结局</text>
+  </g>
+  <g transform="translate(345 548)">
+    <rect width="270" height="48" rx="24" class="pill"/>
+    <circle cx="25" cy="24" r="6" fill="#c77a08"/>
+    <text x="42" y="28" font-size="10.5" fill="#465569">实质变化必须继续由用户确认</text>
+  </g>
+  <g transform="translate(645 548)">
+    <rect width="270" height="48" rx="24" class="pill"/>
+    <circle cx="25" cy="24" r="6" fill="#0b8a60"/>
+    <text x="42" y="28" font-size="10.5" fill="#465569">艰难的一天不会增加明天的负荷</text>
+  </g>
+
+  <text x="480" y="625" text-anchor="middle" class="small">详细的关闭、确认和可行性规则见用户指南与工作流契约</text>
+</svg>
