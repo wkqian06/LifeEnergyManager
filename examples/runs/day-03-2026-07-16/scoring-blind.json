@@ -1,0 +1,12 @@
+{
+    "expected":  true,
+    "generatedBeforeSelfFixtureLoad":  true,
+    "selfScoresVisible":  false,
+    "remainingBlind":  48,
+    "predDriveBlind":  52,
+    "actualDrive":  68,
+    "agentEnergyConfidence":  "medium",
+    "agentEnergySummary":  "The catch-up plan was mostly executed, with lower remaining energy.",
+    "evidence":  "105 of 120 compressed critical-path minutes; no capacity overrun.",
+    "inference":  "Execution was adequate, but the shortened window reduced reserve."
+}

@@ -1,0 +1,5 @@
+{
+    "expected":  false,
+    "reason":  "Morning-only rollback scenario has no evening report.",
+    "source":  "evidence-only blind fixture"
+}

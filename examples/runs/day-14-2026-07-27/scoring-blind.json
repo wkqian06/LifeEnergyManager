@@ -1,0 +1,12 @@
+{
+    "expected":  true,
+    "generatedBeforeSelfFixtureLoad":  true,
+    "selfScoresVisible":  false,
+    "remainingBlind":  58,
+    "predDriveBlind":  68,
+    "actualDrive":  76,
+    "agentEnergyConfidence":  "high",
+    "agentEnergySummary":  "The baseline was completed and late work stayed recorded as unplanned.",
+    "evidence":  "185 critical-path minutes; 45 unplanned minutes recorded without regeneration.",
+    "inference":  "Removing an obsolete commitment improved focus without hiding displacement."
+}

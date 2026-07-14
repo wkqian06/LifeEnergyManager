@@ -1,0 +1,132 @@
+{
+    "dayIndex":  1,
+    "date":  "2026-07-14",
+    "dayLabel":  "normal",
+    "scenario":  "No-impact input; low-history baseline plan",
+    "workflow":  "morning_evening",
+    "revisionKind":  "none",
+    "correctionState":  "not_entered",
+    "confirmationsRequired":  0,
+    "actualConfirmationCount":  0,
+    "guardStatus":  "pass",
+    "proposalGuardStatus":  "pass",
+    "feasibility":  "green",
+    "confidence":  "low",
+    "comparableDaysBefore":  0,
+    "revisionBefore":  "PR-20260714-0",
+    "revisionAfter":  "PR-20260714-0",
+    "terminalOutcome":  null,
+    "artifactExpected":  true,
+    "postArtifactInput":  false,
+    "unplannedMinutes":  0,
+    "scoring":  {
+                    "expected":  true,
+                    "model":  "blind-self-calibrated",
+                    "stages":  [
+                                   {
+                                       "order":  1,
+                                       "name":  "blind_pass_persisted",
+                                       "selfScoresVisible":  false,
+                                       "blindResultHash":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E"
+                                   },
+                                   {
+                                       "order":  2,
+                                       "name":  "self_fixture_loaded",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E"
+                                   },
+                                   {
+                                       "order":  3,
+                                       "name":  "calibration",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E"
+                                   }
+                               ],
+                    "blindResultHashBeforeSelf":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E",
+                    "blindResultHashAfterCalibration":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E",
+                    "blindPass":  {
+                                      "expected":  true,
+                                      "generatedBeforeSelfFixtureLoad":  true,
+                                      "selfScoresVisible":  false,
+                                      "remainingBlind":  60,
+                                      "predDriveBlind":  60,
+                                      "actualDrive":  72,
+                                      "agentEnergyConfidence":  "high",
+                                      "agentEnergySummary":  "The protected result was nearly completed without evidence of depletion.",
+                                      "evidence":  "170 of 180 critical-path minutes; reviewable output saved; no unplanned work.",
+                                      "inference":  "Capacity appears usable but not unlimited."
+                                  },
+                    "selfScores":  {
+                                       "remainingSelf":  55,
+                                       "remainingNote":  "A normal workday left moderate energy.",
+                                       "predDriveSelf":  65,
+                                       "predDriveNote":  "The next action is clear and should be easy to start.",
+                                       "simulatedBy":  "test agent acting as user"
+                                   },
+                    "calibrated":  {
+                                       "remainingCalibrated":  58,
+                                       "predDriveCalibrated":  63,
+                                       "actualDrive":  72,
+                                       "agentEnergyConfidence":  "high",
+                                       "agentEnergySummary":  "The protected result was nearly completed without evidence of depletion.",
+                                       "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                       "nextFocusMode":  "Standard",
+                                       "nextTargetCapMinutes":  null
+                                   },
+                    "predictionTargetDate":  "2026-07-15",
+                    "priorPredDriveCalibrated":  null,
+                    "actualVsPriorPredictionGap":  null,
+                    "blindVsSelfPredictionGap":  5,
+                    "divergenceFlag":  false
+                },
+    "planFocusMode":  "Standard",
+    "planFocusTargetMinutes":  180,
+    "scoreFeedbackApplied":  false,
+    "scoreObservationDate":  null,
+    "scorePredictionTargetDate":  null,
+    "generatedFiles":  [
+                           "results/run2/day-01-2026-07-14/plan.json",
+                           "results/run2/day-01-2026-07-14/workbench.html",
+                           "results/run2/day-01-2026-07-14/wallpaper-config.json",
+                           "results/run2/day-01-2026-07-14/wallpaper.png",
+                           "results/run2/day-01-2026-07-14/state-before.json",
+                           "results/run2/day-01-2026-07-14/state-after.json",
+                           "results/run2/day-01-2026-07-14/transaction.json",
+                           "results/run2/day-01-2026-07-14/artifact-evidence.json",
+                           "results/run2/day-01-2026-07-14/scoring-blind.json",
+                           "results/run2/day-01-2026-07-14/scoring-evidence.json"
+                       ],
+    "checks":  [
+                   {
+                       "name":  "no correction mode",
+                       "status":  "pass",
+                       "evidence":  "correction.entered=false"
+                   },
+                   {
+                       "name":  "low-confidence fallback",
+                       "status":  "pass",
+                       "evidence":  "fallback=180 min, low"
+                   },
+                   {
+                       "name":  "artifacts share revision",
+                       "status":  "pass",
+                       "evidence":  "revision=PR-20260714-0"
+                   },
+                   {
+                       "name":  "scoring blind pass precedes self-score calibration",
+                       "status":  "pass",
+                       "evidence":  "persisted blind hash=9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E stayed immutable"
+                   },
+                   {
+                       "name":  "simulated self and agent scores stored",
+                       "status":  "pass",
+                       "evidence":  "self=55; actual=72"
+                   },
+                   {
+                       "name":  "score feedback changes or confirms next plan",
+                       "status":  "pass",
+                       "evidence":  "mode=Standard; target=180; observation=; prediction target="
+                   }
+               ],
+    "status":  "pass"
+}

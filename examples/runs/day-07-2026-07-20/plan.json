@@ -1,0 +1,247 @@
+{
+    "date":  "2026-07-20",
+    "planRevisionId":  "PR-20260720-1",
+    "focusMode":  "Recovery",
+    "taskFocusType":  "Deliverable / closure",
+    "taskFocusColor":  "blue",
+    "timeCombination":  "90 min protected recovery baseline",
+    "focusTargetMinutes":  90,
+    "statusSummaryHtml":  "Guard: warning. Feasibility: red.",
+    "todayAdviceHtml":  "Complete the successor phase\u0027s first protected action",
+    "antiDistractionTipHtml":  "Do not add work unless it explicitly replaces a confirmed task.",
+    "todaySuggestionHtml":  "Start with the critical-path task and save reviewable evidence.",
+    "goalAlerts":  [
+                       {
+                           "goalId":  "PH-DISSERTATION-V2",
+                           "title":  "Start the rebaselined dissertation phase",
+                           "level":  "phase",
+                           "deadline":  "2026-07-27",
+                           "deadlineType":  "soft",
+                           "originalDeadline":  "2026-07-27",
+                           "currentDeadline":  "2026-07-27",
+                           "proximity":  "critical",
+                           "feasibility":  "red",
+                           "correctedRemainingMinutes":  520,
+                           "safeCapacityMinutes":  144,
+                           "coverage":  1.02,
+                           "confidence":  "low",
+                           "historyWindow":  "2026-06-23 to 2026-07-20",
+                           "comparableDays":  3,
+                           "historyLabels":  [
+                                                 "normal comparable: 3",
+                                                 "special labels excluded from normal capacity"
+                                             ],
+                           "latestSafeStart":  "2026-07-20",
+                           "estimateFactor":  1.06,
+                           "requiredToday":  "Complete the successor phase\u0027s first protected action",
+                           "explanation":  "Coverage 1.02; guard rebaseline_required; goal debt 210 min."
+                       },
+                       {
+                           "goalId":  "WK-2026-07-20",
+                           "title":  "Protect the linked weekly output",
+                           "level":  "week",
+                           "deadline":  "2026-07-27",
+                           "deadlineType":  "soft",
+                           "originalDeadline":  "2026-07-27",
+                           "currentDeadline":  "2026-07-27",
+                           "proximity":  "approaching",
+                           "feasibility":  "yellow",
+                           "correctedRemainingMinutes":  240,
+                           "safeCapacityMinutes":  144,
+                           "coverage":  1.1,
+                           "confidence":  "low",
+                           "historyWindow":  "2026-06-23 to 2026-07-20",
+                           "comparableDays":  3,
+                           "historyLabels":  [
+                                                 "linked weekly target"
+                                             ],
+                           "latestSafeStart":  "2026-07-20",
+                           "estimateFactor":  1.06,
+                           "requiredToday":  "Preserve one linked reviewable output",
+                           "explanation":  "The higher-level correction reduces weekly buffer."
+                       }
+                   ],
+    "revisionSummary":  {
+                            "revisionId":  "PR-20260720-1",
+                            "changedToday":  true,
+                            "affectedLevels":  [
+                                                   "phase",
+                                                   "month"
+                                               ],
+                            "before":  "Authoritative revision PR-20260718-1.",
+                            "after":  "Authoritative revision PR-20260720-1.",
+                            "cumulativeDelayDays":  2,
+                            "goalDebtMinutes":  210,
+                            "feasibility":  "red",
+                            "status":  "confirmed and exited"
+                        },
+    "stack":  [
+                  {
+                      "kind":  "phase",
+                      "label":  "Phase",
+                      "value":  "18 / 40",
+                      "percent":  45,
+                      "note":  "Dissertation phase"
+                  },
+                  {
+                      "kind":  "month",
+                      "label":  "Month",
+                      "value":  "10 / 20",
+                      "percent":  50,
+                      "note":  "July outputs"
+                  },
+                  {
+                      "kind":  "week",
+                      "label":  "Week",
+                      "value":  "3 / 5",
+                      "percent":  60,
+                      "note":  "Protected outputs"
+                  },
+                  {
+                      "kind":  "sprint",
+                      "label":  "Sprint",
+                      "value":  "4 / 6",
+                      "percent":  67,
+                      "note":  "Analysis gate"
+                  },
+                  {
+                      "kind":  "commitment",
+                      "label":  "Commitment",
+                      "value":  "1 / 3",
+                      "percent":  33,
+                      "note":  "Inside cap"
+                  }
+              ],
+    "commitments":  [
+                        {
+                            "id":  "cm1",
+                            "goalId":  "CM-CO-REVIEW",
+                            "criticalPath":  false,
+                            "title":  "Capped co-review",
+                            "minutes":  20,
+                            "desc":  "Review one bounded section after the baseline.",
+                            "color":  "orange"
+                        }
+                    ],
+    "baseline":  [
+                     {
+                         "id":  "b1",
+                         "goalId":  "PH-DISSERTATION-V2",
+                         "criticalPath":  true,
+                         "title":  "Complete the protected result",
+                         "minutes":  90,
+                         "desc":  "Save the result, parameters, and interpretation as evidence.",
+                         "color":  "green"
+                     },
+                     {
+                         "id":  "b2",
+                         "goalId":  "MO-2026-07",
+                         "criticalPath":  true,
+                         "title":  "Write the result note",
+                         "minutes":  45,
+                         "desc":  "Turn the saved result into a concise manuscript note.",
+                         "color":  "blue"
+                     }
+                 ],
+    "stretch":  [
+                    {
+                        "id":  "s1",
+                        "goalId":  "WK-2026-07-20",
+                        "criticalPath":  false,
+                        "title":  "Prepare the next stub",
+                        "minutes":  45,
+                        "desc":  "Prepare only the next graduation-critical input.",
+                        "color":  "gray"
+                    }
+                ],
+    "planningCalibration":  {
+                                "summary":  "Planning calibration: 3 comparable day(s); expected 180 min; safe 144 min; estimate factor 1.06; confidence low.",
+                                "confidence":  "low",
+                                "weeklyOutputCompletionRate":  "5/8 (62.5%)"
+                            },
+    "scoringInput":  {
+                         "applied":  true,
+                         "focusMode":  "Recovery",
+                         "targetMinutes":  90,
+                         "observationDate":  "2026-07-18",
+                         "remainingCalibrated":  33,
+                         "actualDrive":  85,
+                         "planningAdjustment":  "Use recovery intensity and preserve only the protected action.",
+                         "predictionTargetDate":  null,
+                         "predDriveCalibrated":  null
+                     },
+    "history":  [
+                    {
+                        "date":  "2026-07-14",
+                        "focusMinutes":  170,
+                        "remainingSelf":  55,
+                        "remainingBlind":  60,
+                        "remainingCalibrated":  58,
+                        "predDriveSelf":  null,
+                        "predDriveBlind":  null,
+                        "predDriveCalibrated":  null,
+                        "actualDrive":  72,
+                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                    },
+                    {
+                        "date":  "2026-07-15",
+                        "focusMinutes":  190,
+                        "remainingSelf":  60,
+                        "remainingBlind":  58,
+                        "remainingCalibrated":  59,
+                        "predDriveSelf":  65,
+                        "predDriveBlind":  60,
+                        "predDriveCalibrated":  63,
+                        "actualDrive":  80,
+                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                    },
+                    {
+                        "date":  "2026-07-16",
+                        "focusMinutes":  105,
+                        "remainingSelf":  45,
+                        "remainingBlind":  48,
+                        "remainingCalibrated":  47,
+                        "predDriveSelf":  70,
+                        "predDriveBlind":  68,
+                        "predDriveCalibrated":  69,
+                        "actualDrive":  68,
+                        "planningAdjustment":  "Use a reduced baseline and do not add compensation work."
+                    },
+                    {
+                        "date":  "2026-07-17",
+                        "focusMinutes":  null,
+                        "remainingSelf":  null,
+                        "remainingBlind":  null,
+                        "remainingCalibrated":  null,
+                        "predDriveSelf":  55,
+                        "predDriveBlind":  52,
+                        "predDriveCalibrated":  54,
+                        "actualDrive":  null,
+                        "planningAdjustment":  null
+                    },
+                    {
+                        "date":  "2026-07-18",
+                        "focusMinutes":  220,
+                        "remainingSelf":  20,
+                        "remainingBlind":  45,
+                        "remainingCalibrated":  33,
+                        "predDriveSelf":  null,
+                        "predDriveBlind":  null,
+                        "predDriveCalibrated":  null,
+                        "actualDrive":  85,
+                        "planningAdjustment":  "Use recovery intensity and preserve only the protected action."
+                    },
+                    {
+                        "date":  "2026-07-19",
+                        "focusMinutes":  null,
+                        "remainingSelf":  null,
+                        "remainingBlind":  null,
+                        "remainingCalibrated":  null,
+                        "predDriveSelf":  25,
+                        "predDriveBlind":  60,
+                        "predDriveCalibrated":  34,
+                        "actualDrive":  null,
+                        "planningAdjustment":  null
+                    }
+                ]
+}

@@ -1,0 +1,210 @@
+{
+    "date":  "2026-07-25",
+    "planRevisionId":  "PR-20260724-1",
+    "focusMode":  "Reduced",
+    "taskFocusType":  "Deliverable / closure",
+    "taskFocusColor":  "blue",
+    "timeCombination":  "2 H reduced baseline",
+    "focusTargetMinutes":  120,
+    "statusSummaryHtml":  "Guard: pass. Feasibility: green.",
+    "todayAdviceHtml":  "Protect the active successor instead of rewriting the missed week",
+    "antiDistractionTipHtml":  "Do not add work unless it explicitly replaces a confirmed task.",
+    "todaySuggestionHtml":  "Start with the critical-path task and save reviewable evidence.",
+    "goalAlerts":  [
+
+                   ],
+    "revisionSummary":  {
+                            "revisionId":  "PR-20260724-1",
+                            "changedToday":  false,
+                            "affectedLevels":  [
+                                                   "week"
+                                               ],
+                            "before":  "Authoritative revision PR-20260724-1.",
+                            "after":  "Authoritative revision PR-20260724-1.",
+                            "cumulativeDelayDays":  2,
+                            "goalDebtMinutes":  240,
+                            "feasibility":  "green",
+                            "status":  "unchanged"
+                        },
+    "stack":  [
+                  {
+                      "kind":  "phase",
+                      "label":  "Phase",
+                      "value":  "18 / 40",
+                      "percent":  45,
+                      "note":  "Dissertation phase"
+                  },
+                  {
+                      "kind":  "month",
+                      "label":  "Month",
+                      "value":  "10 / 20",
+                      "percent":  50,
+                      "note":  "July outputs"
+                  },
+                  {
+                      "kind":  "week",
+                      "label":  "Week",
+                      "value":  "3 / 5",
+                      "percent":  60,
+                      "note":  "Protected outputs"
+                  },
+                  {
+                      "kind":  "sprint",
+                      "label":  "Sprint",
+                      "value":  "4 / 6",
+                      "percent":  67,
+                      "note":  "Analysis gate"
+                  },
+                  {
+                      "kind":  "commitment",
+                      "label":  "Commitment",
+                      "value":  "1 / 3",
+                      "percent":  33,
+                      "note":  "Inside cap"
+                  }
+              ],
+    "commitments":  [
+                        {
+                            "id":  "cm1",
+                            "goalId":  "CM-CO-REVIEW",
+                            "criticalPath":  false,
+                            "title":  "Capped co-review",
+                            "minutes":  20,
+                            "desc":  "Review one bounded section after the baseline.",
+                            "color":  "orange"
+                        }
+                    ],
+    "baseline":  [
+                     {
+                         "id":  "b1",
+                         "goalId":  "PH-DISSERTATION-V3",
+                         "criticalPath":  true,
+                         "title":  "Complete the protected result",
+                         "minutes":  120,
+                         "desc":  "Save the result, parameters, and interpretation as evidence.",
+                         "color":  "green"
+                     },
+                     {
+                         "id":  "b2",
+                         "goalId":  "MO-2026-07",
+                         "criticalPath":  true,
+                         "title":  "Write the result note",
+                         "minutes":  45,
+                         "desc":  "Turn the saved result into a concise manuscript note.",
+                         "color":  "blue"
+                     }
+                 ],
+    "stretch":  [
+                    {
+                        "id":  "s1",
+                        "goalId":  "WK-2026-07-20",
+                        "criticalPath":  false,
+                        "title":  "Prepare the next stub",
+                        "minutes":  45,
+                        "desc":  "Prepare only the next graduation-critical input.",
+                        "color":  "gray"
+                    }
+                ],
+    "planningCalibration":  {
+                                "summary":  "Planning calibration: 6 comparable day(s); expected 180 min; safe 144 min; estimate factor 1.08; confidence low.",
+                                "confidence":  "low",
+                                "weeklyOutputCompletionRate":  "5/8 (62.5%)"
+                            },
+    "scoringInput":  {
+                         "applied":  true,
+                         "focusMode":  "Reduced",
+                         "targetMinutes":  120,
+                         "observationDate":  "2026-07-24",
+                         "remainingCalibrated":  47,
+                         "actualDrive":  82,
+                         "planningAdjustment":  "Use a reduced baseline and do not add compensation work.",
+                         "predictionTargetDate":  "2026-07-25",
+                         "predDriveCalibrated":  57
+                     },
+    "history":  [
+                    {
+                        "date":  "2026-07-19",
+                        "focusMinutes":  null,
+                        "remainingSelf":  null,
+                        "remainingBlind":  null,
+                        "remainingCalibrated":  null,
+                        "predDriveSelf":  25,
+                        "predDriveBlind":  60,
+                        "predDriveCalibrated":  34,
+                        "actualDrive":  null,
+                        "planningAdjustment":  null
+                    },
+                    {
+                        "date":  "2026-07-20",
+                        "focusMinutes":  200,
+                        "remainingSelf":  50,
+                        "remainingBlind":  52,
+                        "remainingCalibrated":  51,
+                        "predDriveSelf":  null,
+                        "predDriveBlind":  null,
+                        "predDriveCalibrated":  null,
+                        "actualDrive":  84,
+                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                    },
+                    {
+                        "date":  "2026-07-21",
+                        "focusMinutes":  60,
+                        "remainingSelf":  25,
+                        "remainingBlind":  30,
+                        "remainingCalibrated":  28,
+                        "predDriveSelf":  65,
+                        "predDriveBlind":  62,
+                        "predDriveCalibrated":  64,
+                        "actualDrive":  45,
+                        "planningAdjustment":  "Use recovery intensity and preserve only the protected action."
+                    },
+                    {
+                        "date":  "2026-07-22",
+                        "focusMinutes":  null,
+                        "remainingSelf":  null,
+                        "remainingBlind":  null,
+                        "remainingCalibrated":  null,
+                        "predDriveSelf":  35,
+                        "predDriveBlind":  40,
+                        "predDriveCalibrated":  38,
+                        "actualDrive":  null,
+                        "planningAdjustment":  null
+                    },
+                    {
+                        "date":  "2026-07-23",
+                        "focusMinutes":  180,
+                        "remainingSelf":  65,
+                        "remainingBlind":  62,
+                        "remainingCalibrated":  64,
+                        "predDriveSelf":  null,
+                        "predDriveBlind":  null,
+                        "predDriveCalibrated":  null,
+                        "actualDrive":  78,
+                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                    },
+                    {
+                        "date":  "2026-07-24",
+                        "focusMinutes":  210,
+                        "remainingSelf":  45,
+                        "remainingBlind":  48,
+                        "remainingCalibrated":  47,
+                        "predDriveSelf":  70,
+                        "predDriveBlind":  68,
+                        "predDriveCalibrated":  69,
+                        "actualDrive":  82,
+                        "planningAdjustment":  "Use a reduced baseline and do not add compensation work."
+                    },
+                    {
+                        "date":  "2026-07-25",
+                        "focusMinutes":  null,
+                        "remainingSelf":  null,
+                        "remainingBlind":  null,
+                        "remainingCalibrated":  null,
+                        "predDriveSelf":  55,
+                        "predDriveBlind":  58,
+                        "predDriveCalibrated":  57,
+                        "actualDrive":  null,
+                        "planningAdjustment":  null
+                    }
+                ]
+}

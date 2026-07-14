@@ -1,0 +1,60 @@
+{
+    "expected":  true,
+    "model":  "blind-self-calibrated",
+    "stages":  [
+                   {
+                       "order":  1,
+                       "name":  "blind_pass_persisted",
+                       "selfScoresVisible":  false,
+                       "blindResultHash":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F"
+                   },
+                   {
+                       "order":  2,
+                       "name":  "self_fixture_loaded",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F"
+                   },
+                   {
+                       "order":  3,
+                       "name":  "calibration",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F"
+                   }
+               ],
+    "blindResultHashBeforeSelf":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F",
+    "blindResultHashAfterCalibration":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F",
+    "blindPass":  {
+                      "expected":  true,
+                      "generatedBeforeSelfFixtureLoad":  true,
+                      "selfScoresVisible":  false,
+                      "remainingBlind":  55,
+                      "predDriveBlind":  60,
+                      "actualDrive":  79,
+                      "agentEnergyConfidence":  "high",
+                      "agentEnergySummary":  "Focus was above baseline and the terminal decision removed ambiguity.",
+                      "evidence":  "195 critical-path minutes; missed outcome and disposition recorded.",
+                      "inference":  "Clear closure supports a normal next start."
+                  },
+    "selfScores":  {
+                       "remainingSelf":  55,
+                       "remainingNote":  "The missed label was disappointing but clarified the remaining work.",
+                       "predDriveSelf":  60,
+                       "predDriveNote":  "The next plan can start cleanly without moving the old deadline.",
+                       "simulatedBy":  "test agent acting as user"
+                   },
+    "calibrated":  {
+                       "remainingCalibrated":  55,
+                       "predDriveCalibrated":  60,
+                       "actualDrive":  79,
+                       "agentEnergyConfidence":  "high",
+                       "agentEnergySummary":  "Focus was above baseline and the terminal decision removed ambiguity.",
+                       "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                       "nextFocusMode":  "Standard",
+                       "nextTargetCapMinutes":  null
+                   },
+    "predictionTargetDate":  "2026-07-26",
+    "priorPredDriveCalibrated":  57,
+    "actualVsPriorPredictionGap":  22,
+    "blindVsSelfPredictionGap":  0,
+    "divergenceFlag":  false
+}

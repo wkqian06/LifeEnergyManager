@@ -1,0 +1,132 @@
+{
+    "dayIndex":  3,
+    "date":  "2026-07-16",
+    "dayLabel":  "manual_catchup",
+    "scenario":  "Late catch-up plus commitment added within cap",
+    "workflow":  "morning_evening",
+    "revisionKind":  "inline",
+    "correctionState":  "not_entered",
+    "confirmationsRequired":  1,
+    "actualConfirmationCount":  1,
+    "guardStatus":  "warning",
+    "proposalGuardStatus":  "warning",
+    "feasibility":  "yellow",
+    "confidence":  "low",
+    "comparableDaysBefore":  2,
+    "revisionBefore":  "PR-20260715-1",
+    "revisionAfter":  "PR-20260716-1",
+    "terminalOutcome":  null,
+    "artifactExpected":  true,
+    "postArtifactInput":  false,
+    "unplannedMinutes":  0,
+    "scoring":  {
+                    "expected":  true,
+                    "model":  "blind-self-calibrated",
+                    "stages":  [
+                                   {
+                                       "order":  1,
+                                       "name":  "blind_pass_persisted",
+                                       "selfScoresVisible":  false,
+                                       "blindResultHash":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8"
+                                   },
+                                   {
+                                       "order":  2,
+                                       "name":  "self_fixture_loaded",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8"
+                                   },
+                                   {
+                                       "order":  3,
+                                       "name":  "calibration",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8"
+                                   }
+                               ],
+                    "blindResultHashBeforeSelf":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8",
+                    "blindResultHashAfterCalibration":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8",
+                    "blindPass":  {
+                                      "expected":  true,
+                                      "generatedBeforeSelfFixtureLoad":  true,
+                                      "selfScoresVisible":  false,
+                                      "remainingBlind":  48,
+                                      "predDriveBlind":  52,
+                                      "actualDrive":  68,
+                                      "agentEnergyConfidence":  "medium",
+                                      "agentEnergySummary":  "The catch-up plan was mostly executed, with lower remaining energy.",
+                                      "evidence":  "105 of 120 compressed critical-path minutes; no capacity overrun.",
+                                      "inference":  "Execution was adequate, but the shortened window reduced reserve."
+                                  },
+                    "selfScores":  {
+                                       "remainingSelf":  45,
+                                       "remainingNote":  "The late start used most of the available window.",
+                                       "predDriveSelf":  55,
+                                       "predDriveNote":  "A bounded start is possible, but recovery matters.",
+                                       "simulatedBy":  "test agent acting as user"
+                                   },
+                    "calibrated":  {
+                                       "remainingCalibrated":  47,
+                                       "predDriveCalibrated":  54,
+                                       "actualDrive":  68,
+                                       "agentEnergyConfidence":  "medium",
+                                       "agentEnergySummary":  "The catch-up plan was mostly executed, with lower remaining energy.",
+                                       "planningAdjustment":  "Use a reduced baseline and do not add compensation work.",
+                                       "nextFocusMode":  "Reduced",
+                                       "nextTargetCapMinutes":  120
+                                   },
+                    "predictionTargetDate":  "2026-07-17",
+                    "priorPredDriveCalibrated":  69,
+                    "actualVsPriorPredictionGap":  -1,
+                    "blindVsSelfPredictionGap":  3,
+                    "divergenceFlag":  false
+                },
+    "planFocusMode":  "Manual catch-up",
+    "planFocusTargetMinutes":  120,
+    "scoreFeedbackApplied":  true,
+    "scoreObservationDate":  "2026-07-15",
+    "scorePredictionTargetDate":  "2026-07-16",
+    "generatedFiles":  [
+                           "results/run2/day-03-2026-07-16/plan.json",
+                           "results/run2/day-03-2026-07-16/workbench.html",
+                           "results/run2/day-03-2026-07-16/wallpaper-config.json",
+                           "results/run2/day-03-2026-07-16/wallpaper.png",
+                           "results/run2/day-03-2026-07-16/state-before.json",
+                           "results/run2/day-03-2026-07-16/state-after.json",
+                           "results/run2/day-03-2026-07-16/transaction.json",
+                           "results/run2/day-03-2026-07-16/artifact-evidence.json",
+                           "results/run2/day-03-2026-07-16/scoring-blind.json",
+                           "results/run2/day-03-2026-07-16/scoring-evidence.json"
+                       ],
+    "checks":  [
+                   {
+                       "name":  "manual catch-up compression",
+                       "status":  "pass",
+                       "evidence":  "focus target compressed to 120 min"
+                   },
+                   {
+                       "name":  "commitment stays within cap",
+                       "status":  "pass",
+                       "evidence":  "60/90 commitment minutes"
+                   },
+                   {
+                       "name":  "catch-up day excluded from normal history",
+                       "status":  "pass",
+                       "evidence":  "manual_catchup excluded"
+                   },
+                   {
+                       "name":  "scoring blind pass precedes self-score calibration",
+                       "status":  "pass",
+                       "evidence":  "persisted blind hash=4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8 stayed immutable"
+                   },
+                   {
+                       "name":  "simulated self and agent scores stored",
+                       "status":  "pass",
+                       "evidence":  "self=45; actual=68"
+                   },
+                   {
+                       "name":  "score feedback changes or confirms next plan",
+                       "status":  "pass",
+                       "evidence":  "mode=Manual catch-up; target=120; observation=2026-07-15; prediction target=2026-07-16"
+                   }
+               ],
+    "status":  "pass"
+}

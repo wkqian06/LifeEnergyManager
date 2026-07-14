@@ -1,0 +1,12 @@
+{
+    "expected":  true,
+    "generatedBeforeSelfFixtureLoad":  true,
+    "selfScoresVisible":  false,
+    "remainingBlind":  48,
+    "predDriveBlind":  58,
+    "actualDrive":  82,
+    "agentEnergyConfidence":  "high",
+    "agentEnergySummary":  "Execution was strong, while remaining reserve was only moderate.",
+    "evidence":  "210 critical-path minutes; partial closure and successor recorded.",
+    "inference":  "Strong output should not be treated as spare capacity."
+}

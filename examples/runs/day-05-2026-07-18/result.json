@@ -1,0 +1,137 @@
+{
+    "dayIndex":  5,
+    "date":  "2026-07-18",
+    "dayLabel":  "normal",
+    "scenario":  "Month deadline and sequence correction",
+    "workflow":  "morning_evening",
+    "revisionKind":  "correction",
+    "correctionState":  "entered_exited",
+    "confirmationsRequired":  3,
+    "actualConfirmationCount":  3,
+    "guardStatus":  "warning",
+    "proposalGuardStatus":  "warning",
+    "feasibility":  "red",
+    "confidence":  "low",
+    "comparableDaysBefore":  2,
+    "revisionBefore":  "PR-20260716-1",
+    "revisionAfter":  "PR-20260718-1",
+    "terminalOutcome":  null,
+    "artifactExpected":  true,
+    "postArtifactInput":  false,
+    "unplannedMinutes":  0,
+    "scoring":  {
+                    "expected":  true,
+                    "model":  "blind-self-calibrated",
+                    "stages":  [
+                                   {
+                                       "order":  1,
+                                       "name":  "blind_pass_persisted",
+                                       "selfScoresVisible":  false,
+                                       "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                                   },
+                                   {
+                                       "order":  2,
+                                       "name":  "self_fixture_loaded",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                                   },
+                                   {
+                                       "order":  3,
+                                       "name":  "calibration",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                                   }
+                               ],
+                    "blindResultHashBeforeSelf":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156",
+                    "blindResultHashAfterCalibration":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156",
+                    "blindPass":  {
+                                      "expected":  true,
+                                      "generatedBeforeSelfFixtureLoad":  true,
+                                      "selfScoresVisible":  false,
+                                      "remainingBlind":  45,
+                                      "predDriveBlind":  60,
+                                      "actualDrive":  85,
+                                      "agentEnergyConfidence":  "medium",
+                                      "agentEnergySummary":  "Output and focus were high, but the report also contains fatigue evidence.",
+                                      "evidence":  "220 of 180 critical-path minutes; month-critical result completed.",
+                                      "inference":  "High realized drive may coexist with low remaining reserve."
+                                  },
+                    "selfScores":  {
+                                       "remainingSelf":  20,
+                                       "remainingNote":  "The deadline push succeeded but felt exhausting.",
+                                       "predDriveSelf":  25,
+                                       "predDriveNote":  "Starting tomorrow may be difficult without recovery.",
+                                       "simulatedBy":  "test agent acting as user"
+                                   },
+                    "calibrated":  {
+                                       "remainingCalibrated":  33,
+                                       "predDriveCalibrated":  34,
+                                       "actualDrive":  85,
+                                       "agentEnergyConfidence":  "medium",
+                                       "agentEnergySummary":  "Output and focus were high, but the report also contains fatigue evidence.",
+                                       "planningAdjustment":  "Use recovery intensity and preserve only the protected action.",
+                                       "nextFocusMode":  "Recovery",
+                                       "nextTargetCapMinutes":  90
+                                   },
+                    "predictionTargetDate":  "2026-07-19",
+                    "priorPredDriveCalibrated":  null,
+                    "actualVsPriorPredictionGap":  null,
+                    "blindVsSelfPredictionGap":  35,
+                    "divergenceFlag":  true
+                },
+    "planFocusMode":  "Reduced",
+    "planFocusTargetMinutes":  120,
+    "scoreFeedbackApplied":  true,
+    "scoreObservationDate":  "2026-07-16",
+    "scorePredictionTargetDate":  null,
+    "generatedFiles":  [
+                           "results/run2/day-05-2026-07-18/plan.json",
+                           "results/run2/day-05-2026-07-18/workbench.html",
+                           "results/run2/day-05-2026-07-18/wallpaper-config.json",
+                           "results/run2/day-05-2026-07-18/wallpaper.png",
+                           "results/run2/day-05-2026-07-18/state-before.json",
+                           "results/run2/day-05-2026-07-18/state-after.json",
+                           "results/run2/day-05-2026-07-18/transaction.json",
+                           "results/run2/day-05-2026-07-18/artifact-evidence.json",
+                           "results/run2/day-05-2026-07-18/scoring-blind.json",
+                           "results/run2/day-05-2026-07-18/scoring-evidence.json"
+                       ],
+    "checks":  [
+                   {
+                       "name":  "three independent replies",
+                       "status":  "pass",
+                       "evidence":  "three valid replies after change-set reset"
+                   },
+                   {
+                       "name":  "month file shares revision",
+                       "status":  "pass",
+                       "evidence":  "month=PR-20260718-1"
+                   },
+                   {
+                       "name":  "goal debt preserved",
+                       "status":  "pass",
+                       "evidence":  "80 -\u003e 120 min"
+                   },
+                   {
+                       "name":  "correction mode explicitly exited",
+                       "status":  "pass",
+                       "evidence":  "explicitlyExited=true"
+                   },
+                   {
+                       "name":  "scoring blind pass precedes self-score calibration",
+                       "status":  "pass",
+                       "evidence":  "persisted blind hash=07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156 stayed immutable"
+                   },
+                   {
+                       "name":  "simulated self and agent scores stored",
+                       "status":  "pass",
+                       "evidence":  "self=20; actual=85"
+                   },
+                   {
+                       "name":  "score feedback changes or confirms next plan",
+                       "status":  "pass",
+                       "evidence":  "mode=Reduced; target=120; observation=2026-07-16; prediction target="
+                   }
+               ],
+    "status":  "pass"
+}

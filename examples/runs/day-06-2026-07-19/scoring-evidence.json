@@ -1,0 +1,9 @@
+{
+    "expected":  false,
+    "reason":  "Sunday review and travel day has no daily evening workbench.",
+    "blindResultHashBeforeSelf":  "7A2A3E135B0421772BFBD49EA080394BD40CE2EF3F815F86C7ADFF87201A0BC1",
+    "blindResultHashAfterCalibration":  "7A2A3E135B0421772BFBD49EA080394BD40CE2EF3F815F86C7ADFF87201A0BC1",
+    "stages":  [
+
+               ]
+}

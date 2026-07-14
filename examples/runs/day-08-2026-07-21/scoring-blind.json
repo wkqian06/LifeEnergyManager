@@ -1,0 +1,12 @@
+{
+    "expected":  true,
+    "generatedBeforeSelfFixtureLoad":  true,
+    "selfScoresVisible":  false,
+    "remainingBlind":  30,
+    "predDriveBlind":  40,
+    "actualDrive":  45,
+    "agentEnergyConfidence":  "high",
+    "agentEnergySummary":  "Reduced focus and illness evidence agree with low remaining energy.",
+    "evidence":  "60 of 90 reduced critical-path minutes; illness explicitly recorded.",
+    "inference":  "Low drive reflects condition rather than plan avoidance."
+}

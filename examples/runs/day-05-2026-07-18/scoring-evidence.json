@@ -1,0 +1,60 @@
+{
+    "expected":  true,
+    "model":  "blind-self-calibrated",
+    "stages":  [
+                   {
+                       "order":  1,
+                       "name":  "blind_pass_persisted",
+                       "selfScoresVisible":  false,
+                       "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                   },
+                   {
+                       "order":  2,
+                       "name":  "self_fixture_loaded",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                   },
+                   {
+                       "order":  3,
+                       "name":  "calibration",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                   }
+               ],
+    "blindResultHashBeforeSelf":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156",
+    "blindResultHashAfterCalibration":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156",
+    "blindPass":  {
+                      "expected":  true,
+                      "generatedBeforeSelfFixtureLoad":  true,
+                      "selfScoresVisible":  false,
+                      "remainingBlind":  45,
+                      "predDriveBlind":  60,
+                      "actualDrive":  85,
+                      "agentEnergyConfidence":  "medium",
+                      "agentEnergySummary":  "Output and focus were high, but the report also contains fatigue evidence.",
+                      "evidence":  "220 of 180 critical-path minutes; month-critical result completed.",
+                      "inference":  "High realized drive may coexist with low remaining reserve."
+                  },
+    "selfScores":  {
+                       "remainingSelf":  20,
+                       "remainingNote":  "The deadline push succeeded but felt exhausting.",
+                       "predDriveSelf":  25,
+                       "predDriveNote":  "Starting tomorrow may be difficult without recovery.",
+                       "simulatedBy":  "test agent acting as user"
+                   },
+    "calibrated":  {
+                       "remainingCalibrated":  33,
+                       "predDriveCalibrated":  34,
+                       "actualDrive":  85,
+                       "agentEnergyConfidence":  "medium",
+                       "agentEnergySummary":  "Output and focus were high, but the report also contains fatigue evidence.",
+                       "planningAdjustment":  "Use recovery intensity and preserve only the protected action.",
+                       "nextFocusMode":  "Recovery",
+                       "nextTargetCapMinutes":  90
+                   },
+    "predictionTargetDate":  "2026-07-19",
+    "priorPredDriveCalibrated":  null,
+    "actualVsPriorPredictionGap":  null,
+    "blindVsSelfPredictionGap":  35,
+    "divergenceFlag":  true
+}

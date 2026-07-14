@@ -1,0 +1,142 @@
+{
+    "dayIndex":  14,
+    "date":  "2026-07-27",
+    "dayLabel":  "normal",
+    "scenario":  "Dropped commitment plus post-artifact unplanned work",
+    "workflow":  "morning_evening",
+    "revisionKind":  "none",
+    "correctionState":  "locked_after_artifact",
+    "confirmationsRequired":  0,
+    "actualConfirmationCount":  0,
+    "guardStatus":  "pass",
+    "proposalGuardStatus":  "blocked",
+    "feasibility":  "green",
+    "confidence":  "high",
+    "comparableDaysBefore":  7,
+    "revisionBefore":  "PR-20260726-1",
+    "revisionAfter":  "PR-20260726-1",
+    "terminalOutcome":  "dropped",
+    "artifactExpected":  true,
+    "postArtifactInput":  true,
+    "unplannedMinutes":  45,
+    "scoring":  {
+                    "expected":  true,
+                    "model":  "blind-self-calibrated",
+                    "stages":  [
+                                   {
+                                       "order":  1,
+                                       "name":  "blind_pass_persisted",
+                                       "selfScoresVisible":  false,
+                                       "blindResultHash":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3"
+                                   },
+                                   {
+                                       "order":  2,
+                                       "name":  "self_fixture_loaded",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3"
+                                   },
+                                   {
+                                       "order":  3,
+                                       "name":  "calibration",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3"
+                                   }
+                               ],
+                    "blindResultHashBeforeSelf":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3",
+                    "blindResultHashAfterCalibration":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3",
+                    "blindPass":  {
+                                      "expected":  true,
+                                      "generatedBeforeSelfFixtureLoad":  true,
+                                      "selfScoresVisible":  false,
+                                      "remainingBlind":  58,
+                                      "predDriveBlind":  68,
+                                      "actualDrive":  76,
+                                      "agentEnergyConfidence":  "high",
+                                      "agentEnergySummary":  "The baseline was completed and late work stayed recorded as unplanned.",
+                                      "evidence":  "185 critical-path minutes; 45 unplanned minutes recorded without regeneration.",
+                                      "inference":  "Removing an obsolete commitment improved focus without hiding displacement."
+                                  },
+                    "selfScores":  {
+                                       "remainingSelf":  60,
+                                       "remainingNote":  "The dropped commitment freed attention for the mainline.",
+                                       "predDriveSelf":  70,
+                                       "predDriveNote":  "The next phase action is clear after removing the obsolete commitment.",
+                                       "simulatedBy":  "test agent acting as user"
+                                   },
+                    "calibrated":  {
+                                       "remainingCalibrated":  59,
+                                       "predDriveCalibrated":  69,
+                                       "actualDrive":  76,
+                                       "agentEnergyConfidence":  "high",
+                                       "agentEnergySummary":  "The baseline was completed and late work stayed recorded as unplanned.",
+                                       "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                       "nextFocusMode":  "Standard",
+                                       "nextTargetCapMinutes":  null
+                                   },
+                    "predictionTargetDate":  "2026-07-28",
+                    "priorPredDriveCalibrated":  null,
+                    "actualVsPriorPredictionGap":  null,
+                    "blindVsSelfPredictionGap":  2,
+                    "divergenceFlag":  false
+                },
+    "planFocusMode":  "Standard",
+    "planFocusTargetMinutes":  180,
+    "scoreFeedbackApplied":  true,
+    "scoreObservationDate":  "2026-07-25",
+    "scorePredictionTargetDate":  null,
+    "generatedFiles":  [
+                           "results/run2/day-14-2026-07-27/plan.json",
+                           "results/run2/day-14-2026-07-27/workbench.html",
+                           "results/run2/day-14-2026-07-27/wallpaper-config.json",
+                           "results/run2/day-14-2026-07-27/wallpaper.png",
+                           "results/run2/day-14-2026-07-27/state-before.json",
+                           "results/run2/day-14-2026-07-27/state-after.json",
+                           "results/run2/day-14-2026-07-27/transaction.json",
+                           "results/run2/day-14-2026-07-27/artifact-evidence.json",
+                           "results/run2/day-14-2026-07-27/scoring-blind.json",
+                           "results/run2/day-14-2026-07-27/scoring-evidence.json"
+                       ],
+    "checks":  [
+                   {
+                       "name":  "dropped reason and disposition recorded",
+                       "status":  "pass",
+                       "evidence":  "reason and remaining disposition stored"
+                   },
+                   {
+                       "name":  "artifact lock prevents revision",
+                       "status":  "pass",
+                       "evidence":  "mid-generation and post-generation mutation attempts blocked; plan hashes unchanged"
+                   },
+                   {
+                       "name":  "late work recorded as unplanned",
+                       "status":  "pass",
+                       "evidence":  "45 unplanned min"
+                   },
+                   {
+                       "name":  "no artifact regeneration",
+                       "status":  "pass",
+                       "evidence":  "one generation, zero regeneration, HTML/PNG hashes unchanged"
+                   },
+                   {
+                       "name":  "high-confidence capacity retained",
+                       "status":  "pass",
+                       "evidence":  "high, 195 min"
+                   },
+                   {
+                       "name":  "scoring blind pass precedes self-score calibration",
+                       "status":  "pass",
+                       "evidence":  "persisted blind hash=E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3 stayed immutable"
+                   },
+                   {
+                       "name":  "simulated self and agent scores stored",
+                       "status":  "pass",
+                       "evidence":  "self=60; actual=76"
+                   },
+                   {
+                       "name":  "score feedback changes or confirms next plan",
+                       "status":  "pass",
+                       "evidence":  "mode=Standard; target=180; observation=2026-07-25; prediction target="
+                   }
+               ],
+    "status":  "pass"
+}

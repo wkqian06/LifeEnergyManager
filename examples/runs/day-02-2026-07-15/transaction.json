@@ -1,0 +1,50 @@
+{
+    "authoritativeRevisionBefore":  "PR-20260714-0",
+    "authoritativeRevisionAfter":  "PR-20260715-1",
+    "beforeRevisions":  {
+                            "tracker":  "PR-20260714-0",
+                            "phase":  "PR-20260714-0",
+                            "month":  "PR-20260714-0",
+                            "week":  "PR-20260714-0"
+                        },
+    "afterRevisions":  {
+                           "tracker":  "PR-20260715-1",
+                           "phase":  "PR-20260715-1",
+                           "month":  "PR-20260715-1",
+                           "week":  "PR-20260715-1"
+                       },
+    "beforeHashes":  {
+                         "tracker":  "0F4DC79216A9CD685CFDF1E73E90E48091F58FE063F6CE738042B2949BCF4345",
+                         "phase":  "D38D4DA3BDA968394A8F51116D412A329E1E4B68027D7733A57C722CE94330AD",
+                         "month":  "82A8ADE246AA94B263CA50389B53C434C6C0819053818F02E73C91B8365A468E",
+                         "week":  "0F408D7268C512312EB0970DC534BD6E2879EE603ACAAA2BF3D58511F28D7887"
+                     },
+    "afterHashes":  {
+                        "tracker":  "49FDA1A5A68C0306A4C32C8F5893DBA6233CE60FD17FD9B8E2EA30593C534D7E",
+                        "phase":  "533A807CFC8E1132B9217D07185688742020E93A23EA700D9977D18209CA2C0C",
+                        "month":  "E61E1EE7BB627CCD25363FA9461BE28C4C0F286332531B433571A7C19744C829",
+                        "week":  "C1BC36057B5B746F64066DB77C2A2F2A9630C9DE0AA6B7096CD7C6C09AAA2BD0"
+                    },
+    "contentChangedSurfaces":  [
+                                   "tracker",
+                                   "week"
+                               ],
+    "attemptedSurfaces":  [
+                              "week",
+                              "phase",
+                              "month",
+                              "tracker"
+                          ],
+    "attemptedRevision":  "PR-20260715-1",
+    "writeAttemptCount":  4,
+    "injectedFailureAt":  [
+
+                          ],
+    "failureTrials":  [
+
+                      ],
+    "rolledBack":  false,
+    "hashesUnchanged":  false,
+    "committed":  true,
+    "failureMessage":  null
+}
