@@ -1,9 +1,0 @@
-{
-    "expected":  false,
-    "reason":  "Sunday audit has no daily evening workbench.",
-    "blindResultHashBeforeSelf":  "B44AB34CD5D3A04254E4B35ECAC51B97C96DD10E4A1CE0241A13C6D528760DED",
-    "blindResultHashAfterCalibration":  "B44AB34CD5D3A04254E4B35ECAC51B97C96DD10E4A1CE0241A13C6D528760DED",
-    "stages":  [
-
-               ]
-}

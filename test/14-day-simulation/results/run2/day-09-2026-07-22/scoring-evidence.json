@@ -1,9 +1,0 @@
-{
-    "expected":  false,
-    "reason":  "Closure-required morning stopped before daily planning and evening reporting.",
-    "blindResultHashBeforeSelf":  "BD336E5211FC039D4FE3C61C59613DA411BBDDE5A5FC8B3AC3771C69E198F7BF",
-    "blindResultHashAfterCalibration":  "BD336E5211FC039D4FE3C61C59613DA411BBDDE5A5FC8B3AC3771C69E198F7BF",
-    "stages":  [
-
-               ]
-}
