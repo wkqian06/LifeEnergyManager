@@ -1,0 +1,60 @@
+{
+    "expected":  true,
+    "model":  "blind-self-calibrated",
+    "stages":  [
+                   {
+                       "order":  1,
+                       "name":  "blind_pass_persisted",
+                       "selfScoresVisible":  false,
+                       "blindResultHash":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C"
+                   },
+                   {
+                       "order":  2,
+                       "name":  "self_fixture_loaded",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C"
+                   },
+                   {
+                       "order":  3,
+                       "name":  "calibration",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C"
+                   }
+               ],
+    "blindResultHashBeforeSelf":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C",
+    "blindResultHashAfterCalibration":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C",
+    "blindPass":  {
+                      "expected":  true,
+                      "generatedBeforeSelfFixtureLoad":  true,
+                      "selfScoresVisible":  false,
+                      "remainingBlind":  48,
+                      "predDriveBlind":  58,
+                      "actualDrive":  82,
+                      "agentEnergyConfidence":  "high",
+                      "agentEnergySummary":  "Execution was strong, while remaining reserve was only moderate.",
+                      "evidence":  "210 critical-path minutes; partial closure and successor recorded.",
+                      "inference":  "Strong output should not be treated as spare capacity."
+                  },
+    "selfScores":  {
+                       "remainingSelf":  45,
+                       "remainingNote":  "The successor setup added cognitive load.",
+                       "predDriveSelf":  55,
+                       "predDriveNote":  "A single protected action is realistic.",
+                       "simulatedBy":  "test agent acting as user"
+                   },
+    "calibrated":  {
+                       "remainingCalibrated":  47,
+                       "predDriveCalibrated":  57,
+                       "actualDrive":  82,
+                       "agentEnergyConfidence":  "high",
+                       "agentEnergySummary":  "Execution was strong, while remaining reserve was only moderate.",
+                       "planningAdjustment":  "Use a reduced baseline and do not add compensation work.",
+                       "nextFocusMode":  "Reduced",
+                       "nextTargetCapMinutes":  120
+                   },
+    "predictionTargetDate":  "2026-07-25",
+    "priorPredDriveCalibrated":  69,
+    "actualVsPriorPredictionGap":  13,
+    "blindVsSelfPredictionGap":  3,
+    "divergenceFlag":  false
+}

@@ -1,2 +1,8 @@
 outputs/
-test/
+risk_controls.md
+test/*
+!test/14-day-simulation/
+!test/14-day-simulation/**
+test/14-day-simulation/results/*
+!test/14-day-simulation/results/run2/
+!test/14-day-simulation/results/run2/**

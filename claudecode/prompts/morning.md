@@ -12,21 +12,51 @@ Read:
 
 1. `claudecode/prompts/subagents.md`
 2. `outputs/life_energy_tracker.md`
-3. current phase plan from `outputs/phase_plan.md`, if present
-4. current monthly plan from `outputs/month_plan.md`, if present
-5. current weekly plan from `outputs/life_energy_tracker.md`, if present
-6. rolling 30-day state
-7. active micro-sprints
-8. ongoing commitments (lifecycle rules live in the tracker's Ongoing Commitments table header - reference them, never restate them)
-9. yesterday's daily log or `outputs/daily-reports/YYYY-MM-DD-report.md`, if available
+3. `outputs/profile.md`, if present
+4. current phase plan from `outputs/phase_plan.md`, if present
+5. current monthly plan from `outputs/month_plan.md`, if present
+6. current weekly plan from `outputs/life_energy_tracker.md`, if present
+7. rolling 30-day state
+8. active micro-sprints
+9. ongoing commitments (lifecycle rules live in the tracker's Ongoing Commitments table header - reference them, never restate them)
+10. yesterday's daily log or `outputs/daily-reports/YYYY-MM-DD-report.md`, if available
 
-## Catch-Up Runs
+Also read the tracker's Goal Lifecycle And Feasibility Model, Goal Baseline
+Registry, Goal Closure Log, Planning Calibration, Plan Revision Log, and active
+plan Revision ID. These sections are the single source for guard/revision rules.
+
+## Run Context And Catch-Up Runs
+
+Record `actual_run_time`, configured morning/evening times, remaining usable
+window, and `run_mode: scheduled | manual_catchup` before intake. Use
+`manual_catchup` when the user identifies a missed routine or actual run time is
+more than 60 minutes after the configured morning time.
 
 Desktop local routines that miss their slot (app closed, machine asleep) run once as a catch-up on next launch. If the current time is clearly past the configured morning time (for example, past midday):
 
 - Do not plan a full day. Plan the realistic remainder of the day: keep the 1-2 most important baseline items plus anything with a real same-day deadline; drop or defer the rest without logging them as failures.
 - Scale the recommended time combination to the remaining hours (for example `2 H Baseline + 0.5 H Stretch`).
 - Label the provisional plan and both artifacts as a catch-up plan so the evening check-in reads completion against the compressed target, not the full-day target.
+
+## Goal Guard Preflight
+
+Before morning intake, use `life-energy-goal-drift-guard` on every active phase,
+month, week, micro-sprint, and ongoing-commitment goal.
+
+- For a pre-Guard tracker, draft a one-time Goal Baseline Registry migration.
+  Ask one blocking confirmation only when an active deadline/window or exit
+  criterion cannot be derived; initialization is not a revision.
+- A due goal without closure evidence becomes `closure_required`. Show its Goal
+  ID, target, deadline, criterion, known outcome, and five terminal choices, then
+  wait. Do not continue intake/planning/artifacts until the user chooses.
+- `completed` needs evidence; `partially_completed` needs a remaining-work
+  disposition; `superseded` needs a successor Goal ID; `missed`/`dropped` need a
+  reason and remaining-work disposition. Continuing work creates a successor.
+- Preserve every approaching/critical/due calculation and readable Goal Alert
+  for the provisional plan and artifacts.
+
+Use `goal-drift-guard` only under the escalation conditions in
+`claudecode/prompts/subagents.md`. The main session owns terminal decisions.
 
 ## Morning Intake
 
@@ -46,6 +76,42 @@ If an extra task is accepted, state what it replaces, shrinks, or defers.
 If the user provides extra tasks, use the `life-energy-urgency-triage` skill by default. Escalate to the `urgency-triage` subagent only when claudecode/prompts/subagents.md escalation signals apply, especially when a task would displace thesis-critical work, has ambiguous urgency, or looks like productive procrastination. If neither the `life-energy-urgency-triage` skill nor a justified `urgency-triage` subagent path is available, record `UrgencyTriageAgent: main-thread fallback` and complete the same triage in the main session. The main session must accept or reject each extra task.
 
 Triage also judges whether each extra task is one-day or multi-day. An accepted task that cannot be finished today must enter the tracker's Ongoing Commitments table per the table-header rules (decidable exit criterion, deadline date + hard/soft, placement policy). One-day extras stay in today's plan only.
+
+## Plan Revision Gate
+
+After triage and before Plan Construction, use `life-energy-plan-revision` when
+the user added/changed future work, scope, sequence, deadline, commitment,
+weekly outcome, monthly gate, or phase target. Run Goal Drift Guard before and
+after the proposed change set.
+
+- `none`: continue without a persistent change.
+- `inline`: include the exact amendment and capacity evidence in the provisional
+  plan; it rides the final daily-plan confirmation.
+- `correction`: allowed only if neither today's HTML nor PNG exists/started.
+  Announce `计划修正模式`, trigger, affected Goal IDs/levels, confirmation
+  progress, artifact-not-started state, and exit phrase `退出计划修正`.
+- `rebaseline`: always enter correction mode and require three separate replies.
+  Preserve the old original baseline and goal debt, close the old Goal ID with
+  a terminal outcome (normally `superseded` when work continues), and create a
+  successor Goal ID. Phase/month successor creation cannot bypass this branch.
+- Commitment/week-only correction gets one dedicated confirmation. Month/phase
+  and every `rebaseline` require three separate user replies: facts;
+  before/after; feasibility/consequences. A facts change resets to reply 1;
+  a material change-set edit resets to reply 2.
+- Do not move an external hard deadline without evidence; otherwise record
+  `renegotiation required`.
+- User exit writes nothing and returns to the last confirmed mainline.
+- After confirmation, allocate the next monotonic daily revision ordinal and
+  stage affected plan files, Goal Baseline Registry changes/revision counts,
+  Goal Closure Log rows, a complete Plan Revision Log row (before/after,
+  cumulative delay, debt, risk, confirmations, final status), and tracker body.
+  Apply one Revision ID to all files, write tracker `Active plan revision` last,
+  and verify. On failure restore pre-change content and stop artifacts.
+- After success, announce correction-mode exit, changes/risk, first mainline
+  action, and reread tracker/phase/month before Daily Planner.
+
+If either artifact or `outputs/artifact-locks/YYYY-MM-DD.json` exists/started,
+route the change to unplanned-work capture; do not revise or regenerate today.
 
 ## Plan Construction
 
@@ -72,6 +138,10 @@ Do not increase workload just because yesterday was incomplete. First identify w
 
 Use the `life-energy-daily-planner` skill by default to draft plan options. Escalate to the `daily-planner` subagent only when repeated deferrals, real deadline pressure, low energy, or competing workstreams make intensity selection bias-prone.
 
+The planner consumes only the active confirmed revision. Tasks receive a Goal
+ID and `criticalPath` flag. Approaching/critical/due goals receive protected
+baseline actions; the highest risk becomes the wallpaper alert.
+
 Use the `life-energy-advice` skill by default to draft the status summary, today advice, and anti-distraction tip. Escalate to the `advice` subagent only when state interpretation or the distraction pattern is unclear from evidence.
 
 If neither the matching skill nor a justified subagent path is available, record `main-thread fallback` and complete the same structured pass in the main session. The main session must choose the final plan.
@@ -80,16 +150,22 @@ If neither the matching skill nor a justified subagent path is available, record
 
 Before generating artifacts, produce a provisional plan with:
 
+- run mode and planning window,
 - focus mode,
 - today's overall task focus type,
 - task focus color from the stable task-category color legend,
 - recommended time combination, for example `4 H Baseline + 1 H Stretch`,
+- remaining-time rationale when `run_mode` is `manual_catchup`,
 - status summary,
 - today advice,
 - anti-distraction tip,
 - baseline tasks, normally 3h but adjusted for catch-up runs,
 - later stretch tasks, normally 2h but reduced or omitted for catch-up runs,
 - accepted extra tasks and tradeoffs,
+- active plan Revision ID,
+- Goal Alerts ordered `due -> critical -> approaching`, with feasibility,
+  confidence, latest safe start, and required-today action,
+- any confirmed inline amendment or completed correction summary,
 - the Commitments digest (see below),
 - agent-delegable tasks,
 - what is explicitly not being done today,
@@ -99,14 +175,24 @@ Commitments digest: opens with `Commitments: N active, N dispositions` (a plan m
 
 Wait for user confirmation before generating artifacts. Commitment slice cards are titled `<commitment>: <today's slice>` and render in the commitments panel of the workbench.
 
+The final daily-plan confirmation is separate from correction confirmations.
+Rerun Goal Drift Guard on the final snapshot before artifact generation.
+
 ## Confirmed Plan Artifacts
 
 After the user confirms:
 
-1. Generate `outputs/daily-workbenches/YYYY-MM-DD-workbench.html` using `templates/daily_workbench_template.html`.
-2. Generate `outputs/daily-wallpapers/YYYY-MM-DD-daily-plan.png` using `templates/artifact_spec.md` and `templates/wallpaper_spec.md`. On Windows, use the ready-made generator `templates/wallpaper_generator.ps1` (write a config JSON per its header schema, then invoke it) instead of writing ad-hoc rendering code.
-3. Visually inspect the wallpaper before presenting it.
-4. Ensure the HTML and PNG match the confirmed plan.
+1. Confirm neither artifact nor today's persisted artifact lock started,
+   correction mode is closed, Goal Drift Guard passed, every due target has a
+   terminal decision, and the final plan carries the active Revision ID.
+2. Atomically create `outputs/artifact-locks/YYYY-MM-DD.json` before either
+   renderer, with date, Revision ID, first artifact, and status `started`.
+3. Generate the workbench and update the lock status.
+4. Generate the wallpaper; finish with lock status `complete`. On Windows, use `templates/wallpaper_generator.ps1`.
+5. The persisted lock survives interruptions and locks revision for the day;
+   finish the pair from that snapshot and never revise/regenerate it today.
+6. Visually inspect the wallpaper before presenting it.
+7. Ensure HTML and PNG match the plan, Revision ID, Goal Alert, and run context.
 
 After generating artifacts, use the `artifact-qa` subagent because artifact QA is an independent-review task. If the `artifact-qa` subagent is unavailable, use the `life-energy-artifact-qa` skill. If neither is available, record `ArtifactQAAgent: main-thread fallback` and complete the same QA checklist in the main session. Fix readability and layout issues before presenting artifacts.
 
@@ -159,6 +245,8 @@ descriptions must be understandable without decoding planning jargon.
 The main session must retain responsibility for:
 
 - final plan confirmation,
+- terminal goal choices, correction-mode entry/exit, revision confirmations,
+  rebaseline, atomic writes/rollback, and artifact-lock decisions,
 - major priority tradeoffs,
 - accepting or rejecting urgent tasks,
 - commitment dispositions: skip approvals, Skip-count/expired-deadline inquiry decisions, mainline displacement, cap evictions,
@@ -171,6 +259,8 @@ Every completed morning workflow must include:
 ```text
 Subagent calls:
 - UrgencyTriageAgent: skill used / subagent used / main-thread fallback / not needed
+- PlanRevisionAgent: skill used / subagent used / main-thread fallback / not needed
+- GoalDriftGuardAgent: skill used / subagent used / main-thread fallback / not needed
 - DailyPlannerAgent: skill used / subagent used / main-thread fallback / not needed
 - AdviceAgent: skill used / subagent used / main-thread fallback / not needed
 - ArtifactQAAgent: skill used / subagent used / main-thread fallback / not needed

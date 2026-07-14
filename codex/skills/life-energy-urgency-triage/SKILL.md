@@ -29,7 +29,10 @@ Use this skill as the default bounded-analysis contract for extra urgent, extern
 3. Recommend a time cap.
 4. Name what the task replaces, shrinks, or defers.
 5. Judge one-day vs multi-day. For an accepted multi-day task, propose the Ongoing Commitments entry per the tracker table-header rules: decidable exit criterion, deadline date + hard/soft (no real deadline -> soft = today + 14 days), placement policy (which budget daily slices draw from; external-party criterion -> propose paused (until: condition)).
-6. Flag any task that needs user confirmation before acceptance.
+6. Emit plan-impact signals: capacity conflict, hard-deadline conflict,
+   critical-path/sequence change, likely affected levels, and whether the task
+   can close as an inline amendment.
+7. Flag any task that needs user confirmation before acceptance.
 
 ## Output
 
@@ -40,6 +43,7 @@ For each task, return:
 - recommended time cap,
 - replacement or deferral,
 - one-day / multi-day judgment and, for accepted multi-day tasks, the proposed Ongoing Commitments entry,
+- plan-impact signals and likely affected Goal IDs/levels,
 - open confirmation needed.
 
 ## Boundaries

@@ -29,10 +29,15 @@ Use a subagent instead of the default skill when one or more of these apply:
 
 Do not use a subagent when the task is a simple application of the skill contract, when the result is immediately blocking the next main-thread step, or when the hidden conversation context is more important than the written inputs.
 
+Role-specific `only` lists below override these global signals. Generic high
+consequence alone never invokes GoalDriftGuardAgent or PlanRevisionAgent.
+
 ## Invocation Map
 
 - Setup: use `$life-energy-plan-normalizer` when creating or updating `outputs/life_energy_tracker.md`; escalate to `PlanNormalizerAgent` when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority.
 - Morning: use `$life-energy-urgency-triage` if the user provides extra urgent, external, or tempting tasks; escalate to `UrgencyTriageAgent` when a task would displace thesis-critical work, has ambiguous urgency, or looks like productive procrastination.
+- Morning: use `$life-energy-goal-drift-guard` before intake, around every persistent revision, and before artifacts; escalate to `GoalDriftGuardAgent` only for conflicting exit evidence, conflicting original-baseline records, or disputed drift attribution.
+- Morning: use `$life-energy-plan-revision` when input may change future plans; escalate to `PlanRevisionAgent` only for month/phase changes, rebaseline, red feasibility, or conflicting plan sources.
 - Morning: use `$life-energy-daily-planner` for provisional plan options; escalate to `DailyPlannerAgent` when repeated deferrals, real deadline pressure, low energy, or competing workstreams make intensity selection bias-prone.
 - Morning: use `$life-energy-advice` for status summary, today advice, and anti-distraction tip; escalate to `AdviceAgent` only when the distraction pattern or state interpretation is unclear from evidence.
 - Morning: use `ArtifactQAAgent` for generated HTML/PNG artifact QA when subagent tools are available, because artifact QA is an independent-review task; otherwise use `$life-energy-artifact-qa`.
@@ -86,6 +91,8 @@ Output:
 - monthly plan,
 - priority rules,
 - active micro-sprints,
+- Goal Baseline Registry rows and one-time migration questions,
+- initial Revision ID mapping for tracker and normalized phase/month copies,
 - missing information.
 
 ## UrgencyTriageAgent
@@ -107,7 +114,34 @@ Output:
 - why,
 - recommended time cap,
 - what it replaces or defers,
-- one-day / multi-day judgment and, for accepted multi-day tasks, the proposed Ongoing Commitments entry (exit criterion, deadline date + type, placement policy per the tracker table-header rules).
+- one-day / multi-day judgment and, for accepted multi-day tasks, the proposed Ongoing Commitments entry (exit criterion, deadline date + type, placement policy per the tracker table-header rules),
+- plan-impact signal and affected Goal IDs for the Plan Revision Gate.
+
+## GoalDriftGuardAgent
+
+Purpose:
+
+- Independently recheck goal closure, history-calibrated feasibility,
+  proximity, original-target drift, goal debt, hard deadlines, and artifact lock.
+
+Output:
+
+- the exact `$life-energy-goal-drift-guard` contract,
+- evidence/inference separation,
+- any closure, blocked, or rebaseline decision the main thread must make.
+
+## PlanRevisionAgent
+
+Purpose:
+
+- Independently audit an in-scope future-plan change and the smallest
+  confirmation-ready before/after change set.
+
+Output:
+
+- the exact `$life-energy-plan-revision` contract,
+- affected Goal IDs/files and confirmation count,
+- omissions that must be fixed before user confirmation.
 
 ## DailyPlannerAgent
 
@@ -122,7 +156,8 @@ Inputs:
 - weekly plan,
 - rolling state,
 - active micro-sprints,
-- active ongoing commitments and their today-allocation decisions.
+- active ongoing commitments and their today-allocation decisions,
+- active Revision ID and passed Goal Drift Guard result.
 
 Output:
 
@@ -136,7 +171,8 @@ Output:
 - agent-delegable tasks,
 - explicit non-goals,
 - reason for intensity,
-- remaining-time rationale when `run_mode` is `manual_catchup`.
+- remaining-time rationale when `run_mode` is `manual_catchup`,
+- Goal Alerts and task-level Goal ID/critical-path metadata.
 
 ## EnergyQuantAgent
 
@@ -198,6 +234,11 @@ Purpose:
 Checks:
 
 - no old sections,
+- the persisted artifact lock, tracker, affected phase/month files, HTML, and
+  PNG carry the same Revision ID,
+- the full hard gate is true: revision confirmed; Goal Drift Guard passed; all
+  due targets have terminal decisions; correction mode exited; final daily
+  plan confirmed; Revision IDs match; visual QA passed. Unknown is failure,
 - manual catch-up artifacts plan only the remaining window from actual run time
   to evening check-in,
 - no title/subtitle overlap,
@@ -239,5 +280,7 @@ Output:
 - Final plan confirmation.
 - Major priority tradeoffs.
 - Accepting or rejecting urgent tasks.
+- Choosing terminal outcomes, accepting/rejecting persistent revisions,
+  correction-mode entry/exit, rebaseline, and revision rollback.
 - Increasing or reducing next-day intensity.
 - Creating or updating scheduled tasks.

@@ -27,14 +27,23 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 4. Create phase, month, and initial weekly sections if enough information exists.
 5. Create empty rolling 30-day state sections if no history exists.
 6. Identify active micro-sprints and ongoing commitments only when supported by the source material.
-7. Write priority rules that prevent secondary work from crowding out the active phase.
-8. Use `$life-energy-plan-normalizer` by default to extract, normalize, identify missing information, and draft priority rules. Escalate to `PlanNormalizerAgent` only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority and subagent tools are available.
-9. Derive the custom project name from `user_plan.md`, then use automation names in the format `LifeEnergyManager - <project name> (<workflow type>)`.
-10. Prepare scheduled-task instructions using these exact names for:
+7. Create the Goal Baseline Registry for every finishable phase, month, week,
+   micro-sprint, and commitment goal, including stable Goal ID, original/current
+   target and date/type, decidable exit criterion, estimate, and state. Initialize
+   empty Goal Closure, Planning Calibration, and Plan Revision logs plus
+   `Active plan revision: PR-<setup-date>-0`. Every normalized phase/month copy
+   carries the same `Plan revision:` value.
+8. For an existing tracker, draft a one-time migration. Derive facts where
+   possible and ask one blocking confirmation only for active goals missing a
+   deadline/window or exit criterion. Migration is initialization, not revision.
+9. Write priority rules that prevent secondary work from crowding out the active phase.
+10. Use `$life-energy-plan-normalizer` by default to extract, normalize, identify missing information, and draft priority rules. Escalate to `PlanNormalizerAgent` only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority and subagent tools are available.
+11. Derive the custom project name from `user_plan.md`, then use automation names in the format `LifeEnergyManager - <project name> (<workflow type>)`.
+12. Prepare scheduled-task instructions using these exact names for:
    - Monday-Saturday morning planning.
    - Monday-Saturday evening check-in.
    - Sunday light review.
-11. When creating or updating local Codex scheduled tasks, follow `codex/prompts/automation.md` exactly for schedule encoding:
+13. When creating or updating local Codex scheduled tasks, follow `codex/prompts/automation.md` exactly for schedule encoding:
    - Use `RRULE` with `BYDAY`, `BYHOUR`, `BYMINUTE`, and `BYSECOND=0`.
    - Do not use `DTSTART;TZID=...`, floating `DTSTART`, or UTC `DTSTART...Z` for local wall-clock schedules.
    - Keep the user's timezone in the tracker/profile, but encode the local automation schedule as `BYHOUR`/`BYMINUTE`.

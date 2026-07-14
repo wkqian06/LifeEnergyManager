@@ -3,6 +3,7 @@
 Timezone:
 Primary deadline:
 Initial sprint:
+Active plan revision: PR-[YYYYMMDD]-0
 Active automation: LifeEnergyManager - [project name] (morning planning); LifeEnergyManager - [project name] (evening check-in); LifeEnergyManager - [project name] (Sunday review)
 Output root: outputs/
 
@@ -17,6 +18,16 @@ Output root: outputs/
   planning time, plan only from actual run time to evening check-in.
 - Extra tasks must be triaged before being accepted.
 - Accepted extra tasks must replace, shrink, or defer another task unless there is real unused capacity.
+- Every finishable phase, month, week, micro-sprint, and ongoing commitment must
+  have a stable Goal ID, a decidable exit criterion, a deadline or dated window,
+  and exactly one terminal outcome before it leaves active planning.
+- Goal Guard preflight runs before morning intake. A due goal without closure
+  evidence becomes `closure_required`; normal planning and artifact generation
+  stop until the user chooses a terminal outcome.
+- Persistent plan changes pass through the Plan Revision Gate. Correction mode
+  exists only before either daily artifact has started. Once either today's HTML
+  or PNG exists, later changes are execution deviations for the evening report
+  and the next morning's impact audit, never a same-day plan revision.
 - Morning artifacts are generated only after plan confirmation.
 - The interactive HTML workbench is the primary low-friction reporting tool.
 - The desktop wallpaper is a static reminder only.
@@ -56,11 +67,149 @@ The daily workflow should always plan from the top down:
 
 `primary deadline -> active phase -> current month -> current week -> today`
 
+New evidence also travels upward before the daily plan is drafted:
+
+`morning input -> plan-impact audit -> commitment/week/month/phase correction -> reread confirmed hierarchy -> today`
+
+## Goal Lifecycle And Feasibility Model
+
+This section is the single source for goal identity, closure, proximity,
+feasibility, drift, confirmation, and artifact-lock rules. Workflow prompts and
+skills reference it and must not restate competing definitions.
+
+### Goal identity and lifecycle
+
+- Stable ID prefixes: phase `PH-`, month `MO-YYYY-MM`, week
+  `WK-YYYY-MM-DD`, micro-sprint `MS-`, ongoing commitment `CM-`.
+- Non-terminal states: `planned`, `active`, `closure_required`.
+- Terminal outcomes: `completed`, `partially_completed`, `missed`,
+  `superseded`, `dropped`.
+- `completed` requires exit-criterion evidence. `partially_completed` requires
+  an outcome plus a disposition for every remaining item. `superseded` requires
+  a successor Goal ID. `missed` and `dropped` require a reason and a remaining-
+  work disposition.
+- At or after a goal's deadline/window end, missing closure evidence sets
+  `closure_required`. Ask the user to select the terminal outcome and stop the
+  workflow until they answer. Continuing unfinished work creates a new
+  successor goal; never roll the old deadline forward or keep the old goal
+  active.
+- Active plan tables may remove terminal rows only after the Goal Closure Log
+  has received the complete closing record.
+
+### Historical capacity and feasibility
+
+- Use up to 28 valid working days; weight the most recent 7 days more heavily.
+  Tag Recovery, manual catch-up, illness, travel, and externally constrained
+  days and do not mix them silently with comparable normal days.
+- With at least 7 comparable days, expected daily capacity is the recency-
+  weighted median of actual critical-path minutes; safe daily capacity is 80%
+  of expected capacity. With fewer than 7 comparable days, use the configured
+  minimum focused-time target and mark confidence `low`.
+- Estimate factor is the median `actual / planned` ratio for comparable
+  completed tasks, clamped to 1.0-2.0. With fewer than 3 comparable tasks, use
+  1.25 and mark confidence `low`.
+- Corrected remaining work = recorded remaining estimate x estimate factor.
+  Available safe capacity = safe daily capacity x eligible remaining workdays,
+  minus fixed obligations, active commitment allocations, and known unavailable
+  time.
+- Coverage = available safe capacity / corrected remaining work:
+  `green >= 1.25`, `yellow = 1.05-1.24`, `red < 1.05`. If required inputs are
+  missing, feasibility is `unknown`; never report an unknown or red path as
+  on-track.
+- Proximity is independent of feasibility: `normal`, `approaching`, `critical`,
+  `due`. `critical` applies when the latest safe start is today/past, coverage is
+  red, or buffer is exhausted. `approaching` is derived from corrected work,
+  safe capacity, and remaining workdays; a fixed date window is only a fallback.
+
+### Goal drift guard
+
+- Preserve the original target and original deadline. Every revision compares
+  against both the previous version and the original baseline.
+- Goal debt is corrected remaining work moved outside the original plan window
+  while the obligation remains active. Changing a date never clears goal debt.
+- Any external hard-deadline change requires evidence that the external date
+  changed; otherwise record `renegotiation required` and keep the hard date.
+- Repeated revisions, cumulative delay, growing goal debt, an altered exit
+  criterion, or an infeasible original path trigger a goal-protection review.
+  If the original target is no longer the target, ordinary correction is
+  blocked and the change becomes a rebaseline with a terminal old goal and a
+  new Goal ID.
+
+### Revision gate and confirmations
+
+- `inline`: a small future-week reorder or commitment adjustment that remains
+  inside existing placement capacity, preserves dependencies and critical-path
+  order, and does not change a month/phase gate. It rides the final daily-plan
+  confirmation.
+- `correction`: baseline displacement, commitment-cap overflow, material weekly
+  capacity/sequence change, or any month/phase impact. Announce entry, affected
+  levels, current confirmation progress, artifact-not-started status, and the
+  exit phrase `退出计划修正`.
+- Commitment/week-only correction uses one dedicated confirmation. Any month or
+  phase change and every rebaseline uses three separate user replies: facts;
+  before/after change set; feasibility and consequences. A facts change resets
+  to confirmation 1; a material change-set edit resets to confirmation 2.
+- Stage all changes in conversation before confirmation. After confirmation,
+  apply one Revision ID across all affected output files and update `Active plan
+  revision` last as the commit marker. On failure, restore the pre-change
+  content, keep the old active revision, and do not generate artifacts.
+- After a successful correction, announce exit, list the changes and risk, give
+  the first mainline action, reread the confirmed hierarchy, then draft and ask
+  for a separate final daily-plan confirmation.
+- In `PR-YYYYMMDD-N`, `N` is the next monotonic revision ordinal for that date;
+  it is not the number of confirmation replies. A three-reply change consumes
+  one revision ordinal.
+
+### Artifact lock
+
+- Correction mode may start only when neither
+  `outputs/daily-workbenches/YYYY-MM-DD-workbench.html` nor
+  `outputs/daily-wallpapers/YYYY-MM-DD-daily-plan.png` exists or has started.
+  Before either renderer starts, write
+  `outputs/artifact-locks/YYYY-MM-DD.json` with the date, active Revision ID,
+  first artifact, and status `started`. Its existence is authoritative even
+  after an interrupted render. Update it to `html_complete`, `png_complete`,
+  or `complete` as generation progresses; never delete it to reopen correction
+  mode for that day.
+- Both artifacts carry the active Revision ID and the same highest-priority Goal
+  Alert. If either artifact has started, finish the pair from that confirmed
+  snapshot; do not revise or regenerate the plan that day.
+- Post-artifact changes are recorded as unplanned work, minutes, and displaced
+  work in the HTML report, settled in the evening, and audited next morning.
+
+## Goal Baseline Registry
+
+All finishable targets remain here, including terminal targets. Detailed plan
+sections and active tables reference these Goal IDs.
+
+| Goal ID | Level | Original target | Current target | Original deadline (date + hard/soft) | Current deadline (date + hard/soft) | Exit criterion | Remaining estimate | State / terminal outcome | Revisions | Successor Goal ID |
+| --- | --- | --- | --- | --- | --- | --- | ---: | --- | ---: | --- |
+| [ID] | [phase/month/week/micro-sprint/commitment] | [original] | [current] | [date + type] | [date + type] | [criterion] | [minutes] | planned | 0 | |
+
+## Goal Closure Log
+
+| Goal ID | Closed at | Terminal outcome | Exit evidence | Outcome | Reason | Remaining-work disposition | Successor Goal ID |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+## Planning Calibration
+
+| Date | Run context / day labels | Planned baseline min | Actual baseline min | Critical-path min | Planned outputs | Completed outputs | Completed-task estimate samples (Goal ID; task signature; planned; actual; ratio; critical-path) | Estimate factor | Unplanned min | What it displaced | Weekly output completion rate | Confidence note |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | --- | ---: | ---: | --- | ---: | --- |
+
+## Plan Revision Log
+
+| Revision ID | Date | Trigger | Goal IDs / levels | Before -> after | Cumulative delay | Goal debt | Feasibility | Confirmations | Status |
+| --- | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+
 ## Phase Plan
 
 ### Phase 1: [name]
 
+Goal ID: PH-[name]
+
 Dates:
+
+Deadline type: hard / soft
 
 Primary outcome:
 
@@ -74,7 +223,11 @@ Gate:
 
 ### Phase 2: [name]
 
+Goal ID: PH-[name]
+
 Dates:
+
+Deadline type: hard / soft
 
 Primary outcome:
 
@@ -89,6 +242,10 @@ Gate:
 ## Monthly Plan
 
 ### [Month YYYY]
+
+Goal ID: MO-YYYY-MM
+
+Deadline: [YYYY-MM-DD + hard/soft]
 
 Primary outcome:
 
@@ -107,6 +264,10 @@ Active micro-sprints:
 ## Weekly Plan
 
 ### Week of [YYYY-MM-DD]
+
+Goal ID: WK-YYYY-MM-DD
+
+Deadline: [YYYY-MM-DD + hard/soft]
 
 Weekly outcomes:
 
@@ -173,9 +334,9 @@ Retention rule:
 
 ## Active Micro-Sprints
 
-| Micro-sprint | Window | Current day | Target | Status | Notes |
-| --- | --- | ---: | --- | --- | --- |
-| [name] | [dates] | 0 / N | [target] | Planned | [notes] |
+| Goal ID | Micro-sprint | Window / deadline (date + type) | Current day | Target / exit criterion | Remaining estimate | Status | Notes |
+| --- | --- | --- | ---: | --- | ---: | --- | --- |
+| MS-[name] | [name] | [dates + hard/soft] | 0 / N | [decidable criterion] | [minutes] | planned | [notes] |
 
 ## Ongoing Commitments
 
@@ -185,11 +346,14 @@ source for the commitment lifecycle; workflow prompts reference them and must no
 restate them:
 
 - ENTRY: any accepted extra task that outlives today must enter this table with a
-  decidable exit criterion (artifact exists / event happened / count reached), a
+  stable `CM-*` Goal ID, a decidable exit criterion (artifact exists / event
+  happened / count reached), a
   deadline date + type (hard/soft; no real deadline -> soft = Entered + 14 days),
   and a placement policy in Daily allocation naming which budget daily slices draw
   from (default: stretch/secondary capped lanes, never primary baseline blocks).
-  A criterion that depends on an external party enters as `paused (until: <condition>)`.
+  A criterion that depends on an external party remains lifecycle state `active`
+  and records operational disposition `paused (until: <condition>)` in Daily
+  allocation or Notes; `paused` is not a lifecycle state.
 - DAILY: every active row gets a disposition in the morning Commitments digest -
   a suggested today-slice sized as Remaining / remaining working days before the
   deadline (shrunk on Recovery days, prioritized near deadlines), or an explicit
@@ -205,22 +369,31 @@ restate them:
 - INQUIRY: Skip count >= 3, or a hard deadline has passed -> the next morning digest
   carries a preset-recommendation inquiry: continue (reset + new allocation) /
   pause (with resume condition) / drop. Deferred past Recovery/compressed mornings.
-- EXIT: exit criterion met -> done immediately (a deadline never blocks early exit).
-  Closing requires criterion evidence - a done slice card proves the slice only,
-  never the whole commitment. On close, ask once whether follow-up work remains
-  (-> new commitment or backlog). Terminal rows (done/dropped) leave the table the
+- EXIT: exit criterion met -> `completed` immediately (a deadline never blocks
+  early exit). Closing requires criterion evidence - a done daily task card proves the slice only,
+  never the whole commitment. Write the Goal Closure Log before removing the
+  active row. On close, ask once whether follow-up work remains
+  (-> new commitment or backlog). Rows with one of the five terminal outcomes leave the table the
   same evening; the Daily Log records one closing line:
   `Commitment closed: <name> - entered <d1>, exited <d2>, total <n>m, outcome <line>`.
-  Absorption into a micro-sprint = dropped + note "absorbed into <sprint>", valid
+  The terminal labels are exactly `completed`, `partially_completed`, `missed`,
+  `superseded`, and `dropped`. Absorption into a micro-sprint = `superseded`
+  with successor Goal ID and note "absorbed into <sprint>", valid
   only if the criterion text moves into that sprint's Target/Notes or the user
   confirms it is covered.
 - CAP: at most 3 active rows. New entries and paused rows returning to active pass
   the same cap check; on overflow the user picks which 3 stay. The user may declare
-  done/drop/pause in any session; the receiving session writes the table and the
-  closing line immediately.
+  done/drop/pause in any session; map these commands to lifecycle
+  `completed`/`dropped`/operational pause respectively. The receiving session
+  writes terminal outcomes to the closure log and removes the active row, or
+  records the pause disposition without changing lifecycle state.
 
-| Commitment | Entered | Exit criterion | Deadline (date + hard/soft) | Estimate | Done | Remaining | Daily allocation (incl. placement policy) | Skip count | Status |
-| --- | --- | --- | --- | ---: | ---: | ---: | --- | ---: | --- |
+The active table's `Status` field uses only `planned`, `active`, or
+`closure_required`. A terminal outcome is written to the Registry and Closure
+Log before the row leaves this table.
+
+| Goal ID | Commitment | Entered | Exit criterion | Deadline (date + hard/soft) | Estimate | Done | Remaining | Daily allocation (incl. placement policy) | Skip count | Status |
+| --- | --- | --- | --- | --- | ---: | ---: | ---: | --- | ---: | --- |
 
 ## Dynamic Focus Intensity Rules
 

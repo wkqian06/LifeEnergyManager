@@ -17,8 +17,15 @@ Read:
 - active micro-sprints
 - ongoing commitments (table + this week's Daily Log closing lines)
 - current phase and month gates
+- Goal Baseline Registry, Goal Closure Log, Planning Calibration, Plan Revision Log, and active Revision ID
 
 Use `$life-energy-weekly-review` by default to summarize logs and propose next-week priorities before updating the weekly plan. Escalate to `WeeklyReviewAgent` when repeated deferrals, unclear blockers, or major priority changes need a second pass and subagent tools are available. If neither `$life-energy-weekly-review` nor a justified `WeeklyReviewAgent` path is available, record `WeeklyReviewAgent: main-thread fallback` and complete the same structured weekly review in the main thread. The main thread must make the final weekly plan.
+
+Run `$life-energy-goal-drift-guard` before updating next week. Audit every due
+phase/month/week/micro-sprint/commitment goal. A due goal without a terminal
+outcome becomes `closure_required`; ask the user and stop the update until they
+choose. Record closures before creating any successor. Summarize proximity,
+coverage confidence, revision frequency, cumulative delay, and goal debt.
 
 ## Review Questions
 
@@ -40,6 +47,9 @@ Update:
 - rolling 30-day state compression,
 - active micro-sprint day counts and status,
 - ongoing commitments audit (three checks, one line each: expired deadlines incl. soft defaults, high Skip counts, unresolved Migration pending marker),
+- Goal Baseline Registry and Goal Closure Log,
+- Planning Calibration and Plan Revision Log drift summary,
+- Planning Calibration weekly planned/completed output totals and completion rate,
 - priority rules if a pattern changed.
 
 ## Output
@@ -52,10 +62,12 @@ Return:
 - agent-delegable task list,
 - one anti-distraction rule for the week,
 - stale or exit-ready commitments (from the ongoing commitments audit),
+- goal terminal outcomes, approaching/critical warnings, and any rebaseline-required decision,
 - the required `Subagent calls` audit block.
 
 ```text
 Subagent calls:
+- GoalDriftGuardAgent: skill used / subagent used / main-thread fallback / not needed
 - WeeklyReviewAgent: skill used / subagent used / main-thread fallback / not needed
 - Reason:
 - Main-thread decision:

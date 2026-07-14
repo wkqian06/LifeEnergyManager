@@ -1,0 +1,12 @@
+{
+    "expected":  true,
+    "generatedBeforeSelfFixtureLoad":  true,
+    "selfScoresVisible":  false,
+    "remainingBlind":  52,
+    "predDriveBlind":  62,
+    "actualDrive":  84,
+    "agentEnergyConfidence":  "high",
+    "agentEnergySummary":  "The successor phase started with strong execution and moderate reserve.",
+    "evidence":  "200 critical-path minutes; successor action completed.",
+    "inference":  "Rebaselining improved action clarity."
+}

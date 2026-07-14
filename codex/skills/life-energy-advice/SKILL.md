@@ -18,6 +18,7 @@ from the same meaning, not cryptic compression.
 - Rolling 30-day state.
 - Active phase, month, week, and micro-sprints.
 - Provisional daily plan context.
+- Highest-priority Goal Alert and its required-today action.
 - Recurring blockers, repeated deferrals, and likely distraction patterns.
 - Output surfaces:
   - HTML workbench: can use longer, clearer text.
@@ -31,14 +32,15 @@ from the same meaning, not cryptic compression.
    - status summary,
    - today advice,
    - anti-distraction tip.
-3. Derive shorter wallpaper wording from the HTML meaning.
-4. Check each line for readability:
+3. When a goal is approaching/critical/due, keep its alert factual and put the required action ahead of generic encouragement.
+4. Derive shorter wallpaper wording from the HTML meaning.
+5. Check each line for readability:
    - It should be understandable without decoding planning jargon.
    - It should name the concrete action, time window, output, or decision when relevant.
    - It should avoid unexplained abstractions, metaphors, and compressed English planning phrases such as `protected exit block`, `external handoffs are real`, or `visibly smaller`.
    - It should use natural Chinese when the surrounding plan is Chinese, while preserving stable project names such as `WDM`.
-5. Keep wallpaper lines short enough for wallpaper text, but if brevity makes a line unclear, reduce detail rather than using cryptic wording.
-6. Avoid generic motivation.
+6. Keep wallpaper lines short enough for wallpaper text, but if brevity makes a line unclear, reduce detail rather than using cryptic wording.
+7. Avoid generic motivation.
 
 ## Output
 

@@ -20,6 +20,11 @@
       --blue-soft: #edf4ff;
       --green-soft: #eaf8f1;
       --gray-soft: #f1f5f9;
+      --risk-amber: #a15c00;
+      --risk-amber-soft: #fff7e6;
+      --risk-red: #b42318;
+      --risk-red-soft: #fff0ee;
+      --risk-green: #067647;
     }
     * { box-sizing: border-box; }
     body {
@@ -29,8 +34,8 @@
       font-family: "Segoe UI", Arial, sans-serif;
       line-height: 1.45;
     }
-    main { max-width: 1440px; margin: 0 auto; padding: 28px; }
-    header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
+    main { max-width: 1440px; margin: 0 auto; padding: 28px; min-width: 0; }
+    header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; min-width: 0; }
     h1, h2, h3, p { margin: 0; }
     h1 { font-size: 34px; }
     h2 { font-size: 22px; margin-bottom: 14px; }
@@ -39,7 +44,7 @@
     input, select, textarea {
       width: 100%;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 12px;
       background: #fff;
       color: var(--ink);
       padding: 9px 10px;
@@ -48,7 +53,7 @@
     textarea { min-height: 70px; resize: vertical; }
     button {
       border: 0;
-      border-radius: 8px;
+      border-radius: 12px;
       background: var(--blue);
       color: #fff;
       padding: 10px 14px;
@@ -59,7 +64,7 @@
     .focus-summary, .focus-chip, .time-combo, .metric, .card, .task, .report-panel {
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 12px;
     }
     .focus-summary { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr); gap: 10px; padding: 8px; min-width: 430px; }
     .focus-chip, .time-combo { padding: 10px 12px; min-width: 0; border-left: 7px solid var(--blue); }
@@ -71,8 +76,40 @@
     .focus-chip span, .time-combo span { display: block; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; }
     .focus-chip strong, .time-combo strong { display: block; margin-top: 3px; font-size: 15px; line-height: 1.25; }
     .meta { color: var(--muted); font-size: 14px; margin-top: 5px; }
+    [hidden] { display: none !important; }
+    .goal-guard { margin: 20px 0 14px; }
+    .guard-banner {
+      border: 1px solid var(--line);
+      border-left: 8px solid var(--risk-amber);
+      border-radius: 12px;
+      background: var(--risk-amber-soft);
+      padding: 18px 20px;
+    }
+    .guard-banner.critical, .guard-banner.due { border-left-color: var(--risk-red); background: var(--risk-red-soft); }
+    .guard-banner.pass { border-left-color: var(--risk-green); background: var(--green-soft); }
+    .guard-banner-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+    .guard-kicker { color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .guard-title { font-size: 23px; font-weight: 800; margin-top: 3px; }
+    .severity-badge { border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; background: #fff; color: var(--risk-amber); border: 1px solid currentColor; }
+    .critical .severity-badge, .due .severity-badge { color: var(--risk-red); }
+    .pass .severity-badge { color: var(--risk-green); }
+    .guard-action { margin-top: 12px; font-size: 17px; font-weight: 700; }
+    .guard-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; margin-top: 14px; }
+    .goal-alert-card { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); padding: 16px; min-width: 0; }
+    .goal-alert-card.critical, .goal-alert-card.due { border-top: 4px solid var(--risk-red); }
+    .goal-alert-card.approaching { border-top: 4px solid var(--risk-amber); }
+    .guard-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 14px 0; }
+    .guard-stat { background: var(--soft); border-radius: 12px; padding: 10px; min-width: 0; }
+    .guard-stat span { display: block; color: var(--muted); font-size: 12px; }
+    .guard-stat strong { display: block; margin-top: 3px; overflow-wrap: anywhere; }
+    details { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 10px; }
+    summary { cursor: pointer; color: var(--blue); font-weight: 700; }
+    .detail-copy { margin-top: 10px; color: var(--muted); overflow-wrap: anywhere; }
+    .revision-snapshot { margin: 0 0 18px; }
+    .revision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 10px; margin-top: 12px; }
+    .revision-item { border: 1px solid var(--line); border-radius: 12px; padding: 10px; min-width: 0; overflow-wrap: anywhere; }
     .grid { display: grid; gap: 14px; }
-    .stack { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 20px 0; }
+    .stack { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin: 20px 0; }
     .color-legend {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -85,7 +122,7 @@
       gap: 9px;
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 10px 12px;
       color: var(--muted);
       font-size: 13px;
@@ -123,11 +160,14 @@
     .bar { height: 9px; background: #e6ebf2; border-radius: 999px; margin: 10px 0; overflow: hidden; }
     .fill { height: 100%; background: var(--gray); border-radius: inherit; }
     .sections { grid-template-columns: 1fr 1fr; align-items: start; }
-    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; min-width: 0; }
     .wide { grid-column: 1 / -1; }
     .task { padding: 14px; margin-bottom: 12px; }
     .task-top { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; }
-    .task-title { font-size: 18px; font-weight: 800; }
+    .task-title { font-size: 18px; font-weight: 800; overflow-wrap: anywhere; }
+    .task-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
+    .task-tag { border: 1px solid var(--line); border-radius: 999px; padding: 2px 7px; color: var(--muted); font-size: 11px; font-weight: 700; }
+    .task-tag.critical-path { border-color: var(--risk-amber); color: var(--risk-amber); background: var(--risk-amber-soft); }
     .time { color: #fff; border-radius: 999px; padding: 5px 10px; font-weight: 800; min-width: 58px; text-align: center; }
     .blue { background: var(--blue); }
     .green { background: var(--green); }
@@ -155,9 +195,10 @@
     .report { min-height: 360px; font-family: Consolas, monospace; }
     .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
     @media (max-width: 900px) {
-      .sections, .task-fields, .task-notes, .metrics, .global-fields, .color-legend { grid-template-columns: 1fr; }
+      .sections, .task-fields, .task-notes, .metrics, .global-fields, .color-legend, .guard-stats { grid-template-columns: 1fr; }
       header { display: block; }
       .focus-summary { min-width: 0; margin-top: 12px; grid-template-columns: 1fr; }
+      main { padding: 16px; }
     }
   </style>
 </head>
@@ -179,6 +220,28 @@
         </div>
       </div>
     </header>
+
+    <section class="goal-guard" id="goalGuard" hidden aria-live="polite">
+      <div class="guard-banner" id="primaryGoalAlert">
+        <div class="guard-banner-head">
+          <div>
+            <div class="guard-kicker">Goal Guard</div>
+            <div class="guard-title" id="primaryGoalTitle"></div>
+            <p class="meta" id="primaryGoalMeta"></p>
+          </div>
+          <span class="severity-badge" id="primaryGoalSeverity"></span>
+        </div>
+        <p class="guard-action" id="primaryGoalAction"></p>
+      </div>
+      <div class="guard-cards" id="goalAlertCards"></div>
+    </section>
+
+    <section class="panel revision-snapshot" id="revisionSnapshot" hidden>
+      <details id="revisionDetails">
+        <summary>Plan revision snapshot · <span id="revisionId"></span></summary>
+        <div class="revision-grid" id="revisionGrid"></div>
+      </details>
+    </section>
 
     <section class="grid stack" id="planStack"></section>
 
@@ -250,6 +313,7 @@
           <div class="metric"><span>Latest actual drive (night summary)</span><strong id="latestActual">Waiting</strong></div>
           <div class="metric"><span>Latest adjustment</span><strong id="latestAdjustment">Waiting</strong></div>
         </div>
+        <p class="meta" id="planningCalibration">Planning calibration: waiting for recorded history.</p>
       </div>
     </section>
 
@@ -283,6 +347,18 @@
           <label for="agentWork">Agent work launched/reviewed</label>
           <textarea id="agentWork" data-field="agentWork"></textarea>
         </div>
+        <div>
+          <label for="unplannedWork">Unplanned work</label>
+          <textarea id="unplannedWork" data-field="unplannedWork" placeholder="Work added after artifacts were generated"></textarea>
+        </div>
+        <div>
+          <label for="unplannedMinutes">Unplanned minutes</label>
+          <input id="unplannedMinutes" data-field="unplannedMinutes" type="number" min="0" step="5">
+        </div>
+        <div>
+          <label for="unplannedDisplaced">What it displaced</label>
+          <textarea id="unplannedDisplaced" data-field="unplannedDisplaced"></textarea>
+        </div>
       </div>
     </section>
 
@@ -301,18 +377,82 @@
   </main>
 
   <script>
+    (() => {
     const PLAN = {{PLAN_JSON}};
     const storageKey = `life-energy-workbench-${PLAN.date}`;
-    const defaultState = { tasks: {}, fields: {} };
-    let state = loadState();
+    const loadedState = loadState();
+    let state = loadedState.state;
+    let storageLoadIssue = loadedState.issue;
+    let unreadableStoredValue = loadedState.unreadableValue;
+    let statusTimer;
+
+    function emptyState() {
+      return { schemaVersion: 2, tasks: {}, fields: {} };
+    }
+
+    function isRecord(value) {
+      return value !== null && typeof value === "object" && !Array.isArray(value);
+    }
+
+    function migrateTaskState(value) {
+      if (!isRecord(value)) return null;
+      const allowedStatuses = ["planned", "in progress", "done", "blocked", "skipped"];
+      const status = allowedStatuses.includes(value.status) ? value.status : (value.done ? "done" : "planned");
+      return {
+        done: Boolean(value.done || status === "done"),
+        status,
+        actual: value.actual == null ? "" : String(value.actual),
+        note: value.note == null ? "" : String(value.note),
+        blocker: value.blocker == null ? "" : String(value.blocker)
+      };
+    }
 
     function loadState() {
-      try { return JSON.parse(localStorage.getItem(storageKey)) || defaultState; }
-      catch { return defaultState; }
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) return { state: emptyState(), issue: "", unreadableValue: "" };
+      try {
+        const parsed = JSON.parse(raw);
+        if (!isRecord(parsed)) throw new TypeError("Stored workbench value is not an object.");
+        const next = emptyState();
+        let migrated = Number(parsed.schemaVersion || 0) !== 2;
+        if (isRecord(parsed.tasks)) {
+          Object.entries(parsed.tasks).forEach(([id, value]) => {
+            const task = migrateTaskState(value);
+            if (task) next.tasks[id] = task;
+            else migrated = true;
+          });
+        } else if (parsed.tasks != null) {
+          migrated = true;
+        }
+        if (isRecord(parsed.fields)) {
+          Object.entries(parsed.fields).forEach(([key, value]) => {
+            if (["string", "number", "boolean"].includes(typeof value)) next.fields[key] = String(value);
+            else migrated = true;
+          });
+        } else if (parsed.fields != null) {
+          migrated = true;
+        }
+        return {
+          state: next,
+          issue: migrated ? "Older local entries were migrated; unsupported values were left out." : "",
+          unreadableValue: ""
+        };
+      } catch (error) {
+        return {
+          state: emptyState(),
+          issue: `Local entries could not be loaded (${error.message}). The original value will be backed up before the next save.`,
+          unreadableValue: raw
+        };
+      }
     }
 
     function saveState() {
+      if (unreadableStoredValue) {
+        localStorage.setItem(`${storageKey}-unreadable-backup`, unreadableStoredValue);
+        unreadableStoredValue = "";
+      }
       localStorage.setItem(storageKey, JSON.stringify(state));
+      storageLoadIssue = "";
       renderReport();
       setStatus("Saved locally.");
     }
@@ -322,8 +462,13 @@
       return state.tasks[id];
     }
 
+    function taskKey(task) {
+      return String(task.id || `${task.goalId || "task"}-${task.title || "untitled"}`);
+    }
+
     function allTasks() {
-      return [...(PLAN.baseline || []), ...(PLAN.stretch || []), ...(PLAN.urgentTasks || [])];
+      const commitments = PLAN.commitments || PLAN.urgentTasks || [];
+      return [...(PLAN.baseline || []), ...(PLAN.stretch || []), ...commitments];
     }
 
     function renderPlanStack() {
@@ -342,32 +487,130 @@
         </article>`).join("");
     }
 
+    function normalizedGoalAlerts() {
+      const severityRank = { due: 0, critical: 1, approaching: 2 };
+      return (PLAN.goalAlerts || [])
+        .filter(alert => alert && severityRank[alert.proximity] != null)
+        .slice()
+        .sort((a, b) => severityRank[a.proximity] - severityRank[b.proximity]);
+    }
+
+    function displayMinutes(value) {
+      const minutes = Number(value);
+      if (!Number.isFinite(minutes) || minutes < 0) return "Unknown";
+      if (minutes < 60) return `${Math.round(minutes)} min`;
+      const hours = minutes / 60;
+      return `${Number.isInteger(hours) ? hours : hours.toFixed(1)} h`;
+    }
+
+    function displayCoverage(value) {
+      const coverage = Number(value);
+      return Number.isFinite(coverage) ? coverage.toFixed(2) : "Unknown";
+    }
+
+    function displayGoalDeadline(alert) {
+      return alert.currentDeadline || alert.deadline || "No date recorded";
+    }
+
+    function renderGoalGuard() {
+      const alerts = normalizedGoalAlerts();
+      const root = document.getElementById("goalGuard");
+      root.hidden = false;
+      if (!alerts.length) {
+        const banner = document.getElementById("primaryGoalAlert");
+        banner.className = "guard-banner pass";
+        document.getElementById("primaryGoalTitle").textContent = "Goal Guard passed";
+        document.getElementById("primaryGoalMeta").textContent = "No approaching, critical, or due goal is recorded in the confirmed plan.";
+        document.getElementById("primaryGoalSeverity").textContent = "pass";
+        document.getElementById("primaryGoalAction").textContent = "Required today: follow the confirmed baseline and preserve its critical-path order.";
+        document.getElementById("goalAlertCards").innerHTML = "";
+        return;
+      }
+
+      const primary = alerts[0];
+      const banner = document.getElementById("primaryGoalAlert");
+      banner.className = `guard-banner ${primary.proximity}`;
+      document.getElementById("primaryGoalTitle").textContent = primary.title || primary.goalId || "Goal alert";
+      document.getElementById("primaryGoalMeta").textContent = `${primary.goalId || "Goal"} · ${primary.level || "goal"} · due ${displayGoalDeadline(primary)} · feasibility ${primary.feasibility || "unknown"}`;
+      document.getElementById("primaryGoalSeverity").textContent = primary.proximity;
+      document.getElementById("primaryGoalAction").textContent = `Required today: ${primary.requiredToday || "Confirm the next concrete action."}`;
+
+      document.getElementById("goalAlertCards").innerHTML = alerts.map(alert => `
+        <article class="goal-alert-card ${escapeHtml(alert.proximity)}">
+          <div class="guard-banner-head">
+            <div>
+              <h3>${escapeHtml(alert.title || alert.goalId || "Goal")}</h3>
+              <p class="meta">${escapeHtml(alert.goalId || "Goal")} · ${escapeHtml(alert.level || "goal")} · original ${escapeHtml(alert.originalDeadline || "not recorded")} · current ${escapeHtml(displayGoalDeadline(alert))}</p>
+            </div>
+            <span class="severity-badge">${escapeHtml(alert.proximity)}</span>
+          </div>
+          <p class="guard-action">Required today: ${escapeHtml(alert.requiredToday || "Confirm the next concrete action.")}</p>
+          <div class="guard-stats">
+            <div class="guard-stat"><span>Corrected remaining</span><strong>${displayMinutes(alert.correctedRemainingMinutes)}</strong></div>
+            <div class="guard-stat"><span>Safe capacity</span><strong>${displayMinutes(alert.safeCapacityMinutes)}</strong></div>
+            <div class="guard-stat"><span>Coverage / confidence</span><strong>${displayCoverage(alert.coverage)} · ${escapeHtml(alert.confidence || "unknown")}</strong></div>
+          </div>
+          <details>
+            <summary>Why this warning</summary>
+            <p class="detail-copy">History window: ${escapeHtml(alert.historyWindow || "not recorded")}. Comparable days: ${escapeHtml(alert.comparableDays ?? "not recorded")}. Day labels: ${escapeHtml(Array.isArray(alert.historyLabels) ? alert.historyLabels.join(", ") : (alert.historyLabels || "not recorded"))}. Latest safe start: ${escapeHtml(alert.latestSafeStart || "not recorded")}. Estimate factor: ${escapeHtml(alert.estimateFactor ?? "not recorded")}. ${escapeHtml(alert.explanation || "No additional explanation recorded.")}</p>
+          </details>
+        </article>`).join("");
+    }
+
+    function renderRevisionSnapshot() {
+      const revision = PLAN.revisionSummary;
+      if (!revision || !revision.revisionId) return;
+      const root = document.getElementById("revisionSnapshot");
+      root.hidden = false;
+      document.getElementById("revisionId").textContent = revision.revisionId;
+      document.getElementById("revisionDetails").open = Boolean(revision.changedToday);
+      const affectedLevels = Array.isArray(revision.affectedLevels) ? revision.affectedLevels.join(", ") : (revision.affectedLevels || "none");
+      const items = [
+        ["Affected levels", affectedLevels],
+        ["Before", revision.before || "No change recorded"],
+        ["After", revision.after || "No change recorded"],
+        ["Cumulative delay", `${Number(revision.cumulativeDelayDays || 0)} day(s)`],
+        ["Goal debt", displayMinutes(revision.goalDebtMinutes || 0)],
+        ["Feasibility / status", `${revision.feasibility || "unknown"} · ${revision.status || "confirmed"}`]
+      ];
+      document.getElementById("revisionGrid").innerHTML = items.map(([label, value]) => `<div class="revision-item"><label>${escapeHtml(label)}</label><div>${escapeHtml(value)}</div></div>`).join("");
+    }
+
     function renderTask(task, targetId) {
-      const current = taskState(task.id);
+      const taskId = taskKey(task);
+      const taskIdAttr = escapeHtml(taskId);
+      const current = taskState(taskId);
+      const color = taskColor(task.color);
       const el = document.createElement("article");
       el.className = "task";
       el.innerHTML = `
         <div class="task-top">
-          <label class="checkbox-row"><input type="checkbox" data-task="${task.id}" data-prop="done" ${current.done ? "checked" : ""}>Done</label>
-          <div class="task-title">${escapeHtml(task.title)}</div>
-          <div class="time ${task.color || "gray"}">${escapeHtml(task.minutes)}m</div>
+          <label class="checkbox-row"><input type="checkbox" data-task="${taskIdAttr}" data-prop="done" ${current.done ? "checked" : ""}>Done</label>
+          <div>
+            <div class="task-title">${escapeHtml(task.title)}</div>
+            <div class="task-tags">
+              ${task.goalId ? `<span class="task-tag">${escapeHtml(task.goalId)}</span>` : ""}
+              ${task.criticalPath ? `<span class="task-tag critical-path">Critical path</span>` : ""}
+            </div>
+          </div>
+          <div class="time ${color}">${escapeHtml(task.minutes)}m</div>
         </div>
         <p class="meta">${escapeHtml(task.desc || "")}</p>
         <div class="task-fields">
           <div>
             <label>Status</label>
-            <select data-task="${task.id}" data-prop="status">
+            <select data-task="${taskIdAttr}" data-prop="status">
               ${["planned", "in progress", "done", "blocked", "skipped"].map(v => `<option value="${v}" ${current.status === v ? "selected" : ""}>${v}</option>`).join("")}
             </select>
           </div>
           <div>
             <label>Actual min</label>
-            <input type="number" min="0" step="5" data-task="${task.id}" data-prop="actual" value="${escapeHtml(current.actual)}">
+            <input type="number" min="0" step="5" data-task="${taskIdAttr}" data-prop="actual" value="${escapeHtml(current.actual)}">
           </div>
         </div>
         <div class="task-notes">
-          <div><label>Note / output</label><textarea data-task="${task.id}" data-prop="note">${escapeHtml(current.note)}</textarea></div>
-          <div><label>Blocker / next action</label><textarea data-task="${task.id}" data-prop="blocker">${escapeHtml(current.blocker)}</textarea></div>
+          <div><label>Note / output</label><textarea data-task="${taskIdAttr}" data-prop="note">${escapeHtml(current.note)}</textarea></div>
+          <div><label>Blocker / next action</label><textarea data-task="${taskIdAttr}" data-prop="blocker">${escapeHtml(current.blocker)}</textarea></div>
         </div>
       `;
       document.getElementById(targetId).appendChild(el);
@@ -426,26 +669,57 @@
 
     function summarizeTasks(filterFn) {
       return allTasks()
-        .map(task => ({ task, state: taskState(task.id) }))
+        .map(task => ({ task, state: taskState(taskKey(task)) }))
         .filter(filterFn)
         .map(({ task, state }) => {
-          const actual = state.actual ? ` (${state.actual}m)` : "";
+          const hasActual = String(state.actual ?? "").trim() !== "";
+          const actual = hasActual ? Number(state.actual) : null;
+          const planned = Number(task.minutes || 0);
           const parts = [];
           if (state.note && state.note.trim()) parts.push(state.note.trim().replace(/\s+/g, " "));
           if (state.blocker && state.blocker.trim()) parts.push(`Blocker/next: ${state.blocker.trim().replace(/\s+/g, " ")}`);
-          return `- ${task.title}${actual}${parts.length ? " - " + parts.join(" | ") : ""}`;
+          return `- ${task.goalId || "Goal not recorded"} | ${task.title} | planned ${planned}m | actual ${hasActual && Number.isFinite(actual) ? `${actual}m` : "not recorded"} | critical-path ${task.criticalPath ? "yes" : "no"}${parts.length ? " | " + parts.join(" | ") : ""}`;
         });
+    }
+
+    function completedEstimateSamples() {
+      return allTasks()
+        .map(task => ({ task, state: taskState(taskKey(task)) }))
+        .filter(({ task, state }) => {
+          const actualText = String(state.actual ?? "").trim();
+          return (state.done || state.status === "done") && Number(task.minutes) > 0 && actualText !== "" && Number.isFinite(Number(actualText)) && Number(actualText) >= 0;
+        })
+        .map(({ task, state }) => {
+          const planned = Number(task.minutes);
+          const actual = Number(state.actual || 0);
+          return `- ${task.goalId || "Goal not recorded"} | ${task.signature || task.title} | planned ${planned}m | actual ${actual}m | ratio ${(actual / planned).toFixed(2)} | critical-path ${task.criticalPath ? "yes" : "no"}`;
+        });
+    }
+
+    function deferredCoreTaskTitles() {
+      return [...(PLAN.baseline || []), ...(PLAN.stretch || [])]
+        .map(task => ({ task, state: taskState(taskKey(task)) }))
+        .filter(({ state }) => !state.done && !["done", "blocked"].includes(state.status))
+        .map(({ task }) => task.title);
     }
 
     function renderReport() {
       const fields = state.fields || {};
+      const alerts = normalizedGoalAlerts();
       const completed = summarizeTasks(({ state }) => state.done || state.status === "done");
       const notCompleted = summarizeTasks(({ state }) => !state.done && !["done", "blocked"].includes(state.status));
       const blocked = summarizeTasks(({ state }) => state.status === "blocked" || (state.blocker && state.blocker.trim()));
       const actualTotal = allTasks().reduce((sum, task) => {
-        const value = Number(taskState(task.id).actual || 0);
+        const value = Number(taskState(taskKey(task)).actual || 0);
         return sum + (Number.isFinite(value) ? value : 0);
       }, 0);
+      const plannedBaseline = (PLAN.baseline || []).reduce((sum, task) => sum + (Number(task.minutes) || 0), 0);
+      const actualBaseline = (PLAN.baseline || []).reduce((sum, task) => sum + (Number(taskState(taskKey(task)).actual) || 0), 0);
+      const criticalPathMinutes = allTasks().reduce((sum, task) => task.criticalPath ? sum + (Number(taskState(taskKey(task)).actual) || 0) : sum, 0);
+      const estimateSamples = completedEstimateSamples();
+      const weeklyOutputRate = PLAN.planningCalibration && PLAN.planningCalibration.weeklyOutputCompletionRate != null
+        ? PLAN.planningCalibration.weeklyOutputCompletionRate
+        : "not recorded";
       const section = (title, lines, manual) => {
         const out = [];
         if (lines.length) out.push(...lines);
@@ -454,6 +728,11 @@
       };
       const report = [
         `### ${PLAN.date}`,
+        "",
+        `Plan revision: ${PLAN.planRevisionId || (PLAN.revisionSummary && PLAN.revisionSummary.revisionId) || "not recorded"}`,
+        "",
+        "Goal alerts:",
+        ...(alerts.length ? alerts.map(alert => `- ${alert.goalId || "Goal"} | ${alert.level || "goal"} | ${alert.proximity} | ${alert.feasibility || "unknown"} | due ${displayGoalDeadline(alert)} | required today: ${alert.requiredToday || "not recorded"}`) : ["- none"]),
         "",
         "Plan stack:",
         ...(PLAN.stack || []).map(item => `- ${item.label}: ${item.value}`),
@@ -471,6 +750,20 @@
         "",
         `Focus time:\n- ${actualTotal || ""}${actualTotal ? " min" : ""} / ${PLAN.focusTargetMinutes || 300} min target`,
         "",
+        "Planning calibration:",
+        `- Planned baseline: ${plannedBaseline} min.`,
+        `- Actual baseline: ${actualBaseline} min.`,
+        `- Critical-path focus: ${criticalPathMinutes} min.`,
+        `- Planned outputs: ${allTasks().length}; completed outputs: ${completed.length}.`,
+        `- Weekly output completion rate: ${weeklyOutputRate}.`,
+        "- Completed-task estimate samples:",
+        ...(estimateSamples.length ? estimateSamples : ["  - none"]),
+        "",
+        "Unplanned work:",
+        `- Work: ${fields.unplannedWork && fields.unplannedWork.trim() ? fields.unplannedWork.trim().replace(/\s+/g, " ") : "none"}`,
+        `- Minutes: ${Number(fields.unplannedMinutes || 0)}.`,
+        `- What it displaced: ${fields.unplannedDisplaced && fields.unplannedDisplaced.trim() ? fields.unplannedDisplaced.trim().replace(/\s+/g, " ") : "none"}.`,
+        "",
         section("Energy / condition", [], fields.energyCondition),
         "",
         "Daily scores (0-100, higher = better):",
@@ -482,8 +775,9 @@
         "",
         "Suggested state updates:",
         `- Focus trend: ${actualTotal || 0} / ${PLAN.focusTargetMinutes || 300} min.`,
-        `- Deferred tasks: ${(() => { const commitmentTitles = new Set((PLAN.urgentTasks || []).map(t => t.title)); const rest = notCompleted.map(line => line.replace(/^- /, "").split(" - ")[0]).filter(title => !commitmentTitles.has(title)); return rest.length ? rest.join("; ") : "none"; })()} (ongoing commitments tracked by Skip count, not listed here).`,
+        `- Deferred tasks: ${(() => { const rest = deferredCoreTaskTitles(); return rest.length ? rest.join("; ") : "none"; })()} (ongoing commitments tracked by Skip count, not listed here).`,
         "- Update active micro-sprints only if there was concrete artifact progress or a real blocker.",
+        `- Goal Guard next input: ${alerts.length ? `${alerts[0].goalId || "Goal"} remains ${alerts[0].proximity}.` : "no active alert from today's confirmed plan."}`,
       ].join("\n");
       document.getElementById("report").value = report;
     }
@@ -494,6 +788,8 @@
       document.getElementById("antiDistractionTip").textContent = planText("antiDistractionTipHtml", "htmlAntiDistractionTip", "antiDistractionTip", "tip") || "Park tempting work unless it replaces a planned task.";
       document.getElementById("suggestionText").textContent = planText("todaySuggestionHtml", "htmlTodaySuggestion", "todaySuggestion") || "";
       const data = (PLAN.history || []).filter(item => item && item.date);
+      const calibration = PLAN.planningCalibration || {};
+      document.getElementById("planningCalibration").textContent = calibration.summary || `Planning calibration: ${data.length} recorded day(s); current confidence ${calibration.confidence || "not yet established"}.`;
       const chart = document.getElementById("historyChart");
       const svg = document.getElementById("historySvg");
       if (!data.length) return;
@@ -556,6 +852,11 @@
       return ["orange", "blue", "green", "gray"].includes(value) ? value : "blue";
     }
 
+    function taskColor(value) {
+      const color = String(value || "gray").toLowerCase();
+      return ["orange", "blue", "green", "gray"].includes(color) ? color : "gray";
+    }
+
     function timeCombination() {
       if (PLAN.timeCombination) return PLAN.timeCombination;
       if (PLAN.recommendedTimeCombination) return PLAN.recommendedTimeCombination;
@@ -593,25 +894,34 @@
       document.getElementById("timeCombination").textContent = timeCombination();
     }
 
-    function setStatus(text) {
+    function setStatus(text, persistent = false) {
       const el = document.getElementById("statusLine");
       el.textContent = text;
-      clearTimeout(window.__statusTimer);
-      window.__statusTimer = setTimeout(() => { el.textContent = ""; }, 2200);
+      clearTimeout(statusTimer);
+      if (!persistent) statusTimer = setTimeout(() => { el.textContent = ""; }, 2200);
     }
 
     function escapeHtml(value) {
-      return String(value || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
     }
 
+    renderGoalGuard();
+    renderRevisionSnapshot();
     renderPlanStack();
     renderHeaderSummary();
     renderTasks();
     bindEvents();
+    if (storageLoadIssue) setStatus(storageLoadIssue, true);
     renderRecentState();
     const perspectiveEl = document.getElementById("perspective");
     if (perspectiveEl) perspectiveEl.addEventListener("change", renderRecentState);
     renderReport();
+    })();
   </script>
 </body>
 </html>

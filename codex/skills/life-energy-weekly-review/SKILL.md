@@ -16,6 +16,7 @@ Use this skill as the default bounded-analysis contract for weekly review. Escal
 - Rolling 30-day state.
 - Active micro-sprints and ongoing commitments (table + this week's Daily Log closing lines).
 - Current phase and month gates.
+- Goal Baseline Registry, Goal Closure Log, Planning Calibration, and Plan Revision Log.
 
 ## Procedure
 
@@ -27,6 +28,8 @@ Use this skill as the default bounded-analysis contract for weekly review. Escal
 6. List agent-delegable work for next week.
 7. Choose a candidate Monday first action.
 8. State evidence and inference separately.
+9. Audit every due weekly/month/phase/micro-sprint/commitment goal. Return `closure_required` instead of rolling an unfinished goal forward.
+10. Summarize revision frequency, cumulative delay, goal debt, and proximity warnings for the next week.
 
 ## Output
 
@@ -41,6 +44,7 @@ Return:
 - Monday first action,
 - evidence,
 - inference.
+- due-goal closure decisions and goal-drift summary.
 
 ## Boundaries
 

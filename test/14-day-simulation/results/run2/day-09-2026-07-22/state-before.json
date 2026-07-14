@@ -1,0 +1,402 @@
+{
+    "date":  "2026-07-22",
+    "snapshot":  "before",
+    "authoritativeRevision":  "PR-20260720-1",
+    "planSurfaces":  {
+                         "tracker":  "PR-20260720-1",
+                         "phase":  "PR-20260720-1",
+                         "month":  "PR-20260720-1",
+                         "week":  "PR-20260720-1"
+                     },
+    "registry":  [
+                     {
+                         "goalId":  "PH-DISSERTATION",
+                         "level":  "phase",
+                         "status":  "superseded",
+                         "originalDeadline":  "2026-07-22",
+                         "currentDeadline":  "2026-07-22",
+                         "deadlineType":  "hard",
+                         "exitCriterion":  "Reviewable dissertation phase output",
+                         "successorGoalId":  "PH-DISSERTATION-V2"
+                     },
+                     {
+                         "goalId":  "MO-2026-07",
+                         "level":  "month",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-24",
+                         "currentDeadline":  "2026-07-25",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "July chapter gate is reviewable",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "WK-2026-07-13",
+                         "level":  "week",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-18",
+                         "currentDeadline":  "2026-07-18",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Weekly reviewable output is closed",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "MS-LEGACY-EXIT",
+                         "level":  "micro-sprint",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-22",
+                         "currentDeadline":  "2026-07-22",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Legacy micro-sprint has terminal evidence",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "MS-ANALYSIS",
+                         "level":  "micro-sprint",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-24",
+                         "currentDeadline":  "2026-07-24",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Three analysis outputs reviewed",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "CM-LEGACY",
+                         "level":  "commitment",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-27",
+                         "currentDeadline":  "2026-07-27",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Commitment is completed or explicitly dropped",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "PH-DISSERTATION-V2",
+                         "level":  "phase",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-27",
+                         "currentDeadline":  "2026-07-27",
+                         "deadlineType":  "hard",
+                         "exitCriterion":  "Complete the remaining work transferred from PH-DISSERTATION",
+                         "successorGoalId":  null
+                     }
+                 ],
+    "activeGoalIds":  [
+                          "MO-2026-07",
+                          "WK-2026-07-13",
+                          "MS-LEGACY-EXIT",
+                          "MS-ANALYSIS",
+                          "CM-LEGACY",
+                          "PH-DISSERTATION-V2"
+                      ],
+    "closureLog":  [
+                       {
+                           "goalId":  "PH-DISSERTATION",
+                           "endedAt":  "2026-07-20T20:00:00-04:00",
+                           "terminalOutcome":  "superseded",
+                           "evidence":  "old phase target and exit criterion replaced by confirmed baseline",
+                           "reason":  "original phase is infeasible after cumulative drift",
+                           "remainingDisposition":  "all remaining phase work moved to successor",
+                           "successorGoalId":  "PH-DISSERTATION-V2",
+                           "originalDeadline":  "2026-07-22",
+                           "currentDeadline":  "2026-07-22"
+                       }
+                   ],
+    "history":  [
+                    {
+                        "date":  "2026-07-14",
+                        "label":  "normal",
+                        "actualCriticalMinutes":  170,
+                        "includedInNormalHistory":  true
+                    },
+                    {
+                        "date":  "2026-07-15",
+                        "label":  "normal",
+                        "actualCriticalMinutes":  190,
+                        "includedInNormalHistory":  true
+                    },
+                    {
+                        "date":  "2026-07-16",
+                        "label":  "manual_catchup",
+                        "actualCriticalMinutes":  105,
+                        "includedInNormalHistory":  false
+                    },
+                    {
+                        "date":  "2026-07-17",
+                        "label":  "recovery",
+                        "actualCriticalMinutes":  75,
+                        "includedInNormalHistory":  false
+                    },
+                    {
+                        "date":  "2026-07-18",
+                        "label":  "normal",
+                        "actualCriticalMinutes":  220,
+                        "includedInNormalHistory":  true
+                    },
+                    {
+                        "date":  "2026-07-19",
+                        "label":  "travel",
+                        "actualCriticalMinutes":  0,
+                        "includedInNormalHistory":  false
+                    },
+                    {
+                        "date":  "2026-07-20",
+                        "label":  "normal",
+                        "actualCriticalMinutes":  200,
+                        "includedInNormalHistory":  true
+                    },
+                    {
+                        "date":  "2026-07-21",
+                        "label":  "illness",
+                        "actualCriticalMinutes":  60,
+                        "includedInNormalHistory":  false
+                    }
+                ],
+    "scoreHistory":  [
+                         {
+                             "date":  "2026-07-14",
+                             "focusMinutes":  170,
+                             "remainingSelf":  55,
+                             "remainingBlind":  60,
+                             "remainingCalibrated":  58,
+                             "predDriveSelf":  null,
+                             "predDriveBlind":  null,
+                             "predDriveCalibrated":  null,
+                             "actualDrive":  72,
+                             "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                         },
+                         {
+                             "date":  "2026-07-15",
+                             "focusMinutes":  190,
+                             "remainingSelf":  60,
+                             "remainingBlind":  58,
+                             "remainingCalibrated":  59,
+                             "predDriveSelf":  65,
+                             "predDriveBlind":  60,
+                             "predDriveCalibrated":  63,
+                             "actualDrive":  80,
+                             "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                         },
+                         {
+                             "date":  "2026-07-16",
+                             "focusMinutes":  105,
+                             "remainingSelf":  45,
+                             "remainingBlind":  48,
+                             "remainingCalibrated":  47,
+                             "predDriveSelf":  70,
+                             "predDriveBlind":  68,
+                             "predDriveCalibrated":  69,
+                             "actualDrive":  68,
+                             "planningAdjustment":  "Use a reduced baseline and do not add compensation work."
+                         },
+                         {
+                             "date":  "2026-07-17",
+                             "focusMinutes":  null,
+                             "remainingSelf":  null,
+                             "remainingBlind":  null,
+                             "remainingCalibrated":  null,
+                             "predDriveSelf":  55,
+                             "predDriveBlind":  52,
+                             "predDriveCalibrated":  54,
+                             "actualDrive":  null,
+                             "planningAdjustment":  null
+                         },
+                         {
+                             "date":  "2026-07-18",
+                             "focusMinutes":  220,
+                             "remainingSelf":  20,
+                             "remainingBlind":  45,
+                             "remainingCalibrated":  33,
+                             "predDriveSelf":  null,
+                             "predDriveBlind":  null,
+                             "predDriveCalibrated":  null,
+                             "actualDrive":  85,
+                             "planningAdjustment":  "Use recovery intensity and preserve only the protected action."
+                         },
+                         {
+                             "date":  "2026-07-19",
+                             "focusMinutes":  null,
+                             "remainingSelf":  null,
+                             "remainingBlind":  null,
+                             "remainingCalibrated":  null,
+                             "predDriveSelf":  25,
+                             "predDriveBlind":  60,
+                             "predDriveCalibrated":  34,
+                             "actualDrive":  null,
+                             "planningAdjustment":  null
+                         },
+                         {
+                             "date":  "2026-07-20",
+                             "focusMinutes":  200,
+                             "remainingSelf":  50,
+                             "remainingBlind":  52,
+                             "remainingCalibrated":  51,
+                             "predDriveSelf":  null,
+                             "predDriveBlind":  null,
+                             "predDriveCalibrated":  null,
+                             "actualDrive":  84,
+                             "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                         },
+                         {
+                             "date":  "2026-07-21",
+                             "focusMinutes":  60,
+                             "remainingSelf":  25,
+                             "remainingBlind":  30,
+                             "remainingCalibrated":  28,
+                             "predDriveSelf":  65,
+                             "predDriveBlind":  62,
+                             "predDriveCalibrated":  64,
+                             "actualDrive":  45,
+                             "planningAdjustment":  "Use recovery intensity and preserve only the protected action."
+                         },
+                         {
+                             "date":  "2026-07-22",
+                             "focusMinutes":  null,
+                             "remainingSelf":  null,
+                             "remainingBlind":  null,
+                             "remainingCalibrated":  null,
+                             "predDriveSelf":  35,
+                             "predDriveBlind":  40,
+                             "predDriveCalibrated":  38,
+                             "actualDrive":  null,
+                             "planningAdjustment":  null
+                         }
+                     ],
+    "revisionHistory":  [
+                            {
+                                "revisionId":  "PR-20260715-1",
+                                "date":  "2026-07-15",
+                                "kind":  "inline",
+                                "affectedLevels":  [
+                                                       "week"
+                                                   ]
+                            },
+                            {
+                                "revisionId":  "PR-20260716-1",
+                                "date":  "2026-07-16",
+                                "kind":  "inline",
+                                "affectedLevels":  [
+                                                       "commitment"
+                                                   ]
+                            },
+                            {
+                                "revisionId":  "PR-20260718-1",
+                                "date":  "2026-07-18",
+                                "kind":  "correction",
+                                "affectedLevels":  [
+                                                       "month",
+                                                       "week"
+                                                   ]
+                            },
+                            {
+                                "revisionId":  "PR-20260720-1",
+                                "date":  "2026-07-20",
+                                "kind":  "rebaseline",
+                                "affectedLevels":  [
+                                                       "phase",
+                                                       "month"
+                                                   ]
+                            }
+                        ],
+    "goalDebtMinutes":  210,
+    "correction":  {
+                       "entered":  false,
+                       "explicitlyExited":  false,
+                       "userExited":  false,
+                       "factsResetCount":  0,
+                       "changeSetResetCount":  0,
+                       "actualConfirmationCount":  0,
+                       "rolledBack":  false,
+                       "proposalDiscarded":  false,
+                       "userExitCommand":  null
+                   },
+    "guard":  {
+                  "status":  "closure_required",
+                  "proposalStatus":  "closure_required",
+                  "hardDeadlineViolation":  false,
+                  "proposalDeadlineTypeMismatch":  false,
+                  "renegotiationRequired":  false,
+                  "deadlineMoved":  false,
+                  "driftDetected":  true,
+                  "projectedGoalDebtMinutes":  240,
+                  "priorRevisionCount":  4
+              },
+    "capacity":  {
+                     "comparableDays":  4,
+                     "confidence":  "low",
+                     "algorithm":  "minimum_focused_time_fallback",
+                     "expectedMinutes":  180,
+                     "safeMinutes":  144,
+                     "includedInNormalHistory":  false,
+                     "sampleMinutes":  [
+                                           170,
+                                           190,
+                                           220,
+                                           200
+                                       ],
+                     "sampleWeights":  [
+                                           2,
+                                           2,
+                                           2,
+                                           2
+                                       ]
+                 },
+    "commitments":  {
+                        "plannedMinutes":  40,
+                        "capMinutes":  90,
+                        "withinCap":  true
+                    },
+    "artifacts":  {
+                      "expected":  false,
+                      "generationCount":  0,
+                      "regenerationCount":  0,
+                      "locked":  false,
+                      "postArtifactInput":  false,
+                      "unplannedMinutes":  0
+                  },
+    "transaction":  {
+                        "authoritativeRevisionBefore":  "PR-20260720-1",
+                        "authoritativeRevisionAfter":  "PR-20260720-1",
+                        "beforeRevisions":  {
+                                                "tracker":  "PR-20260720-1",
+                                                "phase":  "PR-20260720-1",
+                                                "month":  "PR-20260720-1",
+                                                "week":  "PR-20260720-1"
+                                            },
+                        "afterRevisions":  {
+                                               "tracker":  "PR-20260720-1",
+                                               "phase":  "PR-20260720-1",
+                                               "month":  "PR-20260720-1",
+                                               "week":  "PR-20260720-1"
+                                           },
+                        "beforeHashes":  {
+                                             "tracker":  "8C1B96D8FDD39BC353FBA0F4FB6D1A30CA6C062F451AB7EF1F3B9735135FE341",
+                                             "phase":  "F08C420DF5BA7840C74DB08CD87B3DD8CF4A8428519AEF0EBFDAC00C7A053FC1",
+                                             "month":  "E80CF81FF720DFC1999ACCB397878A1303E6E82645F077E962874FDD4DAB7D2C",
+                                             "week":  "2FD800AF2CC9874A7DA660262884C9857B71434AAC346C3859D66D1A1671C78B"
+                                         },
+                        "afterHashes":  {
+                                            "tracker":  "8C1B96D8FDD39BC353FBA0F4FB6D1A30CA6C062F451AB7EF1F3B9735135FE341",
+                                            "phase":  "F08C420DF5BA7840C74DB08CD87B3DD8CF4A8428519AEF0EBFDAC00C7A053FC1",
+                                            "month":  "E80CF81FF720DFC1999ACCB397878A1303E6E82645F077E962874FDD4DAB7D2C",
+                                            "week":  "2FD800AF2CC9874A7DA660262884C9857B71434AAC346C3859D66D1A1671C78B"
+                                        },
+                        "contentChangedSurfaces":  [
+
+                                                   ],
+                        "attemptedSurfaces":  [
+
+                                              ],
+                        "attemptedRevision":  "PR-20260720-1",
+                        "writeAttemptCount":  0,
+                        "injectedFailureAt":  [
+
+                                              ],
+                        "failureTrials":  [
+
+                                          ],
+                        "rolledBack":  false,
+                        "hashesUnchanged":  true,
+                        "committed":  false,
+                        "failureMessage":  null
+                    }
+}

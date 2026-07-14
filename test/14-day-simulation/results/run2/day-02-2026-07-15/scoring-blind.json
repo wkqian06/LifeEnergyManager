@@ -1,0 +1,12 @@
+{
+    "expected":  true,
+    "generatedBeforeSelfFixtureLoad":  true,
+    "selfScoresVisible":  false,
+    "remainingBlind":  58,
+    "predDriveBlind":  68,
+    "actualDrive":  80,
+    "agentEnergyConfidence":  "high",
+    "agentEnergySummary":  "Critical-path time exceeded plan while the weekly change stayed bounded.",
+    "evidence":  "190 of 180 critical-path minutes; reordered output completed.",
+    "inference":  "Drive was strong and the plan remained feasible."
+}

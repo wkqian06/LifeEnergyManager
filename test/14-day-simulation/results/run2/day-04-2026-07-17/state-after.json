@@ -1,0 +1,296 @@
+{
+    "date":  "2026-07-17",
+    "snapshot":  "after",
+    "authoritativeRevision":  "PR-20260716-1",
+    "planSurfaces":  {
+                         "tracker":  "PR-20260716-1",
+                         "phase":  "PR-20260716-1",
+                         "month":  "PR-20260716-1",
+                         "week":  "PR-20260716-1"
+                     },
+    "registry":  [
+                     {
+                         "goalId":  "PH-DISSERTATION",
+                         "level":  "phase",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-22",
+                         "currentDeadline":  "2026-07-22",
+                         "deadlineType":  "hard",
+                         "exitCriterion":  "Reviewable dissertation phase output",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "MO-2026-07",
+                         "level":  "month",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-24",
+                         "currentDeadline":  "2026-07-24",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "July chapter gate is reviewable",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "WK-2026-07-13",
+                         "level":  "week",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-18",
+                         "currentDeadline":  "2026-07-18",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Weekly reviewable output is closed",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "MS-LEGACY-EXIT",
+                         "level":  "micro-sprint",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-22",
+                         "currentDeadline":  "2026-07-22",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Legacy micro-sprint has terminal evidence",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "MS-ANALYSIS",
+                         "level":  "micro-sprint",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-24",
+                         "currentDeadline":  "2026-07-24",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Three analysis outputs reviewed",
+                         "successorGoalId":  null
+                     },
+                     {
+                         "goalId":  "CM-LEGACY",
+                         "level":  "commitment",
+                         "status":  "active",
+                         "originalDeadline":  "2026-07-27",
+                         "currentDeadline":  "2026-07-27",
+                         "deadlineType":  "soft",
+                         "exitCriterion":  "Commitment is completed or explicitly dropped",
+                         "successorGoalId":  null
+                     }
+                 ],
+    "activeGoalIds":  [
+                          "PH-DISSERTATION",
+                          "MO-2026-07",
+                          "WK-2026-07-13",
+                          "MS-LEGACY-EXIT",
+                          "MS-ANALYSIS",
+                          "CM-LEGACY"
+                      ],
+    "closureLog":  [
+
+                   ],
+    "history":  [
+                    {
+                        "date":  "2026-07-14",
+                        "label":  "normal",
+                        "actualCriticalMinutes":  170,
+                        "includedInNormalHistory":  true
+                    },
+                    {
+                        "date":  "2026-07-15",
+                        "label":  "normal",
+                        "actualCriticalMinutes":  190,
+                        "includedInNormalHistory":  true
+                    },
+                    {
+                        "date":  "2026-07-16",
+                        "label":  "manual_catchup",
+                        "actualCriticalMinutes":  105,
+                        "includedInNormalHistory":  false
+                    },
+                    {
+                        "date":  "2026-07-17",
+                        "label":  "recovery",
+                        "actualCriticalMinutes":  75,
+                        "includedInNormalHistory":  false
+                    }
+                ],
+    "scoreHistory":  [
+                         {
+                             "date":  "2026-07-14",
+                             "focusMinutes":  170,
+                             "remainingSelf":  55,
+                             "remainingBlind":  60,
+                             "remainingCalibrated":  58,
+                             "predDriveSelf":  null,
+                             "predDriveBlind":  null,
+                             "predDriveCalibrated":  null,
+                             "actualDrive":  72,
+                             "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                         },
+                         {
+                             "date":  "2026-07-15",
+                             "focusMinutes":  190,
+                             "remainingSelf":  60,
+                             "remainingBlind":  58,
+                             "remainingCalibrated":  59,
+                             "predDriveSelf":  65,
+                             "predDriveBlind":  60,
+                             "predDriveCalibrated":  63,
+                             "actualDrive":  80,
+                             "planningAdjustment":  "Keep a standard baseline; protect the first critical action."
+                         },
+                         {
+                             "date":  "2026-07-16",
+                             "focusMinutes":  105,
+                             "remainingSelf":  45,
+                             "remainingBlind":  48,
+                             "remainingCalibrated":  47,
+                             "predDriveSelf":  70,
+                             "predDriveBlind":  68,
+                             "predDriveCalibrated":  69,
+                             "actualDrive":  68,
+                             "planningAdjustment":  "Use a reduced baseline and do not add compensation work."
+                         },
+                         {
+                             "date":  "2026-07-17",
+                             "focusMinutes":  null,
+                             "remainingSelf":  null,
+                             "remainingBlind":  null,
+                             "remainingCalibrated":  null,
+                             "predDriveSelf":  55,
+                             "predDriveBlind":  52,
+                             "predDriveCalibrated":  54,
+                             "actualDrive":  null,
+                             "planningAdjustment":  null
+                         }
+                     ],
+    "revisionHistory":  [
+                            {
+                                "revisionId":  "PR-20260715-1",
+                                "date":  "2026-07-15",
+                                "kind":  "inline",
+                                "affectedLevels":  [
+                                                       "week"
+                                                   ]
+                            },
+                            {
+                                "revisionId":  "PR-20260716-1",
+                                "date":  "2026-07-16",
+                                "kind":  "inline",
+                                "affectedLevels":  [
+                                                       "commitment"
+                                                   ]
+                            }
+                        ],
+    "goalDebtMinutes":  80,
+    "correction":  {
+                       "entered":  true,
+                       "explicitlyExited":  false,
+                       "userExited":  false,
+                       "factsResetCount":  0,
+                       "changeSetResetCount":  0,
+                       "actualConfirmationCount":  1,
+                       "rolledBack":  true,
+                       "proposalDiscarded":  false,
+                       "userExitCommand":  null
+                   },
+    "guard":  {
+                  "status":  "warning",
+                  "proposalStatus":  "warning",
+                  "hardDeadlineViolation":  false,
+                  "proposalDeadlineTypeMismatch":  false,
+                  "renegotiationRequired":  false,
+                  "deadlineMoved":  false,
+                  "driftDetected":  false,
+                  "projectedGoalDebtMinutes":  80,
+                  "priorRevisionCount":  2
+              },
+    "capacity":  {
+                     "comparableDays":  2,
+                     "confidence":  "low",
+                     "algorithm":  "minimum_focused_time_fallback",
+                     "expectedMinutes":  180,
+                     "safeMinutes":  144,
+                     "includedInNormalHistory":  false,
+                     "sampleMinutes":  [
+                                           170,
+                                           190
+                                       ],
+                     "sampleWeights":  [
+                                           2,
+                                           2
+                                       ]
+                 },
+    "commitments":  {
+                        "plannedMinutes":  120,
+                        "capMinutes":  90,
+                        "withinCap":  false
+                    },
+    "artifacts":  {
+                      "expected":  false,
+                      "generationCount":  0,
+                      "regenerationCount":  0,
+                      "locked":  false,
+                      "blockedMutationAttempts":  0,
+                      "midGenerationBlocked":  false,
+                      "hashesUnchangedAfterBlockedAttempt":  true,
+                      "planSurfaceHashesUnchanged":  true,
+                      "postArtifactInput":  false,
+                      "unplannedMinutes":  0
+                  },
+    "transaction":  {
+                        "authoritativeRevisionBefore":  "PR-20260716-1",
+                        "authoritativeRevisionAfter":  "PR-20260716-1",
+                        "beforeRevisions":  {
+                                                "tracker":  "PR-20260716-1",
+                                                "phase":  "PR-20260716-1",
+                                                "month":  "PR-20260716-1",
+                                                "week":  "PR-20260716-1"
+                                            },
+                        "afterRevisions":  {
+                                               "tracker":  "PR-20260716-1",
+                                               "phase":  "PR-20260716-1",
+                                               "month":  "PR-20260716-1",
+                                               "week":  "PR-20260716-1"
+                                           },
+                        "beforeHashes":  {
+                                             "tracker":  "0F7B1CD2D66BCACE05442D1237CA976417BE8D9006DF961EAFAD52DD7F7F10FB",
+                                             "phase":  "0D4E54C01D53981E689224BFFD55D6782EAD5D413C777EC81484190050B717E4",
+                                             "month":  "7064A543C7672900DF0140276F406A315231A5197BD62D9F2E5D6B291DED9B0B",
+                                             "week":  "E0CD7E16BD5A0B1D1CE0E360FAE2258B566DA67C0C0221F4815E24444DA43FBD"
+                                         },
+                        "afterHashes":  {
+                                            "tracker":  "0F7B1CD2D66BCACE05442D1237CA976417BE8D9006DF961EAFAD52DD7F7F10FB",
+                                            "phase":  "0D4E54C01D53981E689224BFFD55D6782EAD5D413C777EC81484190050B717E4",
+                                            "month":  "7064A543C7672900DF0140276F406A315231A5197BD62D9F2E5D6B291DED9B0B",
+                                            "week":  "E0CD7E16BD5A0B1D1CE0E360FAE2258B566DA67C0C0221F4815E24444DA43FBD"
+                                        },
+                        "contentChangedSurfaces":  [
+                                                       "tracker",
+                                                       "week"
+                                                   ],
+                        "attemptedSurfaces":  [
+                                                  "week",
+                                                  "phase",
+                                                  "month",
+                                                  "tracker"
+                                              ],
+                        "attemptedRevision":  "PR-20260717-1",
+                        "writeAttemptCount":  6,
+                        "injectedFailureAt":  [
+                                                  2,
+                                                  4
+                                              ],
+                        "failureTrials":  [
+                                              {
+                                                  "failurePoint":  2,
+                                                  "failedSurface":  "phase",
+                                                  "attempts":  2,
+                                                  "hashesRestored":  true
+                                              },
+                                              {
+                                                  "failurePoint":  4,
+                                                  "failedSurface":  "tracker",
+                                                  "attempts":  4,
+                                                  "hashesRestored":  true
+                                              }
+                                          ],
+                        "rolledBack":  true,
+                        "hashesUnchanged":  true,
+                        "committed":  false,
+                        "failureMessage":  "SIMULATED_WRITE_FAILURE:phase; SIMULATED_WRITE_FAILURE:tracker"
+                    }
+}

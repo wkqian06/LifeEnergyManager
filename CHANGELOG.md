@@ -2,6 +2,77 @@
 
 This project uses date-based changelog entries until formal version tags are introduced.
 
+## 2026-07-14 - Bilingual user documentation
+
+### Added
+
+- Added matching Chinese and English user guides that explain the manager's
+  purpose, guarded daily workflow, goal lifecycle, risk/calibration terms,
+  workflow diagram, wallpaper layout, and every HTML workbench module.
+- Added a cross-surface scenario matrix showing how normal, approaching,
+  critical, closure-required, correction, rebaseline, manual catch-up,
+  low-history, multi-alert, and post-artifact inputs appear to the user.
+
+### Changed
+
+- Added direct guide links to the README and clarified the distinction between
+  user-facing guidance and the implementation-facing reference contract.
+- Simplified the workflow SVG back to the original Plan → Run → Reflect mental
+  model. Goal Guard and revision checks are grouped inside planning, artifact
+  locking is grouped inside execution, and closure/calibration history is
+  grouped inside Planning memory.
+- Added a separate technical workflow SVG to the implementation reference,
+  expanding Goal Drift Guard and Plan Modification inputs, checks, blocking
+  routes, confirmations, atomic commit, artifact boundary, and feedback loop.
+- Added a distinct final confirmed-snapshot Guard before artifact locking and a
+  visually separated Plan Feedback Loop from execution evidence through
+  planning memory and next-plan inputs back to the next morning Guard.
+
+## 2026-07-13 - Goal drift guard, plan correction mode, and risk-aware artifacts
+
+### Added
+
+- Added matching Codex and Claude Code `life-energy-goal-drift-guard` and
+  `life-energy-plan-revision` skills, plus Claude escalation agents and shared
+  nine-role routing contracts.
+- Added tracker-level Goal Baseline Registry, lifecycle/closure rules, Planning
+  Calibration, Plan Revision Log, active Revision ID, historical capacity and
+  estimate-factor rules, coverage thresholds, goal debt, and hard-deadline
+  protection.
+- Added forced terminal labels for phase, month, week, micro-sprint, and ongoing
+  commitment goals. Continued work after closure uses a successor Goal ID.
+- Added a pre-artifact correction mode with explicit entry/exit notices,
+  transactional multi-file Revision IDs, one-reply weekly/commitment confirmation,
+  and three separate replies for month/phase changes or rebaseline.
+- Added Goal Guard, feasibility, revision snapshot, calibration, unplanned-work,
+  and report modules to the HTML workbench.
+- Added the optional Goal Alert strip and Revision ID footer to the wallpaper
+  generator, including dynamic geometry for approaching, critical, and due risk.
+- Added persisted daily artifact locks, structured completed-task calibration
+  samples, weekly output completion rates, and visible localStorage migration
+  recovery.
+
+### Changed
+
+- Updated setup, morning, evening, Sunday, automation, skill, and escalation
+  contracts in both platform editions so Guard and revision decisions are
+  behaviorally equivalent.
+- Rebuilt the workflow SVG as clean UTF-8 with a left-to-right mainline, dedicated
+  closure/correction branches, artifact lock boundary, and bottom feedback loop.
+- Extended artifact QA to require matching Revision IDs and goal semantics across
+  tracker, plan files, HTML, and PNG before presentation.
+- Split wallpaper execution into a thin generator and reusable renderer module;
+  invalid progress order/count or non-fitting text now fails visibly.
+- Updated README, reference documentation, intake template, and the graduation
+  tracker example for the nine-role lifecycle model.
+
+### Safety and compatibility
+
+- Once either daily artifact starts generating, long-range plans stay locked for
+  that day; later changes are recorded as unplanned work and displacement only.
+- Existing automation/routine names, times, RRULE/cron schedules, localStorage,
+  report copy, and Markdown download behavior are unchanged.
+
 ## 2026-07-08 - Daily scoring model and direct evening report intake
 
 ### Added

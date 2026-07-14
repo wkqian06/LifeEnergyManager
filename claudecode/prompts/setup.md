@@ -27,14 +27,23 @@ If the user pasted the plan in chat, use the pasted content as the source of tru
 4. Create phase, month, and initial weekly sections if enough information exists.
 5. Create empty rolling 30-day state sections if no history exists.
 6. Identify active micro-sprints and ongoing commitments only when supported by the source material.
-7. Write priority rules that prevent secondary work from crowding out the active phase.
-8. Use the `life-energy-plan-normalizer` skill by default to extract, normalize, identify missing information, and draft priority rules. Escalate to the `plan-normalizer` subagent only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority.
-9. Derive the custom project name from `user_plan.md`, then use automation names in the format `LifeEnergyManager - <project name> (<workflow type>)`.
-10. Prepare routine instructions using these exact names for:
+7. Create the Goal Baseline Registry for every finishable phase, month, week,
+   micro-sprint, and commitment goal, including stable Goal ID, original/current
+   target and date/type, decidable exit criterion, estimate, and state. Initialize
+   empty Goal Closure, Planning Calibration, and Plan Revision logs plus
+   `Active plan revision: PR-<setup-date>-0`. Every normalized phase/month copy
+   carries the same `Plan revision:` value.
+8. For an existing tracker, draft a one-time migration. Derive facts where
+   possible and ask one blocking confirmation only for active goals missing a
+   deadline/window or exit criterion. Migration is initialization, not revision.
+9. Write priority rules that prevent secondary work from crowding out the active phase.
+10. Use the `life-energy-plan-normalizer` skill by default to extract, normalize, identify missing information, and draft priority rules. Escalate to the `plan-normalizer` subagent only when source plans conflict, are messy enough to risk invented priorities, or missing information affects schedule, deadline, or core priority.
+11. Derive the custom project name from `user_plan.md`, then use automation names in the format `LifeEnergyManager - <project name> (<workflow type>)`.
+12. Prepare routine instructions using these exact names for:
    - Monday-Saturday morning planning.
    - Monday-Saturday evening check-in.
    - Sunday light review.
-11. When creating or updating Claude Code routines, follow `claudecode/prompts/automation.md` exactly:
+13. When creating or updating Claude Code routines, follow `claudecode/prompts/automation.md` exactly:
    - Use Claude Code desktop local routines as the primary path, with the workspace root as the working directory and an interactive permission mode.
    - Use a system scheduler launching an interactive Claude Code session only as the fallback path.
    - Do not use cloud routines; they cannot ask questions mid-run or write the local `outputs/` directory.

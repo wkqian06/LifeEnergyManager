@@ -1,0 +1,137 @@
+{
+    "dayIndex":  8,
+    "date":  "2026-07-21",
+    "dayLabel":  "illness",
+    "scenario":  "Unsupported hard-deadline move is blocked; user exits correction",
+    "workflow":  "morning_evening",
+    "revisionKind":  "correction",
+    "correctionState":  "entered_user_exit",
+    "confirmationsRequired":  1,
+    "actualConfirmationCount":  0,
+    "guardStatus":  "warning",
+    "proposalGuardStatus":  "blocked",
+    "feasibility":  "red",
+    "confidence":  "low",
+    "comparableDaysBefore":  4,
+    "revisionBefore":  "PR-20260720-1",
+    "revisionAfter":  "PR-20260720-1",
+    "terminalOutcome":  null,
+    "artifactExpected":  true,
+    "postArtifactInput":  false,
+    "unplannedMinutes":  0,
+    "scoring":  {
+                    "expected":  true,
+                    "model":  "blind-self-calibrated",
+                    "stages":  [
+                                   {
+                                       "order":  1,
+                                       "name":  "blind_pass_persisted",
+                                       "selfScoresVisible":  false,
+                                       "blindResultHash":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6"
+                                   },
+                                   {
+                                       "order":  2,
+                                       "name":  "self_fixture_loaded",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6"
+                                   },
+                                   {
+                                       "order":  3,
+                                       "name":  "calibration",
+                                       "selfScoresVisible":  true,
+                                       "blindResultHash":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6"
+                                   }
+                               ],
+                    "blindResultHashBeforeSelf":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6",
+                    "blindResultHashAfterCalibration":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6",
+                    "blindPass":  {
+                                      "expected":  true,
+                                      "generatedBeforeSelfFixtureLoad":  true,
+                                      "selfScoresVisible":  false,
+                                      "remainingBlind":  30,
+                                      "predDriveBlind":  40,
+                                      "actualDrive":  45,
+                                      "agentEnergyConfidence":  "high",
+                                      "agentEnergySummary":  "Reduced focus and illness evidence agree with low remaining energy.",
+                                      "evidence":  "60 of 90 reduced critical-path minutes; illness explicitly recorded.",
+                                      "inference":  "Low drive reflects condition rather than plan avoidance."
+                                  },
+                    "selfScores":  {
+                                       "remainingSelf":  25,
+                                       "remainingNote":  "Illness reduced concentration and stamina.",
+                                       "predDriveSelf":  35,
+                                       "predDriveNote":  "Tomorrow should start with a very small action.",
+                                       "simulatedBy":  "test agent acting as user"
+                                   },
+                    "calibrated":  {
+                                       "remainingCalibrated":  28,
+                                       "predDriveCalibrated":  38,
+                                       "actualDrive":  45,
+                                       "agentEnergyConfidence":  "high",
+                                       "agentEnergySummary":  "Reduced focus and illness evidence agree with low remaining energy.",
+                                       "planningAdjustment":  "Use recovery intensity and preserve only the protected action.",
+                                       "nextFocusMode":  "Recovery",
+                                       "nextTargetCapMinutes":  90
+                                   },
+                    "predictionTargetDate":  "2026-07-22",
+                    "priorPredDriveCalibrated":  64,
+                    "actualVsPriorPredictionGap":  -19,
+                    "blindVsSelfPredictionGap":  5,
+                    "divergenceFlag":  false
+                },
+    "planFocusMode":  "Reduced illness day",
+    "planFocusTargetMinutes":  90,
+    "scoreFeedbackApplied":  true,
+    "scoreObservationDate":  "2026-07-20",
+    "scorePredictionTargetDate":  "2026-07-21",
+    "generatedFiles":  [
+                           "results/run2/day-08-2026-07-21/plan.json",
+                           "results/run2/day-08-2026-07-21/workbench.html",
+                           "results/run2/day-08-2026-07-21/wallpaper-config.json",
+                           "results/run2/day-08-2026-07-21/wallpaper.png",
+                           "results/run2/day-08-2026-07-21/state-before.json",
+                           "results/run2/day-08-2026-07-21/state-after.json",
+                           "results/run2/day-08-2026-07-21/transaction.json",
+                           "results/run2/day-08-2026-07-21/artifact-evidence.json",
+                           "results/run2/day-08-2026-07-21/scoring-blind.json",
+                           "results/run2/day-08-2026-07-21/scoring-evidence.json"
+                       ],
+    "checks":  [
+                   {
+                       "name":  "hard deadline move rejected",
+                       "status":  "pass",
+                       "evidence":  "authoritative hard deadline; proposed 2026-07-30 blocked; deadline and all surface hashes remained 2026-07-27"
+                   },
+                   {
+                       "name":  "renegotiation required",
+                       "status":  "pass",
+                       "evidence":  "renegotiationRequired=true"
+                   },
+                   {
+                       "name":  "user exit writes zero changes",
+                       "status":  "pass",
+                       "evidence":  "exact UTF-8 exit command; zero writes"
+                   },
+                   {
+                       "name":  "illness day excluded from normal capacity",
+                       "status":  "pass",
+                       "evidence":  "illness excluded"
+                   },
+                   {
+                       "name":  "scoring blind pass precedes self-score calibration",
+                       "status":  "pass",
+                       "evidence":  "persisted blind hash=1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6 stayed immutable"
+                   },
+                   {
+                       "name":  "simulated self and agent scores stored",
+                       "status":  "pass",
+                       "evidence":  "self=25; actual=45"
+                   },
+                   {
+                       "name":  "score feedback changes or confirms next plan",
+                       "status":  "pass",
+                       "evidence":  "mode=Reduced illness day; target=90; observation=2026-07-20; prediction target=2026-07-21"
+                   }
+               ],
+    "status":  "pass"
+}

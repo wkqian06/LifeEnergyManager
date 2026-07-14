@@ -1,0 +1,783 @@
+{
+    "simulationName":  "LifeEnergyManager 14-day plan and guard simulation",
+    "startDate":  "2026-07-14",
+    "endDate":  "2026-07-27",
+    "timezone":  "America/New_York",
+    "status":  "pass",
+    "outputsFingerprintBefore":  "BA18436086E18D99331190E5C69B0E2BAED0A6D6BF8E2A929A1C7EF3424D5D10",
+    "outputsFingerprintAfter":  "BA18436086E18D99331190E5C69B0E2BAED0A6D6BF8E2A929A1C7EF3424D5D10",
+    "nodeVerification":  {
+                             "status":  "pass",
+                             "totalDays":  14,
+                             "artifactDays":  10
+                         },
+    "selfTests":  {
+                      "unlockedArtifactMutation":  {
+                                                       "stage":  "unlocked_negative_control",
+                                                       "blocked":  false,
+                                                       "reason":  "mutation_executed",
+                                                       "htmlHashUnchanged":  false,
+                                                       "wallpaperHashUnchanged":  false,
+                                                       "planSurfaceHashesUnchanged":  false
+                                                   },
+                      "confirmationNegativeCases":  "pass",
+                      "hardDeadlineAuthoritySpoof":  "pass",
+                      "weightedMedianRecentSeven":  "pass"
+                  },
+    "days":  [
+                 {
+                     "dayIndex":  1,
+                     "date":  "2026-07-14",
+                     "dayLabel":  "normal",
+                     "scenario":  "No-impact input; low-history baseline plan",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "pass",
+                     "feasibility":  "green",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  0,
+                     "revisionBefore":  "PR-20260714-0",
+                     "revisionAfter":  "PR-20260714-0",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/plan.json",
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/workbench.html",
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/state-before.json",
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/state-after.json",
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/transaction.json",
+                                            "results/run-2026-07-14-015/day-01-2026-07-14/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "no correction mode",
+                                        "status":  "pass",
+                                        "evidence":  "correction.entered=false"
+                                    },
+                                    {
+                                        "name":  "low-confidence fallback",
+                                        "status":  "pass",
+                                        "evidence":  "fallback=180 min, low"
+                                    },
+                                    {
+                                        "name":  "artifacts share revision",
+                                        "status":  "pass",
+                                        "evidence":  "revision=PR-20260714-0"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  2,
+                     "date":  "2026-07-15",
+                     "dayLabel":  "normal",
+                     "scenario":  "Small next-week reorder inside capacity",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "inline",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "yellow",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  1,
+                     "revisionBefore":  "PR-20260714-0",
+                     "revisionAfter":  "PR-20260715-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/plan.json",
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/workbench.html",
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/state-before.json",
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/state-after.json",
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/transaction.json",
+                                            "results/run-2026-07-14-015/day-02-2026-07-15/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "inline classification",
+                                        "status":  "pass",
+                                        "evidence":  "inline without correction mode"
+                                    },
+                                    {
+                                        "name":  "one final-plan confirmation",
+                                        "status":  "pass",
+                                        "evidence":  "actual confirmations=1"
+                                    },
+                                    {
+                                        "name":  "no correction-mode banner",
+                                        "status":  "pass",
+                                        "evidence":  "correction.entered=false"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  3,
+                     "date":  "2026-07-16",
+                     "dayLabel":  "manual_catchup",
+                     "scenario":  "Late catch-up plus commitment added within cap",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "inline",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "yellow",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  2,
+                     "revisionBefore":  "PR-20260715-1",
+                     "revisionAfter":  "PR-20260716-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/plan.json",
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/workbench.html",
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/state-before.json",
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/state-after.json",
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/transaction.json",
+                                            "results/run-2026-07-14-015/day-03-2026-07-16/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "manual catch-up compression",
+                                        "status":  "pass",
+                                        "evidence":  "focus target compressed to 120 min"
+                                    },
+                                    {
+                                        "name":  "commitment stays within cap",
+                                        "status":  "pass",
+                                        "evidence":  "60/90 commitment minutes"
+                                    },
+                                    {
+                                        "name":  "catch-up day excluded from normal history",
+                                        "status":  "pass",
+                                        "evidence":  "manual_catchup excluded"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  4,
+                     "date":  "2026-07-17",
+                     "dayLabel":  "recovery",
+                     "scenario":  "Commitment cap overflow; confirmed write fails and rolls back",
+                     "workflow":  "morning",
+                     "revisionKind":  "correction",
+                     "correctionState":  "write_failed_rollback",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  2,
+                     "revisionBefore":  "PR-20260716-1",
+                     "revisionAfter":  "PR-20260716-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-04-2026-07-17/state-before.json",
+                                            "results/run-2026-07-14-015/day-04-2026-07-17/state-after.json",
+                                            "results/run-2026-07-14-015/day-04-2026-07-17/transaction.json",
+                                            "results/run-2026-07-14-015/day-04-2026-07-17/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "correction mode entered",
+                                        "status":  "pass",
+                                        "evidence":  "correction.entered=true"
+                                    },
+                                    {
+                                        "name":  "single dedicated confirmation",
+                                        "status":  "pass",
+                                        "evidence":  "actual confirmations=1"
+                                    },
+                                    {
+                                        "name":  "rollback keeps prior revision",
+                                        "status":  "pass",
+                                        "evidence":  "failure before tracker and at tracker both restored every surface hash"
+                                    },
+                                    {
+                                        "name":  "artifacts blocked",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  5,
+                     "date":  "2026-07-18",
+                     "dayLabel":  "normal",
+                     "scenario":  "Month deadline and sequence correction",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "correction",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  3,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  2,
+                     "revisionBefore":  "PR-20260716-1",
+                     "revisionAfter":  "PR-20260718-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/plan.json",
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/workbench.html",
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/state-before.json",
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/state-after.json",
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/transaction.json",
+                                            "results/run-2026-07-14-015/day-05-2026-07-18/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "three independent replies",
+                                        "status":  "pass",
+                                        "evidence":  "three valid replies after change-set reset"
+                                    },
+                                    {
+                                        "name":  "month file shares revision",
+                                        "status":  "pass",
+                                        "evidence":  "month=PR-20260718-1"
+                                    },
+                                    {
+                                        "name":  "goal debt preserved",
+                                        "status":  "pass",
+                                        "evidence":  "80 -\u003e 120 min"
+                                    },
+                                    {
+                                        "name":  "correction mode explicitly exited",
+                                        "status":  "pass",
+                                        "evidence":  "explicitlyExited=true"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  6,
+                     "date":  "2026-07-19",
+                     "dayLabel":  "travel",
+                     "scenario":  "Sunday drift audit escalates accumulated delay to rebaseline",
+                     "workflow":  "sunday_review",
+                     "revisionKind":  "rebaseline",
+                     "correctionState":  "proposal_only",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "rebaseline_required",
+                     "proposalGuardStatus":  "rebaseline_required",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  3,
+                     "revisionBefore":  "PR-20260718-1",
+                     "revisionAfter":  "PR-20260718-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-06-2026-07-19/state-before.json",
+                                            "results/run-2026-07-14-015/day-06-2026-07-19/state-after.json",
+                                            "results/run-2026-07-14-015/day-06-2026-07-19/transaction.json",
+                                            "results/run-2026-07-14-015/day-06-2026-07-19/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "cumulative drift detected",
+                                        "status":  "pass",
+                                        "evidence":  "derived from debt=210, revisions=3, feasibility=red"
+                                    },
+                                    {
+                                        "name":  "goal debt not cleared",
+                                        "status":  "pass",
+                                        "evidence":  "210 min"
+                                    },
+                                    {
+                                        "name":  "travel/Sunday excluded from normal capacity",
+                                        "status":  "pass",
+                                        "evidence":  "travel/Sunday excluded"
+                                    },
+                                    {
+                                        "name":  "no Sunday artifacts",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  7,
+                     "date":  "2026-07-20",
+                     "dayLabel":  "normal",
+                     "scenario":  "Phase rebaseline with facts-change confirmation reset",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "rebaseline",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  3,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "rebaseline_required",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  3,
+                     "revisionBefore":  "PR-20260718-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  "superseded",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/plan.json",
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/workbench.html",
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/state-before.json",
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/state-after.json",
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/transaction.json",
+                                            "results/run-2026-07-14-015/day-07-2026-07-20/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "facts reset handled",
+                                        "status":  "pass",
+                                        "evidence":  "facts reset cleared stale reply and three new replies completed"
+                                    },
+                                    {
+                                        "name":  "old phase closed superseded",
+                                        "status":  "pass",
+                                        "evidence":  "PH-DISSERTATION closure logged"
+                                    },
+                                    {
+                                        "name":  "successor Goal ID created",
+                                        "status":  "pass",
+                                        "evidence":  "successor=PH-DISSERTATION-V2, dated with exit criterion"
+                                    },
+                                    {
+                                        "name":  "three replies separate",
+                                        "status":  "pass",
+                                        "evidence":  "three unique structured reply IDs survived reset"
+                                    },
+                                    {
+                                        "name":  "new revision ordinal is one",
+                                        "status":  "pass",
+                                        "evidence":  "revision=PR-20260720-1"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  8,
+                     "date":  "2026-07-21",
+                     "dayLabel":  "illness",
+                     "scenario":  "Unsupported hard-deadline move is blocked; user exits correction",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "correction",
+                     "correctionState":  "entered_user_exit",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "blocked",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  4,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/plan.json",
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/workbench.html",
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/state-before.json",
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/state-after.json",
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/transaction.json",
+                                            "results/run-2026-07-14-015/day-08-2026-07-21/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "hard deadline move rejected",
+                                        "status":  "pass",
+                                        "evidence":  "authoritative hard deadline; proposed 2026-07-30 blocked; deadline and all surface hashes remained 2026-07-27"
+                                    },
+                                    {
+                                        "name":  "renegotiation required",
+                                        "status":  "pass",
+                                        "evidence":  "renegotiationRequired=true"
+                                    },
+                                    {
+                                        "name":  "user exit writes zero changes",
+                                        "status":  "pass",
+                                        "evidence":  "exact UTF-8 exit command; zero writes"
+                                    },
+                                    {
+                                        "name":  "illness day excluded from normal capacity",
+                                        "status":  "pass",
+                                        "evidence":  "illness excluded"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  9,
+                     "date":  "2026-07-22",
+                     "dayLabel":  "closure_blocked",
+                     "scenario":  "Due goal has no exit evidence and user does not answer",
+                     "workflow":  "morning_blocked",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "closure_required",
+                     "proposalGuardStatus":  "closure_required",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  4,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-09-2026-07-22/state-before.json",
+                                            "results/run-2026-07-14-015/day-09-2026-07-22/state-after.json",
+                                            "results/run-2026-07-14-015/day-09-2026-07-22/transaction.json",
+                                            "results/run-2026-07-14-015/day-09-2026-07-22/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "normal planning blocked",
+                                        "status":  "pass",
+                                        "evidence":  "closure_required"
+                                    },
+                                    {
+                                        "name":  "no artifacts",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    },
+                                    {
+                                        "name":  "old deadline not moved",
+                                        "status":  "pass",
+                                        "evidence":  "deadline remained 2026-07-22"
+                                    },
+                                    {
+                                        "name":  "no silent default terminal outcome",
+                                        "status":  "pass",
+                                        "evidence":  "no closure entry created"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  10,
+                     "date":  "2026-07-23",
+                     "dayLabel":  "normal",
+                     "scenario":  "Due goal closes completed with evidence",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "pass",
+                     "feasibility":  "green",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  4,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  "completed",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/plan.json",
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/workbench.html",
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/state-before.json",
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/state-after.json",
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/transaction.json",
+                                            "results/run-2026-07-14-015/day-10-2026-07-23/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "completed requires evidence",
+                                        "status":  "pass",
+                                        "evidence":  "evidence stored"
+                                    },
+                                    {
+                                        "name":  "closure log retained",
+                                        "status":  "pass",
+                                        "evidence":  "MS-LEGACY-EXIT closure retained"
+                                    },
+                                    {
+                                        "name":  "closed goal removed from active table",
+                                        "status":  "pass",
+                                        "evidence":  "MS-LEGACY-EXIT inactive"
+                                    },
+                                    {
+                                        "name":  "mainline resumes",
+                                        "status":  "pass",
+                                        "evidence":  "guard pass and artifacts generated"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  11,
+                     "date":  "2026-07-24",
+                     "dayLabel":  "normal",
+                     "scenario":  "Due micro-sprint closes partially completed and creates successor",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "correction",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "yellow",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  5,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260724-1",
+                     "terminalOutcome":  "partially_completed",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/plan.json",
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/workbench.html",
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/state-before.json",
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/state-after.json",
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/transaction.json",
+                                            "results/run-2026-07-14-015/day-11-2026-07-24/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "partial outcome records evidence",
+                                        "status":  "pass",
+                                        "evidence":  "partial evidence stored"
+                                    },
+                                    {
+                                        "name":  "remaining work disposition present",
+                                        "status":  "pass",
+                                        "evidence":  "remaining disposition stored"
+                                    },
+                                    {
+                                        "name":  "successor Goal ID present",
+                                        "status":  "pass",
+                                        "evidence":  "successor=MS-ANALYSIS-V2, dated with exit criterion"
+                                    },
+                                    {
+                                        "name":  "old goal date unchanged",
+                                        "status":  "pass",
+                                        "evidence":  "old deadline remained 2026-07-24"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  12,
+                     "date":  "2026-07-25",
+                     "dayLabel":  "normal",
+                     "scenario":  "Due weekly goal closes missed without rolling its date",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "pass",
+                     "feasibility":  "green",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  6,
+                     "revisionBefore":  "PR-20260724-1",
+                     "revisionAfter":  "PR-20260724-1",
+                     "terminalOutcome":  "missed",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/plan.json",
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/workbench.html",
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/state-before.json",
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/state-after.json",
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/transaction.json",
+                                            "results/run-2026-07-14-015/day-12-2026-07-25/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "missed reason recorded",
+                                        "status":  "pass",
+                                        "evidence":  "missed reason stored"
+                                    },
+                                    {
+                                        "name":  "remaining work disposition recorded",
+                                        "status":  "pass",
+                                        "evidence":  "remaining disposition stored"
+                                    },
+                                    {
+                                        "name":  "old week remains terminal",
+                                        "status":  "pass",
+                                        "evidence":  "WK-2026-07-13 is missed"
+                                    },
+                                    {
+                                        "name":  "low-confidence fallback still used before seventh comparable day",
+                                        "status":  "pass",
+                                        "evidence":  "6 comparable days"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  13,
+                     "date":  "2026-07-26",
+                     "dayLabel":  "sunday_review",
+                     "scenario":  "Sunday phase audit closes old goal superseded with high-confidence history",
+                     "workflow":  "sunday_review",
+                     "revisionKind":  "rebaseline",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  3,
+                     "guardStatus":  "rebaseline_required",
+                     "proposalGuardStatus":  "rebaseline_required",
+                     "feasibility":  "red",
+                     "confidence":  "high",
+                     "comparableDaysBefore":  7,
+                     "revisionBefore":  "PR-20260724-1",
+                     "revisionAfter":  "PR-20260726-1",
+                     "terminalOutcome":  "superseded",
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-13-2026-07-26/state-before.json",
+                                            "results/run-2026-07-14-015/day-13-2026-07-26/state-after.json",
+                                            "results/run-2026-07-14-015/day-13-2026-07-26/transaction.json",
+                                            "results/run-2026-07-14-015/day-13-2026-07-26/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "seven comparable days switch confidence high",
+                                        "status":  "pass",
+                                        "evidence":  "7 comparable days"
+                                    },
+                                    {
+                                        "name":  "weighted-median expected capacity used",
+                                        "status":  "pass",
+                                        "evidence":  "28-day filtered history; special labels excluded; weighted median=195 min"
+                                    },
+                                    {
+                                        "name":  "superseded requires successor",
+                                        "status":  "pass",
+                                        "evidence":  "successor=PH-DISSERTATION-V3 active"
+                                    },
+                                    {
+                                        "name":  "three replies applied",
+                                        "status":  "pass",
+                                        "evidence":  "actual confirmations=3"
+                                    },
+                                    {
+                                        "name":  "no Sunday artifacts",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  14,
+                     "date":  "2026-07-27",
+                     "dayLabel":  "normal",
+                     "scenario":  "Dropped commitment plus post-artifact unplanned work",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "locked_after_artifact",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "blocked",
+                     "feasibility":  "green",
+                     "confidence":  "high",
+                     "comparableDaysBefore":  7,
+                     "revisionBefore":  "PR-20260726-1",
+                     "revisionAfter":  "PR-20260726-1",
+                     "terminalOutcome":  "dropped",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  true,
+                     "unplannedMinutes":  45,
+                     "generatedFiles":  [
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/plan.json",
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/workbench.html",
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/wallpaper-config.json",
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/wallpaper.png",
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/state-before.json",
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/state-after.json",
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/transaction.json",
+                                            "results/run-2026-07-14-015/day-14-2026-07-27/artifact-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "dropped reason and disposition recorded",
+                                        "status":  "pass",
+                                        "evidence":  "reason and remaining disposition stored"
+                                    },
+                                    {
+                                        "name":  "artifact lock prevents revision",
+                                        "status":  "pass",
+                                        "evidence":  "mid-generation and post-generation mutation attempts blocked; plan hashes unchanged"
+                                    },
+                                    {
+                                        "name":  "late work recorded as unplanned",
+                                        "status":  "pass",
+                                        "evidence":  "45 unplanned min"
+                                    },
+                                    {
+                                        "name":  "no artifact regeneration",
+                                        "status":  "pass",
+                                        "evidence":  "one generation, zero regeneration, HTML/PNG hashes unchanged"
+                                    },
+                                    {
+                                        "name":  "high-confidence capacity retained",
+                                        "status":  "pass",
+                                        "evidence":  "high, 195 min"
+                                    }
+                                ],
+                     "status":  "pass"
+                 }
+             ]
+}

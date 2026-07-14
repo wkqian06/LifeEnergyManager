@@ -23,7 +23,8 @@ LifeEnergyManager is a daily planning workflow with three scheduled tasks per pr
 - `codex/prompts/automation.md`: scheduled-task names, cadence, RRULE encoding, and prompt bodies.
 - `codex/prompts/morning.md`, `codex/prompts/evening.md`, `codex/prompts/sunday_review.md`: the three workflows.
 - `codex/prompts/subagents.md`: skill-default and subagent-escalation contracts. Read it before every workflow run.
-- `codex/skills/life-energy-*/`: the seven `$life-energy-*` skill contracts.
+- `codex/skills/life-energy-*/`: the nine `$life-energy-*` skill contracts,
+  including plan revision and goal-drift guarding.
 - `templates/daily_workbench_template.html`: shared HTML workbench template.
 - `templates/artifact_spec.md` and `templates/wallpaper_spec.md`: shared artifact and wallpaper requirements.
 - `templates/wallpaper_generator.ps1`: optional Windows PowerShell wallpaper generator. If the current environment can run it, use it; otherwise generate the PNG by another suitable method while following the shared specs.
@@ -34,3 +35,6 @@ LifeEnergyManager is a daily planning workflow with three scheduled tasks per pr
 - For local Codex automations, encode schedules with RRULE `BYHOUR`/`BYMINUTE` exactly as specified in `codex/prompts/automation.md`.
 - Matching `$life-energy-*` skills are the default bounded-analysis path; escalate to subagents only per `codex/prompts/subagents.md`; otherwise record `main-thread fallback`.
 - Final plan confirmation, priority tradeoffs, urgent-task acceptance, commitment dispositions (skips, inquiries, mainline displacement, cap evictions), and intensity changes stay in the main Codex thread.
+- Goal terminal choices, correction-mode entry/exit, persistent revision
+  confirmations, rebaseline, atomic revision writes/rollback, and artifact-lock
+  decisions stay in the main Codex thread.

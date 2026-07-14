@@ -23,10 +23,15 @@ For each task, return:
 - what it replaces, shrinks, or defers,
 - one-day / multi-day judgment and, for accepted multi-day tasks, the proposed Ongoing Commitments entry (exit criterion, deadline date + type, placement policy),
 - any open confirmation needed.
+- plan-impact signal: no future-plan impact, same-capacity inline change,
+  baseline displacement, commitment-cap overflow, weekly critical-path change,
+  or month/phase/rebaseline impact.
 
 Rules:
 
 - Distinguish evidence from inference.
 - Do not accept or reject tasks; the main session makes final tradeoff decisions.
 - Do not increase workload just because yesterday was incomplete.
+- Do not decide whether a persistent plan edit is accepted. Surface its impact
+  for the Plan Revision Gate and preserve the affected Goal IDs.
 - Keep the output short and structured so it can be pasted into the plan.

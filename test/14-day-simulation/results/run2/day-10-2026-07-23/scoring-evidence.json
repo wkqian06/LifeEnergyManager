@@ -1,0 +1,60 @@
+{
+    "expected":  true,
+    "model":  "blind-self-calibrated",
+    "stages":  [
+                   {
+                       "order":  1,
+                       "name":  "blind_pass_persisted",
+                       "selfScoresVisible":  false,
+                       "blindResultHash":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB"
+                   },
+                   {
+                       "order":  2,
+                       "name":  "self_fixture_loaded",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB"
+                   },
+                   {
+                       "order":  3,
+                       "name":  "calibration",
+                       "selfScoresVisible":  true,
+                       "blindResultHash":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB"
+                   }
+               ],
+    "blindResultHashBeforeSelf":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB",
+    "blindResultHashAfterCalibration":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB",
+    "blindPass":  {
+                      "expected":  true,
+                      "generatedBeforeSelfFixtureLoad":  true,
+                      "selfScoresVisible":  false,
+                      "remainingBlind":  62,
+                      "predDriveBlind":  68,
+                      "actualDrive":  78,
+                      "agentEnergyConfidence":  "high",
+                      "agentEnergySummary":  "The planned critical work and closure evidence were both completed.",
+                      "evidence":  "180 critical-path minutes; due goal closed with evidence.",
+                      "inference":  "Completion reduced friction for the next start."
+                  },
+    "selfScores":  {
+                       "remainingSelf":  65,
+                       "remainingNote":  "Closing the overdue goal reduced mental load.",
+                       "predDriveSelf":  70,
+                       "predDriveNote":  "The next micro-sprint action is well defined.",
+                       "simulatedBy":  "test agent acting as user"
+                   },
+    "calibrated":  {
+                       "remainingCalibrated":  64,
+                       "predDriveCalibrated":  69,
+                       "actualDrive":  78,
+                       "agentEnergyConfidence":  "high",
+                       "agentEnergySummary":  "The planned critical work and closure evidence were both completed.",
+                       "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                       "nextFocusMode":  "Standard",
+                       "nextTargetCapMinutes":  null
+                   },
+    "predictionTargetDate":  "2026-07-24",
+    "priorPredDriveCalibrated":  null,
+    "actualVsPriorPredictionGap":  null,
+    "blindVsSelfPredictionGap":  2,
+    "divergenceFlag":  false
+}

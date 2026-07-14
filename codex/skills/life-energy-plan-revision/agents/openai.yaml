@@ -1,0 +1,5 @@
+interface:
+  display_name: "Plan Revision"
+  short_description: "Audit and draft future-plan changes"
+  default_prompt: "Audit this LifeEnergyManager change and draft the smallest confirmation-ready revision."
+

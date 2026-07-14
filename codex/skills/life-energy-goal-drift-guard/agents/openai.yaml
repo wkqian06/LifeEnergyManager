@@ -1,0 +1,5 @@
+interface:
+  display_name: "Goal Drift Guard"
+  short_description: "Guard goal closure and feasibility"
+  default_prompt: "Check these LifeEnergyManager goals for closure, proximity, feasibility, and drift."
+

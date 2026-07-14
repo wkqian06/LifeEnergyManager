@@ -36,28 +36,40 @@ Add phases as blocks. Keep dates explicit.
 
 ### Phase 1: [name]
 
+- Goal ID (optional; setup can assign one):
 - Dates:
+- Deadline type: hard / soft
 - Primary outcome:
 - Required outcomes:
 - Gate dates:
 - Success criteria:
+- Decidable exit criterion:
+- Remaining effort estimate:
 - Risks:
 - Work that must stay bounded:
 
 ### Phase 2: [name]
 
+- Goal ID (optional; setup can assign one):
 - Dates:
+- Deadline type: hard / soft
 - Primary outcome:
 - Required outcomes:
 - Gate dates:
 - Success criteria:
+- Decidable exit criterion:
+- Remaining effort estimate:
 - Risks:
 - Work that must stay bounded:
 
 ## Current Month Plan
 
 - Month:
+- Goal ID (optional; setup can assign one):
+- Deadline type: hard / soft
 - Monthly outcomes:
+- Decidable exit criterion:
+- Remaining effort estimate:
 - Active workstreams:
 - Active micro-sprints:
 - Priority rules:
@@ -68,7 +80,11 @@ Add phases as blocks. Keep dates explicit.
 ## Current Week, If Already Known
 
 - Week dates:
+- Goal ID (optional; setup can assign one):
+- Deadline type: hard / soft
 - Weekly outcomes:
+- Decidable exit criterion:
+- Remaining effort estimate:
 - First actions:
 - Likely blockers:
 - Agent-delegable work:

@@ -25,7 +25,8 @@ Use this skill as the default bounded-analysis contract for setup normalization.
 5. Draft priority rules that protect the active phase from secondary work.
 6. Ensure every persistent output path points under `outputs/`.
 7. Identify missing information that changes schedule, deadline, or core priority.
-8. Mark each item as evidence or inference.
+8. Populate the Goal Baseline Registry with stable IDs, original/current target and deadline, exit criterion, estimate, and state. For an existing tracker, draft a one-time migration and flag active goals whose missing date/criterion requires blocking confirmation.
+9. Mark each item as evidence or inference.
 
 ## Output
 
@@ -38,6 +39,8 @@ Return concise tracker-ready sections:
 - active micro-sprints,
 - output-root notes,
 - missing information.
+- Goal Baseline Registry rows and migration notes,
+- initial active Revision ID shared by tracker and normalized phase/month copies.
 
 ## Boundaries
 

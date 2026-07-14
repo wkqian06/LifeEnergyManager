@@ -15,11 +15,25 @@ Use this skill when the `artifact-qa` subagent is unavailable. Artifact QA is no
 - `outputs/daily-workbenches/YYYY-MM-DD-workbench.html`.
 - `outputs/daily-wallpapers/YYYY-MM-DD-daily-plan.png`.
 - `templates/artifact_spec.md` and `templates/wallpaper_spec.md`.
+- Active plan Revision ID and Goal Drift Guard result.
+- Tracker, affected phase/month plan files, and today's persisted artifact lock.
+- Revision-confirmation state, due-target terminal decisions,
+  correction-mode state, and final daily-plan confirmation state.
 
 ## Checks
 
 - Artifacts are under `outputs/`.
 - HTML and PNG match the same confirmed plan.
+- Artifact lock, tracker, affected phase/month files, HTML, and PNG carry the
+  same active Revision ID.
+- Apply the complete conjunctive hard gate: revision confirmed; Goal Drift Guard
+  passed; all due targets have terminal decisions; correction mode exited;
+  final daily plan confirmed; all Revision IDs match; visual QA passed. Any
+  false or unknown item is a failure.
+- Goal ID, level, proximity, deadline, feasibility, and required-today action are semantically consistent across HTML and wallpaper.
+- If the plan was generated in `manual_catchup` mode, both artifacts plan only
+  from actual run time to evening check-in and do not include elapsed morning or
+  afternoon blocks.
 - HTML report can be generated from task fields.
 - HTML uses the longer readable wording when available for status summary, today advice, and anti-distraction guidance.
 - No old or invalid sections remain.
@@ -27,6 +41,8 @@ Use this skill when the `artifact-qa` subagent is unavailable. Artifact QA is no
 - Top-right summary clearly shows task focus type and recommended time combination.
 - Top-right focus type uses the correct task-category color.
 - Wallpaper has no clipped or visibly truncated text.
+- Goal Alert strip, when present, is prominent without overlapping the legend, progress row, or main board; it shows no formula or workflow instruction.
+- HTML Goal Guard modules are readable, correctly ordered, and keep detailed evidence inside disclosure blocks.
 - Wallpaper status/advice/tip remain readable after shortening; they must not become abstract shorthand or unexplained English planning jargon.
 - Reject phrases that require guessing, including examples like `protected exit block`, `external handoffs are real`, or `visibly smaller`.
 - If readability and wallpaper layout conflict, require reducing details or task count before accepting cryptic wording.

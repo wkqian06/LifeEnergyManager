@@ -1,0 +1,77 @@
+{
+    "dayIndex":  13,
+    "date":  "2026-07-26",
+    "dayLabel":  "sunday_review",
+    "scenario":  "Sunday phase audit closes old goal superseded with high-confidence history",
+    "workflow":  "sunday_review",
+    "revisionKind":  "rebaseline",
+    "correctionState":  "entered_exited",
+    "confirmationsRequired":  3,
+    "actualConfirmationCount":  3,
+    "guardStatus":  "rebaseline_required",
+    "proposalGuardStatus":  "rebaseline_required",
+    "feasibility":  "red",
+    "confidence":  "high",
+    "comparableDaysBefore":  7,
+    "revisionBefore":  "PR-20260724-1",
+    "revisionAfter":  "PR-20260726-1",
+    "terminalOutcome":  "superseded",
+    "artifactExpected":  false,
+    "postArtifactInput":  false,
+    "unplannedMinutes":  0,
+    "scoring":  {
+                    "expected":  false,
+                    "reason":  "Sunday audit has no daily evening workbench.",
+                    "blindResultHashBeforeSelf":  "B44AB34CD5D3A04254E4B35ECAC51B97C96DD10E4A1CE0241A13C6D528760DED",
+                    "blindResultHashAfterCalibration":  "B44AB34CD5D3A04254E4B35ECAC51B97C96DD10E4A1CE0241A13C6D528760DED",
+                    "stages":  [
+
+                               ]
+                },
+    "planFocusMode":  null,
+    "planFocusTargetMinutes":  null,
+    "scoreFeedbackApplied":  false,
+    "scoreObservationDate":  null,
+    "scorePredictionTargetDate":  null,
+    "generatedFiles":  [
+                           "results/run2/day-13-2026-07-26/state-before.json",
+                           "results/run2/day-13-2026-07-26/state-after.json",
+                           "results/run2/day-13-2026-07-26/transaction.json",
+                           "results/run2/day-13-2026-07-26/artifact-evidence.json",
+                           "results/run2/day-13-2026-07-26/scoring-blind.json",
+                           "results/run2/day-13-2026-07-26/scoring-evidence.json"
+                       ],
+    "checks":  [
+                   {
+                       "name":  "seven comparable days switch confidence high",
+                       "status":  "pass",
+                       "evidence":  "7 comparable days"
+                   },
+                   {
+                       "name":  "weighted-median expected capacity used",
+                       "status":  "pass",
+                       "evidence":  "28-day filtered history; special labels excluded; weighted median=195 min"
+                   },
+                   {
+                       "name":  "superseded requires successor",
+                       "status":  "pass",
+                       "evidence":  "successor=PH-DISSERTATION-V3 active"
+                   },
+                   {
+                       "name":  "three replies applied",
+                       "status":  "pass",
+                       "evidence":  "actual confirmations=3"
+                   },
+                   {
+                       "name":  "no Sunday artifacts",
+                       "status":  "pass",
+                       "evidence":  "generation count=0"
+                   },
+                   {
+                       "name":  "scoring skip is explicit",
+                       "status":  "pass",
+                       "evidence":  "Sunday audit has no daily evening workbench."
+                   }
+               ],
+    "status":  "pass"
+}

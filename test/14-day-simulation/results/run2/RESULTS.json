@@ -1,0 +1,1688 @@
+{
+    "simulationName":  "LifeEnergyManager 14-day plan and guard simulation",
+    "startDate":  "2026-07-14",
+    "endDate":  "2026-07-27",
+    "timezone":  "America/New_York",
+    "status":  "pass",
+    "outputsFingerprintBefore":  "BA18436086E18D99331190E5C69B0E2BAED0A6D6BF8E2A929A1C7EF3424D5D10",
+    "outputsFingerprintAfter":  "BA18436086E18D99331190E5C69B0E2BAED0A6D6BF8E2A929A1C7EF3424D5D10",
+    "nodeVerification":  {
+                             "status":  "pass",
+                             "totalDays":  14,
+                             "artifactDays":  10,
+                             "scoredDays":  10
+                         },
+    "selfTests":  {
+                      "unlockedArtifactMutation":  {
+                                                       "stage":  "unlocked_negative_control",
+                                                       "blocked":  false,
+                                                       "reason":  "mutation_executed",
+                                                       "htmlHashUnchanged":  false,
+                                                       "wallpaperHashUnchanged":  false,
+                                                       "planSurfaceHashesUnchanged":  false
+                                                   },
+                      "confirmationNegativeCases":  "pass",
+                      "hardDeadlineAuthoritySpoof":  "pass",
+                      "weightedMedianRecentSeven":  "pass"
+                  },
+    "days":  [
+                 {
+                     "dayIndex":  1,
+                     "date":  "2026-07-14",
+                     "dayLabel":  "normal",
+                     "scenario":  "No-impact input; low-history baseline plan",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "pass",
+                     "feasibility":  "green",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  0,
+                     "revisionBefore":  "PR-20260714-0",
+                     "revisionAfter":  "PR-20260714-0",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E",
+                                     "blindResultHashAfterCalibration":  "9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  60,
+                                                       "predDriveBlind":  60,
+                                                       "actualDrive":  72,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "The protected result was nearly completed without evidence of depletion.",
+                                                       "evidence":  "170 of 180 critical-path minutes; reviewable output saved; no unplanned work.",
+                                                       "inference":  "Capacity appears usable but not unlimited."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  55,
+                                                        "remainingNote":  "A normal workday left moderate energy.",
+                                                        "predDriveSelf":  65,
+                                                        "predDriveNote":  "The next action is clear and should be easy to start.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  58,
+                                                        "predDriveCalibrated":  63,
+                                                        "actualDrive":  72,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "The protected result was nearly completed without evidence of depletion.",
+                                                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                                        "nextFocusMode":  "Standard",
+                                                        "nextTargetCapMinutes":  null
+                                                    },
+                                     "predictionTargetDate":  "2026-07-15",
+                                     "priorPredDriveCalibrated":  null,
+                                     "actualVsPriorPredictionGap":  null,
+                                     "blindVsSelfPredictionGap":  5,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Standard",
+                     "planFocusTargetMinutes":  180,
+                     "scoreFeedbackApplied":  false,
+                     "scoreObservationDate":  null,
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-01-2026-07-14/plan.json",
+                                            "results/run2/day-01-2026-07-14/workbench.html",
+                                            "results/run2/day-01-2026-07-14/wallpaper-config.json",
+                                            "results/run2/day-01-2026-07-14/wallpaper.png",
+                                            "results/run2/day-01-2026-07-14/state-before.json",
+                                            "results/run2/day-01-2026-07-14/state-after.json",
+                                            "results/run2/day-01-2026-07-14/transaction.json",
+                                            "results/run2/day-01-2026-07-14/artifact-evidence.json",
+                                            "results/run2/day-01-2026-07-14/scoring-blind.json",
+                                            "results/run2/day-01-2026-07-14/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "no correction mode",
+                                        "status":  "pass",
+                                        "evidence":  "correction.entered=false"
+                                    },
+                                    {
+                                        "name":  "low-confidence fallback",
+                                        "status":  "pass",
+                                        "evidence":  "fallback=180 min, low"
+                                    },
+                                    {
+                                        "name":  "artifacts share revision",
+                                        "status":  "pass",
+                                        "evidence":  "revision=PR-20260714-0"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=9064EFD9BCAB9444BF859C257C179BED74C897B26A9E6D946B18764BDD1FF30E stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=55; actual=72"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Standard; target=180; observation=; prediction target="
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  2,
+                     "date":  "2026-07-15",
+                     "dayLabel":  "normal",
+                     "scenario":  "Small next-week reorder inside capacity",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "inline",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "yellow",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  1,
+                     "revisionBefore":  "PR-20260714-0",
+                     "revisionAfter":  "PR-20260715-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "73E6357726DC9197363FA941CF583789ABDB042A49B17EE35CC3D8EF1B27B799"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "73E6357726DC9197363FA941CF583789ABDB042A49B17EE35CC3D8EF1B27B799"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "73E6357726DC9197363FA941CF583789ABDB042A49B17EE35CC3D8EF1B27B799"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "73E6357726DC9197363FA941CF583789ABDB042A49B17EE35CC3D8EF1B27B799",
+                                     "blindResultHashAfterCalibration":  "73E6357726DC9197363FA941CF583789ABDB042A49B17EE35CC3D8EF1B27B799",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  58,
+                                                       "predDriveBlind":  68,
+                                                       "actualDrive":  80,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "Critical-path time exceeded plan while the weekly change stayed bounded.",
+                                                       "evidence":  "190 of 180 critical-path minutes; reordered output completed.",
+                                                       "inference":  "Drive was strong and the plan remained feasible."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  60,
+                                                        "remainingNote":  "The reordered work felt controlled.",
+                                                        "predDriveSelf":  70,
+                                                        "predDriveNote":  "Momentum is good for the compressed catch-up window.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  59,
+                                                        "predDriveCalibrated":  69,
+                                                        "actualDrive":  80,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "Critical-path time exceeded plan while the weekly change stayed bounded.",
+                                                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                                        "nextFocusMode":  "Standard",
+                                                        "nextTargetCapMinutes":  null
+                                                    },
+                                     "predictionTargetDate":  "2026-07-16",
+                                     "priorPredDriveCalibrated":  63,
+                                     "actualVsPriorPredictionGap":  17,
+                                     "blindVsSelfPredictionGap":  2,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Standard",
+                     "planFocusTargetMinutes":  180,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-14",
+                     "scorePredictionTargetDate":  "2026-07-15",
+                     "generatedFiles":  [
+                                            "results/run2/day-02-2026-07-15/plan.json",
+                                            "results/run2/day-02-2026-07-15/workbench.html",
+                                            "results/run2/day-02-2026-07-15/wallpaper-config.json",
+                                            "results/run2/day-02-2026-07-15/wallpaper.png",
+                                            "results/run2/day-02-2026-07-15/state-before.json",
+                                            "results/run2/day-02-2026-07-15/state-after.json",
+                                            "results/run2/day-02-2026-07-15/transaction.json",
+                                            "results/run2/day-02-2026-07-15/artifact-evidence.json",
+                                            "results/run2/day-02-2026-07-15/scoring-blind.json",
+                                            "results/run2/day-02-2026-07-15/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "inline classification",
+                                        "status":  "pass",
+                                        "evidence":  "inline without correction mode"
+                                    },
+                                    {
+                                        "name":  "one final-plan confirmation",
+                                        "status":  "pass",
+                                        "evidence":  "actual confirmations=1"
+                                    },
+                                    {
+                                        "name":  "no correction-mode banner",
+                                        "status":  "pass",
+                                        "evidence":  "correction.entered=false"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=73E6357726DC9197363FA941CF583789ABDB042A49B17EE35CC3D8EF1B27B799 stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=60; actual=80"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Standard; target=180; observation=2026-07-14; prediction target=2026-07-15"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  3,
+                     "date":  "2026-07-16",
+                     "dayLabel":  "manual_catchup",
+                     "scenario":  "Late catch-up plus commitment added within cap",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "inline",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "yellow",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  2,
+                     "revisionBefore":  "PR-20260715-1",
+                     "revisionAfter":  "PR-20260716-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8",
+                                     "blindResultHashAfterCalibration":  "4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  48,
+                                                       "predDriveBlind":  52,
+                                                       "actualDrive":  68,
+                                                       "agentEnergyConfidence":  "medium",
+                                                       "agentEnergySummary":  "The catch-up plan was mostly executed, with lower remaining energy.",
+                                                       "evidence":  "105 of 120 compressed critical-path minutes; no capacity overrun.",
+                                                       "inference":  "Execution was adequate, but the shortened window reduced reserve."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  45,
+                                                        "remainingNote":  "The late start used most of the available window.",
+                                                        "predDriveSelf":  55,
+                                                        "predDriveNote":  "A bounded start is possible, but recovery matters.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  47,
+                                                        "predDriveCalibrated":  54,
+                                                        "actualDrive":  68,
+                                                        "agentEnergyConfidence":  "medium",
+                                                        "agentEnergySummary":  "The catch-up plan was mostly executed, with lower remaining energy.",
+                                                        "planningAdjustment":  "Use a reduced baseline and do not add compensation work.",
+                                                        "nextFocusMode":  "Reduced",
+                                                        "nextTargetCapMinutes":  120
+                                                    },
+                                     "predictionTargetDate":  "2026-07-17",
+                                     "priorPredDriveCalibrated":  69,
+                                     "actualVsPriorPredictionGap":  -1,
+                                     "blindVsSelfPredictionGap":  3,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Manual catch-up",
+                     "planFocusTargetMinutes":  120,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-15",
+                     "scorePredictionTargetDate":  "2026-07-16",
+                     "generatedFiles":  [
+                                            "results/run2/day-03-2026-07-16/plan.json",
+                                            "results/run2/day-03-2026-07-16/workbench.html",
+                                            "results/run2/day-03-2026-07-16/wallpaper-config.json",
+                                            "results/run2/day-03-2026-07-16/wallpaper.png",
+                                            "results/run2/day-03-2026-07-16/state-before.json",
+                                            "results/run2/day-03-2026-07-16/state-after.json",
+                                            "results/run2/day-03-2026-07-16/transaction.json",
+                                            "results/run2/day-03-2026-07-16/artifact-evidence.json",
+                                            "results/run2/day-03-2026-07-16/scoring-blind.json",
+                                            "results/run2/day-03-2026-07-16/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "manual catch-up compression",
+                                        "status":  "pass",
+                                        "evidence":  "focus target compressed to 120 min"
+                                    },
+                                    {
+                                        "name":  "commitment stays within cap",
+                                        "status":  "pass",
+                                        "evidence":  "60/90 commitment minutes"
+                                    },
+                                    {
+                                        "name":  "catch-up day excluded from normal history",
+                                        "status":  "pass",
+                                        "evidence":  "manual_catchup excluded"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=4B58B893EA04F5C4EF8D18F47D2915021985F4BC10100C42786F3BFDFABC71F8 stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=45; actual=68"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Manual catch-up; target=120; observation=2026-07-15; prediction target=2026-07-16"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  4,
+                     "date":  "2026-07-17",
+                     "dayLabel":  "recovery",
+                     "scenario":  "Commitment cap overflow; confirmed write fails and rolls back",
+                     "workflow":  "morning",
+                     "revisionKind":  "correction",
+                     "correctionState":  "write_failed_rollback",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  2,
+                     "revisionBefore":  "PR-20260716-1",
+                     "revisionAfter":  "PR-20260716-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  false,
+                                     "reason":  "Morning-only rollback scenario has no evening report.",
+                                     "blindResultHashBeforeSelf":  "FB9EFD6BA232414A48B9AA15FED867911A8BE98F721C42231F77B1C80C011F38",
+                                     "blindResultHashAfterCalibration":  "FB9EFD6BA232414A48B9AA15FED867911A8BE98F721C42231F77B1C80C011F38",
+                                     "stages":  [
+
+                                                ]
+                                 },
+                     "planFocusMode":  null,
+                     "planFocusTargetMinutes":  null,
+                     "scoreFeedbackApplied":  false,
+                     "scoreObservationDate":  null,
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-04-2026-07-17/state-before.json",
+                                            "results/run2/day-04-2026-07-17/state-after.json",
+                                            "results/run2/day-04-2026-07-17/transaction.json",
+                                            "results/run2/day-04-2026-07-17/artifact-evidence.json",
+                                            "results/run2/day-04-2026-07-17/scoring-blind.json",
+                                            "results/run2/day-04-2026-07-17/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "correction mode entered",
+                                        "status":  "pass",
+                                        "evidence":  "correction.entered=true"
+                                    },
+                                    {
+                                        "name":  "single dedicated confirmation",
+                                        "status":  "pass",
+                                        "evidence":  "actual confirmations=1"
+                                    },
+                                    {
+                                        "name":  "rollback keeps prior revision",
+                                        "status":  "pass",
+                                        "evidence":  "failure before tracker and at tracker both restored every surface hash"
+                                    },
+                                    {
+                                        "name":  "artifacts blocked",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    },
+                                    {
+                                        "name":  "scoring skip is explicit",
+                                        "status":  "pass",
+                                        "evidence":  "Morning-only rollback scenario has no evening report."
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  5,
+                     "date":  "2026-07-18",
+                     "dayLabel":  "normal",
+                     "scenario":  "Month deadline and sequence correction",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "correction",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  3,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  2,
+                     "revisionBefore":  "PR-20260716-1",
+                     "revisionAfter":  "PR-20260718-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156",
+                                     "blindResultHashAfterCalibration":  "07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  45,
+                                                       "predDriveBlind":  60,
+                                                       "actualDrive":  85,
+                                                       "agentEnergyConfidence":  "medium",
+                                                       "agentEnergySummary":  "Output and focus were high, but the report also contains fatigue evidence.",
+                                                       "evidence":  "220 of 180 critical-path minutes; month-critical result completed.",
+                                                       "inference":  "High realized drive may coexist with low remaining reserve."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  20,
+                                                        "remainingNote":  "The deadline push succeeded but felt exhausting.",
+                                                        "predDriveSelf":  25,
+                                                        "predDriveNote":  "Starting tomorrow may be difficult without recovery.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  33,
+                                                        "predDriveCalibrated":  34,
+                                                        "actualDrive":  85,
+                                                        "agentEnergyConfidence":  "medium",
+                                                        "agentEnergySummary":  "Output and focus were high, but the report also contains fatigue evidence.",
+                                                        "planningAdjustment":  "Use recovery intensity and preserve only the protected action.",
+                                                        "nextFocusMode":  "Recovery",
+                                                        "nextTargetCapMinutes":  90
+                                                    },
+                                     "predictionTargetDate":  "2026-07-19",
+                                     "priorPredDriveCalibrated":  null,
+                                     "actualVsPriorPredictionGap":  null,
+                                     "blindVsSelfPredictionGap":  35,
+                                     "divergenceFlag":  true
+                                 },
+                     "planFocusMode":  "Reduced",
+                     "planFocusTargetMinutes":  120,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-16",
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-05-2026-07-18/plan.json",
+                                            "results/run2/day-05-2026-07-18/workbench.html",
+                                            "results/run2/day-05-2026-07-18/wallpaper-config.json",
+                                            "results/run2/day-05-2026-07-18/wallpaper.png",
+                                            "results/run2/day-05-2026-07-18/state-before.json",
+                                            "results/run2/day-05-2026-07-18/state-after.json",
+                                            "results/run2/day-05-2026-07-18/transaction.json",
+                                            "results/run2/day-05-2026-07-18/artifact-evidence.json",
+                                            "results/run2/day-05-2026-07-18/scoring-blind.json",
+                                            "results/run2/day-05-2026-07-18/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "three independent replies",
+                                        "status":  "pass",
+                                        "evidence":  "three valid replies after change-set reset"
+                                    },
+                                    {
+                                        "name":  "month file shares revision",
+                                        "status":  "pass",
+                                        "evidence":  "month=PR-20260718-1"
+                                    },
+                                    {
+                                        "name":  "goal debt preserved",
+                                        "status":  "pass",
+                                        "evidence":  "80 -\u003e 120 min"
+                                    },
+                                    {
+                                        "name":  "correction mode explicitly exited",
+                                        "status":  "pass",
+                                        "evidence":  "explicitlyExited=true"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=07B1524AEB6AF2E2350E43E894F9F8512ECC41C259823A634795040C16F62156 stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=20; actual=85"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Reduced; target=120; observation=2026-07-16; prediction target="
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  6,
+                     "date":  "2026-07-19",
+                     "dayLabel":  "travel",
+                     "scenario":  "Sunday drift audit escalates accumulated delay to rebaseline",
+                     "workflow":  "sunday_review",
+                     "revisionKind":  "rebaseline",
+                     "correctionState":  "proposal_only",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "rebaseline_required",
+                     "proposalGuardStatus":  "rebaseline_required",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  3,
+                     "revisionBefore":  "PR-20260718-1",
+                     "revisionAfter":  "PR-20260718-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  false,
+                                     "reason":  "Sunday review and travel day has no daily evening workbench.",
+                                     "blindResultHashBeforeSelf":  "7A2A3E135B0421772BFBD49EA080394BD40CE2EF3F815F86C7ADFF87201A0BC1",
+                                     "blindResultHashAfterCalibration":  "7A2A3E135B0421772BFBD49EA080394BD40CE2EF3F815F86C7ADFF87201A0BC1",
+                                     "stages":  [
+
+                                                ]
+                                 },
+                     "planFocusMode":  null,
+                     "planFocusTargetMinutes":  null,
+                     "scoreFeedbackApplied":  false,
+                     "scoreObservationDate":  null,
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-06-2026-07-19/state-before.json",
+                                            "results/run2/day-06-2026-07-19/state-after.json",
+                                            "results/run2/day-06-2026-07-19/transaction.json",
+                                            "results/run2/day-06-2026-07-19/artifact-evidence.json",
+                                            "results/run2/day-06-2026-07-19/scoring-blind.json",
+                                            "results/run2/day-06-2026-07-19/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "cumulative drift detected",
+                                        "status":  "pass",
+                                        "evidence":  "derived from debt=210, revisions=3, feasibility=red"
+                                    },
+                                    {
+                                        "name":  "goal debt not cleared",
+                                        "status":  "pass",
+                                        "evidence":  "210 min"
+                                    },
+                                    {
+                                        "name":  "travel/Sunday excluded from normal capacity",
+                                        "status":  "pass",
+                                        "evidence":  "travel/Sunday excluded"
+                                    },
+                                    {
+                                        "name":  "no Sunday artifacts",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    },
+                                    {
+                                        "name":  "scoring skip is explicit",
+                                        "status":  "pass",
+                                        "evidence":  "Sunday review and travel day has no daily evening workbench."
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  7,
+                     "date":  "2026-07-20",
+                     "dayLabel":  "normal",
+                     "scenario":  "Phase rebaseline with facts-change confirmation reset",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "rebaseline",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  3,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "rebaseline_required",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  3,
+                     "revisionBefore":  "PR-20260718-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  "superseded",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "0825F337F4F54D2D716918D60B646E4D1E5EE3AAF3F4DC9D1CF244B38FE3F114"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "0825F337F4F54D2D716918D60B646E4D1E5EE3AAF3F4DC9D1CF244B38FE3F114"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "0825F337F4F54D2D716918D60B646E4D1E5EE3AAF3F4DC9D1CF244B38FE3F114"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "0825F337F4F54D2D716918D60B646E4D1E5EE3AAF3F4DC9D1CF244B38FE3F114",
+                                     "blindResultHashAfterCalibration":  "0825F337F4F54D2D716918D60B646E4D1E5EE3AAF3F4DC9D1CF244B38FE3F114",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  52,
+                                                       "predDriveBlind":  62,
+                                                       "actualDrive":  84,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "The successor phase started with strong execution and moderate reserve.",
+                                                       "evidence":  "200 critical-path minutes; successor action completed.",
+                                                       "inference":  "Rebaselining improved action clarity."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  50,
+                                                        "remainingNote":  "The new baseline made the work easier to start.",
+                                                        "predDriveSelf":  65,
+                                                        "predDriveNote":  "The successor phase has a concrete first step.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  51,
+                                                        "predDriveCalibrated":  64,
+                                                        "actualDrive":  84,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "The successor phase started with strong execution and moderate reserve.",
+                                                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                                        "nextFocusMode":  "Standard",
+                                                        "nextTargetCapMinutes":  null
+                                                    },
+                                     "predictionTargetDate":  "2026-07-21",
+                                     "priorPredDriveCalibrated":  null,
+                                     "actualVsPriorPredictionGap":  null,
+                                     "blindVsSelfPredictionGap":  3,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Recovery",
+                     "planFocusTargetMinutes":  90,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-18",
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-07-2026-07-20/plan.json",
+                                            "results/run2/day-07-2026-07-20/workbench.html",
+                                            "results/run2/day-07-2026-07-20/wallpaper-config.json",
+                                            "results/run2/day-07-2026-07-20/wallpaper.png",
+                                            "results/run2/day-07-2026-07-20/state-before.json",
+                                            "results/run2/day-07-2026-07-20/state-after.json",
+                                            "results/run2/day-07-2026-07-20/transaction.json",
+                                            "results/run2/day-07-2026-07-20/artifact-evidence.json",
+                                            "results/run2/day-07-2026-07-20/scoring-blind.json",
+                                            "results/run2/day-07-2026-07-20/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "facts reset handled",
+                                        "status":  "pass",
+                                        "evidence":  "facts reset cleared stale reply and three new replies completed"
+                                    },
+                                    {
+                                        "name":  "old phase closed superseded",
+                                        "status":  "pass",
+                                        "evidence":  "PH-DISSERTATION closure logged"
+                                    },
+                                    {
+                                        "name":  "successor Goal ID created",
+                                        "status":  "pass",
+                                        "evidence":  "successor=PH-DISSERTATION-V2, dated with exit criterion"
+                                    },
+                                    {
+                                        "name":  "three replies separate",
+                                        "status":  "pass",
+                                        "evidence":  "three unique structured reply IDs survived reset"
+                                    },
+                                    {
+                                        "name":  "new revision ordinal is one",
+                                        "status":  "pass",
+                                        "evidence":  "revision=PR-20260720-1"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=0825F337F4F54D2D716918D60B646E4D1E5EE3AAF3F4DC9D1CF244B38FE3F114 stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=50; actual=84"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Recovery; target=90; observation=2026-07-18; prediction target="
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  8,
+                     "date":  "2026-07-21",
+                     "dayLabel":  "illness",
+                     "scenario":  "Unsupported hard-deadline move is blocked; user exits correction",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "correction",
+                     "correctionState":  "entered_user_exit",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "blocked",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  4,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6",
+                                     "blindResultHashAfterCalibration":  "1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  30,
+                                                       "predDriveBlind":  40,
+                                                       "actualDrive":  45,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "Reduced focus and illness evidence agree with low remaining energy.",
+                                                       "evidence":  "60 of 90 reduced critical-path minutes; illness explicitly recorded.",
+                                                       "inference":  "Low drive reflects condition rather than plan avoidance."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  25,
+                                                        "remainingNote":  "Illness reduced concentration and stamina.",
+                                                        "predDriveSelf":  35,
+                                                        "predDriveNote":  "Tomorrow should start with a very small action.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  28,
+                                                        "predDriveCalibrated":  38,
+                                                        "actualDrive":  45,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "Reduced focus and illness evidence agree with low remaining energy.",
+                                                        "planningAdjustment":  "Use recovery intensity and preserve only the protected action.",
+                                                        "nextFocusMode":  "Recovery",
+                                                        "nextTargetCapMinutes":  90
+                                                    },
+                                     "predictionTargetDate":  "2026-07-22",
+                                     "priorPredDriveCalibrated":  64,
+                                     "actualVsPriorPredictionGap":  -19,
+                                     "blindVsSelfPredictionGap":  5,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Reduced illness day",
+                     "planFocusTargetMinutes":  90,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-20",
+                     "scorePredictionTargetDate":  "2026-07-21",
+                     "generatedFiles":  [
+                                            "results/run2/day-08-2026-07-21/plan.json",
+                                            "results/run2/day-08-2026-07-21/workbench.html",
+                                            "results/run2/day-08-2026-07-21/wallpaper-config.json",
+                                            "results/run2/day-08-2026-07-21/wallpaper.png",
+                                            "results/run2/day-08-2026-07-21/state-before.json",
+                                            "results/run2/day-08-2026-07-21/state-after.json",
+                                            "results/run2/day-08-2026-07-21/transaction.json",
+                                            "results/run2/day-08-2026-07-21/artifact-evidence.json",
+                                            "results/run2/day-08-2026-07-21/scoring-blind.json",
+                                            "results/run2/day-08-2026-07-21/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "hard deadline move rejected",
+                                        "status":  "pass",
+                                        "evidence":  "authoritative hard deadline; proposed 2026-07-30 blocked; deadline and all surface hashes remained 2026-07-27"
+                                    },
+                                    {
+                                        "name":  "renegotiation required",
+                                        "status":  "pass",
+                                        "evidence":  "renegotiationRequired=true"
+                                    },
+                                    {
+                                        "name":  "user exit writes zero changes",
+                                        "status":  "pass",
+                                        "evidence":  "exact UTF-8 exit command; zero writes"
+                                    },
+                                    {
+                                        "name":  "illness day excluded from normal capacity",
+                                        "status":  "pass",
+                                        "evidence":  "illness excluded"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=1A7066585C67351B63A2B12F34C771071DB3B4ACDD931F7AFF4E9A6252D26EC6 stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=25; actual=45"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Reduced illness day; target=90; observation=2026-07-20; prediction target=2026-07-21"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  9,
+                     "date":  "2026-07-22",
+                     "dayLabel":  "closure_blocked",
+                     "scenario":  "Due goal has no exit evidence and user does not answer",
+                     "workflow":  "morning_blocked",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "closure_required",
+                     "proposalGuardStatus":  "closure_required",
+                     "feasibility":  "red",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  4,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  null,
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  false,
+                                     "reason":  "Closure-required morning stopped before daily planning and evening reporting.",
+                                     "blindResultHashBeforeSelf":  "BD336E5211FC039D4FE3C61C59613DA411BBDDE5A5FC8B3AC3771C69E198F7BF",
+                                     "blindResultHashAfterCalibration":  "BD336E5211FC039D4FE3C61C59613DA411BBDDE5A5FC8B3AC3771C69E198F7BF",
+                                     "stages":  [
+
+                                                ]
+                                 },
+                     "planFocusMode":  null,
+                     "planFocusTargetMinutes":  null,
+                     "scoreFeedbackApplied":  false,
+                     "scoreObservationDate":  null,
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-09-2026-07-22/state-before.json",
+                                            "results/run2/day-09-2026-07-22/state-after.json",
+                                            "results/run2/day-09-2026-07-22/transaction.json",
+                                            "results/run2/day-09-2026-07-22/artifact-evidence.json",
+                                            "results/run2/day-09-2026-07-22/scoring-blind.json",
+                                            "results/run2/day-09-2026-07-22/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "normal planning blocked",
+                                        "status":  "pass",
+                                        "evidence":  "closure_required"
+                                    },
+                                    {
+                                        "name":  "no artifacts",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    },
+                                    {
+                                        "name":  "old deadline not moved",
+                                        "status":  "pass",
+                                        "evidence":  "deadline remained 2026-07-22"
+                                    },
+                                    {
+                                        "name":  "no silent default terminal outcome",
+                                        "status":  "pass",
+                                        "evidence":  "no closure entry created"
+                                    },
+                                    {
+                                        "name":  "scoring skip is explicit",
+                                        "status":  "pass",
+                                        "evidence":  "Closure-required morning stopped before daily planning and evening reporting."
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  10,
+                     "date":  "2026-07-23",
+                     "dayLabel":  "normal",
+                     "scenario":  "Due goal closes completed with evidence",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "pass",
+                     "feasibility":  "green",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  4,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260720-1",
+                     "terminalOutcome":  "completed",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB",
+                                     "blindResultHashAfterCalibration":  "74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  62,
+                                                       "predDriveBlind":  68,
+                                                       "actualDrive":  78,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "The planned critical work and closure evidence were both completed.",
+                                                       "evidence":  "180 critical-path minutes; due goal closed with evidence.",
+                                                       "inference":  "Completion reduced friction for the next start."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  65,
+                                                        "remainingNote":  "Closing the overdue goal reduced mental load.",
+                                                        "predDriveSelf":  70,
+                                                        "predDriveNote":  "The next micro-sprint action is well defined.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  64,
+                                                        "predDriveCalibrated":  69,
+                                                        "actualDrive":  78,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "The planned critical work and closure evidence were both completed.",
+                                                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                                        "nextFocusMode":  "Standard",
+                                                        "nextTargetCapMinutes":  null
+                                                    },
+                                     "predictionTargetDate":  "2026-07-24",
+                                     "priorPredDriveCalibrated":  null,
+                                     "actualVsPriorPredictionGap":  null,
+                                     "blindVsSelfPredictionGap":  2,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Recovery",
+                     "planFocusTargetMinutes":  90,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-21",
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-10-2026-07-23/plan.json",
+                                            "results/run2/day-10-2026-07-23/workbench.html",
+                                            "results/run2/day-10-2026-07-23/wallpaper-config.json",
+                                            "results/run2/day-10-2026-07-23/wallpaper.png",
+                                            "results/run2/day-10-2026-07-23/state-before.json",
+                                            "results/run2/day-10-2026-07-23/state-after.json",
+                                            "results/run2/day-10-2026-07-23/transaction.json",
+                                            "results/run2/day-10-2026-07-23/artifact-evidence.json",
+                                            "results/run2/day-10-2026-07-23/scoring-blind.json",
+                                            "results/run2/day-10-2026-07-23/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "completed requires evidence",
+                                        "status":  "pass",
+                                        "evidence":  "evidence stored"
+                                    },
+                                    {
+                                        "name":  "closure log retained",
+                                        "status":  "pass",
+                                        "evidence":  "MS-LEGACY-EXIT closure retained"
+                                    },
+                                    {
+                                        "name":  "closed goal removed from active table",
+                                        "status":  "pass",
+                                        "evidence":  "MS-LEGACY-EXIT inactive"
+                                    },
+                                    {
+                                        "name":  "mainline resumes",
+                                        "status":  "pass",
+                                        "evidence":  "guard pass and artifacts generated"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=74D11C257A3178378F920F3C3100E9F6090DE77BCFCF8DEEF399E918D2E5B2FB stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=65; actual=78"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Recovery; target=90; observation=2026-07-21; prediction target="
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  11,
+                     "date":  "2026-07-24",
+                     "dayLabel":  "normal",
+                     "scenario":  "Due micro-sprint closes partially completed and creates successor",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "correction",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  1,
+                     "actualConfirmationCount":  1,
+                     "guardStatus":  "warning",
+                     "proposalGuardStatus":  "warning",
+                     "feasibility":  "yellow",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  5,
+                     "revisionBefore":  "PR-20260720-1",
+                     "revisionAfter":  "PR-20260724-1",
+                     "terminalOutcome":  "partially_completed",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C",
+                                     "blindResultHashAfterCalibration":  "D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  48,
+                                                       "predDriveBlind":  58,
+                                                       "actualDrive":  82,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "Execution was strong, while remaining reserve was only moderate.",
+                                                       "evidence":  "210 critical-path minutes; partial closure and successor recorded.",
+                                                       "inference":  "Strong output should not be treated as spare capacity."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  45,
+                                                        "remainingNote":  "The successor setup added cognitive load.",
+                                                        "predDriveSelf":  55,
+                                                        "predDriveNote":  "A single protected action is realistic.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  47,
+                                                        "predDriveCalibrated":  57,
+                                                        "actualDrive":  82,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "Execution was strong, while remaining reserve was only moderate.",
+                                                        "planningAdjustment":  "Use a reduced baseline and do not add compensation work.",
+                                                        "nextFocusMode":  "Reduced",
+                                                        "nextTargetCapMinutes":  120
+                                                    },
+                                     "predictionTargetDate":  "2026-07-25",
+                                     "priorPredDriveCalibrated":  69,
+                                     "actualVsPriorPredictionGap":  13,
+                                     "blindVsSelfPredictionGap":  3,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Standard",
+                     "planFocusTargetMinutes":  180,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-23",
+                     "scorePredictionTargetDate":  "2026-07-24",
+                     "generatedFiles":  [
+                                            "results/run2/day-11-2026-07-24/plan.json",
+                                            "results/run2/day-11-2026-07-24/workbench.html",
+                                            "results/run2/day-11-2026-07-24/wallpaper-config.json",
+                                            "results/run2/day-11-2026-07-24/wallpaper.png",
+                                            "results/run2/day-11-2026-07-24/state-before.json",
+                                            "results/run2/day-11-2026-07-24/state-after.json",
+                                            "results/run2/day-11-2026-07-24/transaction.json",
+                                            "results/run2/day-11-2026-07-24/artifact-evidence.json",
+                                            "results/run2/day-11-2026-07-24/scoring-blind.json",
+                                            "results/run2/day-11-2026-07-24/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "partial outcome records evidence",
+                                        "status":  "pass",
+                                        "evidence":  "partial evidence stored"
+                                    },
+                                    {
+                                        "name":  "remaining work disposition present",
+                                        "status":  "pass",
+                                        "evidence":  "remaining disposition stored"
+                                    },
+                                    {
+                                        "name":  "successor Goal ID present",
+                                        "status":  "pass",
+                                        "evidence":  "successor=MS-ANALYSIS-V2, dated with exit criterion"
+                                    },
+                                    {
+                                        "name":  "old goal date unchanged",
+                                        "status":  "pass",
+                                        "evidence":  "old deadline remained 2026-07-24"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=D29EAD4842E444AD2B262120D28A47376A3D84FDA62AA99F0658000589890E6C stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=45; actual=82"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Standard; target=180; observation=2026-07-23; prediction target=2026-07-24"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  12,
+                     "date":  "2026-07-25",
+                     "dayLabel":  "normal",
+                     "scenario":  "Due weekly goal closes missed without rolling its date",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "not_entered",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "pass",
+                     "feasibility":  "green",
+                     "confidence":  "low",
+                     "comparableDaysBefore":  6,
+                     "revisionBefore":  "PR-20260724-1",
+                     "revisionAfter":  "PR-20260724-1",
+                     "terminalOutcome":  "missed",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F",
+                                     "blindResultHashAfterCalibration":  "E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  55,
+                                                       "predDriveBlind":  60,
+                                                       "actualDrive":  79,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "Focus was above baseline and the terminal decision removed ambiguity.",
+                                                       "evidence":  "195 critical-path minutes; missed outcome and disposition recorded.",
+                                                       "inference":  "Clear closure supports a normal next start."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  55,
+                                                        "remainingNote":  "The missed label was disappointing but clarified the remaining work.",
+                                                        "predDriveSelf":  60,
+                                                        "predDriveNote":  "The next plan can start cleanly without moving the old deadline.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  55,
+                                                        "predDriveCalibrated":  60,
+                                                        "actualDrive":  79,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "Focus was above baseline and the terminal decision removed ambiguity.",
+                                                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                                        "nextFocusMode":  "Standard",
+                                                        "nextTargetCapMinutes":  null
+                                                    },
+                                     "predictionTargetDate":  "2026-07-26",
+                                     "priorPredDriveCalibrated":  57,
+                                     "actualVsPriorPredictionGap":  22,
+                                     "blindVsSelfPredictionGap":  0,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Reduced",
+                     "planFocusTargetMinutes":  120,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-24",
+                     "scorePredictionTargetDate":  "2026-07-25",
+                     "generatedFiles":  [
+                                            "results/run2/day-12-2026-07-25/plan.json",
+                                            "results/run2/day-12-2026-07-25/workbench.html",
+                                            "results/run2/day-12-2026-07-25/wallpaper-config.json",
+                                            "results/run2/day-12-2026-07-25/wallpaper.png",
+                                            "results/run2/day-12-2026-07-25/state-before.json",
+                                            "results/run2/day-12-2026-07-25/state-after.json",
+                                            "results/run2/day-12-2026-07-25/transaction.json",
+                                            "results/run2/day-12-2026-07-25/artifact-evidence.json",
+                                            "results/run2/day-12-2026-07-25/scoring-blind.json",
+                                            "results/run2/day-12-2026-07-25/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "missed reason recorded",
+                                        "status":  "pass",
+                                        "evidence":  "missed reason stored"
+                                    },
+                                    {
+                                        "name":  "remaining work disposition recorded",
+                                        "status":  "pass",
+                                        "evidence":  "remaining disposition stored"
+                                    },
+                                    {
+                                        "name":  "old week remains terminal",
+                                        "status":  "pass",
+                                        "evidence":  "WK-2026-07-13 is missed"
+                                    },
+                                    {
+                                        "name":  "low-confidence fallback still used before seventh comparable day",
+                                        "status":  "pass",
+                                        "evidence":  "6 comparable days"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=E59493DC3F4197CF150FD47CD35755150D3106492C27F25B2E0D3453C8FA6B4F stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=55; actual=79"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Reduced; target=120; observation=2026-07-24; prediction target=2026-07-25"
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  13,
+                     "date":  "2026-07-26",
+                     "dayLabel":  "sunday_review",
+                     "scenario":  "Sunday phase audit closes old goal superseded with high-confidence history",
+                     "workflow":  "sunday_review",
+                     "revisionKind":  "rebaseline",
+                     "correctionState":  "entered_exited",
+                     "confirmationsRequired":  3,
+                     "actualConfirmationCount":  3,
+                     "guardStatus":  "rebaseline_required",
+                     "proposalGuardStatus":  "rebaseline_required",
+                     "feasibility":  "red",
+                     "confidence":  "high",
+                     "comparableDaysBefore":  7,
+                     "revisionBefore":  "PR-20260724-1",
+                     "revisionAfter":  "PR-20260726-1",
+                     "terminalOutcome":  "superseded",
+                     "artifactExpected":  false,
+                     "postArtifactInput":  false,
+                     "unplannedMinutes":  0,
+                     "scoring":  {
+                                     "expected":  false,
+                                     "reason":  "Sunday audit has no daily evening workbench.",
+                                     "blindResultHashBeforeSelf":  "B44AB34CD5D3A04254E4B35ECAC51B97C96DD10E4A1CE0241A13C6D528760DED",
+                                     "blindResultHashAfterCalibration":  "B44AB34CD5D3A04254E4B35ECAC51B97C96DD10E4A1CE0241A13C6D528760DED",
+                                     "stages":  [
+
+                                                ]
+                                 },
+                     "planFocusMode":  null,
+                     "planFocusTargetMinutes":  null,
+                     "scoreFeedbackApplied":  false,
+                     "scoreObservationDate":  null,
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-13-2026-07-26/state-before.json",
+                                            "results/run2/day-13-2026-07-26/state-after.json",
+                                            "results/run2/day-13-2026-07-26/transaction.json",
+                                            "results/run2/day-13-2026-07-26/artifact-evidence.json",
+                                            "results/run2/day-13-2026-07-26/scoring-blind.json",
+                                            "results/run2/day-13-2026-07-26/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "seven comparable days switch confidence high",
+                                        "status":  "pass",
+                                        "evidence":  "7 comparable days"
+                                    },
+                                    {
+                                        "name":  "weighted-median expected capacity used",
+                                        "status":  "pass",
+                                        "evidence":  "28-day filtered history; special labels excluded; weighted median=195 min"
+                                    },
+                                    {
+                                        "name":  "superseded requires successor",
+                                        "status":  "pass",
+                                        "evidence":  "successor=PH-DISSERTATION-V3 active"
+                                    },
+                                    {
+                                        "name":  "three replies applied",
+                                        "status":  "pass",
+                                        "evidence":  "actual confirmations=3"
+                                    },
+                                    {
+                                        "name":  "no Sunday artifacts",
+                                        "status":  "pass",
+                                        "evidence":  "generation count=0"
+                                    },
+                                    {
+                                        "name":  "scoring skip is explicit",
+                                        "status":  "pass",
+                                        "evidence":  "Sunday audit has no daily evening workbench."
+                                    }
+                                ],
+                     "status":  "pass"
+                 },
+                 {
+                     "dayIndex":  14,
+                     "date":  "2026-07-27",
+                     "dayLabel":  "normal",
+                     "scenario":  "Dropped commitment plus post-artifact unplanned work",
+                     "workflow":  "morning_evening",
+                     "revisionKind":  "none",
+                     "correctionState":  "locked_after_artifact",
+                     "confirmationsRequired":  0,
+                     "actualConfirmationCount":  0,
+                     "guardStatus":  "pass",
+                     "proposalGuardStatus":  "blocked",
+                     "feasibility":  "green",
+                     "confidence":  "high",
+                     "comparableDaysBefore":  7,
+                     "revisionBefore":  "PR-20260726-1",
+                     "revisionAfter":  "PR-20260726-1",
+                     "terminalOutcome":  "dropped",
+                     "artifactExpected":  true,
+                     "postArtifactInput":  true,
+                     "unplannedMinutes":  45,
+                     "scoring":  {
+                                     "expected":  true,
+                                     "model":  "blind-self-calibrated",
+                                     "stages":  [
+                                                    {
+                                                        "order":  1,
+                                                        "name":  "blind_pass_persisted",
+                                                        "selfScoresVisible":  false,
+                                                        "blindResultHash":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3"
+                                                    },
+                                                    {
+                                                        "order":  2,
+                                                        "name":  "self_fixture_loaded",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3"
+                                                    },
+                                                    {
+                                                        "order":  3,
+                                                        "name":  "calibration",
+                                                        "selfScoresVisible":  true,
+                                                        "blindResultHash":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3"
+                                                    }
+                                                ],
+                                     "blindResultHashBeforeSelf":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3",
+                                     "blindResultHashAfterCalibration":  "E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3",
+                                     "blindPass":  {
+                                                       "expected":  true,
+                                                       "generatedBeforeSelfFixtureLoad":  true,
+                                                       "selfScoresVisible":  false,
+                                                       "remainingBlind":  58,
+                                                       "predDriveBlind":  68,
+                                                       "actualDrive":  76,
+                                                       "agentEnergyConfidence":  "high",
+                                                       "agentEnergySummary":  "The baseline was completed and late work stayed recorded as unplanned.",
+                                                       "evidence":  "185 critical-path minutes; 45 unplanned minutes recorded without regeneration.",
+                                                       "inference":  "Removing an obsolete commitment improved focus without hiding displacement."
+                                                   },
+                                     "selfScores":  {
+                                                        "remainingSelf":  60,
+                                                        "remainingNote":  "The dropped commitment freed attention for the mainline.",
+                                                        "predDriveSelf":  70,
+                                                        "predDriveNote":  "The next phase action is clear after removing the obsolete commitment.",
+                                                        "simulatedBy":  "test agent acting as user"
+                                                    },
+                                     "calibrated":  {
+                                                        "remainingCalibrated":  59,
+                                                        "predDriveCalibrated":  69,
+                                                        "actualDrive":  76,
+                                                        "agentEnergyConfidence":  "high",
+                                                        "agentEnergySummary":  "The baseline was completed and late work stayed recorded as unplanned.",
+                                                        "planningAdjustment":  "Keep a standard baseline; protect the first critical action.",
+                                                        "nextFocusMode":  "Standard",
+                                                        "nextTargetCapMinutes":  null
+                                                    },
+                                     "predictionTargetDate":  "2026-07-28",
+                                     "priorPredDriveCalibrated":  null,
+                                     "actualVsPriorPredictionGap":  null,
+                                     "blindVsSelfPredictionGap":  2,
+                                     "divergenceFlag":  false
+                                 },
+                     "planFocusMode":  "Standard",
+                     "planFocusTargetMinutes":  180,
+                     "scoreFeedbackApplied":  true,
+                     "scoreObservationDate":  "2026-07-25",
+                     "scorePredictionTargetDate":  null,
+                     "generatedFiles":  [
+                                            "results/run2/day-14-2026-07-27/plan.json",
+                                            "results/run2/day-14-2026-07-27/workbench.html",
+                                            "results/run2/day-14-2026-07-27/wallpaper-config.json",
+                                            "results/run2/day-14-2026-07-27/wallpaper.png",
+                                            "results/run2/day-14-2026-07-27/state-before.json",
+                                            "results/run2/day-14-2026-07-27/state-after.json",
+                                            "results/run2/day-14-2026-07-27/transaction.json",
+                                            "results/run2/day-14-2026-07-27/artifact-evidence.json",
+                                            "results/run2/day-14-2026-07-27/scoring-blind.json",
+                                            "results/run2/day-14-2026-07-27/scoring-evidence.json"
+                                        ],
+                     "checks":  [
+                                    {
+                                        "name":  "dropped reason and disposition recorded",
+                                        "status":  "pass",
+                                        "evidence":  "reason and remaining disposition stored"
+                                    },
+                                    {
+                                        "name":  "artifact lock prevents revision",
+                                        "status":  "pass",
+                                        "evidence":  "mid-generation and post-generation mutation attempts blocked; plan hashes unchanged"
+                                    },
+                                    {
+                                        "name":  "late work recorded as unplanned",
+                                        "status":  "pass",
+                                        "evidence":  "45 unplanned min"
+                                    },
+                                    {
+                                        "name":  "no artifact regeneration",
+                                        "status":  "pass",
+                                        "evidence":  "one generation, zero regeneration, HTML/PNG hashes unchanged"
+                                    },
+                                    {
+                                        "name":  "high-confidence capacity retained",
+                                        "status":  "pass",
+                                        "evidence":  "high, 195 min"
+                                    },
+                                    {
+                                        "name":  "scoring blind pass precedes self-score calibration",
+                                        "status":  "pass",
+                                        "evidence":  "persisted blind hash=E1F7A3B89B2626AD9D628348B1A71096C36BE860E56E2C9B2B53AF6C33E4ACC3 stayed immutable"
+                                    },
+                                    {
+                                        "name":  "simulated self and agent scores stored",
+                                        "status":  "pass",
+                                        "evidence":  "self=60; actual=76"
+                                    },
+                                    {
+                                        "name":  "score feedback changes or confirms next plan",
+                                        "status":  "pass",
+                                        "evidence":  "mode=Standard; target=180; observation=2026-07-25; prediction target="
+                                    }
+                                ],
+                     "status":  "pass"
+                 }
+             ]
+}

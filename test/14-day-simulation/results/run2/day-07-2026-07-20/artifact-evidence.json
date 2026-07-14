@@ -1,0 +1,15 @@
+{
+    "expected":  true,
+    "generationCount":  1,
+    "regenerationCount":  0,
+    "locked":  true,
+    "lockCreatedBeforeFirstArtifact":  true,
+    "blockedMutationAttempts":  1,
+    "midGenerationBlocked":  true,
+    "hashesUnchangedAfterBlockedAttempt":  true,
+    "planSurfaceHashesUnchanged":  true,
+    "htmlHash":  "16D73A1BB92793CBD0BD321533432FBEEF18AD9873F2B9470111861D2040D594",
+    "wallpaperHash":  "BDAB0A90A8E341A3BDD78F1A62D04B9CCCA13A6FDC5E93D51305385FB7CFE1E3",
+    "postArtifactInput":  false,
+    "unplannedMinutes":  0
+}
